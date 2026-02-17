@@ -1,1 +1,3 @@
-// Contains logic to validate assets for different games
+/**
+ * Contains logic to validate assets for different games
+ */

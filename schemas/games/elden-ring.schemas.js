@@ -1,2 +1,4 @@
-// Contains schemas to validate assets for Elden Ring
+/**
+ * Contains schemas to validate assets for Elden Ring
+ */
 

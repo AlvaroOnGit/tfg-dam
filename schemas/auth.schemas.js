@@ -1,1 +1,3 @@
-// Contains schemas to validate user credentials
+/**
+ * Contains schemas to validate user credentials
+ */

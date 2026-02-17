@@ -1,1 +1,3 @@
-// Contains logic to validate user credentials
+/**
+ * Contains logic to validate user credentials
+ */
