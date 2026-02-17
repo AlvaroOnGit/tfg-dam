@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "node --watch server.js",
+    "dev": "node --watch --env-file .env.development server.js",
     "start": "node server.js"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "ejs": "4.0.1",
+    "express": "5.2.1",
+    "pg": "8.18.0",
+    "zod": "4.3.6"
+  }
 }
