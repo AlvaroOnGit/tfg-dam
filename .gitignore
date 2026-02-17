@@ -1,2 +1,12 @@
 # Webstorm project files
 .idea/
+
+# Project dependency files
+node_modules/
+
+# Enviroment files
+.env.development*
+.env.production*
+
+# Testing files
+api.http

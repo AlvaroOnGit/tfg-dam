@@ -1,0 +1,1 @@
+// Contains the schemas to validate assets for Tainted Grail
