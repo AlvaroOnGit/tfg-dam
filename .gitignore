@@ -4,6 +4,9 @@
 # Project dependency files
 node_modules/
 
+# Local db files
+db/localdb/
+
 # Enviroment files
 .env.development*
 .env.production*
