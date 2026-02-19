@@ -1,98 +1,117 @@
 /**
  * Contains schemas to validate assets for Tainted Grail
  */
-import { z} from "zod";
+import {z} from "zod";
 
-const AssetTypeEnum = ["Armor", "Jewelry", "Magic", "Relic", "Weapon"];
+// ═══════════════════════════════════════════════════════════════════════════════
+//  SHARED
+// ═══════════════════════════════════════════════════════════════════════════════
 
-const CategoryByAssetType = {
-    weapons: ["Bow", "Onehanded", "Shield", "Twohanded", "Wand"],
-    armors: ["Helmet", "Cuirass", "Gauntlets", "Greaves", "Boots", "Back"],
-    jewelry: ["Ring", "Amulet"],
-    magic: [],
-    relics: ["Armor", "Weapon"],
-}
-
-const TagEnum = [
-    // Combat style
-    "melee",
-    "ranged",
-    "magic",
-    // Weapon type
-    "one_handed",
-    "two_handed",
-    "shield",
-    // Item rarity
-    "common",
-    "rare",
-    "unique",
-    // Item nature
-    "crafted",
-    "cursed",
-    "wyrdness",
-    "arthurian",
-    // Game zone
-    "horns_of_the_south",
-    "cuanacht",
-    "forlorn_swords",
-    // Origin
-    "keeper",
-    "druid",
-    "fomorian",
-    "avalon",
-];
-const TagEnumSchema = z.enum(TagEnum, {
-    error: "Tag must be a valid Tainted Grail tag",
+const AvailabilityEnum = z.enum(["Act 1", "Act 2", "Act 3", "SoS", "KoA"], {
+    error: "Availability debe ser: 'Act 1', 'Act 2', 'Act 3', 'SoS' o 'KoA'",
 });
 
+// ═══════════════════════════════════════════════════════════════════════════════
+//  JEWELRY
+// ═══════════════════════════════════════════════════════════════════════════════
 
-const DataSchema = z.object({
-    gold: z.number({ required_error: "Gold price is required", invalid_type_error: "Gold price must be a number" })
-        .nonnegative("Gold price cannot be negative")
-        .int("Gold price must be an integer"),
-    weight: z.number({ required_error: "Weight is required", invalid_type_error: "Weight must be a number" })
-        .nonnegative("Weight cannot be negative")
-        .int("Weight must be an integer")
-        .max(100, "Weight cannot exceed 100"),
+// ── Enums ────────────────────────────────────────────────────────────────────
+
+const JewelrySubtypeEnum = z.enum(["amulet", "ring"], {
+    error: "El subtipo de joya debe ser 'amulet' o 'ring'",
 });
 
-const TaintedGrailSchema = z.object({
-    gameId: z.uuid().meta({ example: "550e8400-e29b-41d4-a716-446655440000" }),
-    name: z.string()
-        .min(2, "Name is too short")
-        .max(50, "Name is too long")
-        .regex(/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ\s'-]+$/, "Name can only contain letters")
-        .meta({ example: "Excalibur" }),
-    slug: z.string()
-        .min(2, "Slug is too short")
-        .max(50, "Slug is too long")
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be lowercase, no spaces, only letters, numbers and hyphens")
-        .meta({ example: "excalibur" }),
-    assetType: z.enum(AssetTypeEnum, {
-        error: "Asset type must be one of: Armor, Jewelry, Magic, Relic, Weapon",
-    }).meta({ example: "Weapon" }),
-    category: z.string().optional().meta({ example: "Onehanded" }),
-    description: z.string({ error: "Description must be a string" })
-        .meta({ example: "A legendary sword forged in Avalon" }),
-    shortDescription: z.string({ error: "Short description must be a string" })
-        .meta({ example: "Legendary sword" }),
-    iconUrl: z.url("Icon URL must be a valid URL")
-        .meta({ example: "https://example.com/excalibur.png" }),
-    data: DataSchema,
-    tags: z.array(TagEnumSchema)
-        .min(1, "At least one tag is required")
-        .meta({ example: ["melee", "one_handed", "arthurian"] }),
-    isActive: z.boolean().meta({ example: true }),
-}).superRefine((data, ctx) => {
-    const validCategories = CategoryByAssetType[data.assetType];
+// ── Value ────────────────────────────────────────────────────────────────────
 
-    if (validCategories.length === 0) return;
-
-    if (!data.category || !validCategories.includes(data.category)) {
-        ctx.addIssue({
-            code: z.core.$ZodIssueCode.custom,
-            path: ["category"],
-            message: `Category for ${data.assetType} must be one of: ${validCategories.join(", ")}`,
-        });
-    }
+const JewelryValueSchema = z.object({
+    gold:   z.number({ required_error: "El precio en oro es obligatorio", invalid_type_error: "El precio en oro debe ser un número" })
+        .nonnegative("El precio en oro no puede ser negativo"),
+    weight: z.number({ required_error: "El peso es obligatorio", invalid_type_error: "El peso debe ser un número" })
+        .nonnegative("El peso no puede ser negativo"),
 });
+
+// ── Main schema ───────────────────────────────────────────────────────────────
+
+const JewelryDataSchema = z.object({
+    subtype:      JewelrySubtypeEnum,
+    tier:         z.number({ invalid_type_error: "El tier debe ser un número entero positivo" })
+        .int("El tier debe ser un número entero")
+        .positive("El tier debe ser mayor que 0")
+        .nullable(),
+    description:  z.string({ required_error: "La descripción es obligatoria", invalid_type_error: "La descripción debe ser un texto" })
+        .min(1, "La descripción no puede estar vacía"),
+    availability: AvailabilityEnum.nullable(),
+    craftable:    z.boolean({ required_error: "El campo craftable es obligatorio", invalid_type_error: "El campo craftable debe ser true o false" }),
+    value:        JewelryValueSchema,
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  ARMOR
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ── Enums ────────────────────────────────────────────────────────────────────
+
+const ArmorSlotEnum = z.enum(["helmet", "cuirass", "gauntlets", "greaves", "boots", "back"], {
+    error: "El slot debe ser: 'helmet', 'cuirass', 'gauntlets', 'greaves', 'boots' o 'back'",
+});
+
+const EffectLinkEnum = z.enum(["critical_hit", "frozen", "bleeding", "burning", "poisoned", "stunned"], {
+    error: "El effect_link debe ser un estado válido del juego",
+});
+
+// ── Requirements ─────────────────────────────────────────────────────────────
+
+const ArmorRequirementsSchema = z.object({
+    strength:  z.number({ invalid_type_error: "La fuerza requerida debe ser un número" })
+        .int("La fuerza debe ser un número entero")
+        .positive("La fuerza debe ser mayor que 0")
+        .optional(),
+    endurance: z.number({ invalid_type_error: "La resistencia requerida debe ser un número" })
+        .int("La resistencia debe ser un número entero")
+        .positive("La resistencia debe ser mayor que 0")
+        .optional(),
+});
+
+// ── Value ────────────────────────────────────────────────────────────────────
+
+const ArmorValueSchema = z.object({
+    gold:   z.number({ required_error: "El precio en oro es obligatorio", invalid_type_error: "El precio en oro debe ser un número" })
+        .nonnegative("El precio en oro no puede ser negativo"),
+    weight: z.number({ required_error: "El peso es obligatorio", invalid_type_error: "El peso debe ser un número" })
+        .nonnegative("El peso no puede ser negativo"),
+});
+
+// ── Main schema ───────────────────────────────────────────────────────────────
+
+const ArmorDataSchema = z.object({
+    armor:        z.number({ required_error: "El valor de armadura es obligatorio", invalid_type_error: "El valor de armadura debe ser un número" })
+        .nonnegative("El valor de armadura no puede ser negativo"),
+    slot:         ArmorSlotEnum,
+    description:  z.string({ required_error: "La descripción es obligatoria", invalid_type_error: "La descripción debe ser un texto" })
+        .min(1, "La descripción no puede estar vacía"),
+    effect_link:  EffectLinkEnum.nullable(),
+    set_name:     z.string({ invalid_type_error: "El nombre del set debe ser un texto" }).nullable(),
+    requirements: ArmorRequirementsSchema.nullable(),
+    availability: AvailabilityEnum.nullable(),
+    craftable:    z.boolean({ required_error: "El campo craftable es obligatorio", invalid_type_error: "El campo craftable debe ser true o false" }),
+    value:        ArmorValueSchema,
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════════
+
+module.exports = {
+    // Shared
+    AvailabilityEnum,
+    // Jewelry
+    JewelryDataSchema,
+    JewelryValueSchema,
+    JewelrySubtypeEnum,
+    // Armor
+    ArmorDataSchema,
+    ArmorValueSchema,
+    ArmorSlotEnum,
+    ArmorRequirementsSchema,
+    EffectLinkEnum,
+};
