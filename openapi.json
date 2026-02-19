@@ -82,31 +82,129 @@
         }
       },
       "BuildSummary": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "game": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "format": "uuid" },
+              "slug": { "type": "string" },
+              "name": { "type": "string" }
+            }
+          },
+          "owners": {
+            "type": "object",
+            "properties": {
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "format": "uuid" },
+                  "username": { "type": "string" }
+                }
+              },
+              "editors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "format": "uuid" },
+                    "username": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "required": ["creator"]
+          },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "isPublic": { "type": "boolean" },
+          "isPublished": { "type": "boolean" },
+          "version": { "type": "string" },
+          "gameVersion": { "type": "string" },
+          "tags": {
+            "type": "array" ,
+            "items": { "type": "string" }
+          },
+          "templateData": {
+            "type": "object",
+            "description": "Dynamic JSON structure depending on the game",
+            "additionalProperties": true
+          },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id","game","owners","name","version","gameVersion","tags"],
+        "example": {
+          "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
+          "game": {
+            "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+            "slug": "elden-ring",
+            "name": "Elden Ring"
+          },
+          "owners": {
+            "creator": {
+              "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+              "username": "user123"
+            },
+            "editors": [
+              {
+                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+                "username": "user456"
+              },
+              {
+                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+                "username": "user789"
+              }
+            ]
+          },
+          "name": "Build 1 Name",
+          "description": "This is a build description",
+          "isPublic": true,
+          "isPublished": true,
+          "version": "1.0.0",
+          "gameVersion": "3.2.1",
+          "tags": ["pvp","endgame","mage"],
+          "templateData": {
+            "class": "Samurai",
+            "aow": {
+              "weapon1": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
+              "weapon2":  null,
+              "weapon3": null
+            }
+          },
+          "createdAt": "2025-03-20T18:15:32Z",
+          "updatedAt": "2025-03-20T18:15:32Z"
+        }
+      },
+      "BuildAssetSummary": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "id": { "type": "string" },
-            "game": {"type": "string" },
-            "name": { "type": "string" },
-            "description": { "type": "string" },
-            "isPublic": { "type": "boolean" },
-            "isPublished": { "type": "boolean" },
-            "version": { "type": "string" },
-            "gameVersion": { "type": "string" },
-            "tags": {
-              "type": "array" ,
-              "items": { "type": "string" }
-            },
-            "createdAt": { "type": "string" },
-            "updatedAt": { "type": "string" }
+            "id": { "type": "string", "format": "uuid" },
+            "slotCategory": { "type": "string" },
+            "slotName": { "type": "string" }
+          },
+          "required": ["id","slotCategory","slotName"]
+        },
+        "example": [
+          {
+            "id": "7e4db095-8bc4-4f61-8510-af2c221608b9",
+            "slotCategory": "weapon",
+            "slotName": "main_hand1"
+          },
+          {
+            "id": "9d6e361c-0ae0-40f7-bd62-028b966351ed",
+            "slotCategory": "weapon",
+            "slotName": "main_hand2"
           }
-        }
+        ]
       },
       "GameSummary": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
+          "id": { "type": "string", "format": "uuid" },
           "name": { "type": "string" },
           "slug": { "type": "string" },
           "description": { "type": "string" },
@@ -124,8 +222,82 @@
           "slug": "elden-ring",
           "description": "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
           "genre": ["Souls-like", "RPG", "Fantasy"],
-          "coverUrl": "https://cdn.example.com/games/elden-ring-cover.png",
-          "iconUrl": "https://cdn.example.com/elden-ring-icon.png"
+          "coverUrl": "https://cdn.example.com/public/games/elden-ring-cover.png",
+          "iconUrl": "https://cdn.example.com/public/games/elden-ring-icon.png"
+        }
+      },
+      "AssetSummary": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "gameId": { "type": "string" },
+          "name": { "type": "string" },
+          "slug": { "type": "string" },
+          "type": { "type": "string" },
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "shortDescription": { "type": "string" },
+          "iconUrl": { "type": "string" },
+          "imageUrl": { "type": "string" },
+          "data": {
+            "type": "object",
+            "description": "Dynamic JSON structure depending on the game",
+            "additionalProperties": true
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["id", "gameId", "name", "slug", "type", "category", "data"],
+        "example": {
+          "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
+          "gameId": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+          "name": "Claymore",
+          "slug": "claymore",
+          "type": "weapon",
+          "category": "greatsword",
+          "description": "A large sword with a long, straight blade. This heavy sword is usually wielded with two hands, but for those with enough strength, one is sufficient.\n\nIn addition to the heavy sweeping attacks, it can also make a heavy piercing thrust making this a versatile weapon.",
+          "shortDescription": "A large sword with a long, straight blade.",
+          "iconUrl": "https://cdn.example.com/public/assets/elden-ring/claymore.png",
+          "data": {
+            "attack": {
+              "physical": 138,
+              "magical": 0,
+              "fire": 0,
+              "lightning": 0,
+              "holy": 0,
+              "critical": 100
+            },
+            "guard": {
+              "physical": 52,
+              "magical": 36,
+              "fire": 36,
+              "lightning": 36,
+              "holy": 36,
+              "boost": 36
+            },
+            "scaling": {
+              "strength": "D",
+              "dexterity": "D",
+              "intelligence": null,
+              "faith": null,
+              "arcane": null
+            },
+            "requirements": {
+              "strength": 16,
+              "dexterity": 13,
+              "intelligence": null,
+              "faith": null,
+              "arcane": null
+            },
+            "aow": {
+              "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
+              "replaceable": true
+            },
+            "weight": 9.0
+          },
+          "tags": ["melee", "piercing","strength","dexterity"]
         }
       }
     }
@@ -146,6 +318,14 @@
     {
       "name": "Games",
       "description": "Game endpoints"
+    },
+    {
+      "name": "Assets",
+      "description": "Asset endpoints"
+    },
+    {
+      "name": "Builds",
+      "description": "Build endpoints"
     }
   ],
   "paths": {
@@ -770,7 +950,7 @@
         }
       }
     },
-    "/games/": {
+    "/games": {
       "get": {
         "tags": ["Games"],
         "description": " Retrieves a paginated list of games. Supports optional filters by name and genre.",
@@ -831,9 +1011,9 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "currentPage": { "type": "integer", "example": 1 },
-                    "totalPages": { "type": "integer", "example":  10 },
-                    "totalGames": {"type": "integer", "example": 150 },
+                    "page": { "type": "integer" , "example": 1 },
+                    "total": { "type": "integer" , "example": 20 },
+                    "limit": { "type": "integer" , "example": 15 },
                     "games": {
                       "type": "array",
                       "items": { "$ref": "#/components/schemas/GameSummary" }
@@ -896,6 +1076,551 @@
                 },
                 "example": {
                   "message": "Game not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets": {
+      "get": {
+        "tags": ["Assets"],
+        "description": "Retrieve paginated assets belonging to a specific game. The gameSlug parameter is required to ensure context isolation between games.",
+        "operationId": "get_assets",
+        "parameters": [
+          {
+            "name": "gameSlug",
+            "in": "query",
+            "required": true,
+            "description": "Slug of the game. Required to prevent cross-game results.",
+            "schema": {
+              "type": "string",
+              "example": "elden-ring"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter by asset name (partial match)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by macro type (weapon, armor, spell, etc.)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Filter by specific category (greatsword, heavy-armor, sorcery, etc.)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "description": "Filter by tags.",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number for pagination. Default is 1.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of assets per page. Default is 5, maximum is 50.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default":  5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Assets retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "page": { "type": "integer" , "example": 1 },
+                    "total": { "type": "integer" , "example": 10 },
+                    "limit": { "type": "integer" , "example": 5 },
+                    "assets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AssetSummary"
+                      }
+                    }
+                  },
+                  "required": ["page", "total", "limit", "assets"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Invalid query parameters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/{id}": {
+      "get": {
+        "tags": ["Assets"],
+        "description": " Retrieves information for a specific asset using its id",
+        "operationId": "assets_by_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique id of the asset",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Asset details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetSummary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Asset not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Asset not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/builds": {
+      "get": {
+        "tags": ["Builds"],
+        "description": "Retrieve paginated builds. Supports filters by game, name, tags, and creator.",
+        "operationId": "get_build",
+        "parameters": [
+          {
+            "name": "gameSlug",
+            "in": "query",
+            "required": false,
+            "description": "Slug of the game.",
+            "schema": {
+              "type": "string",
+              "example": "elden-ring"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter by build name (partial match)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "creator",
+            "in": "query",
+            "required": false,
+            "description": "Filter by build creator (partial match)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "description": "Filter by tags.",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number for pagination. Default is 1.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of builds per page. Default is 5, maximum is 50.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default":  15
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Builds retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "page": { "type": "integer" , "example": 1 },
+                    "total": { "type": "integer" , "example": 10 },
+                    "limit": { "type": "integer" , "example": 15 },
+                    "builds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/BuildSummary"
+                      }
+                    }
+                  },
+                  "required": ["page", "total", "limit", "builds"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Invalid query parameters"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Builds"],
+        "description": "Create a new build. User must be authenticated.",
+        "operationId": "post_build",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "build": { "$ref": "#/components/schemas/BuildSummary" },
+                  "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
+                },
+                "required": ["build", "buildAssets"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Build created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build created successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Validation error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/builds/{id}": {
+      "get": {
+        "tags": ["Builds"],
+        "description": " Retrieves information for a specific build using its id",
+        "operationId": "builds_by_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique id of the build",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Build details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "build": { "$ref": "#/components/schemas/BuildSummary" },
+                    "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
+                  },
+                  "required": ["build"]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Build not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Builds"],
+        "description": "Update an existing build. Supports partial updates. User must be authenticated and have permission.",
+        "operationId": "patch_build",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the build to update",
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "build": { "$ref": "#/components/schemas/BuildSummary" },
+                  "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
+                },
+                "required": ["build", "buildAssets"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Build updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build updated successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Validation error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "User does not have permission to update this build"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Build not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Builds"],
+        "description": "Deletes an existing build. User must be authenticated and have permission.",
+        "operationId": "delete_build",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the build to update",
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Build deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build deleted successfully"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "User does not have permission to delete this build"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Build not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                },
+                "example": {
+                  "message": "Build not found"
                 }
               }
             }
