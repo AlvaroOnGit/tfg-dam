@@ -1,3 +1,4 @@
+/* FIXME SEPARATE ALL BUILDS FROM USER ENDPOINTS. ONCE FINISHED, CHANGE THE FILE BACK TO .json */
 {
   "openapi": "3.0.3",
   "info": {
@@ -43,7 +44,7 @@
         },
         "required": ["message", "errors"]
       },
-      "PrivateProfileSummary": {
+      "ProfileSummary": {
         "type": "object",
         "properties": {
           "id": { "type": "string" },
@@ -54,7 +55,7 @@
           "avatarUrl": { "type": "string" },
           "state": { "type": "string" }
         },
-        "required": ["id", "username", "email","role","roleLevel","avatarUrl", "state"],
+        "required": ["id", "username", "avatarUrl", "state"],
         "example": {
           "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
           "username": "user123",
@@ -62,22 +63,6 @@
           "avatarUrl": "https://cdn.example.com/avatar.png",
           "role": "user",
           "roleLevel": "normal",
-          "state": "active"
-        }
-      },
-      "PublicProfileSummary": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "username": { "type": "string" },
-          "avatarUrl": { "type": "string" },
-          "state": { "type": "string" }
-        },
-        "required": ["id", "username", "avatarUrl", "state"],
-        "example": {
-          "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
-          "username": "user123",
-          "avatarUrl": "https://cdn.example.com/avatar.png",
           "state": "active"
         }
       },
@@ -522,7 +507,53 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrivateProfileSummary"
+                  "type": "object",
+                  "properties": {
+                    "profile": { "$ref": "#/components/schemas/ProfileSummary" },
+                    "builds": { "$ref": "#/components/schemas/BuildSummary" }
+                  },
+                  "required": [
+                    "profile",
+                    "builds"
+                  ]
+                },
+                "example": {
+                  "profile": {
+                    "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
+                    "username": "user123",
+                    "role": "user",
+                    "roleLevel": "normal",
+                    "avatarUrl": "https://cdn.example.com/avatar.png",
+                    "state": "active"
+                    },
+                  "builds": [
+                    {
+                      "id": "a9d58547-18f9-4eb4-9a90-489d20184cc9",
+                      "game": "elden-ring",
+                      "name": "Test Build 1 Elden Ring",
+                      "description": "A description for the build",
+                      "isPublic": true,
+                      "isPublished": true,
+                      "version": "1.0",
+                      "gameVersion": "1.1",
+                      "tags": ["Tank","Early Game","Starter"],
+                      "createdAt": "1771416261",
+                      "updatedAt": "1771416262"
+                    },
+                    {
+                      "id": "165776c2-3fe8-4f76-b09d-b3472bdd5fdc",
+                      "game": "tainted-grail",
+                      "name": "Test Build 2 Tainted Grail",
+                      "description": "A description for the build",
+                      "isPublic": false,
+                      "isPublished": false,
+                      "version": "1.2",
+                      "gameVersion": "1.1",
+                      "tags": ["Mage","Late Game"],
+                      "createdAt": "1771416261",
+                      "updatedAt": "1771416262"
+                    }
+                  ]
                 }
               }
             }
@@ -566,11 +597,40 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicProfileSummary"
-                  }
+                  "type": "object",
+                  "properties": {
+                    "profile": { "$ref": "#/components/schemas/ProfileSummary" },
+                    "builds": { "$ref": "#/components/schemas/BuildSummary" }
+                  },
+                  "required": [
+                    "profile",
+                    "builds"
+                  ]
+                },
+                "example": {
+                  "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
+                  "username": "user123",
+                  "avatarUrl": "https://cdn.example.com/avatar.png",
+                  "state": "active",
+                  "builds": [
+                    {
+                      "id": "a9d58547-18f9-4eb4-9a90-489d20184cc9",
+                      "game": "elden-ring",
+                      "name": "Test Build 1 Elden Ring",
+                      "description": "A description for the build",
+                      "isPublic": true,
+                      "isPublished": true,
+                      "version": "1.0",
+                      "gameVersion": "1.1",
+                      "tags": ["Tank","Early Game","Starter"],
+                      "createdAt": "1771416261",
+                      "updatedAt": "1771416262"
+                    }
+                  ]
                 }
               }
-            },
+            }
+          },
           "404": {
             "description": "User not found",
             "content": {
@@ -598,7 +658,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrivateProfileSummary"
+                  "$ref": "#/components/schemas/ProfileSummary"
                 }
               }
             }
