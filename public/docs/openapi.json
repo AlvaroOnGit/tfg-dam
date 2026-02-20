@@ -18,6 +18,7 @@
   "components": {
     "schemas": {
       "MessageResponse": {
+        "description": "An object that returns a simple message indicating the result of an operation.",
         "type": "object",
         "properties": {
           "message": {
@@ -27,6 +28,7 @@
         "required": ["message"]
       },
       "ErrorResponse": {
+        "description": "An object representing an API error, including a general message and details for specific fields if applicable.",
         "type": "object",
         "properties": {
           "message": { "type": "string" },
@@ -44,14 +46,15 @@
         "required": ["message", "errors"]
       },
       "PrivateProfileSummary": {
+        "description": "A private user profile summary, including sensitive information such as email and role.",
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
+          "id": { "type": "string", "format": "uuid" },
           "username": { "type": "string" },
           "email": { "type": "string", "format": "email" },
           "role": { "type": "string" },
-          "roleLevel": { "type": "string" },
-          "avatarUrl": { "type": "string" },
+          "roleLevel": { "type": "string", "format": "url" },
+          "avatarUrl": { "type": "string", "format": "url" },
           "state": { "type": "string" }
         },
         "required": ["id", "username", "email","role","roleLevel","avatarUrl", "state"],
@@ -59,32 +62,33 @@
           "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
           "username": "user123",
           "email": "user@example.com",
-          "avatarUrl": "https://cdn.example.com/avatar.png",
+          "avatarUrl": "https://cdn.example.com/public/users/c6d7a08c-0d7c-4e05-87e7-8df6a87370d1.png",
           "role": "user",
           "roleLevel": "normal",
           "state": "active"
         }
       },
       "PublicProfileSummary": {
+        "description": "A public user profile summary, visible to other users without sensitive information.",
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
+          "id": { "type": "string", "format": "uuid" },
           "username": { "type": "string" },
-          "avatarUrl": { "type": "string" },
+          "avatarUrl": { "type": "string", "format": "url" },
           "state": { "type": "string" }
         },
         "required": ["id", "username", "avatarUrl", "state"],
         "example": {
           "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
           "username": "user123",
-          "avatarUrl": "https://cdn.example.com/avatar.png",
+          "avatarUrl": "https://cdn.example.com/public/users/c6d7a08c-0d7c-4e05-87e7-8df6a87370d1.png",
           "state": "active"
         }
       },
       "BuildSummary": {
+        "description": "A full summary of a game build, including game information, owners, description, version, and game-specific dynamic data.",
         "type": "object",
         "properties": {
-          "id": { "type": "string", "format": "uuid" },
           "game": {
             "type": "object",
             "properties": {
@@ -130,13 +134,10 @@
             "type": "object",
             "description": "Dynamic JSON structure depending on the game",
             "additionalProperties": true
-          },
-          "createdAt": { "type": "string", "format": "date-time" },
-          "updatedAt": { "type": "string", "format": "date-time" }
+          }
         },
-        "required": ["id","game","owners","name","version","gameVersion","tags"],
+        "required": ["game","owners","name","description","isPublic","isPublished","version","gameVersion","tags","templateData"],
         "example": {
-          "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
           "game": {
             "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
             "slug": "elden-ring",
@@ -172,13 +173,90 @@
               "weapon2":  null,
               "weapon3": null
             }
+          }
+        }
+      },
+      "PartialBuildSummary": {
+        "description": "A partial summary of a game build, containing basic information without the game-specific dynamic data.",
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "game": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "format": "uuid" },
+              "slug": { "type": "string" },
+              "name": { "type": "string" }
+            }
           },
-          "createdAt": "2025-03-20T18:15:32Z",
-          "updatedAt": "2025-03-20T18:15:32Z"
+          "owners": {
+            "type": "object",
+            "properties": {
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "format": "uuid" },
+                  "username": { "type": "string" }
+                }
+              },
+              "editors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "format": "uuid" },
+                    "username": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "required": ["creator"]
+          },
+          "name": { "type": "string" },
+          "isPublic": { "type": "boolean" },
+          "isPublished": { "type": "boolean" },
+          "version": { "type": "string" },
+          "gameVersion": { "type": "string" },
+          "tags": {
+            "type": "array" ,
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["id","game","owners","name","isPublic","isPublished","version","gameVersion","tags"],
+        "example": {
+          "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
+          "game": {
+            "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+            "slug": "elden-ring",
+            "name": "Elden Ring"
+          },
+          "owners": {
+            "creator": {
+              "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+              "username": "user123"
+            },
+            "editors": [
+              {
+                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+                "username": "user456"
+              },
+              {
+                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+                "username": "user789"
+              }
+            ]
+          },
+          "name": "Build 1 Name",
+          "isPublic": true,
+          "isPublished": true,
+          "version": "1.0.0",
+          "gameVersion": "3.2.1",
+          "tags": ["pvp","endgame","mage"]
         }
       },
       "BuildAssetSummary": {
         "type": "array",
+        "description": "A list of assets associated with a build, including identifier, slot category, and slot name.",
         "items": {
           "type": "object",
           "properties": {
@@ -202,6 +280,7 @@
         ]
       },
       "GameSummary": {
+        "description": "A summary of a game, including its ID, name, description, genres, cover and icon URLs.",
         "type": "object",
         "properties": {
           "id": { "type": "string", "format": "uuid" },
@@ -212,8 +291,8 @@
             "type": "array",
             "items": { "type": "string" }
           },
-          "coverUrl": { "type": "string" },
-          "iconUrl": { "type": "string" }
+          "coverUrl": { "type": "string", "format": "url" },
+          "iconUrl": { "type": "string", "format": "url" }
         },
         "required": ["id", "name", "slug", "description", "genre"],
         "example": {
@@ -227,18 +306,25 @@
         }
       },
       "AssetSummary": {
+        "description": "A summary of a game asset, including identifiers, names, type, category, description, and game-specific dynamic data.",
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "gameId": { "type": "string" },
+          "id": { "type": "string", "format": "uuid" },
+          "game": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "format": "uuid" },
+              "name": { "type": "string" },
+              "slug": { "type": "string" }
+            }
+          },
           "name": { "type": "string" },
           "slug": { "type": "string" },
           "type": { "type": "string" },
           "category": { "type": "string" },
           "description": { "type": "string" },
           "shortDescription": { "type": "string" },
-          "iconUrl": { "type": "string" },
-          "imageUrl": { "type": "string" },
+          "iconUrl": { "type": "string", "format": "url" },
           "data": {
             "type": "object",
             "description": "Dynamic JSON structure depending on the game",
@@ -249,10 +335,14 @@
             "items": { "type": "string" }
           }
         },
-        "required": ["id", "gameId", "name", "slug", "type", "category", "data"],
+        "required": ["id", "game", "name", "slug", "type", "category", "iconUrl","data"],
         "example": {
           "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
-          "gameId": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
+          "game": {
+            "id": "d428c79c-3957-4a13-b4c2-ed2f2616eae9",
+            "name": "Elden Ring",
+            "slug": "elden-ring"
+          },
           "name": "Claymore",
           "slug": "claymore",
           "type": "weapon",
@@ -666,7 +756,7 @@
                   "$ref": "#/components/schemas/ErrorResponse"
                 },
                 "example": {
-                  "message": "Could not validate provided email",
+                  "message": "Could not validate provided details",
                   "errors": [
                     { "field": "token", "error": "Token expired or invalid" },
                     { "field": "password", "error": "Password is invalid" }
@@ -813,7 +903,7 @@
                   "email": { "type": "string", "format": "email"},
                   "currentPassword": { "type": "string", "minLength": 8, "description": "Current Password"},
                   "newPassword": { "type": "string", "minLength": 8, "description": "New Password"},
-                  "avatarUrl": { "type": "string" }
+                  "avatarUrl": { "type": "string", "format": "url" }
                 },
                 "example": {
                   "username": "newUsername",
@@ -1153,12 +1243,12 @@
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Number of assets per page. Default is 5, maximum is 50.",
+            "description": "Number of assets per page. Default is 15, maximum is 50.",
             "schema": {
               "type": "integer",
               "minimum": 1,
               "maximum": 50,
-              "default":  5
+              "default":  15
             }
           }
         ],
@@ -1172,7 +1262,7 @@
                   "properties": {
                     "page": { "type": "integer" , "example": 1 },
                     "total": { "type": "integer" , "example": 10 },
-                    "limit": { "type": "integer" , "example": 5 },
+                    "limit": { "type": "integer" , "example": 15 },
                     "assets": {
                       "type": "array",
                       "items": {
@@ -1306,7 +1396,7 @@
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Number of builds per page. Default is 5, maximum is 50.",
+            "description": "Number of builds per page. Default is 15, maximum is 50.",
             "schema": {
               "type": "integer",
               "minimum": 1,
@@ -1329,7 +1419,7 @@
                     "builds": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/BuildSummary"
+                        "$ref": "#/components/schemas/PartialBuildSummary"
                       }
                     }
                   },
