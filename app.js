@@ -1,5 +1,6 @@
 import path from 'node:path';
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
 import { createViewRouter } from "./routes/web/view.routes.js";
 
 export const createApp = () => {
@@ -13,7 +14,7 @@ export const createApp = () => {
     //Express middleware to serve files from a folder
     app.use(express.static(path.join(path.resolve(), 'public')));
 
-    //Simple endpoint to check if the API is currently working
+    //Endpoint to check if the API is currently working
     app.get('/health', (req, res) => {
         res.status(200).json({
             status: 'OK',
@@ -22,6 +23,10 @@ export const createApp = () => {
         });
     });
 
+    //Endpoint to access the API documentation
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {swaggerOptions: { url: '/docs/openapi.json' }}))
+
+    //Endpoint for web views
     app.use('/' , createViewRouter())
 
     return app;
