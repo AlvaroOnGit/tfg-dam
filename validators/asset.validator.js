@@ -2,34 +2,61 @@
  * Contains logic to validate assets for different games
  */
 import {
-    WeaponSchema,
-    ArmorSchema,
-    TalismanSchema,
-    AshOfWarSchema,
-    SpiritAshSchema,
-} from '../schemas/games/elden-ring.schemas.js';
+  WeaponSchema,
+  ArmorSchema,
+  TalismanSchema,
+  AshOfWarSchema,
+  SpiritAshSchema
+} from "../schemas/games/elden-ring.schemas.js";
 
-// Mapa de esquemas según el tipo de asset
-const assetSchemas = {
+// Mapear los esquemas según juego y tipo de asset
+const gameSchemas = {
+  elden_ring: {
     weapon: WeaponSchema,
     armor: ArmorSchema,
     talisman: TalismanSchema,
-    ashOfWar: AshOfWarSchema,
-    spiritAsh: SpiritAshSchema,
+    ash_of_war: AshOfWarSchema,
+    spirit_ash: SpiritAshSchema,
+  }
 };
 
-// Función para validar el asset
+/**
+ * Valida cualquier asset de cualquier juego definido en gameSchemas
+ * @param {string} gameId - ID del juego (ej: "elden_ring")
+ * @param {string} assetType - Tipo de asset (ej: "weapon")
+ * @param {object} data - Datos del asset a validar
+ * @returns {object} Resultado de la validación:
+ *   { success: true, data } si es válido
+ *   { success: false, errors } si hay errores
+ */
 const validateAsset = (gameId, assetType, data) => {
-    if (gameId !== "elden_ring") {
-        throw new Error("Invalid game ID");
-    }
+  const game = gameSchemas[gameId];
+  if (!game) {
+    return {
+      success: false,
+      errors: { gameId: `Game ID "${gameId}" no soportado` }
+    };
+  }
 
-    const schema = assetSchemas[assetType];
-    if (!schema) {
-        throw new Error("Invalid asset type");
-    }
+  const schema = game[assetType];
+  if (!schema) {
+    return {
+      success: false,
+      errors: { assetType: `Asset type "${assetType}" no válido para ${gameId}` }
+    };
+  }
 
-    return schema.parse(data);
+  const result = schema.safeParse(data);
+
+  if (!result.success) {
+    // Formatea los errores por campo
+    return {
+      success: false,
+      errors: result.error.format()
+    };
+  }
+
+  return { success: true, data: result.data };
 };
 
 export default validateAsset;
