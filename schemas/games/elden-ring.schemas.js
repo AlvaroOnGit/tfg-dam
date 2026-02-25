@@ -1,7 +1,7 @@
 /**
  * Contains schemas to validate assets for Elden Ring
  */
-import { regex, z } from 'zod';
+import { z } from 'zod';
 import BaseSchema from './asset-base.schema.js';
 
 //data schemas//
