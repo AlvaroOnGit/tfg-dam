@@ -2,17 +2,7 @@
  * Contains schemas to validate assets for Tainted Grail
  */
 import { z} from "zod";
-
-// ─── Enums ───────────────────────────────────────────────────────────────────
-const TagEnum = [
-    // Combat style
-    "melee",
-    "ranged",
-    "magic",
-];
-const TagEnumSchema = z.enum(TagEnum, {
-    error: "Tag must be a valid Tainted Grail tag",
-});
+import assetBaseSchema from "./asset-base.schema.js";
 
 // ─── Shared Schemas ───────────────────────────────────────────────────────────
 
@@ -45,10 +35,7 @@ const WeaponDataSchema = z.object({
     damage:      z.number({ error: "Damage must be a number" }).nonnegative("Damage cannot be negative").int("Damage must be an integer"),
     staminaCost: z.number({ error: "Stamina cost must be a number" }).nonnegative("Stamina cost cannot be negative").int("Stamina cost must be an integer"),
     requires:    RequiresSchema,
-});
-
-const ShieldDataSchema = WeaponDataSchema.extend({
-    block: z.number({ error: "Block must be a number" }).nonnegative("Block cannot be negative").int("Block must be an integer"),
+    block:       z.number({ error: "Block must be a number" }).nonnegative("Block cannot be negative").int("Block must be an integer").optional(),
 });
 
 const ArmorDataSchema = z.object({
@@ -77,74 +64,44 @@ const RelicDataSchema = z.object({
     effectLink: z.string({ error: (issue) => issue.input === undefined ? "Effect link is required" : "Effect link must be a string" }),
 });
 
-// ─── Base Schema ──────────────────────────────────────────────────────────────
-
-const BaseSchema = z.object({
-    id: z.uuid({ error: "ID must be a valid UUID" }).optional()
-        .meta({ example: "550e8400-e29b-41d4-a716-446655440000" }),
-    gameId: z.uuid({ error: "Game ID must be a valid UUID" })
-        .meta({ example: "550e8400-e29b-41d4-a716-446655440000" }),
-    name: z.string({ error: (issue) => issue.input === undefined ? "Name is required" : "Name must be a string" })
-        .min(2, "Name is too short")
-        .max(50, "Name is too long")
-        .regex(/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\s'+\-]+$/, "Name can only contain letters, numbers and the + symbol")
-        .meta({ example: "Excalibur" }),
-    slug: z.string({ error: (issue) => issue.input === undefined ? "Slug is required" : "Slug must be a string" })
-        .min(2, "Slug is too short")
-        .max(50, "Slug is too long")
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be lowercase, no spaces, only letters, numbers and hyphens")
-        .meta({ example: "excalibur" }),
-    description: z.string({ error: (issue) => issue.input === undefined ? "Description is required" : "Description must be a string" })
-        .meta({ example: "A legendary sword forged in Avalon" }),
-    shortDescription: z.string({ error: (issue) => issue.input === undefined ? "Short description is required" : "Short description must be a string" })
-        .meta({ example: "Legendary sword" }),
-    iconUrl: z.url("Icon URL must be a valid URL")
-        .meta({ example: "https://example.com/excalibur.png" }),
-    tags: z.array(TagEnumSchema)
-        .min(1, "At least one tag is required")
-        .meta({ example: ["melee", "one_handed", "arthurian"] }),
-    isActive: z.boolean({ error: (issue) => issue.input === undefined ? "Is active is required" : "Is active must be a boolean" })
-        .meta({ example: true }),
-    createdAt: z.iso.datetime({ error: "Created at must be a valid datetime" }).optional()
-        .meta({ example: "2024-01-01T00:00:00.000Z" }),
-    updatedAt: z.iso.datetime({ error: "Updated at must be a valid datetime" }).optional()
-        .meta({ example: "2024-01-01T00:00:00.000Z" }),
-});
-
 // ─── Main Schema ──────────────────────────────────────────────────────────────
 
 const TaintedGrailSchema = z.discriminatedUnion("assetType", [
 
-    BaseSchema.extend({
+    assetBaseSchema.extend({
         assetType: z.literal("Weapon"),
-        category:  z.enum(["Bow", "Onehanded", "Twohanded", "Wand"], { error: "Category for Weapon must be one of: Bow, Onehanded, Twohanded, Wand" }),
+        category:  z.enum(["Bow", "Onehanded", "Twohanded", "Wand", "Shield"], { error: "Category for Weapon must be one of: Bow, Onehanded, Twohanded, Wand, Shield" }),
         data:      WeaponDataSchema,
+    }).superRefine((obj, ctx) => {
+        if (obj.category === "Shield" || obj.category === "Wand") {
+            if (obj.data.block === undefined || obj.data.block === null) {
+                ctx.addIssue({
+                    code: z.core.$ZodIssueCode.custom,
+                    path: ["data", "block"],
+                    message: `Block is required for ${obj.category}`,
+                });
+            }
+        }
     }),
 
-    BaseSchema.extend({
-        assetType: z.literal("Weapon"),
-        category:  z.literal("Shield"),
-        data:      ShieldDataSchema,
-    }),
-
-    BaseSchema.extend({
+    assetBaseSchema.extend({
         assetType: z.literal("Armor"),
         category:  z.enum(["Helmet", "Cuirass", "Gauntlets", "Greaves", "Boots", "Back"], { error: "Category for Armor must be one of: Helmet, Cuirass, Gauntlets, Greaves, Boots, Back" }),
         data:      ArmorDataSchema,
     }),
 
-    BaseSchema.extend({
+    assetBaseSchema.extend({
         assetType: z.literal("Jewelry"),
         category:  z.enum(["Ring", "Amulet"], { error: "Category for Jewelry must be one of: Ring, Amulet" }),
         data:      JewelryDataSchema,
     }),
 
-    BaseSchema.extend({
+    assetBaseSchema.extend({
         assetType: z.literal("Magic"),
         data:      MagicDataSchema,
     }),
 
-    BaseSchema.extend({
+    assetBaseSchema.extend({
         assetType: z.literal("Relic"),
         category:  z.enum(["Armor", "Weapon"], { error: "Category for Relic must be one of: Armor, Weapon" }),
         data:      RelicDataSchema,
