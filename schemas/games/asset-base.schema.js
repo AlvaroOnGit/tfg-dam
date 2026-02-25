@@ -1,7 +1,9 @@
 /**
  * Contains schemas to validate assets for Elden Ring
  */
+
 import {z} from 'zod';
+
 // ─── Base Schema ──────────────────────────────────────────────────────────────
 
 const BaseSchema = z.object({
@@ -35,3 +37,5 @@ const BaseSchema = z.object({
     updatedAt: z.iso.datetime({ error: "Updated at must be a valid datetime" }).optional()
         .meta({ example: "2024-01-01T00:00:00.000Z" }),
 });
+
+export default BaseSchema;
