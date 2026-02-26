@@ -47,13 +47,13 @@ const ArmorDataSchema = z.object({
 
 const JewelryDataSchema = z.object({
     gold:   z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
-    weight: z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
+    weight: z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").max(100, "Weight cannot exceed 100"),
 });
 
 const MagicDataSchema = z.object({
     gold:       z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
     weight:     z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
-    effectLink: z.string({ error: (issue) => issue.input === undefined ? "Effect link is required" : "Effect link must be a string" }),
+    effectLink: z.string({ error: (issue) => issue.input === undefined ? "Effect link is required" : "Effect link must be a string" }).optional(),
     castType:   CastTypeSchema,
     item:       z.string({ error: (issue) => issue.input === undefined ? "Item is required" : "Item must be a string" }),
 });

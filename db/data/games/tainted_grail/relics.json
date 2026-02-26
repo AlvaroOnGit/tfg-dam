@@ -1,0 +1,247 @@
+[
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Amberstride",
+    "slug": "amberstride",
+    "description": "Increases Max Stamina by 5%.",
+    "shortDescription": "Amberstride armor relic",
+    "iconUrl": "https://example.com/amberstride.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Amberstride +3",
+    "slug": "amberstride-3",
+    "description": "Increases Max Stamina by 7%.",
+    "shortDescription": "Amberstride +3 armor relic",
+    "iconUrl": "https://example.com/amberstride-3.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 106,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Fetching Yet Practical Adornment",
+    "slug": "fetching-yet-practical-adornment",
+    "description": "Increases Mana Regeneration by 0.5. Increases Max Stamina by 3.",
+    "shortDescription": "Fetching Yet Practical Adornment armor relic",
+    "iconUrl": "https://example.com/fetching-yet-practical-adornment.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 250,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Gem Of Carrying +2",
+    "slug": "gem-of-carrying-2",
+    "description": "Increases Encumbrance Limit by 6.",
+    "shortDescription": "Gem Of Carrying +2 armor relic",
+    "iconUrl": "https://example.com/gem-of-carrying-2.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 102,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Gem Of Stamina +1",
+    "slug": "gem-of-stamina-1",
+    "description": "Multiplies Stamina Regeneration by x1.21.",
+    "shortDescription": "Gem Of Stamina +1 armor relic",
+    "iconUrl": "https://example.com/gem-of-stamina-1.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 101,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Iron Bite",
+    "slug": "iron-bite",
+    "description": "Increases Melee Damage by 3%.",
+    "shortDescription": "Iron Bite armor relic",
+    "iconUrl": "https://example.com/iron-bite.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 400,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Long-Haul Pearl",
+    "slug": "long-haul-pearl",
+    "description": "Increases Ranged Damage by 3%.",
+    "shortDescription": "Long-Haul Pearl armor relic",
+    "iconUrl": "https://example.com/long-haul-pearl.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 400,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Unyielding Sentinel +2",
+    "slug": "unyielding-sentinel-2",
+    "description": "Reduces Stamina Cost by 11%.",
+    "shortDescription": "Unyielding Sentinel +2 armor relic",
+    "iconUrl": "https://example.com/unyielding-sentinel-2.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Armor",
+    "data": {
+      "gold": 504,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Ancestral Sphere",
+    "slug": "ancestral-sphere",
+    "description": "On Critical Hit applies Haste.",
+    "shortDescription": "Ancestral Sphere weapon relic",
+    "iconUrl": "https://example.com/ancestral-sphere.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2,
+      "effectLink": "Haste"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Bors' Mightstone",
+    "slug": "bors-mightstone",
+    "description": "Unknown.",
+    "shortDescription": "Bors' Mightstone weapon relic",
+    "iconUrl": "https://example.com/bors-mightstone.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Crimson Shard",
+    "slug": "crimson-shard",
+    "description": "Inflicts Bleed.",
+    "shortDescription": "Crimson Shard weapon relic",
+    "iconUrl": "https://example.com/crimson-shard.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 125,
+      "weight": 0.2,
+      "effectLink": "Bleed"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Incandescent Pearl",
+    "slug": "incandescent-pearl",
+    "description": "Inflicts Burn.",
+    "shortDescription": "Incandescent Pearl weapon relic",
+    "iconUrl": "https://example.com/incandescent-pearl.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2,
+      "effectLink": "Burn"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Knowing Worm",
+    "slug": "knowing-worm",
+    "description": "Increases Experience by 10%.",
+    "shortDescription": "Knowing Worm weapon relic",
+    "iconUrl": "https://example.com/knowing-worm.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Nightshade Charcoal",
+    "slug": "nightshade-charcoal",
+    "description": "Increases Sneak Damage by 20%.",
+    "shortDescription": "Nightshade Charcoal weapon relic",
+    "iconUrl": "https://example.com/nightshade-charcoal.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 200,
+      "weight": 0.2,
+      "effectLink": "Sneak Damage"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Smouldering Wrath",
+    "slug": "smouldering-wrath",
+    "description": "Critical Hits light your weapon on fire for 5s, increasing Damage dealt by 15% and Burning enemies.",
+    "shortDescription": "Smouldering Wrath weapon relic",
+    "iconUrl": "https://example.com/smouldering-wrath.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 800,
+      "weight": 0.2,
+      "effectLink": "Critical Hit, Burn"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Starborn Egg +1",
+    "slug": "starborn-egg-1",
+    "description": "Weapon deals additional 15% Damage.",
+    "shortDescription": "Starborn Egg +1 weapon relic",
+    "iconUrl": "https://example.com/starborn-egg-1.png",
+    "isActive": true,
+    "assetType": "Relic",
+    "category": "Weapon",
+    "data": {
+      "gold": 302,
+      "weight": 0.2
+    }
+  }
+]

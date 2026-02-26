@@ -1,0 +1,242 @@
+[
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Ancient Oak's Root +2",
+    "slug": "ancient-oaks-root-2",
+    "description": "Increases Health Regeneration by 0.6.",
+    "shortDescription": "Ancient Oak's Root ring",
+    "iconUrl": "https://example.com/ancient-oaks-root-2.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 750,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Breakwater",
+    "slug": "breakwater",
+    "description": "Creatures of Sarras deal 5% less Damage to you.",
+    "shortDescription": "Breakwater ring",
+    "iconUrl": "https://example.com/breakwater.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 500,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Confessor's Ring",
+    "slug": "confessors-ring",
+    "description": "Increases Spirituality by 2.",
+    "shortDescription": "Confessor's ring",
+    "iconUrl": "https://example.com/confessors-ring.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 777,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Deer Ring",
+    "slug": "deer-ring",
+    "description": "Increases Max Stamina by 5.",
+    "shortDescription": "Deer ring",
+    "iconUrl": "https://example.com/deer-ring.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 200,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Geographer's Ring",
+    "slug": "geographers-ring",
+    "description": "Increases Movement Speed Multiplier by 5% when not in combat.",
+    "shortDescription": "Geographer's ring",
+    "iconUrl": "https://example.com/geographers-ring.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 200,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Kamelot's Ring",
+    "slug": "kamelots-ring",
+    "description": "Increases Max Health by 10. Increases Max Stamina by 5.",
+    "shortDescription": "Kamelot's ring",
+    "iconUrl": "https://example.com/kamelots-ring.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 500,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Langford Ring",
+    "slug": "langford-ring",
+    "description": "Reduces Stamina Cost by 20%.",
+    "shortDescription": "Langford ring",
+    "iconUrl": "https://example.com/langford-ring.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 500,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Tempest Alliance",
+    "slug": "tempest-alliance",
+    "description": "Increase Mana Shield by 0.25%.",
+    "shortDescription": "Tempest Alliance ring",
+    "iconUrl": "https://example.com/tempest-alliance.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Ring",
+    "data": {
+      "gold": 440,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Ambergris Fragment",
+    "slug": "ambergris-fragment",
+    "description": "Increases Max Health by 10.",
+    "shortDescription": "Ambergris Fragment amulet",
+    "iconUrl": "https://example.com/ambergris-fragment.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 200,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Amulet Of A Novice Ogre Hunter",
+    "slug": "amulet-of-a-novice-ogre-hunter",
+    "description": "Decreases Incoming Damage by 20% when your Health is below 10%. When you have full Health, deal 33% more Damage.",
+    "shortDescription": "Novice Ogre Hunter amulet",
+    "iconUrl": "https://example.com/amulet-of-a-novice-ogre-hunter.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 500,
+      "weight": 0.5
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Berserker's Call",
+    "slug": "berserkers-call",
+    "description": "If you wear no armor, increase Physical Damage by 30%.",
+    "shortDescription": "Berserker's Call amulet",
+    "iconUrl": "https://example.com/berserkers-call.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 200,
+      "weight": 0.5
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Charm Of The Faithful Fae",
+    "slug": "charm-of-the-faithful-fae",
+    "description": "Increases Encumbrance Limit by 100.",
+    "shortDescription": "Faithful Fae charm amulet",
+    "iconUrl": "https://example.com/charm-of-the-faithful-fae.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 50,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Gift For The Beloved",
+    "slug": "gift-for-the-beloved",
+    "description": "Increases Health Regeneration by 1 while you are in combat.",
+    "shortDescription": "Gift For The Beloved amulet",
+    "iconUrl": "https://example.com/gift-for-the-beloved.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 2000,
+      "weight": 0.5
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Great Beast's Bone",
+    "slug": "great-beasts-bone",
+    "description": "Increases Max Health by 5%.",
+    "shortDescription": "Great Beast's Bone amulet",
+    "iconUrl": "https://example.com/great-beasts-bone.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 200,
+      "weight": 0.5
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Hunter's Amulet",
+    "slug": "hunters-amulet",
+    "description": "Increases Weak Spot Damage by 20%.",
+    "shortDescription": "Hunter's Amulet",
+    "iconUrl": "https://example.com/hunters-amulet.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 200,
+      "weight": 0.1
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Ironlung Stone",
+    "slug": "ironlung-stone",
+    "description": "Increases Stamina Regeneration by 10.",
+    "shortDescription": "Ironlung Stone amulet",
+    "iconUrl": "https://example.com/ironlung-stone.png",
+    "isActive": true,
+    "assetType": "Jewelry",
+    "category": "Amulet",
+    "data": {
+      "gold": 200,
+      "weight": 0.1
+    }
+  }
+]
