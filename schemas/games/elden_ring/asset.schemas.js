@@ -3,7 +3,10 @@
  */
 
 import { z } from 'zod';
-import BaseSchema from '../../asset.schemas.js';
+import createBaseSchema from '../../asset.schemas.js';
+import { validateIconUrl } from '../../helpers/asset.helpers.js';
+
+const BaseSchema = createBaseSchema('elden-ring');
 
 // Enums
 
@@ -36,7 +39,7 @@ const weaponCategories = z.enum([
     "greatbows",
     "crossbows",
     "ballistas",
-    "staffs",
+    "staves",
     "seals",
     "torches",
     "thrusting-shields",
@@ -74,11 +77,11 @@ const weightSchema = z
 
 // ───────── Weapon Schemas ─────────────────────────────────────────────────────
 
-const attackTypes = ["physical","magical","fire","lightning","holy","critical"];
+const attackTypes = ["physical","magical","fire","lightning","holy","critical","incantation","sorcery"];
 const guardTypes = ["physical","magical","fire","lightning","holy","boost"];
 const attributeTypes = ["strength","dexterity","intelligence","faith","arcane"];
 
-const weaponDamage = z.enum(["pierce","slash","blunt"]);
+const weaponDamage = z.enum(["standard","pierce","slash","blunt"]);
 
 const weaponAttackSchema = z.object(
     Object.fromEntries(
@@ -86,7 +89,7 @@ const weaponAttackSchema = z.object(
             .number(`${type} attack must be a number`)
             .int(`${type} attack must be an integer`)
             .nonnegative(`${type} attack cannot be negative`)
-            .max(999, "attack value cannot exceed 999")
+            .max(999, `${type} attack cannot be exceed 999`)
         ])
     )
 );
@@ -131,7 +134,9 @@ const weaponDamageSchema = z
 const weaponAowSchema = z.object({
     slug: z
         .string("value must be a string")
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase letters, numbers and single dashes only"),
+        .trim()
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase letters, numbers and single dashes only")
+        .min(1, "Slug must be at least 1 character long"),
     compatible: z.boolean().default(true),
 })
 
@@ -370,68 +375,119 @@ const spiritAshCostSchema = z.object(
 
 const spiritAshDataSchema = z.object({
     cost: spiritAshCostSchema
-})
+});
 
 // ───────── Main Schema ──────────────────────────────────────────────────
+
+/**
+ * Validates the `incantation` & `sorcery` fields according to the `category` of the weapon.
+ *
+ * - If `category` is "seals", `incantation` cannot be 0.
+ * - If `category` is "staves", `sorcery` cannot be 0.
+ * - If `category` is neither "staves" or "seals" `incantation` and `sorcery` must be 0.
+ *
+ * Adds a Zod issue if any of the previous conditions are met.
+ */
+const validateWeaponAttack = (obj, ctx) => {
+
+    const { incantation, sorcery } = obj.data.attack;
+
+    if (obj.category === "seals"){
+        if (incantation <= 0){
+            ctx.addIssue({
+                code: "invalid_value",
+                message: `incantation attack cannot be 0 if weapon category is: ${obj.category}`,
+                path: ["data", "attack", "incantation"]
+            });
+        }
+    }
+    if (obj.category === "staves"){
+        if (sorcery <= 0){
+            ctx.addIssue({
+                code: "invalid_value",
+                message: `sorcery attack cannot be 0 if weapon category is: ${obj.category}`,
+                path: ["data", "attack", "sorcery"]
+            });
+        }
+    }
+    if (obj.category !== "seals" && obj.category !== "staves") {
+        if (incantation !== 0 || sorcery !== 0) {
+            ctx.addIssue({
+                code: "invalid_value",
+                message: `sorcery and incantation must be 0 if weapon category is: ${obj.category}`,
+                path: ["data", "attack", "incantation", "sorcery"]
+            });
+        }
+    }
+}
+
+/**
+ * Validates the `spellType` field according to the `category` of the spell.
+ *
+ * - If `category` is "incantations", `spellType` must be one of `spellIncantationTypes`.
+ * - If `category` is "sorceries", `spellType` must be one of `spellSorceryTypes`.
+ *
+ * Adds a Zod issue if `spellType` is invalid for the given category.
+ */
+const validateSpellTypes = (obj, ctx) => {
+    if (obj.category === "incantations") {
+        if (!spellIncantationTypes.includes(obj.spellType)) {
+            ctx.addIssue({
+                code: "invalid_type",
+                message: `Invalid type for incantation, expected one of: ${spellIncantationTypes.join(", ")}`,
+                path: ["data", "spellType"]
+            });
+        }
+    }
+
+    if (obj.category === "sorceries") {
+        if (!spellSorceryTypes.includes(obj.spellType)) {
+            ctx.addIssue({
+                code: "invalid_type",
+                message: `Invalid type for sorcery, expected one of: ${spellSorceryTypes.join(", ")}`,
+                path: ["data", "spellType"]
+            });
+        }
+    }
+};
 
 const EldenRingSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
-        type: z.literal("weapons"),
+        type: z.literal("weapon"),
         category: weaponCategories,
         data: weaponDataSchema
-    }),
+    }).superRefine(validateWeaponAttack).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        type: z.literal("armors"),
+        type: z.literal("armor"),
         category: armorCategories,
         data: armorDataSchema
-    }),
+    }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        type: z.literal("spells"),
+        type: z.literal("spell"),
         category: spellCategories,
         data: spellDataSchema
-    }).superRefine((obj, ctx) => {
-
-        if (obj.category === "incantations") {
-            if (!spellIncantationTypes.includes(obj.spellType)) {
-                ctx.addIssue({
-                    code: "invalid_type",
-                    message: `Invalid type for incantation, expected one of: ${spellIncantationTypes.join(", ")}`,
-                    path: ["data", "spellType"]
-                });
-            }
-        }
-
-        if (obj.category === "sorceries") {
-            if (!spellSorceryTypes.includes(obj.spellType)) {
-                ctx.addIssue({
-                    code: "invalid_type",
-                    message: `Invalid type for sorcery, expected one of: ${spellSorceryTypes.join(", ")}`,
-                    path: ["data", "spellType"]
-                });
-            }
-        }
-    }),
+    }).superRefine(validateSpellTypes).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        type: z.literal("talismans"),
+        type: z.literal("talisman"),
         category: z.null(),
         data: talismanDataSchema
-    }),
+    }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        type: z.literal("ashes-of-war"),
+        type: z.literal("ash-of-war"),
         category: z.null(),
         data: ashOfWarDataSchema
-    }),
+    }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        type: z.literal("spirit-ashes"),
+        type: z.literal("spirit-ash"),
         category: z.null(),
         data: spiritAshDataSchema
-    })
+    }).superRefine(validateIconUrl)
 ]);
 
 export default EldenRingSchema;
