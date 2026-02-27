@@ -9,7 +9,7 @@ db/localdb/
 
 # Enviroment files
 .env.development*
-.env.production*
+.env
 
 # Testing files
-api.http
+test/
