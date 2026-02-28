@@ -16,22 +16,24 @@ const RequiresSchema = z.object({
 });
 
 const CastSchema = z.object({
-    damage:      z.number({ error: "Damage must be a number" }).nonnegative("Damage cannot be negative").int("Damage must be an integer"),
+    damage:      z.number({ error: "Damage must be a number" }).nonnegative("Damage cannot be negative").int("Damage must be an integer").optional(),
     typeOfSpell: z.string({ error: (issue) => issue.input === undefined ? "Type of spell is required" : "Type of spell must be a string" }),
-    manaCost:    z.number({ error: "Mana cost must be a number" }).nonnegative("Mana cost cannot be negative").int("Mana cost must be an integer"),
+    manaCost:    z.number({ error: "Mana cost must be a number" }).nonnegative("Mana cost cannot be negative").optional(),
+    health:      z.number({ error: "Health must be a number" }).nonnegative("Health cannot be negative").int("Health must be an integer").optional(),
+    healthCost:  z.number({ error: "Health cost must be a number" }).nonnegative("Health cost cannot be negative").int("Health cost must be an integer").optional(),
     description: z.string({ error: (issue) => issue.input === undefined ? "Description is required" : "Description must be a string" }),
 });
 
-const CastTypeSchema = z.discriminatedUnion("type", [
-    z.object({ type: z.literal("lightCast") }).extend(CastSchema.shape),
-    z.object({ type: z.literal("heavyCast") }).extend(CastSchema.shape),
-]);
+const CastTypeSchema = z.object({
+    lightCast: CastSchema.optional(),
+    heavyCast: CastSchema.optional(),
+});
 
 // ─── Data Schemas ─────────────────────────────────────────────────────────────
 
 const WeaponDataSchema = z.object({
     gold:        z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
-    weight:      z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
+    weight:      z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").max(100, "Weight cannot exceed 100"),
     damage:      z.number({ error: "Damage must be a number" }).nonnegative("Damage cannot be negative").int("Damage must be an integer"),
     staminaCost: z.number({ error: "Stamina cost must be a number" }).nonnegative("Stamina cost cannot be negative").int("Stamina cost must be an integer"),
     requires:    RequiresSchema,
@@ -40,7 +42,7 @@ const WeaponDataSchema = z.object({
 
 const ArmorDataSchema = z.object({
     gold:     z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
-    weight:   z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
+    weight:   z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").max(100, "Weight cannot exceed 100"),
     armor:    z.number({ error: "Armor must be a number" }).nonnegative("Armor cannot be negative").int("Armor must be an integer"),
     requires: RequiresSchema,
 });
@@ -52,15 +54,15 @@ const JewelryDataSchema = z.object({
 
 const MagicDataSchema = z.object({
     gold:       z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
-    weight:     z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
+    weight:     z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").max(100, "Weight cannot exceed 100").optional(),
     effectLink: z.string({ error: (issue) => issue.input === undefined ? "Effect link is required" : "Effect link must be a string" }).optional(),
-    castType:   CastTypeSchema,
+    castType:   CastTypeSchema.optional(),
     item:       z.string({ error: (issue) => issue.input === undefined ? "Item is required" : "Item must be a string" }),
 });
 
 const RelicDataSchema = z.object({
     gold:       z.number({ error: "Gold price must be a number" }).nonnegative("Gold price cannot be negative").int("Gold price must be an integer"),
-    weight:     z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").int("Weight must be an integer").max(100, "Weight cannot exceed 100"),
+    weight:     z.number({ error: "Weight must be a number" }).nonnegative("Weight cannot be negative").max(100, "Weight cannot exceed 100"),
     effectLink: z.string({ error: (issue) => issue.input === undefined ? "Effect link is required" : "Effect link must be a string" }),
 });
 

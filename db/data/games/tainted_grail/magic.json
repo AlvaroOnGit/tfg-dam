@@ -1,0 +1,400 @@
+[
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Absorption",
+    "slug": "absorption",
+    "description": "Grants 25% Mana Shield for 20s. Grants 100% Mana Shield when Channeling.",
+    "shortDescription": "Mana Shield spell",
+    "iconUrl": "/public/resources/images/magic/absorption.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 500,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "typeOfSpell": "Buff",
+          "manaCost": 30,
+          "description": "Grants 25% Mana Shield for 20s."
+        },
+        "heavyCast": {
+          "typeOfSpell": "Channeled",
+          "manaCost": 5,
+          "description": "Grants 100% Mana Shield when Channeling."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Burning Ember",
+    "slug": "burning-ember",
+    "description": "Shoots a small Burning projectile. Shoots a larger Burning ball of fire, dealing Damage in a small area.",
+    "shortDescription": "Burning projectile spell",
+    "iconUrl": "/public/resources/images/magic/burning-ember.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 100,
+      "item": "Spell",
+      "effectLink": "Burning",
+      "castType": {
+        "lightCast": {
+          "damage": 5,
+          "typeOfSpell": "Projectile",
+          "manaCost": 5,
+          "description": "Shoots a small Burning projectile."
+        },
+        "heavyCast": {
+          "damage": 7,
+          "typeOfSpell": "Projectile",
+          "manaCost": 10,
+          "description": "Shoots a larger Burning ball of fire, dealing Damage in a small area."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Caustic Wrath",
+    "slug": "caustic-wrath",
+    "description": "Shoots a large Poison projectile. Shoots a massive Poison glob, dealing Damage in a small area.",
+    "shortDescription": "Poison projectile spell",
+    "iconUrl": "/public/resources/images/magic/caustic-wrath.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 2000,
+      "item": "Spell",
+      "effectLink": "Poison",
+      "castType": {
+        "lightCast": {
+          "damage": 19,
+          "typeOfSpell": "Projectile",
+          "manaCost": 36,
+          "description": "Shoots a large Poison projectile."
+        },
+        "heavyCast": {
+          "damage": 28,
+          "typeOfSpell": "Projectile",
+          "manaCost": 54,
+          "description": "Shoots a massive Poison glob, dealing Damage in a small area."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Fire Rune",
+    "slug": "fire-rune",
+    "description": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby. Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s.",
+    "shortDescription": "Burning trap spell",
+    "iconUrl": "/public/resources/images/magic/fire-rune.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 2000,
+      "item": "Spell",
+      "effectLink": "Burn",
+      "castType": {
+        "lightCast": {
+          "damage": 66,
+          "typeOfSpell": "Trap",
+          "manaCost": 110,
+          "description": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby."
+        },
+        "heavyCast": {
+          "damage": 198,
+          "typeOfSpell": "Trap",
+          "manaCost": 220,
+          "description": "Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Hailstone",
+    "slug": "hailstone",
+    "description": "Shoots a small Chilling projectile. Shoots a larger chunk of Chilling ice.",
+    "shortDescription": "Chilling projectile spell",
+    "iconUrl": "/public/resources/images/magic/hailstone.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 100,
+      "item": "Spell",
+      "effectLink": "Chilled, Frozen",
+      "castType": {
+        "lightCast": {
+          "damage": 4,
+          "typeOfSpell": "Projectile",
+          "manaCost": 5,
+          "description": "Shoots a small Chilling projectile."
+        },
+        "heavyCast": {
+          "damage": 6,
+          "typeOfSpell": "Projectile",
+          "manaCost": 10,
+          "description": "Shoots a larger chunk of Chilling ice."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Merlin's Thorn",
+    "slug": "merlins-thorn",
+    "description": "Shoots a single homing projectile. Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release.",
+    "shortDescription": "Homing projectile spell",
+    "iconUrl": "/public/resources/images/magic/merlins-thorn.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 500,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "damage": 20,
+          "typeOfSpell": "Projectile",
+          "manaCost": 21,
+          "description": "Shoots a single homing projectile."
+        },
+        "heavyCast": {
+          "damage": 63,
+          "typeOfSpell": "Projectile",
+          "manaCost": 42,
+          "description": "Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Nature's Caress",
+    "slug": "natures-caress",
+    "description": "Heals you instantly. Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s.",
+    "shortDescription": "Healing spell",
+    "iconUrl": "/public/resources/images/magic/natures-caress.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 100,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "health": 10,
+          "typeOfSpell": "Buff",
+          "manaCost": 20,
+          "description": "Heals you instantly."
+        },
+        "heavyCast": {
+          "typeOfSpell": "Channeled",
+          "manaCost": 5,
+          "description": "Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Prism Of The Maelstrom",
+    "slug": "prism-of-the-maelstrom",
+    "description": "Charged by dealing Elemental Damage 0/500. Creates an explosion, dealing 150 Damage and applying random elemental statuses to all enemies around you.",
+    "shortDescription": "Elemental explosion cube",
+    "iconUrl": "/public/resources/images/magic/prism-of-the-maelstrom.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 10,
+      "weight": 0.5,
+      "item": "Cube",
+      "effectLink": "Random Elemental"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Rumpolt's Revenge",
+    "slug": "rumpolts-revenge",
+    "description": "Condensates cheese from your own blood into a solid state in front of you. Slowly turns the target into cheese.",
+    "shortDescription": "Cheese spell",
+    "iconUrl": "/public/resources/images/magic/rumpolts-revenge.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 200,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "healthCost": 15,
+          "typeOfSpell": "Summon",
+          "description": "Condensates cheese from your own blood into a solid state in front of you."
+        },
+        "heavyCast": {
+          "typeOfSpell": "Channeled",
+          "manaCost": 8,
+          "description": "Slowly turns the target into cheese."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Sea Bite",
+    "slug": "sea-bite",
+    "description": "Orders your summoned tadpoles to attack a specific target. Summons a tadpole to fight by your side.",
+    "shortDescription": "Tadpole summon spell",
+    "iconUrl": "/public/resources/images/magic/sea-bite.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 1500,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "typeOfSpell": "Ray",
+          "description": "Orders your summoned tadpoles to attack a specific target."
+        },
+        "heavyCast": {
+          "typeOfSpell": "Summon",
+          "manaCost": 80,
+          "description": "Summons a tadpole to fight by your side."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Stone Skin",
+    "slug": "stone-skin",
+    "description": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds.",
+    "shortDescription": "Damage barrier spell",
+    "iconUrl": "/public/resources/images/magic/stone-skin.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 1000,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "typeOfSpell": "Buff",
+          "manaCost": 60,
+          "description": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Summon Grindylow",
+    "slug": "summon-grindylow",
+    "description": "Orders your summons to attack a specific target. Summons a grindylow to fight by your side.",
+    "shortDescription": "Grindylow summon spell",
+    "iconUrl": "/public/resources/images/magic/summon-grindylow.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 100,
+      "item": "Spell",
+      "castType": {
+        "lightCast": {
+          "typeOfSpell": "Ray",
+          "description": "Orders your summons to attack a specific target."
+        },
+        "heavyCast": {
+          "typeOfSpell": "Summon",
+          "manaCost": 20,
+          "description": "Summons a grindylow to fight by your side."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "The Hollow Reprieve",
+    "slug": "the-hollow-reprieve",
+    "description": "Charged by dealing Critical Hits 0/30. Reduces Incoming Damage by half of your Critical Chance for 30s.",
+    "shortDescription": "Critical Hit defense cube",
+    "iconUrl": "/public/resources/images/magic/the-hollow-reprieve.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 10,
+      "weight": 0.5,
+      "item": "Cube"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "The Wailing Gale",
+    "slug": "the-wailing-gale",
+    "description": "Charged by killing 0/10. Summon a Tornado, which sucks up everyone within a 5m radius.",
+    "shortDescription": "Tornado summon cube",
+    "iconUrl": "/public/resources/images/magic/the-wailing-gale.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 10,
+      "weight": 0.5,
+      "item": "Cube"
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Toxic Dart",
+    "slug": "toxic-dart",
+    "description": "Shoots a medium Poison projectile. Shoots a great Poison glob, dealing Damage in a small area.",
+    "shortDescription": "Poison dart spell",
+    "iconUrl": "/public/resources/images/magic/toxic-dart.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 500,
+      "item": "Spell",
+      "effectLink": "Poison",
+      "castType": {
+        "lightCast": {
+          "damage": 11,
+          "typeOfSpell": "Projectile",
+          "manaCost": 14,
+          "description": "Shoots a medium Poison projectile."
+        },
+        "heavyCast": {
+          "damage": 16,
+          "typeOfSpell": "Projectile",
+          "manaCost": 21,
+          "description": "Shoots a great Poison glob, dealing Damage in a small area."
+        }
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Winter's Crone's Wrath",
+    "slug": "winters-crones-wrath",
+    "description": "Shoots a spread of 5 Chilling projectiles. Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged.",
+    "shortDescription": "Chilling spread spell",
+    "iconUrl": "/public/resources/images/magic/winters-crones-wrath.png",
+    "isActive": true,
+    "assetType": "Magic",
+    "data": {
+      "gold": 200,
+      "item": "Spell",
+      "effectLink": "Chilled, Frozen",
+      "castType": {
+        "lightCast": {
+          "damage": 15,
+          "typeOfSpell": "Projectile",
+          "manaCost": 12,
+          "description": "Shoots a spread of 5 Chilling projectiles."
+        },
+        "heavyCast": {
+          "damage": 22,
+          "typeOfSpell": "Projectile",
+          "manaCost": 18,
+          "description": "Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged."
+        }
+      }
+    }
+  }
+]
