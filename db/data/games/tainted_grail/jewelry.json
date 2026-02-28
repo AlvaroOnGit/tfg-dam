@@ -5,10 +5,10 @@
     "slug": "ancient-oaks-root-2",
     "description": "Increases Health Regeneration by 0.6.",
     "shortDescription": "Ancient Oak's Root ring",
-    "iconUrl": "https://example.com/ancient-oaks-root-2.png",
+    "iconUrl": "/media/games/tainted-grail/assets/ancient-oaks-root-2.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 750,
       "weight": 0.1
@@ -20,10 +20,10 @@
     "slug": "breakwater",
     "description": "Creatures of Sarras deal 5% less Damage to you.",
     "shortDescription": "Breakwater ring",
-    "iconUrl": "https://example.com/breakwater.png",
+    "iconUrl": "/media/games/tainted-grail/assets/breakwater.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 500,
       "weight": 0.1
@@ -35,10 +35,10 @@
     "slug": "confessors-ring",
     "description": "Increases Spirituality by 2.",
     "shortDescription": "Confessor's ring",
-    "iconUrl": "https://example.com/confessors-ring.png",
+    "iconUrl": "/media/games/tainted-grail/assets/confessors-ring.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 777,
       "weight": 0.1
@@ -50,10 +50,10 @@
     "slug": "deer-ring",
     "description": "Increases Max Stamina by 5.",
     "shortDescription": "Deer ring",
-    "iconUrl": "https://example.com/deer-ring.png",
+    "iconUrl": "/media/games/tainted-grail/assets/deer-ring.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 200,
       "weight": 0.1
@@ -65,10 +65,10 @@
     "slug": "geographers-ring",
     "description": "Increases Movement Speed Multiplier by 5% when not in combat.",
     "shortDescription": "Geographer's ring",
-    "iconUrl": "https://example.com/geographers-ring.png",
+    "iconUrl": "/media/games/tainted-grail/assets/geographers-ring.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 200,
       "weight": 0.2
@@ -80,10 +80,10 @@
     "slug": "kamelots-ring",
     "description": "Increases Max Health by 10. Increases Max Stamina by 5.",
     "shortDescription": "Kamelot's ring",
-    "iconUrl": "https://example.com/kamelots-ring.png",
+    "iconUrl": "/media/games/tainted-grail/assets/kamelots-ring.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 500,
       "weight": 0.1
@@ -95,10 +95,10 @@
     "slug": "langford-ring",
     "description": "Reduces Stamina Cost by 20%.",
     "shortDescription": "Langford ring",
-    "iconUrl": "https://example.com/langford-ring.png",
+    "iconUrl": "/media/games/tainted-grail/assets/langford-ring.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 500,
       "weight": 0.1
@@ -110,10 +110,10 @@
     "slug": "tempest-alliance",
     "description": "Increase Mana Shield by 0.25%.",
     "shortDescription": "Tempest Alliance ring",
-    "iconUrl": "https://example.com/tempest-alliance.png",
+    "iconUrl": "/media/games/tainted-grail/assets/tempest-alliance.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Ring",
+    "assetType": "jewelry",
+    "category": "rings",
     "data": {
       "gold": 440,
       "weight": 0.1
@@ -125,10 +125,10 @@
     "slug": "ambergris-fragment",
     "description": "Increases Max Health by 10.",
     "shortDescription": "Ambergris Fragment amulet",
-    "iconUrl": "https://example.com/ambergris-fragment.png",
+    "iconUrl": "/media/games/tainted-grail/assets/ambergris-fragment.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 200,
       "weight": 0.1
@@ -140,10 +140,10 @@
     "slug": "amulet-of-a-novice-ogre-hunter",
     "description": "Decreases Incoming Damage by 20% when your Health is below 10%. When you have full Health, deal 33% more Damage.",
     "shortDescription": "Novice Ogre Hunter amulet",
-    "iconUrl": "https://example.com/amulet-of-a-novice-ogre-hunter.png",
+    "iconUrl": "/media/games/tainted-grail/assets/amulet-of-a-novice-ogre-hunter.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 500,
       "weight": 0.5
@@ -155,10 +155,10 @@
     "slug": "berserkers-call",
     "description": "If you wear no armor, increase Physical Damage by 30%.",
     "shortDescription": "Berserker's Call amulet",
-    "iconUrl": "https://example.com/berserkers-call.png",
+    "iconUrl": "/media/games/tainted-grail/assets/berserkers-call.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 200,
       "weight": 0.5
@@ -170,10 +170,10 @@
     "slug": "charm-of-the-faithful-fae",
     "description": "Increases Encumbrance Limit by 100.",
     "shortDescription": "Faithful Fae charm amulet",
-    "iconUrl": "https://example.com/charm-of-the-faithful-fae.png",
+    "iconUrl": "/media/games/tainted-grail/assets/charm-of-the-faithful-fae.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 50,
       "weight": 0.1
@@ -185,10 +185,10 @@
     "slug": "gift-for-the-beloved",
     "description": "Increases Health Regeneration by 1 while you are in combat.",
     "shortDescription": "Gift For The Beloved amulet",
-    "iconUrl": "https://example.com/gift-for-the-beloved.png",
+    "iconUrl": "/media/games/tainted-grail/assets/gift-for-the-beloved.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 2000,
       "weight": 0.5
@@ -200,10 +200,10 @@
     "slug": "great-beasts-bone",
     "description": "Increases Max Health by 5%.",
     "shortDescription": "Great Beast's Bone amulet",
-    "iconUrl": "https://example.com/great-beasts-bone.png",
+    "iconUrl": "/media/games/tainted-grail/assets/great-beasts-bone.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 200,
       "weight": 0.5
@@ -215,10 +215,10 @@
     "slug": "hunters-amulet",
     "description": "Increases Weak Spot Damage by 20%.",
     "shortDescription": "Hunter's Amulet",
-    "iconUrl": "https://example.com/hunters-amulet.png",
+    "iconUrl": "/media/games/tainted-grail/assets/hunters-amulet.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 200,
       "weight": 0.1
@@ -230,10 +230,10 @@
     "slug": "ironlung-stone",
     "description": "Increases Stamina Regeneration by 10.",
     "shortDescription": "Ironlung Stone amulet",
-    "iconUrl": "https://example.com/ironlung-stone.png",
+    "iconUrl": "/media/games/tainted-grail/assets/ironlung-stone.webp",
     "isActive": true,
-    "assetType": "Jewelry",
-    "category": "Amulet",
+    "assetType": "jewelry",
+    "category": "amulets",
     "data": {
       "gold": 200,
       "weight": 0.1

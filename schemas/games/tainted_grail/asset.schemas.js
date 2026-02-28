@@ -89,7 +89,8 @@ const weightSchema = z
     .number("weight must be a number")
     .nonnegative("weight cannot be negative")
     .multipleOf(0.1, "weight cannot have more than 1 decimal")
-    .max(100, "weight cannot exceed 100");
+    .max(100, "weight cannot exceed 100")
+    .nullable();
 
 // ────────── Weapon Schemas ──────────────────────────────────────────────────────
 
@@ -154,6 +155,20 @@ const castSchema = z.object({
         .min(1, "mana must be at least 1")
         .max(500, "mana cannot exceed 500")
         .nullable(),
+    health: z
+        .number("health must be a number")
+        .nonnegative("health cant be negative")
+        .int("health must be an integer")
+        .min(1, "health must be at least 1")
+        .max(500, "health cannot exceed 500")
+        .nullable(),
+    healthCost: z
+        .number("health cost must be a number")
+        .nonnegative("health cost cant be negative")
+        .int("health cost must be an integer")
+        .min(1, "health cost must be at least 1")
+        .max(500, "health cost cannot exceed 500")
+        .nullable(),
     effect: z
         .string("effect must be a string")
         .max(500, "effect length cant exceed 500 characters"),
@@ -176,6 +191,11 @@ const magicDataSchema = z.object({
  const relicDataSchema = z.object({
      gold: goldSchema,
      weight: weightSchema,
+     effect: z
+         .array(
+             z.string("effect must be a string")
+             .max(500, "effect length cant exceed 500 characters"))
+         .nullable(),
  })
 
 // ─── Main Schema ────────────────────────────────────────────────────────────────
@@ -198,10 +218,10 @@ const validateBlock = (obj, ctx) => {
     }
 }
 
-const TaintedGrailSchema = z.discriminatedUnion("type", [
+const TaintedGrailSchema = z.discriminatedUnion("assetType", [
 
     BaseSchema.extend({
-        type: z.literal("weapon"),
+        assetType: z.literal("weapon"),
         category: weaponCategories,
         data: weaponDataSchema,
     }).superRefine(validateIconUrl).superRefine(validateBlock),
@@ -220,7 +240,7 @@ const TaintedGrailSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
         assetType: z.literal("magic"),
-        category: z.null,
+        category: z.null(),
         data: magicDataSchema,
     }).superRefine(validateIconUrl),
 
