@@ -5,13 +5,14 @@
     "slug": "amberstride",
     "description": "Increases Max Stamina by 5%.",
     "shortDescription": "Amberstride armor relic",
-    "iconUrl": "https://example.com/amberstride.png",
+    "iconUrl": "/media/games/tainted-grail/assets/amberstride.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 100,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -20,13 +21,14 @@
     "slug": "amberstride-3",
     "description": "Increases Max Stamina by 7%.",
     "shortDescription": "Amberstride +3 armor relic",
-    "iconUrl": "https://example.com/amberstride-3.png",
+    "iconUrl": "/media/games/tainted-grail/assets/amberstride-3.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 106,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -35,13 +37,14 @@
     "slug": "fetching-yet-practical-adornment",
     "description": "Increases Mana Regeneration by 0.5. Increases Max Stamina by 3.",
     "shortDescription": "Fetching Yet Practical Adornment armor relic",
-    "iconUrl": "https://example.com/fetching-yet-practical-adornment.png",
+    "iconUrl": "/media/games/tainted-grail/assets/fetching-yet-practical-adornment.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 250,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -50,13 +53,14 @@
     "slug": "gem-of-carrying-2",
     "description": "Increases Encumbrance Limit by 6.",
     "shortDescription": "Gem Of Carrying +2 armor relic",
-    "iconUrl": "https://example.com/gem-of-carrying-2.png",
+    "iconUrl": "/media/games/tainted-grail/assets/gem-of-carrying-2.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 102,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -65,13 +69,14 @@
     "slug": "gem-of-stamina-1",
     "description": "Multiplies Stamina Regeneration by x1.21.",
     "shortDescription": "Gem Of Stamina +1 armor relic",
-    "iconUrl": "https://example.com/gem-of-stamina-1.png",
+    "iconUrl": "/media/games/tainted-grail/assets/gem-of-stamina-1.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 101,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -80,13 +85,14 @@
     "slug": "iron-bite",
     "description": "Increases Melee Damage by 3%.",
     "shortDescription": "Iron Bite armor relic",
-    "iconUrl": "https://example.com/iron-bite.png",
+    "iconUrl": "/media/games/tainted-grail/assets/iron-bite.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 400,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -95,13 +101,14 @@
     "slug": "long-haul-pearl",
     "description": "Increases Ranged Damage by 3%.",
     "shortDescription": "Long-Haul Pearl armor relic",
-    "iconUrl": "https://example.com/long-haul-pearl.png",
+    "iconUrl": "/media/games/tainted-grail/assets/long-haul-pearl.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 400,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -110,13 +117,14 @@
     "slug": "unyielding-sentinel-2",
     "description": "Reduces Stamina Cost by 11%.",
     "shortDescription": "Unyielding Sentinel +2 armor relic",
-    "iconUrl": "https://example.com/unyielding-sentinel-2.png",
+    "iconUrl": "/media/games/tainted-grail/assets/unyielding-sentinel-2.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Armor",
+    "assetType": "relic",
+    "category": "armor",
     "data": {
       "gold": 504,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -125,14 +133,14 @@
     "slug": "ancestral-sphere",
     "description": "On Critical Hit applies Haste.",
     "shortDescription": "Ancestral Sphere weapon relic",
-    "iconUrl": "https://example.com/ancestral-sphere.png",
+    "iconUrl": "/media/games/tainted-grail/assets/ancestral-sphere.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 100,
       "weight": 0.2,
-      "effectLink": "Haste"
+      "effect": ["Haste"]
     }
   },
   {
@@ -141,13 +149,14 @@
     "slug": "bors-mightstone",
     "description": "Unknown.",
     "shortDescription": "Bors' Mightstone weapon relic",
-    "iconUrl": "https://example.com/bors-mightstone.png",
+    "iconUrl": "/media/games/tainted-grail/assets/bors-mightstone.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 100,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -156,14 +165,14 @@
     "slug": "crimson-shard",
     "description": "Inflicts Bleed.",
     "shortDescription": "Crimson Shard weapon relic",
-    "iconUrl": "https://example.com/crimson-shard.png",
+    "iconUrl": "/media/games/tainted-grail/assets/crimson-shard.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 125,
       "weight": 0.2,
-      "effectLink": "Bleed"
+      "effect": ["Bleed"]
     }
   },
   {
@@ -172,14 +181,14 @@
     "slug": "incandescent-pearl",
     "description": "Inflicts Burn.",
     "shortDescription": "Incandescent Pearl weapon relic",
-    "iconUrl": "https://example.com/incandescent-pearl.png",
+    "iconUrl": "/media/games/tainted-grail/assets/incandescent-pearl.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 100,
       "weight": 0.2,
-      "effectLink": "Burn"
+      "effect": ["Burn"]
     }
   },
   {
@@ -188,13 +197,14 @@
     "slug": "knowing-worm",
     "description": "Increases Experience by 10%.",
     "shortDescription": "Knowing Worm weapon relic",
-    "iconUrl": "https://example.com/knowing-worm.png",
+    "iconUrl": "/media/games/tainted-grail/assets/knowing-worm.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 100,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
@@ -203,14 +213,14 @@
     "slug": "nightshade-charcoal",
     "description": "Increases Sneak Damage by 20%.",
     "shortDescription": "Nightshade Charcoal weapon relic",
-    "iconUrl": "https://example.com/nightshade-charcoal.png",
+    "iconUrl": "/media/games/tainted-grail/assets/nightshade-charcoal.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 200,
       "weight": 0.2,
-      "effectLink": "Sneak Damage"
+      "effect": ["Sneak Damage"]
     }
   },
   {
@@ -219,14 +229,14 @@
     "slug": "smouldering-wrath",
     "description": "Critical Hits light your weapon on fire for 5s, increasing Damage dealt by 15% and Burning enemies.",
     "shortDescription": "Smouldering Wrath weapon relic",
-    "iconUrl": "https://example.com/smouldering-wrath.png",
+    "iconUrl": "/media/games/tainted-grail/assets/smouldering-wrath.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 800,
       "weight": 0.2,
-      "effectLink": "Critical Hit, Burn"
+      "effect": ["Critical Hit", "Burn"]
     }
   },
   {
@@ -235,13 +245,14 @@
     "slug": "starborn-egg-1",
     "description": "Weapon deals additional 15% Damage.",
     "shortDescription": "Starborn Egg +1 weapon relic",
-    "iconUrl": "https://example.com/starborn-egg-1.png",
+    "iconUrl": "/media/games/tainted-grail/assets/starborn-egg-1.webp",
     "isActive": true,
-    "assetType": "Relic",
-    "category": "Weapon",
+    "assetType": "relic",
+    "category": "weapon",
     "data": {
       "gold": 302,
-      "weight": 0.2
+      "weight": 0.2,
+      "effect": []
     }
   }
 ]
