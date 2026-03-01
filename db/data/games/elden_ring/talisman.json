@@ -1,0 +1,257 @@
+[
+{ "id": "talisman1",
+  "gameid": "Elden_ring",
+  "name": "Crimson Amber Medallion",
+  "slug": "crimson_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with crimson amber inlaid. Raises maximum HP.",
+  "short_description": "A medallion that raises maximum HP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crimson_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Increases maximum HP by 6%.",
+    "weight": 0.3
+  },
+  "tags": []
+ 
+},
+
+{ "id": "talisman2",
+  "gameid": "Elden_ring",
+  "name": "Crimson seed talisman",
+  "slug": "crimson_seed_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A crimson-colored talisman patterned after an Erdtree seed. Boosts HP restoration from the Flask of Crimson Tears.",
+  "short_description": "A talisman that boosts HP restoration from the Flask of Crimson Tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crimson_seed_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Boosts HP restoration from the Flask of Crimson Tears by 20%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{"id": "talisman3",
+  "gameid": "Elden_ring",
+  "name": "Blessed Dew Talisman",
+  "slug": "blessed_dew_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting a drop of the Erdtree's sap, a blessed boon. Gradually restores HP.",
+  "short_description": "A talisman that gradually restores HP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/blessed_dew_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Restores 2 HP/sec",
+    "weight": 0.6
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman4",
+  "gameid": "Elden_ring",
+  "name": "Cerulean Amber Medallion",
+  "slug": "cerulean_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with cerulean amber inlaid. Raises maximum FP.",
+  "short_description": "A medallion that raises maximum FP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/cerulean_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum FP by 7%.",
+    "weight": 0.3
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman5",
+  "gameid": "Elden_ring",
+  "name": "Cerulean seed Talisman",
+  "slug": "cerulean_seed_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A cerulean-colored talisman patterned after an Erdtree seed. Boosts FP restoration from the Flask of Cerulean Tears.",
+  "short_description": "A talisman that boosts FP restoration from the Flask of Cerulean Tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/cerulean_seed_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Boosts FP restoration from the Flask of Cerulean Tears by 20%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman6",
+  "gameid": "Elden_ring",
+  "name": "Blessed blue dew Talisman",
+  "slug": "blessed_blue_dew_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree. Gradually restores FP.",
+  "short_description": "A talisman that gradually restores FP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/blessed_blue_dew_talisman_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Slowly restores FP",
+    "weight": 1.2
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman7",
+  "gameid": "Elden_ring",
+  "name": "Talisman of Lords' Bestowal",
+  "slug": "talisman_of_lords_bestowal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap. Increases poise after using a flask of tears.",
+  "short_description": "A talisman that increases poise after using a flask of tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/talisman_of_lords_bestowal_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Increases poise after using a flask of tears",
+    "weight": 3.0
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman8",
+  "gameid": "Elden_ring",
+  "name": "Viridian Amber Medallion",
+  "slug": "viridian_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with viridian amber inlaid. Raises maximum stamina.",
+  "short_description": "A medallion that raises maximum stamina.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/viridian_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum stamina by 11%",
+    "weight": 0.3
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman9",
+  "gameid": "Elden_ring",
+  "name": "Green turtle Talisman",
+  "slug": "green_turtle_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a green turtle. Raises stamina recovery speed.",
+  "short_description": "A talisman that raises stamina recovery speed.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/green_turtle_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises stamina recovery speed by 17.7%",
+    "weight": 0.7
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman10",
+  "gameid": "Elden_ring",
+  "name": "Great-Jar's Arsenal",
+  "slug": "great_jar_arsenal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A charm that resembles a great jar overflowing with weaponry.Vastly boosts maximum equipment load.",
+  "short_description": "A talisman that vastly boosts maximum equipment load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/great-jars_arsenal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Vastly boosts maximum equipment load by 19%",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman11",
+  "gameid": "Elden_ring",
+  "name": "Two-headed turtle Talisman",
+  "slug": "two-headed_turtle_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a two-headed green turtle. Greatly raises stamina recovery speed.",
+  "short_description": "A talisman that greatly raises stamina recovery speed.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/two-headed_turtle_talisman_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Greatly raises stamina recovery speed by 22.5%",
+    "weight": 1.0
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman12",
+  "gameid": "Elden_ring",
+  "name": "Arsenal charm",
+  "slug": "arsenal_charm",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An iron charm that resembles a mass of weaponry.Boosts maximum equipment load.",
+  "short_description": "A talisman that boosts maximum equipment load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/arsenal_charm_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum Equip Load by 15/17%",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman13",
+  "gameid": "Elden_ring",
+  "name": "Erdtree's Favor",
+  "slug": "erdtree_favor",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting a special blessing of the Erdtree. Slightly raises maximum HP, stamina, and equip load.",
+  "short_description": "A talisman that slightly raises maximum HP, stamina, and equip load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/erdtrees_favor_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum HP (3%), Stamina (7%), and Equip Load (5%)",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman14",
+  "gameid": "Elden_ring",
+  "name": "Radagon's Scarseal",
+  "slug": "radagons_scarseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radagons_scarseal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises Vigor, Endurance, Strength, and Dexterity by 3, but increases damage taken by 10%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman15",
+  "gameid": "Elden_ring",
+  "name": "Radagon's Soreseal",
+  "slug": "radagons_soreseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radagons_%20soreseal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises  Vigor,  Endurance,  Strength, and  Dexterity by 5 each, but increases damage taken by 15%",
+    "weight": 0.8
+  },
+  "tags": []
+
+}
+
+]
