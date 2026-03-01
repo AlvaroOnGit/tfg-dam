@@ -31,7 +31,7 @@ const jewelryCategories = z.enum([
     "amulets"
 ])
 
-const relicTypes = z.enum([
+const relicCategories = z.enum([
     "armor",
     "weapon"
 ])
@@ -136,8 +136,25 @@ const jewelryDataSchema = z.object({
 
 // ────────── Magic Schemas ───────────────────────────────────────────────────────
 
+const castCostSchema = z.object({
+    costType: z.enum(["mana","health"]),
+    value: z
+        .number("cast value must be a number")
+        .nonnegative("cast value cant be negative")
+        .int("cast value must be an integer")
+        .min(1, "cast value must be at least 1")
+        .max(500, "cast value cannot exceed 500")
+})
+
 const castSchema = z.object({
     damage: damageSchema.nullable(),
+    healing: z
+        .number("healing value must be a number")
+        .nonnegative("healing value cant be negative")
+        .int("healing value must be an integer")
+        .min(1, "healing value must be at least 1")
+        .max(100, "healing value cannot exceed 100")
+        .nullable(),
     type: z.enum([
         "area-of-effect",
         "channeled",
@@ -147,16 +164,18 @@ const castSchema = z.object({
         "trap",
         "summon"
     ]),
-    mana: z
-        .number("mana must be a number")
-        .nonnegative("mana cant be negative")
-        .int("mana must be an integer")
-        .min(1, "mana must be at least 1")
-        .max(500, "mana cannot exceed 500")
-        .nullable(),
+    cost: castCostSchema,
     effect: z
         .string("effect must be a string")
         .max(500, "effect length cant exceed 500 characters"),
+}).superRefine((obj, ctx) => {
+    if (obj.damage !== null && obj.healing !== null) {
+        ctx.addIssue({
+            code: "invalid_value",
+            message: `damage and healing are mutually exclusive: if one has a value, the other must be null`,
+            path: ["damage","healing"]
+        })
+    }
 });
 
 const magicSchema = z.object({
@@ -207,26 +226,26 @@ const TaintedGrailSchema = z.discriminatedUnion("type", [
     }).superRefine(validateIconUrl).superRefine(validateBlock),
 
     BaseSchema.extend({
-        assetType: z.literal("armor"),
+        type: z.literal("armor"),
         category: armorCategories,
         data: armorDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("jewelry"),
+        type: z.literal("jewelry"),
         category:  jewelryCategories,
         data: jewelryDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("magic"),
-        category: z.null,
+        type: z.literal("magic"),
+        category: z.null(),
         data: magicDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("relic"),
-        category:  relicTypes,
+        type: z.literal("relic"),
+        category:  relicCategories,
         data: relicDataSchema,
     }).superRefine(validateIconUrl)
 ]);
