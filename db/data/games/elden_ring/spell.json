@@ -1,0 +1,319 @@
+{
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Star Shower",
+  "slug": "star_shower",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "One of the glintstone sorceries of the Academy of Raya Lucaria.",
+  "short_description": "Fires six magic shooting stars that pursue the target.",
+  "icon_url": "https://example.com/images/star-shower.png",
+  "data": {
+    "Spell_Type": "Glintstone Sorceries",
+    "FP Cost": 23,
+    "Slots Used": 1,
+    "Effect": "Fires six shooting stars that pursue foes.",
+    "Requires": {
+      "intelligence": 24,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Comet",
+  "slug": "comet",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "This sorcery can be cast repeatedly and while in motion. Charging enhances potency.",
+  "short_description": "One of the glintstone sorceries of the Academy of Raya Lucaria.",
+  "icon_url": "https://example.com/images/comet.png",
+  "data": {
+    "Spell_Type": "Glintstone Sorceries",
+    "FP Cost": 24,
+    "Slots Used": 1,
+    "Effect": "Fires a great magic comet.",
+    "Requires": {
+      "intelligence": 52,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Starlight",
+  "slug": "starlight",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Creates a small, floating star light that illuminates surroundings.This sorcery can be cast while in motion.",
+  "short_description": "One of the glintstone sorceries of the Academy of Raya Lucaria.",
+  "icon_url": "https://example.com/images/Starlight.png",
+  "data": {
+    "Spell_Type": "Glintstone Sorceries",
+    "FP Cost": 9,
+    "Slots Used": 1,
+    "Effect": "Creates star light to illuminate surroundings",
+    "Requires": {
+      "intelligence": 15,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Lucidity",
+  "slug": "lucidity",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Alleviates buildup of sleep and madness.This sorcery can be cast while in motion.The Carian knights never waver.",
+  "short_description": "One of the sorceries of the Carian royal family.",
+  "icon_url": "https://example.com/images/Lucidity.png",
+  "data": {
+    "Spell_Type": "Carian Sorceries",
+    "FP Cost": 10,
+    "Slots Used": 1,
+    "Effect": "Alleviates buildup of sleep and madness",
+    "Requires": {
+      "intelligence": 17,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Night Shard",
+  "slug": "night_shard",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Swiftly fires a semi-invisible projectile. This sorcery can be used without delay after performing another action.",
+  "short_description": "One of the night sorceries of Sellia, Town of Sorcery.",
+  "icon_url": "https://example.com/images/Night-Shard.png",
+  "data": {
+    "Spell_Type": "Night Sorceries",
+    "FP Cost": 7,
+    "Slots Used": 1,
+    "Effect": "Swiftly fires a semi-invisible magic projectile",
+    "Requires": {
+      "intelligence": 18,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Roiling Magma",
+  "slug": "roiling_magma",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Fires a lump of condensed magma that explodes a short delay after hitting the target.",
+  "short_description": "One of the sorceries developed from the magma of Mt. Gelmir.",
+  "icon_url": "https://example.com/images/Roiling-Magma.png",
+  "data": {
+    "Spell_Type": "Magma Sorceries",
+    "FP Cost": 28,
+    "Slots Used": 1,
+    "Effect": "Fires lump of magma that explodes after delay",
+    "Requires": {
+      "intelligence": 21,
+      "faith": 12,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Rykard's Rancor",
+  "slug": "rykard's_rancor",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "The lord granted them an audience, whereupon they were welcomed by the maw of the great serpent.",
+  "short_description": "The terrible power of Rykard, Lord of Blasphemy.",
+  "icon_url": "https://example.com/images/Rykard´s-Rancor.png",
+  "data": {
+    "Spell_Type": "Magma Sorceries",
+    "FP Cost": 23,
+    "Slots Used": 2,
+    "Effect": "Releases searing spirits that repeatedly explode after delay",
+    "Requires": {
+      "intelligence": 40,
+      "faith": 18,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Frozen Armament",
+  "slug": "frozen_armament",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Enchants armament held in the right hand with frost.This sorcery can be cast while in motion.",
+  "short_description": "Sorcery said to have been used by the old snow witch.",
+  "icon_url": "https://example.com/images/Frozen-Armament.png",
+  "data": {
+    "Spell_Type": "Cold Sorceries",
+    "FP Cost": 20,
+    "Slots Used": 1,
+    "Effect": "Enchants right-hand armament with frost",
+    "Requires": {
+      "intelligence": 15,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Heal",
+  "slug": "heal",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Heals HP for the caster and nearby allies.Hold to continue praying and delay activation.",
+  "short_description": "Incantation of the Two Fingers' faithful.",
+  "icon_url": "https://example.com/images/Heal.png",
+  "data": {
+    "Spell_Type": "Two Fingers",
+    "FP Cost": 32,
+    "Slots Used": 1,
+    "Effect": "Heals HP for you and nearby allies.",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 12,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Darkness",
+  "slug": "darkness",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Incantation of the Two Fingers' servants, who once served as the assassins of the Roundtable Hold.",
+  "short_description": "Creates a veil of darkness that conceals the caster.",
+  "icon_url": "https://example.com/images/Darkness.png",
+  "data": {
+    "Spell_Type": "Two Fingers",
+    "FP Cost": 24,
+    "Slots Used": 1,
+    "Effect": "Creates area of darkness that conceals caster",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 18,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Bloodboon",
+  "slug": "bloodboon",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Thrust arm into the body of the Formless Mother, then scatter the bloodflame to set the area ablaze.",
+  "short_description": "Sacred incantation of Mohg, Lord of Blood.",
+  "icon_url": "https://example.com/images/Bloodboon.png",
+  "data": {
+    "Spell_Type": "Blood Oath",
+    "FP Cost": 13,
+    "Slots Used": 1,
+    "Effect": "Scatters bloodflame before caster to set area aflame.",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 14,
+      "arcane": 17
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Poison Armament",
+  "slug": "poison_armament",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Enchants armament held in the right hand with poison. This incantation can be cast while in motion.",
+  "short_description": "Incantation of the servants of rot.",
+  "icon_url": "https://example.com/images/Poison-Armament.png",
+  "data": {
+    "Spell_Type": "Servants of Rot",
+    "FP Cost": 15,
+    "Slots Used": 1,
+    "Effect": "Enchants armament held in the right hand with poison.",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 10,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Bestial Sling",
+  "slug": "bestial_sling",
+  "type": "spell",
+  "category": "incantations",
+  "description": "It is said that in the time before the Erdtree, stones were the first weapons of the beasts who had gained intelligence.",
+  "short_description": "Incantation taught by Gurranq, the Beast Clergyman.",
+  "icon_url": "https://example.com/images/Bestial-Sling.png",
+  "data": {
+    "Spell_Type": "Bestial",
+    "FP Cost": 7,
+    "Slots Used": 1,
+    "Effect": "Swiftly flings numerous sharp rock shards",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 10,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Noble Presence",
+  "slug": "noble_presence",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Once a sign of the gods' wrath, this incantation became a trophy of the Nobles' god hunt.",
+  "short_description": "Ancient power of the Godskin Nobles.",
+  "icon_url": "https://example.com/images/Noble-Presence.png",
+  "data": {
+    "Spell_Type": "Black Flame",
+    "FP Cost": 20,
+    "Slots Used": 1,
+    "Effect": "Thrust out belly with gusto to unleash repelling shockwave",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 26,
+      "arcane": 0
+    }
+  },
+  "tags": [],
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Frozen Lightning Spear",
+  "slug": "frozen_lightning_spear",
+  "type": "spell",
+  "category": "incantations",
+  "description": "The Dragonkin were born in the Eternal City, where they knew no true sky, nor true lightning.",
+  "short_description": "Incantation that channels the power of the Dragonkin Soldiers.",
+  "icon_url": "https://example.com/images/Frozen-Lightning-Spear.png",
+  "data": {
+    "Spell_Type": "Dragon Cult",
+    "FP Cost": 29,
+    "Slots Used": 1,
+    "Effect": "Stabs with ice lightning spear from above",
+    "Requires": {
+      "intelligence": 0,
+      "faith": 34,
+      "arcane": 0
+    }
+  },
+  "tags": []
+}
+
+

@@ -1,0 +1,151 @@
+{
+ "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Curseblade Meera",
+  "slug": "curseblade-meera",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Curseblade Meera is a Spirit and Summon in Elden Ring. Curseblade Meera summons an agile and powerful Curseblade",
+  "short_description": "Curseblade Meera summons an agile and powerful Curseblade.",
+  "icon_url": "https://example.com/images/curseblade-meera.png",
+  "data": {
+    "FP_cost": 60,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Archer Ashes",
+  "slug": "archer_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirits of archers who belonged to the Fallen Hawks, a band of soldiers that once explored the Eternal City.",
+  "short_description": "Ashen remains in which spirits yet dwell. Use to summon three archer spirits.",
+  "icon_url": "https://example.com/images/archer-ashes.png",
+  "data": {
+    "FP_cost": 57,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Nomad Ashes",
+  "slug": "nomad_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "A member of a tribe that was entombed in the earth so as to bury the maddening disease that followed them.",
+  "short_description": "Ashen remains in which spirits yet dwell.",
+  "icon_url": "https://example.com/images/Nomad-Ashes.png",
+  "data": {
+    "FP_cost": 61,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Warhawk Ashes",
+  "slug": "warhawk_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirit of a Stormveil warhawk, the talons of which have been sliced off so that razor-fine swords could be grafted in their place.",
+  "short_description": "Use to summon the spirit of a warhawk.",
+  "icon_url": "https://example.com/images/Warhawk-Ashes.png",
+  "data": {
+    "FP_cost": 52,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Albinauric Ashes",
+  "slug": "albinauric_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "A strapping duo of cartwheeling spirits who wield ripple swords and spew freezing breath.",
+  "short_description": "Use to summon the spirits of two Albinaurics.",
+  "icon_url": "https://example.com/images/Albimauric-Ashes.png",
+  "data": {
+    "FP_cost": 53,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Giant Rat Ashes",
+  "slug": "giant_rat_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "The rat spirits appear at a distance from the summoner, swarming upon their victim to start the fight.",
+  "short_description": "Use to summon the spirits of three giant rats.",
+  "icon_url": "https://example.com/images/Giant-Rat-Ashes.png",
+  "data": {
+    "FP_cost": null,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Crystalian Ashes",
+  "slug": "crystalian_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirit that wields round crystalline blades, both big and small.",
+  "short_description": "Use to summon the spirit of a Crystalian.",
+  "icon_url": "https://example.com/images/Crystalian-Ashes.png",
+  "data": {
+    "FP_cost": 101,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Lone Wolf Ashes",
+  "slug": "lone_wolf_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirits of wolves chased from their pack. They later encountered a nameless Tarnished, who welcomed them as hunting companions.",
+  "short_description": "Use to summon the spirits of three lone wolves.",
+  "icon_url": "https://example.com/images/Lone-Wolf-Ashes.png",
+  "data": {
+    "FP_cost": 55,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Page Ashes",
+  "slug": "page_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirit of a page who traveled at the side of the noble he served.",
+  "short_description": "Use to summon the spirit of a page.",
+  "icon_url": "https://example.com/images/Page-Ashes.png",
+  "data": {
+    "FP_cost": 81,
+    "HP_cost": null
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "gameid": "Elden Ring",
+  "name": "Mausoleum Soldier Ashes",
+  "slug": "mausoleum_soldier_ashes",
+  "type": "spirit_ash",
+  "category": "spirit_ashes",
+  "description": "Spirits of five headless soldiers who confound foes by disappearing and reappearing at will.",
+  "short_description": "Use to summon the spirits of five mausoleum soldiers.",
+  "icon_url": "https://example.com/images/Mausoleum-Soldier-Ashes.png",
+  "data": {
+    "FP_cost": 75,
+    "HP_cost": null
+  },
+  "tags": []
+}

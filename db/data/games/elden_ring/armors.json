@@ -1,0 +1,635 @@
+{
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Gaius_Helm´s",
+  "slug": "gaius_helm´s",
+  "type": "armor",
+  "category": "helmets",
+  "description": "A helmet worn by Gaius, a legendary knight. Gaius was the most senior disciple of the Alabaster Lord.",
+  "short_description": "A helmet worn by Gaius, a legendary knight.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/gaiuss_helm_helm_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 6.1,
+      "vs_strike": 5.6,
+      "vs_slash": 7.2,
+      "vs_pierce": 7.0,
+      "magical": 5.0,
+      "fire": 4.9,
+      "lightning": 4.9,
+      "holy": 4.9
+    },
+    "resistance": {
+      "immunity": 29,
+      "robustness": 35,
+      "focus": 23,
+      "vitality": 23,
+      "poise": 12
+    },
+    "weight": 8.6
+  },
+  "tags": [],
+
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Oathseeker Knight Helm",
+  "slug": "oathseeker_knight_helm´s",
+  "type": "armor",
+  "category": "helmets",
+  "description": "An Oathseeker Knight helm. These knights set off on quests of discovery, hoping to find by themselves an oath of their own choosing to serve in perfect, lifelong devotion.",
+  "short_description": "An Oathseeker Knight helm. Black with gold ornamentation.",
+  "icon_url": "https://example.com/images/Oathseeker_knight-helm.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 4.4,
+      "vs_strike": 3.8,
+      "vs_slash": 4.2,
+      "vs_pierce": 4.0,
+      "magical": 3.6,
+      "fire": 3.4,
+      "lightning": 2.3,
+      "holy": 3.4
+    },
+    "resistance": {
+      "immunity": 12,
+      "robustness": 21,
+      "focus": 10,
+      "vitality": 9,
+      "poise": 7
+    },
+    "weight": 4.4
+  },
+  "tags": [],
+
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Verdigris Helm",
+  "slug": "verdigris_helm´s",
+  "type": "armor",
+  "category": "helmets",
+  "description": "Helm made from an unusual metal known as verdigris. Verdigris is said to be the gift of an outer god.",
+  "short_description": "Helm made from an unusual metal known as verdigris.",
+  "icon_url": "https://example.com/images/verdigris-helm.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 7.5,
+      "vs_strike": 6.4,
+      "vs_slash": 7.2,
+      "vs_pierce": 6.8,
+      "magical": 4.8,
+      "fire": 4.7,
+      "lightning": 5.2,
+      "holy": 4.7
+    },
+    "resistance": {
+      "immunity": 39,
+      "robustness": 46,
+      "focus": 15,
+      "vitality": 22,
+      "poise": 15
+    },
+    "weight": 11.1
+  },
+  "tags": [],
+
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Pelt of Ralva",
+  "slug": "pelt_of_ralva_helm´s",
+  "type": "armor",
+  "category": "helmets",
+  "description": "The pelt of Ralva the Great Red Bear, worn upon the head without modification.",
+  "short_description": "The pelt of Ralva the Great Red Bear.",
+  "icon_url": "https://example.com/images/pelt_of_ralva-helm.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 3.1,
+      "vs_strike": 3.4,
+      "vs_slash": 3.1,
+      "vs_pierce": 3.1,
+      "magical": 4.2,
+      "fire": 4.0,
+      "lightning": 4.5,
+      "holy": 4.0
+    },
+    "resistance": {
+      "immunity": 27,
+      "robustness": 23,
+      "focus": 22,
+      "vitality": 22,
+      "poise": 5
+    },
+    "weight": 3.6
+  },
+  "tags": [],
+
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Fang Helm",
+  "slug": "fang_helm´s",
+  "type": "armor",
+  "category": "helmets",
+  "description": "Helm of Red Bear, whose name is lost to madness. The cheek guards are shaped after lion fangs.",
+  "short_description": "Fang Helm is a piece of the Iron Rivet Set",
+  "icon_url": "https://example.com/images/fang-helm.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 2.3,
+      "vs_strike": 2.5,
+      "vs_slash": 2.3,
+      "vs_pierce": 2.3,
+      "magical": 3.6,
+      "fire": 3.4,
+      "lightning": 4.0,
+      "holy": 3.4
+    },
+    "resistance": {
+      "immunity": 23,
+      "robustness": 18,
+      "focus": 16,
+      "vitality": 16,
+      "poise": 4
+    },
+    "weight": 2.7
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Gaius's Armor",
+  "slug": "gaius's_armor",
+  "type": "armor",
+  "category": "Chest Armor",
+  "description": "Gaius was the most senior disciple of the same Alabaster Lord who taught Radahn and Gaea gravitational technique.",
+  "short_description": "The black iron chest armor of Commander Gaius.",
+  "icon_url": "https://example.com/images/gaius-chest-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 16.8,
+      "vs_strike": 15.7,
+      "vs_slash": 19.7,
+      "vs_pierce": 19.2,
+      "magical": 14.1,
+      "fire": 13.8,
+      "lightning": 13.8,
+      "holy": 13.8
+    },
+    "resistance": {
+      "immunity": 67,
+      "robustness": 83,
+      "focus": 55,
+      "vitality": 55,
+      "poise": 38
+    },
+    "weight": 20.1
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Oathseeker Knight Armor",
+  "slug": "oathseeker_knight_armor",
+  "type": "armor",
+  "category": "Chest Armor",
+  "description": "Oathseeker Knight chest armor. Black with gold ornamentation.",
+  "short_description": "Oathseeker Knight chest armor.",
+  "icon_url": "https://example.com/images/Oathseeker_knight-chest-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 12.2,
+      "vs_strike": 10.0,
+      "vs_slash": 11.7,
+      "vs_pierce": 11.2,
+      "magical": 9.5,
+      "fire": 9.5,
+      "lightning": 6.7,
+      "holy": 9.5
+    },
+    "resistance": {
+      "immunity": 25,
+      "robustness": 50,
+      "focus": 21,
+      "vitality": 21,
+      "poise": 19
+    },
+    "weight": 9.2
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Verdigris Armor",
+  "slug": "verdigris_armor",
+  "type": "armor",
+  "category": "Chest Armor",
+  "description": "Chest armor made from an unusual metal known as verdigris. Verdigris is said to be the gift of an outer god.",
+  "short_description": "Chest armor made from an unusual metal known as verdigris.",
+  "icon_url": "https://example.com/images/Verdegris-chest-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 20.4,
+      "vs_strike": 17.7,
+      "vs_slash": 19.7,
+      "vs_pierce": 18.7,
+      "magical": 13.5,
+      "fire": 13.5,
+      "lightning": 14.5,
+      "holy": 13.3
+    },
+    "resistance": {
+      "immunity": 82,
+      "robustness": 97,
+      "focus": 32,
+      "vitality": 45,
+      "poise": 47
+    },
+    "weight": 25.9
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Iron Rivet Armor",
+  "slug": "iron_rivet_armor",
+  "type": "armor",
+  "category": "Chest Armor",
+  "description": "Chest armor of Red Bear, whose name is lost to madness. A vest reinforced with iron rivets.",
+  "short_description": "Chest armor of Red Bear.",
+  "icon_url": "https://example.com/images/Iron_Rivet-chest-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 7.1,
+      "vs_strike": 8.0,
+      "vs_slash": 7.1,
+      "vs_pierce": 7.1,
+      "magical": 10.9,
+      "fire": 10.2,
+      "lightning": 11.9,
+      "holy": 10.2
+    },
+    "resistance": {
+      "immunity": 57,
+      "robustness": 46,
+      "focus": 42,
+      "vitality": 42,
+      "poise": 13
+    },
+    "weight": 7.1
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Finger Robe",
+  "slug": "finger_robe",
+  "type": "armor",
+  "category": "Chest Armor",
+  "description": "This robe is the image of his fervent desire having broken free, laying bare his greatest wish, and wearing it enhances finger sorceries.",
+  "short_description": "Robe of Count Ymir, High Priest.",
+  "icon_url": "https://example.com/images/Finger_Robe-chest-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 6.0,
+      "vs_strike": 6.6,
+      "vs_slash": 5.2,
+      "vs_pierce": 4.1,
+      "magical": 13.0,
+      "fire": 12.8,
+      "lightning": 12.6,
+      "holy": 12.8
+    },
+    "resistance": {
+      "immunity": 42,
+      "robustness": 21,
+      "focus": 64,
+      "vitality": 82,
+      "poise": 12
+    },
+    "weight": 5.1
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Rakshasa Gauntlets",
+  "slug": "rakshasa_gauntlets",
+  "type": "armor",
+  "category": "Gauntlets",
+  "description": "Gauntlets of Rakshasa, soaked in the spurting blood of her victims.",
+  "short_description": "Gauntlets of Rakshasa.",
+  "icon_url": "https://example.com/images/Rakshasa-gauntlets.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 1.3,
+      "vs_strike": 1.0,
+      "vs_slash": 1.6,
+      "vs_pierce": 1.4,
+      "magical": 0.9,
+      "fire": 1.2,
+      "lightning": 0.8,
+      "holy": 0.9
+    },
+    "resistance": {
+      "immunity": 12,
+      "robustness": 20,
+      "focus": 9,
+      "vitality": 9,
+      "poise": 6
+    },
+    "weight": 4.3
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Rellana's Gloves",
+  "slug": "rellana's_gloves",
+  "type": "armor",
+  "category": "Gauntlets",
+  "description": "Gloves of Rellana, the Twin Moon Knight, fashioned from quality leather.",
+  "short_description": "Gloves of Rellana.",
+  "icon_url": "https://example.com/images/gloves_of_rellana´s-gauntlets.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 3.3,
+      "vs_strike": 2.9,
+      "vs_slash": 3.5,
+      "vs_pierce": 3.2,
+      "magical": 3.1,
+      "fire": 2.9,
+      "lightning": 2.3,
+      "holy": 2.7
+    },
+    "resistance": {
+      "immunity": 12,
+      "robustness": 19,
+      "focus": 8,
+      "vitality": 8,
+      "poise": 5
+    },
+    "weight": 3.9
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Astrologer Gloves",
+  "slug": "astrologer_gloves",
+  "type": "armor",
+  "category": "Gauntlets",
+  "description": "Worn by those who look to the cosmos above. They read fate in the stars, and are said to be heirs of the glintstone sorcerers.",
+  "short_description": "Gloves fashioned from fine, supple cloth.",
+  "icon_url": "https://example.com/images/Astrologer_gloves-gauntlets.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 1.3,
+      "vs_strike": 1.0,
+      "vs_slash": 1.0,
+      "vs_pierce": 1.0,
+      "magical": 3.2,
+      "fire": 3.1,
+      "lightning": 3.2,
+      "holy": 3.1
+    },
+    "resistance": {
+      "immunity": 14,
+      "robustness": 7,
+      "focus": 24,
+      "vitality": 21,
+      "poise": 2
+    },
+    "weight": 1.4
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "High Priest Gloves",
+  "slug": "high_priest_gloves",
+  "type": "armor",
+  "category": "Gauntlets",
+  "description": "Gloves of Count Ymir, High Priest. Soft and well-tailored.",
+  "short_description": "Gloves of Count Ymir, High Priest.",
+  "icon_url": "https://example.com/images/High_Priest_gloves-gauntlets.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 1.3,
+      "vs_strike": 1.5,
+      "vs_slash": 1.0,
+      "vs_pierce": 0.6,
+      "magical": 3.2,
+      "fire": 3.1,
+      "lightning": 3.1,
+      "holy": 3.1
+    },
+    "resistance": {
+      "immunity": 14,
+      "robustness": 8,
+      "focus": 21,
+      "vitality": 25,
+      "poise": 2
+    },
+    "weight": 1.4
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Verdigris Gauntlets",
+  "slug": "verdigris_gauntlets",
+  "type": "armor",
+  "category": "Gauntlets",
+  "description": " Verdigris is said to be the gift of an outer god. Possessed of an enormously hefty yet supple strength thanks to its rusted nature.",
+  "short_description": "Gauntlets made from an unusual metal known as verdigris.",
+  "icon_url": "https://example.com/images/Verdigris-gauntlets.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 5.2,
+      "vs_strike": 4.5,
+      "vs_slash": 5.0,
+      "vs_pierce": 4.7,
+      "magical": 3.3,
+      "fire": 3.3,
+      "lightning": 3.6,
+      "holy": 3.3
+    },
+    "resistance": {
+      "immunity": 30,
+      "robustness": 36,
+      "focus": 12,
+      "vitality": 17,
+      "poise": 10
+    },
+    "weight": 8.6
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Soiled Loincloth",
+  "slug": "soiled_loincloth",
+  "type": "armor",
+  "category": "Leg Armor",
+  "description": " This lightly soiled loincloth of ragged cloth does little more than conceal one's nether regions.",
+  "short_description": "It's a dirty rag that barely covers the essentials. That's it.",
+  "icon_url": "https://example.com/images/Soiled_Loincloth-leg-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 2.3,
+      "vs_strike": 1.5,
+      "vs_slash": 1.5,
+      "vs_pierce": 0.3,
+      "magical": 7.1,
+      "fire": 5.8,
+      "lightning": 6.5,
+      "holy": 7.3
+    },
+    "resistance": {
+      "immunity": 22,
+      "robustness": 8,
+      "focus": 62,
+      "vitality": 35,
+      "poise": 2
+    },
+    "weight": 1.5
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Bandit Boots",
+  "slug": "bandit-boots",
+  "type": "armor",
+  "category": "Leg Armor",
+  "description": "Light for ease of movement, and supple for masking sound. In this trade, they offer little damage negation.",
+  "short_description": "Leather boots worn by bandits.",
+  "icon_url": "https://example.com/images/Bandit_Boots-leg-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 4,
+      "vs_strike": 4.5,
+      "vs_slash": 5,
+      "vs_pierce": 5,
+      "magical": 5.4,
+      "fire": 5.4,
+      "lightning": 5.8,
+      "holy": 5
+    },
+    "resistance": {
+      "immunity": 34,
+      "robustness": 20,
+      "focus": 35,
+      "vitality": 35,
+      "poise": 8
+    },
+    "weight": 4.4
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Briar Greaves",
+  "slug": "briar_greaves",
+  "type": "armor",
+  "category": "Leg Armor",
+  "description": "The winding, rusted iron briars are a mark of the guilty, and typically indicate a sentence of death.",
+  "short_description": "Battered iron greaves from a foreign land. Worn by Elemer of the Briar. ",
+  "icon_url": "https://example.com/images/Briar_Greaves-leg-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 7.4,
+      "vs_strike": 6.5,
+      "vs_slash": 7.7,
+      "vs_pierce": 7.1,
+      "magical": 6.2,
+      "fire": 7.1,
+      "lightning": 5,
+      "holy": 6.2
+    },
+    "resistance": {
+      "immunity": 22,
+      "robustness": 44,
+      "focus": 15,
+      "vitality": 15,
+      "poise": 12
+    },
+    "weight": 7.3
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Champion Gaiters",
+  "slug": "champion_gaiters",
+  "type": "armor",
+  "category": "Leg Armor",
+  "description": "Gaiters formed only with leather straps. Common wear in the badlands.",
+  "short_description": "Leather strap leggings, typical clothing from the badlands.",
+  "icon_url": "https://example.com/images/Champion_Gaiters-leg-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 3.8,
+      "vs_strike": 5,
+      "vs_slash": 4,
+      "vs_pierce": 4.5,
+      "magical": 4.5,
+      "fire": 5.4,
+      "lightning": 5.8,
+      "holy": 5.4
+    },
+    "resistance": {
+      "immunity": 31,
+      "robustness": 20,
+      "focus": 26,
+      "vitality": 24,
+      "poise": 4
+    },
+    "weight": 3.9
+  },
+  "tags": [],
+
+  "id": "123e456-e89b-12d3-a456-426614174000",
+  "game_id": "Elden_Ring",
+  "name": "Page Trousers",
+  "slug": "page_trousers",
+  "type": "armor",
+  "category": "Leg Armor",
+  "description": "Trousers worn by pages who serve nobility and are mindful to keep them out of harm's way. ",
+  "short_description": "Trousers worn by noble servants, designed to keep them safe.",
+  "icon_url": "https://example.com/images/Page_Trousers-leg-armor.png",
+  "data": {
+    "dmg_negation": {
+      "physical": 3.4,
+      "vs_strike": 3,
+      "vs_slash": 2.3,
+      "vs_pierce": 2.3,
+      "magical": 7.2,
+      "fire": 7.1,
+      "lightning": 7.3,
+      "holy": 7.3
+    },
+    "resistance": {
+      "immunity": 24,
+      "robustness": 13,
+      "focus": 44,
+      "vitality": 44,
+      "poise": 5
+    },
+    "weight": 2.5
+  },
+  "tags": []
+}
+
+
+
+
+
+
+
+
+
+
