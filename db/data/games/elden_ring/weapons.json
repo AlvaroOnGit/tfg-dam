@@ -1,0 +1,1308 @@
+[
+{"id": "straightsword1",
+  "gameid": "Elden_ring",
+  "name": "sword of light",
+  "slug": "sword-of-light",
+  "type": "weapon",
+  "category": "straight_swords",
+  "description": "A legendary sword imbued with the power of light, use to vanquish darkness and strike down foes with radiant energy.",
+  "short_description": "A legendary sword imbued with the power of light.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sword_of_light_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 93, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 93,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 26,
+      "magical": 15,
+      "fire": 15,
+      "lightning": 15,
+      "holy": 42,
+      "boost": 31
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "E",
+      "faith": "E"
+    },
+
+    "requires": {
+      "strength": 14,
+      "dexterity": 11,
+      "faith": 24
+    },
+    "weight": 4.0  
+  },
+  
+  "tags": [ ]
+},
+
+{ "Id": "axe1",
+  "gameid": "Elden_ring",
+  "name": "Hand Axe",
+  "slug": "hand-axe",
+  "type": "weapon",
+  "category": "axes",
+  "description": "Commonly known as a hatchet, this smaller variety of axe is an everyday work tool.Despite its short reach, it is easy to handle.",
+  "short_description": "A common work tool that is easy to handle.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/hand_axe_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 117, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 42,
+      "magical": 28,
+      "fire": 28,
+      "lightning": 28,
+      "holy": 28,
+      "boost": 28
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+      "strength": 9,
+      "dexterity": 8
+    },
+    "weight": 3.5  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "Ballista1",
+  "gameid": "Elden_ring",
+  "name": "Hand Ballista",
+  "slug": "hand-ballista",
+  "type": "weapon",
+  "category": "ballistas",
+  "description": "An unconventional ballistic device modeled on a weapon used to besiege castles. Perfect for reckless acts.",
+  "short_description": "An unconventional ballistic device perfect for reckless acts.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/hand_ballista_ballista_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 135, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100,
+      "range": 50
+      },
+      
+    "guard": { 
+      "physical": 0,
+      "magical": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "boost": 0
+    },
+
+    "requires": {
+      "strength": 30,
+      "dexterity": 14
+    },
+    "weight": 10.0  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "backhandblade1",
+  "gameid": "Elden_ring",
+  "name": "Backhand Blade",
+  "slug": "backhand-blade",
+  "type": "weapon",
+  "category": "backhand_blades",
+  "description": "Curved blade wielded with a backhand grip. A type of weapon wielded by hornsent for generations.",
+  "short_description": "A curved blade wielded with a backhand grip.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/backhand_blade_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 105, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 40,
+      "magical": 30,
+      "fire": 30,
+      "lightning": 30,
+      "holy": 30,
+      "boost": 15
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+      "strength": 10,
+      "dexterity": 13
+    },
+    "weight": 2.0  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "beastclaw1",
+  "gameid": "Elden_ring",
+  "name": "Beast claw",
+  "slug": "beast_claw",
+  "type": "weapon",
+  "category": "beast_claws",
+  "description": "Weapon in the form of a carnivorous beast's vicious claws. Used to perform bestial slashing attacks uncanny to humankind.",
+  "short_description": "A weapon in the form of a beast's claws.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/beast_claw_beast_claws_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 98, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 35,
+      "magical": 20,
+      "fire": 20,
+      "lightning": 20,
+      "holy": 20,
+      "boost": 20
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+      "strength": 13,
+      "dexterity": 11
+    },
+    "weight": 3.0  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "Bow1",
+  "gameid": "Elden_ring",
+  "name": "Horn Bow",
+  "slug": "horn-bow",
+  "type": "weapon",
+  "category": "bows",
+  "description": "Longbow made from animal horn. Wielded by the master hunters of the ancestral followers. ",
+  "short_description": "A longbow made from animal horn.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/horn_bow_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 65, 
+      "magical": 30, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100,
+      "range": 50
+      },
+      
+    "guard": { 
+      "physical": null,
+      "magical": null,
+      "fire": null,
+      "lightning": null,
+      "holy": null,
+      "boost": null
+    },
+
+    "scaling": {
+      "strength": "E",
+      "dexterity": "D",
+      "intelligence": "E"
+    },
+
+    "requires": {
+      "strength": 10,
+      "dexterity": 14,
+      "intelligence": 12
+    },
+    "weight": 4.5  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "claws1",
+  "gameid": "Elden_ring",
+  "name": "Hookclaws",
+  "slug": "hookclaws",
+  "type": "weapon",
+  "category": "claws",
+  "description": "Weapon worn on the fist comprised of sharp parallel blades favored by those who lurk in the dark. Lacerations cause blood loss with great effect. ",
+  "short_description": "A weapon worn on the fist comprised of sharp parallel blades.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/hookclaws_claw_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 93, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 110
+      },
+      
+    "guard": { 
+      "physical": 35,
+      "magical": 20,
+      "fire": 20,
+      "lightning": 20,
+      "holy": 20,
+      "boost": 20
+    },
+
+    "scaling": {
+      "strength": "E",
+      "dexterity": "C"
+    },
+
+    "requires": {
+      "strength": 8,
+      "dexterity": 14
+    },
+    "weight": 2.0  
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "colossalsword1",
+  "gameid": "Elden_ring",
+  "name": "Royal Greatsword",
+  "slug": "Royal_greatsword",
+  "type": "weapon",
+  "category": "colossal_swords",
+  "description": "Greatsword decorated in royal Carian Style. Favored weapon of Blaidd the Half-Wolf.",
+  "short_description": "A greatsword decorated in royal Carian Style.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/royal_greatsword__colossal_swords_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 112, 
+      "magical": 134, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 71,
+      "magical": 63,
+      "fire": 44,
+      "lightning": 44,
+      "holy": 44,
+      "boost": 52
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "E",
+      "intelligence": "D"
+    },
+
+    "requires": {
+      "strength": 26,
+      "dexterity": 18,
+      "intelligence": 22
+    },
+
+    "weight": 20.0
+  },
+  
+  "tags": [ ]
+},
+
+{ "id": "colossalweapon1",
+  "gameid": "Elden_ring",
+  "name": "Anvil Hammer",
+  "slug": "anvil-hammer",
+  "type": "weapon",
+  "category": "colossal_weapons",
+  "description": "One of the treasures of the ruined forges. A tremendous hammer that incorporates as its head the red-hot anvil of the forge.",
+  "short_description": "A tremendous hammer that incorporates as its head the red-hot anvil of the forge.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/anvil_hammer_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 131, 
+      "magical": 0, 
+      "fire": 85,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 80,
+      "magical": 43,
+      "fire": 59,
+      "lightning": 43,
+      "holy": 41,
+      "boost": 53
+    },
+
+    "scaling": {
+      "strength": "C",
+      "dexterity": "E",
+      "intelligence": "E",
+      "faith": "D"
+    },
+
+    "requires": {
+       "strength": 39,
+       "dexterity": 10,
+        "intelligence": 11,
+        "faith": 20
+    },
+    "weight": 22.0
+  },
+
+  "tags": [ ]
+},
+
+{ "id": "crossbow1",
+  "gameid": "Elden_ring",
+  "name": "Light Crossbow",
+  "slug": "light-crossbow",
+  "type": "weapon",
+  "category": "crossbows",
+  "description": "Ranged weapon made from a bow fixed to a stock. Deals good damage and is simple to use, but requires reloading after firing.",
+  "short_description": "A ranged weapon made from a bow fixed to a stock.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/light_crossbow_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 58, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100,
+      "range": 42
+      },
+      
+    "guard": { 
+      "physical": null,
+      "magical": null,
+      "fire": null,
+      "lightning": null,
+      "holy": null,
+      "boost": null
+    },
+
+    "requires": {
+       "strength": 12,
+       "dexterity": 8
+    },
+
+    "weight": 4.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "curvedgreatsword1",
+  "gameid": "Elden_ring",
+  "name": "Dismounter",
+  "slug": "dismounter",
+  "type": "weapon",
+  "category": "curved_greatswords",
+  "description": "This curved greatsword wielded by the brawny sellswords of Kaiden combines the blades of a scimitar with the heft of a hatchet.",
+  "short_description": "This curved greatsword combines the blades of a scimitar with the heft of a hatchet.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dismounter_curved_greatsword_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 138, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 65,
+      "magical": 35,
+      "fire": 35,
+      "lightning": 35,
+      "holy":  35,
+      "boost": 42
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+       "strength": 19,
+       "dexterity": 16
+    },
+
+    "weight": 10.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "curvedsword1",
+  "gameid": "Elden_ring",
+  "name": "spirit sword",
+  "slug": "spirit_sword",
+  "type": "weapon",
+  "category": "curved_swords",
+  "description": "Sharp blade sculpted into a twisted shape. A sword that has seen many years of use in the gravesite.",
+  "short_description": "A sharp blade sculpted into a twisted shape.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spirit_sword_1_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 92, 
+      "magical": 59, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 38,
+      "magical": 38,
+      "fire": 26,
+      "lightning": 26,
+      "holy": 26,
+      "boost": 19
+    },
+
+    "scaling": {
+      "strength": "E",
+      "dexterity": "D",
+      "intelligence": "D"
+    },
+
+    "requires": {
+      "strength": 8,
+      "dexterity": 16,
+      "intelligence": 16
+    },
+
+    "weight": 2.5  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "dagger1",
+  "gameid": "Elden_ring",
+  "name": "great knife",
+  "slug": "great_knife",
+  "type": "weapon",
+  "category": "daggers",
+  "description": "Large knife with a broad, curved blade. This weapon is designed to slash and rend.",
+  "short_description": "A large knife with a broad, curved blade.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/great_knife_dagger_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 75, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 110
+      },
+      
+    "guard": { 
+      "physical": 35,
+      "magical": 20,
+      "fire": 20,
+      "lightning": 20,
+      "holy": 20,
+      "boost": 15
+    },
+
+    "scaling": {
+      "strength": "E",
+      "dexterity": "C"
+    },
+
+    "requires": {
+      "strength": 6,
+      "dexterity": 12
+    },
+
+    "weight": 1.5  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "fist1",
+  "gameid": "Elden_ring",
+  "name": "Golem fist",
+  "slug": "golem_fist",
+  "type": "weapon",
+  "category": "fists",
+  "description": "A giant fist of fractured rock. Taken from the body of a golem of the ruined forges.",
+  "short_description": "A giant fist of fractured rock.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/golem_fist_fist_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 110, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 58,
+      "magical": 24,
+      "fire": 24,
+      "lightning": 24,
+      "holy": 24,
+      "boost": 36
+    },
+
+    "scaling": {
+      "strength": "C",
+      "dexterity": "E",
+      "intelligence": "E",
+      "faith": "E"
+    },
+
+    "requires": {
+      "strength": 24,
+      "dexterity": 8,
+      "intelligence": 11,
+      "faith": 11
+    },
+
+    "weight": 5.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "flail1",
+  "gameid": "Elden_ring",
+  "name": "Nightrider Flail",
+  "slug": "nightrider_flail",
+  "type": "weapon",
+  "category": "flails",
+  "description": "A flail with two additional bludgeoning heads. Weapon of the Night's Cavalry who ride funeral steeds.",
+  "short_description": "A flail with two additional bludgeoning heads.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/nightrider_flail_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 115, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 37,
+      "magical": 25,
+      "fire": 25,
+      "lightning": 25,
+      "holy": 25,
+      "boost": 21
+    },
+
+    "scaling": {
+      "strength": "E",
+      "dexterity": "C"
+    },
+
+    "requires": {
+       "strength": 10,
+       "dexterity": 24
+    },
+
+    "weight": 6.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "glinstonestaff1",
+  "gameid": "Elden_ring",
+  "name": "Academy glinstone Staff",
+  "slug": "academy_glinstone_staff",
+  "type": "weapon",
+  "category": "glinstone_staffs",
+  "description": "Staff of the Academy of Raya Lucaria, embedded with a turquoise glintstone.",
+  "short_description": "A staff of the Academy of Raya Lucaria.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/academy_glintstone_staff_glintstonestaff_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 25, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100,
+      "sorcery": 130
+      },
+      
+    "guard": { 
+      "physical": 25,
+      "magical": 15,
+      "fire": 15,
+      "lightning": 15,
+      "holy": 15,
+      "boost": 15
+    },
+
+    "scaling": {
+      "strength": "E",
+      "intelligence": "B"
+    },
+
+    "requires": {
+       "strength": 6,
+       "intelligence": 28
+    },
+
+    "weight": 3.0  
+  },
+  
+  "tags": [ ]
+  
+},
+
+{ "id": "greathammer1",
+  "gameid": "Elden_ring",
+  "name": "Black steel greathammer",
+  "slug": "black_steel_greathammer",
+  "type": "weapon",
+  "category": "great_hammers",
+  "description": "Greathammer of black steel with decorative embellishments in gold. Blessed with an Erdtree incantation. ",
+  "short_description": "A greathammer of black steel with decorative embellishments in gold.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_steel_greathammer_great_hammer_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 140, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 42,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 72,
+      "magical": 38,
+      "fire": 38,
+      "lightning": 38,
+      "holy": 45,
+      "boost": 47
+    },
+
+    "scaling": {
+      "strength": "C",
+      "dexterity": "E",
+      "faith": "D"
+    },
+
+    "requires": {
+      "strength": 25,
+      "dexterity": 11,
+      "faith": 17
+    },
+    "weight": 12.0
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "greatkatana1",
+  "gameid": "Elden_ring",
+  "name": "Great katana",
+  "slug": "great_katana",
+  "type": "weapon",
+  "category": "great_katanas",
+  "description": "Large katana with a long, heavy blade. A weapon unique to warriors of the Land of Reeds.",
+  "short_description": "A large katana with a long, heavy blade.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/great_katana_great_katana_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 145, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 60,
+      "magical": 30,
+      "fire": 30,
+      "lightning": 30,
+      "holy": 30,
+      "boost": 35
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+       "strength": 14,
+       "dexterity": 18
+    },
+
+    "weight": 9.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "greatspear1",
+  "gameid": "Elden_ring",
+  "name": "Lance",
+  "slug": "lance",
+  "type": "weapon",
+  "category": "great_spears",
+  "description": "Considered a type of greatspear, this weapon has no blade, but instead features a long, conical body designed to pierce.",
+  "short_description": "A weapon with no blade, designed to pierce.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/lance_greatspear_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 123, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 57,
+      "magical": 36,
+      "fire": 36,
+      "lightning": 36,
+      "holy": 36,
+      "boost": 44
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+      "strength": 20,
+      "dexterity": 14
+    },
+
+    "weight": 9.0  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "greataxe1",
+  "gameid": "Elden_ring",
+  "name": "Crescent moon axe",
+  "slug": "crescent_moon_axe",
+  "type": "weapon",
+  "category": "great_axes",
+  "description": "Greataxe with a large, arcing blade and long handle. The \"Crescent Moon\" of its name is said to have been spurred by nostalgia.",
+  "short_description": "A greataxe with a large, arcing blade and long handle.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crescent_moon_axe_greataxe_weapon_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "attack":{
+      "physical": 146, 
+      "magical": 0, 
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0,
+      "critical": 100
+      },
+      
+    "guard": { 
+      "physical": 68,
+      "magical": 36,
+      "fire": 36,
+      "lightning": 36,
+      "holy": 36,
+      "boost": 44
+    },
+
+    "scaling": {
+      "strength": "D",
+      "dexterity": "D"
+    },
+
+    "requires": {
+      "strength": 25,
+      "dexterity": 15
+    },
+
+    "weight": 12.5  
+  },
+  
+  "tags": [ ]
+
+},
+
+{ "id": "talisman1",
+  "gameid": "Elden_ring",
+  "name": "Crimson Amber Medallion",
+  "slug": "crimson_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with crimson amber inlaid. Raises maximum HP.",
+  "short_description": "A medallion that raises maximum HP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crimson_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Increases maximum HP by 6%.",
+    "weight": 0.3
+  },
+  "tags": []
+ 
+},
+
+{ "id": "talisman2",
+  "gameid": "Elden_ring",
+  "name": "Crimson seed talisman",
+  "slug": "crimson_seed_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A crimson-colored talisman patterned after an Erdtree seed. Boosts HP restoration from the Flask of Crimson Tears.",
+  "short_description": "A talisman that boosts HP restoration from the Flask of Crimson Tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/crimson_seed_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Boosts HP restoration from the Flask of Crimson Tears by 20%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{"id": "talisman3",
+  "gameid": "Elden_ring",
+  "name": "Blessed Dew Talisman",
+  "slug": "blessed_dew_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting a drop of the Erdtree's sap, a blessed boon. Gradually restores HP.",
+  "short_description": "A talisman that gradually restores HP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/blessed_dew_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Restores 2 HP/sec",
+    "weight": 0.6
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman4",
+  "gameid": "Elden_ring",
+  "name": "Cerulean Amber Medallion",
+  "slug": "cerulean_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with cerulean amber inlaid. Raises maximum FP.",
+  "short_description": "A medallion that raises maximum FP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/cerulean_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum FP by 7%.",
+    "weight": 0.3
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman5",
+  "gameid": "Elden_ring",
+  "name": "Cerulean seed Talisman",
+  "slug": "cerulean_seed_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A cerulean-colored talisman patterned after an Erdtree seed. Boosts FP restoration from the Flask of Cerulean Tears.",
+  "short_description": "A talisman that boosts FP restoration from the Flask of Cerulean Tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/cerulean_seed_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Boosts FP restoration from the Flask of Cerulean Tears by 20%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman6",
+  "gameid": "Elden_ring",
+  "name": "Blessed blue dew Talisman",
+  "slug": "blessed_blue_dew_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree. Gradually restores FP.",
+  "short_description": "A talisman that gradually restores FP.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/blessed_blue_dew_talisman_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Slowly restores FP",
+    "weight": 1.2
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman7",
+  "gameid": "Elden_ring",
+  "name": "Talisman of Lords' Bestowal",
+  "slug": "talisman_of_lords_bestowal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap. Increases poise after using a flask of tears.",
+  "short_description": "A talisman that increases poise after using a flask of tears.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/talisman_of_lords_bestowal_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Increases poise after using a flask of tears",
+    "weight": 3.0
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman8",
+  "gameid": "Elden_ring",
+  "name": "Viridian Amber Medallion",
+  "slug": "viridian_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with viridian amber inlaid. Raises maximum stamina.",
+  "short_description": "A medallion that raises maximum stamina.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/viridian_amber_medallion_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum stamina by 11%",
+    "weight": 0.3
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman9",
+  "gameid": "Elden_ring",
+  "name": "Green turtle Talisman",
+  "slug": "green_turtle_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a green turtle. Raises stamina recovery speed.",
+  "short_description": "A talisman that raises stamina recovery speed.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/green_turtle_talisman_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises stamina recovery speed by 17.7%",
+    "weight": 0.7
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman10",
+  "gameid": "Elden_ring",
+  "name": "Great-Jar's Arsenal",
+  "slug": "great_jar_arsenal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A charm that resembles a great jar overflowing with weaponry.Vastly boosts maximum equipment load.",
+  "short_description": "A talisman that vastly boosts maximum equipment load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/great-jars_arsenal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Vastly boosts maximum equipment load by 19%",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman11",
+  "gameid": "Elden_ring",
+  "name": "Two-headed turtle Talisman",
+  "slug": "two-headed_turtle_talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a two-headed green turtle. Greatly raises stamina recovery speed.",
+  "short_description": "A talisman that greatly raises stamina recovery speed.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/two-headed_turtle_talisman_talisman_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "effect": "Greatly raises stamina recovery speed by 22.5%",
+    "weight": 1.0
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman12",
+  "gameid": "Elden_ring",
+  "name": "Arsenal charm",
+  "slug": "arsenal_charm",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An iron charm that resembles a mass of weaponry.Boosts maximum equipment load.",
+  "short_description": "A talisman that boosts maximum equipment load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/arsenal_charm_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum Equip Load by 15/17%",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman13",
+  "gameid": "Elden_ring",
+  "name": "Erdtree's Favor",
+  "slug": "erdtree_favor",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting a special blessing of the Erdtree. Slightly raises maximum HP, stamina, and equip load.",
+  "short_description": "A talisman that slightly raises maximum HP, stamina, and equip load.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/erdtrees_favor_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises maximum HP (3%), Stamina (7%), and Equip Load (5%)",
+    "weight": 1.5
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman14",
+  "gameid": "Elden_ring",
+  "name": "Radagon's Scarseal",
+  "slug": "radagons_scarseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radagons_scarseal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises Vigor, Endurance, Strength, and Dexterity by 3, but increases damage taken by 10%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{ "id": "talisman15",
+  "gameid": "Elden_ring",
+  "name": "Radagon's Soreseal",
+  "slug": "radagons_soreseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radagons_%20soreseal_talisman_elden_ring_wiki_guide_200px.png",
+  "data": {
+    "effect": "Raises  Vigor,  Endurance,  Strength, and  Dexterity by 5 each, but increases damage taken by 15%",
+    "weight": 0.8
+  },
+  "tags": []
+
+},
+
+{ "id": "ashofwar1",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Dryleaf Whirlwind",
+  "slug": "ash_of_war_dryleaf_whirlwind",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "It is a brand-new Ash of War in the Shadow of the Erdtree DLC. An ash of war that allows the user to perform a powerful whirlwind attack.",
+  "short_description": "An ash of war that allows the user to perform a powerful whirlwind attack.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_dryleaf_whirlwind_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Dryleaf Whirlwind: This skill represents the pinnacle of Dane's footwork-based martial artistry. Rise into the air with a series of spinning kicks before crashing down with one final strike. Imbues kicking attacks with energy, increasing their range."
+  },
+  "tags": []
+ 
+},
+
+{ "id": "ashofwar2",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: aspects of the crucible: wings",
+  "slug": "ash_of_war_aspects_of_the_crucible_wings",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Sacred affinity and the following skill: Aspects of the Crucible (Wings).",
+  "short_description": "This Ash of War grants the skill: Aspects of the Crucible (Wings).",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_aspects_of_the_crucible_wings_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Aspects of the Crucible (Wings): This skill originates from the lifeforms of the Crucible. Grow a golden pair of wings and take to the air before diving down at the foe, weapon first. A spinning attack is performed when wielding a twinblade."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar3",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Spinning Gravity Thrust",
+  "slug": "ash_of_war_spinning_gravity_thrust",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Heavy affinity and the following skill: Spinning Gravity Thrust.",
+  "short_description": "This Ash of War grants the skill: Spinning Gravity Thrust.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_spinning_gravity_thrust_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Spinning Gravity Thrust: A gravity skill honed by the disciples of an Alabaster Lord. Uses gravitational power to hang in the air before rotating the body and charging forward. An additional input allows for a follow-up attack."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar4",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Palm Blast",
+  "slug": "ash_of_war_palm_blast",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants no affinity to an armament, but imparts the following skill: Palm Blast.",
+  "short_description": "This Ash of War grants the skill: Palm Blast.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_palm_blast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Palm Blast: Skill of the spiritual seekers known as the Dryleaf Sect. Imbues hand with energy before using a palm strike to unleash an explosive blast. The already formidable power and impact can be bolstered by charging the attack."
+  },
+  "tags": []
+
+},
+
+{ "id": "ashofwar5",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Piercing Throw",
+  "slug": "ash_of_war_piercing_throw",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Piercing Throw.",
+  "short_description": "This Ash of War grants the skill: Piercing Throw.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_piercing_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Piercing Throw: Throw armament with a powerful spin, causing it to bore through foes. When using this skill, the armament can be thrown further than normal and also pierce through enemies."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar6",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Scattershot Throw",
+  "slug": "ash_of_war_scattershot_throw",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Scattershot Throw.",
+  "short_description": "This Ash of War grants the skill: Scattershot Throw.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_scattershot_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Scattershot Throw: Employ smithing arts to conjure multiple copies of the armament in both hands and throw them all at once. Follow up with an additional input to throw again."
+  },
+  "tags": []
+
+},
+
+{ "id": "ashofwar7",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Raging Beast",
+  "slug": "ash_of_war_raging_beast",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Raging Beast.",
+  "short_description": "This Ash of War grants the skill: Raging Beast.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_raging_beast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Raging Beast: Step with the swiftness of a beast, leap high, and slash foe from above. Initial step can be taken forward, backward, left, or right. Strong attack allows for a follow-up attack."
+    },
+  "tags": []
+
+},
+
+{ "id": "ashofwar8",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Savage Claws",
+  "slug": "ash_of_war_savage_claws",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Savage Claws.",
+  "short_description": "This Ash of War grants the skill: Savage Claws.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_savage_claws_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Savage Claws: Pounce like a beast to viciously slash into foe with left and right claws."
+    },
+  "tags": []
+
+},
+
+{ "id": "ashofwar9",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Swift Slash",
+  "slug": "ash_of_war_swift_slash",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Swift Slash.",
+  "short_description": "This Ash of War grants the skill: Swift Slash.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_swift_slash_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Swift Slash: A skill passed down amongst hornsent swordsmen. Take a swift forward step to slice through foes. This sharp strike also fires off a shearing vacuum. Can be charged to increase the skill's power and the distance of the forward step."
+    },
+   "tags": []
+
+},
+
+{ "id": "ashofwar10",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Overhead Stance",
+  "slug": "ash_of_war_overhead_stance",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Overhead Stance.",
+  "short_description": "This Ash of War grants the skill: Overhead Stance.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_overhead_stance_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Overhead Stance: A skill that starts with the blade held high in a ready stance. Execute a normal attack from this stance to step forward and slash downwards, or a strong attack to deliver a series of downward slashes."
+   },
+   "tags": []
+
+}
+
+]
