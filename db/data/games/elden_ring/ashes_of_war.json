@@ -1,1 +1,159 @@
+[
+{ "id": "ashofwar1",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Dryleaf Whirlwind",
+  "slug": "ash_of_war_dryleaf_whirlwind",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "It is a brand-new Ash of War in the Shadow of the Erdtree DLC. An ash of war that allows the user to perform a powerful whirlwind attack.",
+  "short_description": "An ash of war that allows the user to perform a powerful whirlwind attack.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_dryleaf_whirlwind_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Dryleaf Whirlwind: This skill represents the pinnacle of Dane's footwork-based martial artistry. Rise into the air with a series of spinning kicks before crashing down with one final strike. Imbues kicking attacks with energy, increasing their range."
+  },
+  "tags": []
+ 
+},
 
+{ "id": "ashofwar2",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: aspects of the crucible: wings",
+  "slug": "ash_of_war_aspects_of_the_crucible_wings",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Sacred affinity and the following skill: Aspects of the Crucible (Wings).",
+  "short_description": "This Ash of War grants the skill: Aspects of the Crucible (Wings).",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_aspects_of_the_crucible_wings_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Aspects of the Crucible (Wings): This skill originates from the lifeforms of the Crucible. Grow a golden pair of wings and take to the air before diving down at the foe, weapon first. A spinning attack is performed when wielding a twinblade."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar3",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Spinning Gravity Thrust",
+  "slug": "ash_of_war_spinning_gravity_thrust",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Heavy affinity and the following skill: Spinning Gravity Thrust.",
+  "short_description": "This Ash of War grants the skill: Spinning Gravity Thrust.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_spinning_gravity_thrust_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Spinning Gravity Thrust: A gravity skill honed by the disciples of an Alabaster Lord. Uses gravitational power to hang in the air before rotating the body and charging forward. An additional input allows for a follow-up attack."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar4",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Palm Blast",
+  "slug": "ash_of_war_palm_blast",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants no affinity to an armament, but imparts the following skill: Palm Blast.",
+  "short_description": "This Ash of War grants the skill: Palm Blast.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_palm_blast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Palm Blast: Skill of the spiritual seekers known as the Dryleaf Sect. Imbues hand with energy before using a palm strike to unleash an explosive blast. The already formidable power and impact can be bolstered by charging the attack."
+  },
+  "tags": []
+
+},
+
+{ "id": "ashofwar5",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Piercing Throw",
+  "slug": "ash_of_war_piercing_throw",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Piercing Throw.",
+  "short_description": "This Ash of War grants the skill: Piercing Throw.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_piercing_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Piercing Throw: Throw armament with a powerful spin, causing it to bore through foes. When using this skill, the armament can be thrown further than normal and also pierce through enemies."
+  },
+  "tags": []
+},
+
+{ "id": "ashofwar6",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Scattershot Throw",
+  "slug": "ash_of_war_scattershot_throw",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Scattershot Throw.",
+  "short_description": "This Ash of War grants the skill: Scattershot Throw.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_scattershot_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Scattershot Throw: Employ smithing arts to conjure multiple copies of the armament in both hands and throw them all at once. Follow up with an additional input to throw again."
+  },
+  "tags": []
+
+},
+
+{ "id": "ashofwar7",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Raging Beast",
+  "slug": "ash_of_war_raging_beast",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Raging Beast.",
+  "short_description": "This Ash of War grants the skill: Raging Beast.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_raging_beast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Raging Beast: Step with the swiftness of a beast, leap high, and slash foe from above. Initial step can be taken forward, backward, left, or right. Strong attack allows for a follow-up attack."
+    },
+  "tags": []
+
+},
+
+{ "id": "ashofwar8",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Savage Claws",
+  "slug": "ash_of_war_savage_claws",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Savage Claws.",
+  "short_description": "This Ash of War grants the skill: Savage Claws.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_savage_claws_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Savage Claws: Pounce like a beast to viciously slash into foe with left and right claws."
+    },
+  "tags": []
+
+},
+
+{ "id": "ashofwar9",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Swift Slash",
+  "slug": "ash_of_war_swift_slash",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Swift Slash.",
+  "short_description": "This Ash of War grants the skill: Swift Slash.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_swift_slash_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Swift Slash: A skill passed down amongst hornsent swordsmen. Take a swift forward step to slice through foes. This sharp strike also fires off a shearing vacuum. Can be charged to increase the skill's power and the distance of the forward step."
+    },
+   "tags": []
+
+},
+
+{ "id": "ashofwar10",
+  "gameid": "Elden_ring",
+  "name": "Ash of War: Overhead Stance",
+  "slug": "ash_of_war_overhead_stance",
+  "type": "ash_of_war",
+  "category": "ashes_of_war",
+  "description": "This Ash of War grants an armament the Keen affinity and the following skill: Overhead Stance.",
+  "short_description": "This Ash of War grants the skill: Overhead Stance.",
+  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_overhead_stance_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "data": {
+    "skill": "Overhead Stance: A skill that starts with the blade held high in a ready stance. Execute a normal attack from this stance to step forward and slash downwards, or a strong attack to deliver a series of downward slashes."
+   },
+   "tags": []
+
+}
+
+]
