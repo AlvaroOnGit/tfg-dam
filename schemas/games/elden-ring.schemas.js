@@ -21,7 +21,9 @@ const weaponattackDataSchema = z.object({
   fire: z.number({ error: "Fire attack must be a number" }).nonnegative("Fire attack cannot be negative").integer("Fire attack must be an integer"),
   lightning: z.number({ error: "Lightning attack must be a number" }).nonnegative("Lightning attack cannot be negative").integer("Lightning attack must be an integer"),
   holy: z.number({ error: "Holy attack must be a number" }).nonnegative("Holy attack cannot be negative").integer("Holy attack must be an integer"),
-  critical: z.number({ error: "Critical attack must be a number" }).nonnegative("Critical attack cannot be negative").integer("Critical attack must be an integer")
+  critical: z.number({ error: "Critical attack must be a number" }).nonnegative("Critical attack cannot be negative").integer("Critical attack must be an integer"),
+  range: z.number({ error: "Range attack must be a number" }).nonnegative("Range attack cannot be negative").integer("Range attack must be an integer"),
+  sorcery: z.number({ error: "Sorcery attack must be a number" }).nonnegative("Sorcery attack cannot be negative").integer("Sorcery attack must be an integer"),
 });
 
 const weaponguardDataSchema = z.object({
@@ -219,6 +221,8 @@ const EldenRingSchema = z.discriminatedUnion("assetType", [
 ])
 
 export default EldenRingSchema;
+
+
 
 
 
