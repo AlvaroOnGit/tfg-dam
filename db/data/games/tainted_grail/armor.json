@@ -1,26 +1,482 @@
-{
-  "gameId": "550e8400-e29b-41d4-a716-446655440001",
-  "name": "Brick Hammer",
-  "slug": "brick-hammer",
-  "description": "A heavy hammer made from brick and iron.",
-  "shortDescription": "Brick Hammer one handed weapon",
-  "iconUrl": "/media/games/tainted-grail/assets/brick-hammer.webp",
-  "isActive": true,
-  "assetType": "weapon",
-  "category": "one-handed",
-  "data": {
-    "gold": 12,
-    "weight": 1.7,
-    "damage": [5, 7],
-    "stamina": 10,
-    "block": null,
-    "requirements": {
-      "strength": null,
-      "dexterity": null,
-      "spirituality": null,
-      "perception": null,
-      "endurance": null,
-      "practicality": null
+[
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Knight's Boots (Stamina)",
+    "slug": "knights-boots-stamina",
+    "description": "Increases Max Stamina by 5.",
+    "shortDescription": "Boots that increase max stamina.",
+    "iconUrl": "/media/games/tainted-grail/assets/knights-boots-stamina.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "boots",
+    "data": {
+      "gold": 60,
+      "weight": 5.0,
+      "armor": 4.0,
+      "requirements": {
+        "strength": 6,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 5,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Blackwater Cloak",
+    "slug": "blackwater-cloak",
+    "description": "Decreases Damage Received from Melee Attacks by 5. Decreased Damage Received from Ranged Attacks by 5.",
+    "shortDescription": "Back cloak that reduces incoming melee and ranged damage.",
+    "iconUrl": "/media/games/tainted-grail/assets/blackwater-cloak.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "back",
+    "data": {
+      "gold": 200,
+      "weight": 1.0,
+      "armor": 0.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Camouflage Net",
+    "slug": "camouflage-net",
+    "description": "Increases Ranged Critical Chance by 10%.",
+    "shortDescription": "Back armor piece that enhances ranged critical hits.",
+    "iconUrl": "/media/games/tainted-grail/assets/camouflage-net.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "back",
+    "data": {
+      "gold": 18,
+      "weight": 1.0,
+      "armor": 0.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": 3,
+        "spirituality": null,
+        "perception": 3,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Archdruid's Vestments",
+    "slug": "archdruids-vestments",
+    "description": "Increases Max Mana by 100. Decreases Mana Regeneration by 5. Increases Spell Power by 75% when your Mana is below 10%.",
+    "shortDescription": "Cuirass that boosts mana and spell power with conditional effect.",
+    "iconUrl": "/media/games/tainted-grail/assets/archdruids-vestments.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "cuirass",
+    "data": {
+      "gold": 3000,
+      "weight": 4.0,
+      "armor": 8.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": 20,
+        "perception": null,
+        "endurance": 15,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Mourning Veil",
+    "slug": "mourning-veil",
+    "description": "Decreases Melee and Ranged Damage Received by 7 points.",
+    "shortDescription": "Back piece that reduces incoming melee and ranged damage.",
+    "iconUrl": "/media/games/tainted-grail/assets/mourning-veil.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "back",
+    "data": {
+      "gold": 200,
+      "weight": 1.0,
+      "armor": 0.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": 7,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 7,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Blacksmith's Boots",
+    "slug": "blacksmiths-boots",
+    "description": "Simple boots providing minimal protection.",
+    "shortDescription": "Boots with 1.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/blacksmiths-boots.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "boots",
+    "data": {
+      "gold": 10,
+      "weight": 2.0,
+      "armor": 1.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Bloodsoaked Vest",
+    "slug": "bloodsoaked-vest",
+    "description": "Increases Sneak Damage by 20%.",
+    "shortDescription": "Cuirass that increases sneak damage.",
+    "iconUrl": "/media/games/tainted-grail/assets/bloodsoaked-vest.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "cuirass",
+    "data": {
+      "gold": 700,
+      "weight": 3.5,
+      "armor": 9.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": 12,
+        "endurance": 4,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Sturdy Leather Boots",
+    "slug": "sturdy-leather-boots",
+    "description": "Durable leather boots.",
+    "shortDescription": "Boots that provide 3.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/sturdy-leather-boots.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "boots",
+    "data": {
+      "gold": 60,
+      "weight": 2.5,
+      "armor": 3.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": 3,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 5,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Red Priest's Robe",
+    "slug": "red-priests-robe",
+    "description": "",
+    "shortDescription": "Cuirass with 1.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/red-priests-robe.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "cuirass",
+    "data": {
+      "gold": 30,
+      "weight": 0.2,
+      "armor": 1.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Medic's Boots",
+    "slug": "medics-boots",
+    "description": "",
+    "shortDescription": "Boots with 1.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/medics-boots.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "boots",
+    "data": {
+      "gold": 10,
+      "weight": 1.0,
+      "armor": 1.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Keeper's Gloves",
+    "slug": "keepers-gloves",
+    "description": "Increases Attack Speed by 10%.",
+    "shortDescription": "Gauntlets that increase attack speed.",
+    "iconUrl": "/media/games/tainted-grail/assets/keepers-gloves.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "gauntlets",
+    "data": {
+      "gold": 150,
+      "weight": 3.0,
+      "armor": 4.0,
+      "requirements": {
+        "strength": 3,
+        "dexterity": 3,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 4,
+        "practicality": 4
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Peasant's Shirt",
+    "slug": "peasants-shirt",
+    "description": "",
+    "shortDescription": "Cuirass with 0.5 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/peasants-shirt.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "cuirass",
+    "data": {
+      "gold": 20,
+      "weight": 0.6,
+      "armor": 0.5,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Worn Druidic Gloves",
+    "slug": "worn-druidic-gloves",
+    "description": "Increases Mana Regeneration by 0.3.",
+    "shortDescription": "Gauntlets that boost mana regeneration.",
+    "iconUrl": "/media/games/tainted-grail/assets/worn-druidic-gloves.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "gauntlets",
+    "data": {
+      "gold": 150,
+      "weight": 0.5,
+      "armor": 0.7,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": 3,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Blacksmith's Gloves",
+    "slug": "blacksmiths-gloves",
+    "description": "",
+    "shortDescription": "Gauntlets with 1.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/blacksmiths-gloves.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "gauntlets",
+    "data": {
+      "gold": 10,
+      "weight": 0.8,
+      "armor": 1.0,
+      "requirements": {
+        "strength": null,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Lionheart Breeches",
+    "slug": "lionheart-breeches",
+    "description": "Increases Physical Damage by 25% when below 33% Max Stamina. Increases Max Stamina by 25.",
+    "shortDescription": "Greaves that boost physical damage under low stamina and increase max stamina.",
+    "iconUrl": "/media/games/tainted-grail/assets/lionheart-breeches.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "greaves",
+    "data": {
+      "gold": 2000,
+      "weight": 3.4,
+      "armor": 8.0,
+      "requirements": {
+        "strength": 5,
+        "dexterity": 9,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 5,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "The Penitent Guard Helm",
+    "slug": "the-penitent-guard-helm",
+    "description": "Reduces Max Health by 10.",
+    "shortDescription": "Helmet that reduces max health.",
+    "iconUrl": "/media/games/tainted-grail/assets/the-penitent-guard-helm.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "helmet",
+    "data": {
+      "gold": 300,
+      "weight": 4.0,
+      "armor": 6.0,
+      "requirements": {
+        "strength": 5,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 15,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Champion Of Tuathan Legguards",
+    "slug": "champion-of-tuathan-legguards",
+    "description": "Each enemy within a radius of 6m increases your Armor by 3%.",
+    "shortDescription": "Greaves that increase armor per nearby enemy.",
+    "iconUrl": "/media/games/tainted-grail/assets/champion-of-tuathan-legguards.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "greaves",
+    "data": {
+      "gold": 1000,
+      "weight": 6.0,
+      "armor": 10.0,
+      "requirements": {
+        "strength": 10,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 10,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Sir Lancelot's Greaves",
+    "slug": "sir-lancelots-greaves",
+    "description": "Increases Max Stamina by 125% when your Health is below 20%. Increases Physical Damage by 20%.",
+    "shortDescription": "Greaves from Sir Lancelot's Set.",
+    "iconUrl": "/media/games/tainted-grail/assets/sir-lancelots-greaves.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "greaves",
+    "data": {
+      "gold": 1250,
+      "weight": 1.5,
+      "armor": 5.0,
+      "requirements": {
+        "strength": 15,
+        "dexterity": 8,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 15,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Corpse Eater's Cap",
+    "slug": "corpse-eaters-cap",
+    "description": "Increases Attack Speed by 5%.",
+    "shortDescription": "Helmet that slightly increases attack speed.",
+    "iconUrl": "/media/games/tainted-grail/assets/corpse-eaters-cap.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "helmet",
+    "data": {
+      "gold": 100,
+      "weight": 0.5,
+      "armor": 2.0,
+      "requirements": {
+        "strength": 2,
+        "dexterity": 4,
+        "spirituality": null,
+        "perception": null,
+        "endurance": null,
+        "practicality": null
+      }
+    }
+  },
+  {
+    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "name": "Iron Helmet",
+    "slug": "iron-helmet",
+    "description": "",
+    "shortDescription": "Helmet with 5.0 armor.",
+    "iconUrl": "/media/games/tainted-grail/assets/iron-helmet.webp",
+    "isActive": true,
+    "assetType": "armor",
+    "category": "helmet",
+    "data": {
+      "gold": 10,
+      "weight": 2.1,
+      "armor": 5.0,
+      "requirements": {
+        "strength": 2,
+        "dexterity": null,
+        "spirituality": null,
+        "perception": null,
+        "endurance": 2,
+        "practicality": null
+      }
     }
   }
-}
+]
