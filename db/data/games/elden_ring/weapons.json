@@ -1,3 +1,4 @@
+
 [
 {"id": "straightsword1",
   "gameid": "Elden_ring",
@@ -38,6 +39,11 @@
       "dexterity": 11,
       "faith": 24
     },
+
+    "damage_type": ["standard", "pierce"],
+
+    "effect" : {"Passive": "null"},
+
     "weight": 4.0  
   },
   
@@ -81,6 +87,11 @@
       "strength": 9,
       "dexterity": 8
     },
+
+    "damage_type": "standard",
+    
+    "effect" : {"Passive": "null"},
+    
     "weight": 3.5  
   },
   
@@ -120,6 +131,11 @@
       "strength": 30,
       "dexterity": 14
     },
+
+    "damage_type": "pierce",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 10.0  
   },
   
@@ -163,6 +179,11 @@
       "strength": 10,
       "dexterity": 13
     },
+
+    "damage_type": ["slash", "pierce"],
+  
+    "effect" : {"Passive": "null"},
+
     "weight": 2.0  
   },
   
@@ -206,6 +227,11 @@
       "strength": 13,
       "dexterity": 11
     },
+
+    "damage_type": "slash",
+  
+    "effect" : {"Hemorrhage": 45},
+    
     "weight": 3.0  
   },
   
@@ -252,6 +278,11 @@
       "dexterity": 14,
       "intelligence": 12
     },
+
+    "damage_type": "pierce",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 4.5  
   },
   
@@ -295,6 +326,11 @@
       "strength": 8,
       "dexterity": 14
     },
+
+    "damage_type": ["slash", "pierce"],
+
+    "effect" : {"Hemorrhage": 60},
+
     "weight": 2.0  
   },
   
@@ -340,6 +376,10 @@
       "dexterity": 18,
       "intelligence": 22
     },
+
+    "damage_type": "standard",
+  
+    "effect" : {"Passive": "null"},
 
     "weight": 20.0
   },
@@ -388,6 +428,11 @@
         "intelligence": 11,
         "faith": 20
     },
+
+    "damage_type": "strike",
+    
+    "effect" : {"Passive": "null"},
+
     "weight": 22.0
   },
 
@@ -424,9 +469,13 @@
     },
 
     "requires": {
-       "strength": 12,
-       "dexterity": 8
+      "strength": 12,
+      "dexterity": 8
     },
+
+    "damage_type": "pierce",
+
+    "effect" : {"Passive": "null"},
 
     "weight": 4.0  
   },
@@ -469,9 +518,13 @@
     },
 
     "requires": {
-       "strength": 19,
-       "dexterity": 16
+      "strength": 19,
+      "dexterity": 16
     },
+
+    "damage_type": "slash",
+
+    "effect" : {"Passive": "null"},
 
     "weight": 10.0  
   },
@@ -520,6 +573,10 @@
       "intelligence": 16
     },
 
+    "damage_type": "slash",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 2.5  
   },
   
@@ -564,6 +621,10 @@
       "strength": 6,
       "dexterity": 12
     },
+
+    "damage_type": ["slash", "pierce"],
+
+    "effect" : {"Hemorrhage": 38},
 
     "weight": 1.5  
   },
@@ -614,6 +675,10 @@
       "faith": 11
     },
 
+    "damage_type": "strike",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 5.0  
   },
   
@@ -655,9 +720,13 @@
     },
 
     "requires": {
-       "strength": 10,
-       "dexterity": 24
+      "strength": 10,
+      "dexterity": 24
     },
+
+    "damage_type": "strike",
+
+    "effect" : {"Hemorrhage": 50},
 
     "weight": 6.0  
   },
@@ -701,9 +770,13 @@
     },
 
     "requires": {
-       "strength": 6,
-       "intelligence": 28
+      "strength": 6,
+      "intelligence": 28
     },
+
+    "damage_type": "strike",
+
+    "effect" : {"Passive": "null"},
 
     "weight": 3.0  
   },
@@ -751,6 +824,11 @@
       "dexterity": 11,
       "faith": 17
     },
+
+    "damage_type": "strike",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 12.0
   },
   
@@ -792,9 +870,13 @@
     },
 
     "requires": {
-       "strength": 14,
-       "dexterity": 18
+      "strength": 14,
+      "dexterity": 18
     },
+
+    "damage_type": ["slash", "pierce"],
+
+    "effect" : {"Hemorrhage": 55},
 
     "weight": 9.0  
   },
@@ -841,6 +923,10 @@
       "dexterity": 14
     },
 
+    "damage_type": "pierce",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 9.0  
   },
   
@@ -886,6 +972,10 @@
       "dexterity": 15
     },
 
+    "damage_type": "standard",
+
+    "effect" : {"Passive": "null"},
+
     "weight": 12.5  
   },
   
@@ -894,5 +984,6 @@
 }
 
 ]
+
 
 
