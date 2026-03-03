@@ -1,3 +1,4 @@
+
 [
 { "id": "ashofwar1",
   "gameid": "Elden_ring",
@@ -9,7 +10,9 @@
   "short_description": "An ash of war that allows the user to perform a powerful whirlwind attack.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_dryleaf_whirlwind_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Dryleaf Whirlwind: This skill represents the pinnacle of Dane's footwork-based martial artistry. Rise into the air with a series of spinning kicks before crashing down with one final strike. Imbues kicking attacks with energy, increasing their range."
+    "affinity": "Standard",
+    "cost": 9,
+    "allowed_weapon_types": "hand_to_hand_arts"
   },
   "tags": []
  
@@ -25,7 +28,9 @@
   "short_description": "This Ash of War grants the skill: Aspects of the Crucible (Wings).",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_aspects_of_the_crucible_wings_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Aspects of the Crucible (Wings): This skill originates from the lifeforms of the Crucible. Grow a golden pair of wings and take to the air before diving down at the foe, weapon first. A spinning attack is performed when wielding a twinblade."
+    "affinity": "Sacred",
+    "cost": 22,
+    "allowed_weapon_types": "greatswords, colossal_swords, curved_greatswords, great_katanas, heavy_thrusting_swords, curved_swords, straight_swords, thrusting_swords, greatspear, light_greatswords, katanas, twinblades, spears, halberds"
   },
   "tags": []
 },
@@ -40,7 +45,9 @@
   "short_description": "This Ash of War grants the skill: Spinning Gravity Thrust.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_spinning_gravity_thrust_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Spinning Gravity Thrust: A gravity skill honed by the disciples of an Alabaster Lord. Uses gravitational power to hang in the air before rotating the body and charging forward. An additional input allows for a follow-up attack."
+    "affinity": "Heavy",
+    "cost": 26,
+    "allowed_weapon_types": "greatswords, colossal_swords, curved_greatswords, great_katanas, heavy_thrusting_swords"
   },
   "tags": []
 },
@@ -55,7 +62,9 @@
   "short_description": "This Ash of War grants the skill: Palm Blast.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_palm_blast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Palm Blast: Skill of the spiritual seekers known as the Dryleaf Sect. Imbues hand with energy before using a palm strike to unleash an explosive blast. The already formidable power and impact can be bolstered by charging the attack."
+    "affinity": "Standard",
+    "cost": 14,
+    "allowed_weapon_types": "hand_to_hand_arts"
   },
   "tags": []
 
@@ -71,7 +80,9 @@
   "short_description": "This Ash of War grants the skill: Piercing Throw.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_piercing_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Piercing Throw: Throw armament with a powerful spin, causing it to bore through foes. When using this skill, the armament can be thrown further than normal and also pierce through enemies."
+    "affinity": "Keen",
+    "cost": 6,
+    "allowed_weapon_types": "throwing_blades"
   },
   "tags": []
 },
@@ -86,7 +97,9 @@
   "short_description": "This Ash of War grants the skill: Scattershot Throw.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_scattershot_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Scattershot Throw: Employ smithing arts to conjure multiple copies of the armament in both hands and throw them all at once. Follow up with an additional input to throw again."
+    "affinity": "Keen",
+    "cost": 11,
+    "allowed_weapon_types": "throwing_blades"
   },
   "tags": []
 
@@ -102,8 +115,10 @@
   "short_description": "This Ash of War grants the skill: Raging Beast.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_raging_beast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Raging Beast: Step with the swiftness of a beast, leap high, and slash foe from above. Initial step can be taken forward, backward, left, or right. Strong attack allows for a follow-up attack."
-    },
+    "affinity": "Keen",
+    "cost": 7,
+    "allowed_weapon_types": "beast_claws"
+  },
   "tags": []
 
 },
@@ -118,7 +133,9 @@
   "short_description": "This Ash of War grants the skill: Savage Claws.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_savage_claws_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Savage Claws: Pounce like a beast to viciously slash into foe with left and right claws."
+    "affinity": "Keen",
+    "cost": 13,
+    "allowed_weapon_types": "beast_claws"
     },
   "tags": []
 
@@ -134,9 +151,11 @@
   "short_description": "This Ash of War grants the skill: Swift Slash.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_swift_slash_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Swift Slash: A skill passed down amongst hornsent swordsmen. Take a swift forward step to slice through foes. This sharp strike also fires off a shearing vacuum. Can be charged to increase the skill's power and the distance of the forward step."
-    },
-   "tags": []
+    "affinity": "Keen",
+    "cost": 16,
+    "allowed_weapon_types": "backhand_blades"
+  },
+  "tags": []
 
 },
 
@@ -150,9 +169,11 @@
   "short_description": "This Ash of War grants the skill: Overhead Stance.",
   "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_overhead_stance_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
   "data": {
-    "skill": "Overhead Stance: A skill that starts with the blade held high in a ready stance. Execute a normal attack from this stance to step forward and slash downwards, or a strong attack to deliver a series of downward slashes."
-   },
-   "tags": []
+    "affinity": "Keen",
+    "cost": 8,
+    "allowed_weapon_types": "great_katanas"
+  },
+  "tags": []
 
 }
 
