@@ -1,62 +1,27 @@
 /**
  * Contains logic to validate assets for different games
  */
-import {
-  WeaponSchema,
-  ArmorSchema,
-  TalismanSchema,
-  AshOfWarSchema,
-  SpiritAshSchema
-} from "../schemas/elden-ring.schemas.js";
 
-// Mapear los esquemas según juego y tipo de asset
+import EldenRingSchema from '../schemas/games/elden_ring/asset.schemas.js'
+import TaintedGrailSchema from '../schemas/games/tainted_grail/asset.schemas.js';
+
 const gameSchemas = {
-  elden_ring: {
-    weapon: WeaponSchema,
-    armor: ArmorSchema,
-    talisman: TalismanSchema,
-    ash_of_war: AshOfWarSchema,
-    spirit_ash: SpiritAshSchema,
-  }
-};
+    "elden-ring": EldenRingSchema,
+    "tainted-grail": TaintedGrailSchema
+}
 
-/**
- * Valida cualquier asset de cualquier juego definido en gameSchemas
- * @param {string} gameId - ID del juego (ej: "elden_ring")
- * @param {string} assetType - Tipo de asset (ej: "weapon")
- * @param {object} data - Datos del asset a validar
- * @returns {object} Resultado de la validación:
- *   { success: true, data } si es válido
- *   { success: false, errors } si hay errores
- */
-const validateAsset = (gameId, assetType, data) => {
-  const game = gameSchemas[gameId];
-  if (!game) {
-    return {
-      success: false,
-      errors: { gameId: `Game ID "${gameId}" no soportado` }
-    };
-  }
+export async function validateAsset(data) {
 
-  const schema = game[assetType];
-  if (!schema) {
-    return {
-      success: false,
-      errors: { assetType: `Asset type "${assetType}" no válido para ${gameId}` }
-    };
-  }
+    const { gameSlug } = data
 
-  const result = schema.safeParse(data);
+    const gameSchema = gameSchemas[gameSlug];
 
-  if (!result.success) {
-    // Formatea los errores por campo
-    return {
-      success: false,
-      errors: result.error.format()
-    };
-  }
+    if (!gameSchema) {
+        return {
+            success: false,
+            error: `Unsupported game: ${gameSlug}`
+        };
+    }
 
-  return { success: true, data: result.data };
-};
-
-export default validateAsset;
+    return await gameSchema.safeParse(data);
+}
