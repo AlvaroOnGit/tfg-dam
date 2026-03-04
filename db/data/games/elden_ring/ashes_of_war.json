@@ -1,179 +1,183 @@
 
 [
-{ "id": "ashofwar1",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Dryleaf Whirlwind",
-  "slug": "ash_of_war_dryleaf_whirlwind",
+  "slug": "ash-of-war-dryleaf-whirlwind",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "It is a brand-new Ash of War in the Shadow of the Erdtree DLC. An ash of war that allows the user to perform a powerful whirlwind attack.",
   "short_description": "An ash of war that allows the user to perform a powerful whirlwind attack.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_dryleaf_whirlwind_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-dryleaf-whirlwind-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Standard",
     "cost": 9,
     "allowed_weapon_types": "hand_to_hand_arts"
-  },
-  "tags": []
+  }
  
 },
 
-{ "id": "ashofwar2",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: aspects of the crucible: wings",
-  "slug": "ash_of_war_aspects_of_the_crucible_wings",
+  "slug": "ash-of-war-aspects-of-the-crucible-wings",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Sacred affinity and the following skill: Aspects of the Crucible (Wings).",
   "short_description": "This Ash of War grants the skill: Aspects of the Crucible (Wings).",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_aspects_of_the_crucible_wings_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-aspects-of-the-crucible-wings-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Sacred",
     "cost": 22,
     "allowed_weapon_types": "greatswords, colossal_swords, curved_greatswords, great_katanas, heavy_thrusting_swords, curved_swords, straight_swords, thrusting_swords, greatspear, light_greatswords, katanas, twinblades, spears, halberds"
-  },
-  "tags": []
+  }
+  
 },
 
-{ "id": "ashofwar3",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Spinning Gravity Thrust",
-  "slug": "ash_of_war_spinning_gravity_thrust",
+  "slug": "ash-of-war-spinning-gravity-thrust",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Heavy affinity and the following skill: Spinning Gravity Thrust.",
   "short_description": "This Ash of War grants the skill: Spinning Gravity Thrust.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_spinning_gravity_thrust_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-spinning-gravity-thrust-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Heavy",
     "cost": 26,
     "allowed_weapon_types": "greatswords, colossal_swords, curved_greatswords, great_katanas, heavy_thrusting_swords"
-  },
-  "tags": []
+  }
+  
 },
 
-{ "id": "ashofwar4",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Palm Blast",
-  "slug": "ash_of_war_palm_blast",
+  "slug": "ash-of-war-palm-blast",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants no affinity to an armament, but imparts the following skill: Palm Blast.",
   "short_description": "This Ash of War grants the skill: Palm Blast.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_palm_blast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-palm-blast-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Standard",
     "cost": 14,
     "allowed_weapon_types": "hand_to_hand_arts"
-  },
-  "tags": []
+  }
+  
 
 },
 
-{ "id": "ashofwar5",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Piercing Throw",
-  "slug": "ash_of_war_piercing_throw",
+  "slug": "ash-of-war-piercing-throw",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Piercing Throw.",
   "short_description": "This Ash of War grants the skill: Piercing Throw.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_piercing_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-piercing-throw-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 6,
     "allowed_weapon_types": "throwing_blades"
-  },
-  "tags": []
+  }
+  
 },
 
-{ "id": "ashofwar6",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Scattershot Throw",
-  "slug": "ash_of_war_scattershot_throw",
+  "slug": "ash-of-war-scattershot-throw",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Scattershot Throw.",
   "short_description": "This Ash of War grants the skill: Scattershot Throw.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_scattershot_throw_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-scattershot-throw-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 11,
     "allowed_weapon_types": "throwing_blades"
-  },
-  "tags": []
+  }
 
 },
 
-{ "id": "ashofwar7",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Raging Beast",
-  "slug": "ash_of_war_raging_beast",
+  "slug": "ash-of-war-raging-beast",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Raging Beast.",
   "short_description": "This Ash of War grants the skill: Raging Beast.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_raging_beast_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-raging-beast-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 7,
     "allowed_weapon_types": "beast_claws"
-  },
-  "tags": []
+  }
 
 },
 
-{ "id": "ashofwar8",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Savage Claws",
-  "slug": "ash_of_war_savage_claws",
+  "slug": "ash-of-war-savage-claws",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Savage Claws.",
   "short_description": "This Ash of War grants the skill: Savage Claws.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_savage_claws_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-savage-claws-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 13,
     "allowed_weapon_types": "beast_claws"
-    },
-  "tags": []
+  }
 
 },
 
-{ "id": "ashofwar9",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Swift Slash",
-  "slug": "ash_of_war_swift_slash",
+  "slug": "ash-of-war-swift-slash",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Swift Slash.",
   "short_description": "This Ash of War grants the skill: Swift Slash.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_swift_slash_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-swift-slash-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 16,
     "allowed_weapon_types": "backhand_blades"
-  },
-  "tags": []
+  }
 
 },
 
-{ "id": "ashofwar10",
-  "gameid": "Elden_ring",
+{ 
+  "gameSlug": "elden-ring",
   "name": "Ash of War: Overhead Stance",
-  "slug": "ash_of_war_overhead_stance",
+  "slug": "ash-of-war-overhead-stance",
   "type": "ash_of_war",
   "category": "ashes_of_war",
   "description": "This Ash of War grants an armament the Keen affinity and the following skill: Overhead Stance.",
   "short_description": "This Ash of War grants the skill: Overhead Stance.",
-  "icon_url": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ash_of_war_overhead_stance_ashes_of_war_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+  "icon_url": "media/games/elden-ring/assets/ash-of-war-overhead-stance-elden-ring.webp",
+  "isActive": true,
   "data": {
     "affinity": "Keen",
     "cost": 8,
     "allowed_weapon_types": "great_katanas"
-  },
-  "tags": []
+  }
 
 }
 
