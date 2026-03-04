@@ -76,15 +76,15 @@
 
   "id": "123e456-e89b-12d3-a456-426614174000",
   "gameid": "Elden Ring",
-  "name": "Giant Rat Ashes",
-  "slug": "giant_rat_ashes",
+  "name": "Man-Serpent Ashes",
+  "slug": "man_serpent_ashes",
   "type": "spirit_ash",
   "category": "spirit_ashes",
-  "description": "The rat spirits appear at a distance from the summoner, swarming upon their victim to start the fight.",
-  "short_description": "Use to summon the spirits of three giant rats.",
-  "icon_url": "https://example.com/images/Giant-Rat-Ashes.png",
+  "description": "Ashen remains in which spirits yet dwell. Use to summon the spirit of a man-serpent.",
+  "short_description": "Spirit of a deformed man-serpent that wields a whip of magma.",
+  "icon_url": "https://example.com/images/Man-Serpent-Ashes.png",
   "data": {
-    "FP_cost": null,
+    "FP_cost": 62,
     "HP_cost": null
   },
   "tags": [],
