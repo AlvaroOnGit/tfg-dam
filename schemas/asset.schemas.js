@@ -14,7 +14,7 @@ const createBaseSchema = (gameSlug) =>
         .trim()
         .min(1, "name must be at least 1 character long")
         .max(100, "name cannot exceed 100 characters")
-        .regex(/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\s'+\-]+$/, "Name can only contain letters, numbers and the + symbol"),
+        .regex(/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ0-9\s'''`+\-()\[\]]+$/, "Name can only contain letters, numbers and the + symbol"),
     slug: z
         .string("slug must be a string")
         .trim()

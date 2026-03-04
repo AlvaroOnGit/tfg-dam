@@ -10,19 +10,19 @@ const BaseSchema = createBaseSchema('tainted-grail');
 // Enums
 
 const weaponCategories = z.enum([
-    "bows",
+    "bow",
     "one-handed",
     "two-handed",
-    "wands",
-    "shields"
+    "wand",
+    "shield"
 ]);
 
 const armorCategories = z.enum([
-    "cuirasses",
+    "cuirass",
     "greaves",
     "boots",
     "gauntlets",
-    "helmets",
+    "helmet",
     "back"
 ]);
 
@@ -101,7 +101,8 @@ const weaponDataSchema = z.object({
         .nonnegative("stamina cant be negative")
         .int("stamina must be an integer")
         .min(1, "stamina must be at least 1")
-        .max(100, "stamina cannot exceed 100"),
+        .max(100, "stamina cannot exceed 100")
+        .nullable(),
     block: z
         .number("block must be a number")
         .nonnegative("block cant be negative")
@@ -121,8 +122,8 @@ const armorDataSchema = z.object({
         .number("armor must be a number")
         .nonnegative("armor cant be negative")
         .multipleOf(0.1, "armor cannot have more than 1 decimal")
-        .min(1, "armor must be at least 1")
-        .max(100, "armor cannot exceed 100"),
+        .max(100, "armor cannot exceed 100")
+        .nullable(),
     gold: goldSchema,
     weight: weightSchema,
     requirements: requirementSchema
@@ -171,7 +172,8 @@ const castSchema = z.object({
         .nullable(),
     effect: z
         .string("effect must be a string")
-        .max(500, "effect length cant exceed 500 characters"),
+        .max(500, "effect length cant exceed 500 characters")
+        .nullable(),
 });
 
 const magicSchema = z.object({
@@ -218,34 +220,34 @@ const validateBlock = (obj, ctx) => {
     }
 }
 
-const TaintedGrailSchema = z.discriminatedUnion("assetType", [
+const TaintedGrailSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
-        assetType: z.literal("weapon"),
+        type: z.literal("weapon"),
         category: weaponCategories,
         data: weaponDataSchema,
     }).superRefine(validateIconUrl).superRefine(validateBlock),
 
     BaseSchema.extend({
-        assetType: z.literal("armor"),
+        type: z.literal("armor"),
         category: armorCategories,
         data: armorDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("jewelry"),
+        type: z.literal("jewelry"),
         category:  jewelryCategories,
         data: jewelryDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("magic"),
+        type: z.literal("magic"),
         category: z.null(),
         data: magicDataSchema,
     }).superRefine(validateIconUrl),
 
     BaseSchema.extend({
-        assetType: z.literal("relic"),
+        type: z.literal("relic"),
         category:  relicTypes,
         data: relicDataSchema,
     }).superRefine(validateIconUrl)
