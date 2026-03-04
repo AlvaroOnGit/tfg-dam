@@ -80,7 +80,12 @@ CREATE TABLE games(
     icon_url TEXT,
     is_active BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    -- Checks
+    CONSTRAINT check_slug_format CHECK (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$'),
+    CONSTRAINT check_name_not_blank CHECK (length(trim(name)) > 0),
+    CONSTRAINT check_slug_not_blank CHECK (length(trim(slug)) > 0)
 );
 
 -- Declare game indexes
@@ -140,7 +145,10 @@ CREATE TABLE builds(
         ON DELETE CASCADE,
     CONSTRAINT fk_builds_users FOREIGN KEY (creator_id)
         REFERENCES users (id)
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+
+    -- Checks
+    CONSTRAINT check_name_not_blank CHECK (length(trim(name)) > 0)
 );
 
 -- Declare game indexes
@@ -199,7 +207,6 @@ CREATE TABLE game_assets(
     short_description VARCHAR(250),
     icon_url TEXT,
     data JSONB,
-    tags TEXT[] DEFAULT '{}',
     is_active BOOLEAN DEFAULT true,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -210,7 +217,12 @@ CREATE TABLE game_assets(
         ON DELETE CASCADE,
     -- Constraints
     -- A game can only have an asset with a unique slug
-    CONSTRAINT unique_game_asset_slug UNIQUE (game_id, slug)
+    CONSTRAINT unique_game_asset_slug UNIQUE (game_id, slug),
+
+    -- Checks
+    CONSTRAINT check_slug_format CHECK (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$'),
+    CONSTRAINT check_name_not_blank CHECK (length(trim(name)) > 0),
+    CONSTRAINT check_slug_not_blank CHECK (length(trim(slug)) > 0)
 );
 
 -- Declare game_asset indexes
@@ -235,11 +247,6 @@ CREATE INDEX game_assets_type
 CREATE INDEX game_assets_category
     ON game_assets (category)
     WHERE is_active = true;
--- Search by tags
-CREATE INDEX game_assets_tags
-    ON game_assets
-        USING GIN (tags)
-    WHERE is_active = true;
 
 -- Declare game_asset triggers
 CREATE TRIGGER trigger_update_game_assets
@@ -259,7 +266,6 @@ COMMENT ON COLUMN game_assets.description IS 'Description for the asset';
 COMMENT ON COLUMN game_assets.short_description IS 'Short description for the asset';
 COMMENT ON COLUMN game_assets.icon_url IS 'Url for the icon of the asset';
 COMMENT ON COLUMN game_assets.data IS 'Dynamic JSON depending on the asset';
-COMMENT ON COLUMN game_assets.tags IS 'Tags for the asset, must be an array of strings';
 COMMENT ON COLUMN game_assets.is_active IS 'Whether the asset is active or not';
 COMMENT ON COLUMN game_assets.created_at IS 'Date of build creation';
 COMMENT ON COLUMN game_assets.updated_at IS 'Date of last update';
@@ -393,11 +399,11 @@ CREATE TABLE refresh_tokens(
 -- Search all invalid tokens
 CREATE INDEX refresh_tokens_invalid_tokens
     ON refresh_tokens(expires_at)
-    WHERE expires_at < NOW() OR revoked_at IS NOT NULL;
+    WHERE revoked_at IS NOT NULL;
 -- Active tokens per device
 CREATE INDEX refresh_tokens_active_device
     ON refresh_tokens(user_id, device_id)
-    WHERE revoked_at IS NULL AND expires_at > NOW();
+    WHERE revoked_at IS NULL;
 -- Search tokens by user
 CREATE INDEX refresh_tokens_user_tokens
     ON refresh_tokens (user_id);
