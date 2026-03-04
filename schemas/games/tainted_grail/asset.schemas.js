@@ -10,19 +10,19 @@ const BaseSchema = createBaseSchema('tainted-grail');
 // Enums
 
 const weaponCategories = z.enum([
-    "bows",
+    "bow",
     "one-handed",
     "two-handed",
-    "wands",
-    "shields"
+    "wand",
+    "shield"
 ]);
 
 const armorCategories = z.enum([
-    "cuirasses",
+    "cuirass",
     "greaves",
     "boots",
     "gauntlets",
-    "helmets",
+    "helmet",
     "back"
 ]);
 
@@ -31,7 +31,7 @@ const jewelryCategories = z.enum([
     "amulets"
 ])
 
-const relicCategories = z.enum([
+const relicTypes = z.enum([
     "armor",
     "weapon"
 ])
@@ -89,7 +89,8 @@ const weightSchema = z
     .number("weight must be a number")
     .nonnegative("weight cannot be negative")
     .multipleOf(0.1, "weight cannot have more than 1 decimal")
-    .max(100, "weight cannot exceed 100");
+    .max(100, "weight cannot exceed 100")
+    .nullable();
 
 // ────────── Weapon Schemas ──────────────────────────────────────────────────────
 
@@ -100,7 +101,8 @@ const weaponDataSchema = z.object({
         .nonnegative("stamina cant be negative")
         .int("stamina must be an integer")
         .min(1, "stamina must be at least 1")
-        .max(100, "stamina cannot exceed 100"),
+        .max(100, "stamina cannot exceed 100")
+        .nullable(),
     block: z
         .number("block must be a number")
         .nonnegative("block cant be negative")
@@ -120,8 +122,8 @@ const armorDataSchema = z.object({
         .number("armor must be a number")
         .nonnegative("armor cant be negative")
         .multipleOf(0.1, "armor cannot have more than 1 decimal")
-        .min(1, "armor must be at least 1")
-        .max(100, "armor cannot exceed 100"),
+        .max(100, "armor cannot exceed 100")
+        .nullable(),
     gold: goldSchema,
     weight: weightSchema,
     requirements: requirementSchema
@@ -136,25 +138,8 @@ const jewelryDataSchema = z.object({
 
 // ────────── Magic Schemas ───────────────────────────────────────────────────────
 
-const castCostSchema = z.object({
-    costType: z.enum(["mana","health"]),
-    value: z
-        .number("cast value must be a number")
-        .nonnegative("cast value cant be negative")
-        .int("cast value must be an integer")
-        .min(1, "cast value must be at least 1")
-        .max(500, "cast value cannot exceed 500")
-})
-
 const castSchema = z.object({
     damage: damageSchema.nullable(),
-    healing: z
-        .number("healing value must be a number")
-        .nonnegative("healing value cant be negative")
-        .int("healing value must be an integer")
-        .min(1, "healing value must be at least 1")
-        .max(100, "healing value cannot exceed 100")
-        .nullable(),
     type: z.enum([
         "area-of-effect",
         "channeled",
@@ -164,18 +149,31 @@ const castSchema = z.object({
         "trap",
         "summon"
     ]),
-    cost: castCostSchema,
+    mana: z
+        .number("mana must be a number")
+        .nonnegative("mana cant be negative")
+        .int("mana must be an integer")
+        .min(1, "mana must be at least 1")
+        .max(500, "mana cannot exceed 500")
+        .nullable(),
+    health: z
+        .number("health must be a number")
+        .nonnegative("health cant be negative")
+        .int("health must be an integer")
+        .min(1, "health must be at least 1")
+        .max(500, "health cannot exceed 500")
+        .nullable(),
+    healthCost: z
+        .number("health cost must be a number")
+        .nonnegative("health cost cant be negative")
+        .int("health cost must be an integer")
+        .min(1, "health cost must be at least 1")
+        .max(500, "health cost cannot exceed 500")
+        .nullable(),
     effect: z
         .string("effect must be a string")
-        .max(500, "effect length cant exceed 500 characters"),
-}).superRefine((obj, ctx) => {
-    if (obj.damage !== null && obj.healing !== null) {
-        ctx.addIssue({
-            code: "invalid_value",
-            message: `damage and healing are mutually exclusive: if one has a value, the other must be null`,
-            path: ["damage","healing"]
-        })
-    }
+        .max(500, "effect length cant exceed 500 characters")
+        .nullable(),
 });
 
 const magicSchema = z.object({
@@ -195,6 +193,11 @@ const magicDataSchema = z.object({
  const relicDataSchema = z.object({
      gold: goldSchema,
      weight: weightSchema,
+     effect: z
+         .array(
+             z.string("effect must be a string")
+             .max(500, "effect length cant exceed 500 characters"))
+         .nullable(),
  })
 
 // ─── Main Schema ────────────────────────────────────────────────────────────────
@@ -245,7 +248,7 @@ const TaintedGrailSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
         type: z.literal("relic"),
-        category:  relicCategories,
+        category:  relicTypes,
         data: relicDataSchema,
     }).superRefine(validateIconUrl)
 ]);
