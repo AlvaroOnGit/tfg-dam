@@ -25,8 +25,8 @@ else {
 }
 
 //Testing
-//pool.connect()
-//    .then(() => console.log(`Successfully connected to the database`))
-//    .catch(err => console.error('Error connecting to the database', err));
+pool.connect()
+    .then(() => console.log(`Successfully connected to the database`))
+    .catch(err => console.error('Error connecting to the database', err));
 
 export default pool;
