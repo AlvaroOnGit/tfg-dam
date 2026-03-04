@@ -1,6 +1,6 @@
 [
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Absorption",
     "slug": "absorption",
     "description": "Grants 25% Mana Shield for 20s. Grants 100% Mana Shield when Channeling.",
@@ -41,7 +41,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Burning Ember",
     "slug": "burning-ember",
     "description": "Shoots a small Burning projectile. Shoots a larger Burning ball of fire, dealing Damage in a small area.",
@@ -71,7 +71,7 @@
           "mana": 5,
           "health": null,
           "healthCost": null,
-          "effect": "Burning"
+          "effect": "Shoots a small Burning projectile."
         },
         "heavyCast": {
           "damage": [
@@ -82,13 +82,13 @@
           "mana": 10,
           "health": null,
           "healthCost": null,
-          "effect": "Burning"
+          "effect": "Shoots a larger Burning ball of fire, dealing Damage in a small area."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Caustic Wrath",
     "slug": "caustic-wrath",
     "description": "Shoots a large Poison projectile. Shoots a massive Poison glob, dealing Damage in a small area.",
@@ -118,7 +118,7 @@
           "mana": 36,
           "health": null,
           "healthCost": null,
-          "effect": "Poison"
+          "effect": "Shoots a large Poison projectile."
         },
         "heavyCast": {
           "damage": [
@@ -129,13 +129,13 @@
           "mana": 54,
           "health": null,
           "healthCost": null,
-          "effect": "Poison"
+          "effect": "Shoots a massive Poison glob, dealing Damage in a small area."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Fire Rune",
     "slug": "fire-rune",
     "description": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby. Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s.",
@@ -165,7 +165,7 @@
           "mana": 110,
           "health": null,
           "healthCost": null,
-          "effect": "Burn"
+          "effect": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby."
         },
         "heavyCast": {
           "damage": [
@@ -176,13 +176,13 @@
           "mana": 220,
           "health": null,
           "healthCost": null,
-          "effect": "Burn"
+          "effect": "Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Hailstone",
     "slug": "hailstone",
     "description": "Shoots a small Chilling projectile. Shoots a larger chunk of Chilling ice.",
@@ -212,7 +212,7 @@
           "mana": 5,
           "health": null,
           "healthCost": null,
-          "effect": "Chilled"
+          "effect": "Shoots a small Chilling projectile."
         },
         "heavyCast": {
           "damage": [
@@ -223,13 +223,13 @@
           "mana": 10,
           "health": null,
           "healthCost": null,
-          "effect": "Frozen"
+          "effect": "Shoots a larger chunk of Chilling ice."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Merlin's Thorn",
     "slug": "merlins-thorn",
     "description": "Shoots a single homing projectile. Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release.",
@@ -259,7 +259,7 @@
           "mana": 21,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Shoots a single homing projectile."
         },
         "heavyCast": {
           "damage": [
@@ -270,13 +270,13 @@
           "mana": 42,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Nature's Caress",
     "slug": "natures-caress",
     "description": "Heals you instantly. Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s.",
@@ -303,21 +303,21 @@
           "mana": 20,
           "health": 10,
           "healthCost": null,
-          "effect": null
+          "effect": "Heals you instantly."
         },
         "heavyCast": {
           "damage": null,
           "type": "channeled",
           "mana": 5,
-          "health": null,
+          "health": 2,
           "healthCost": null,
-          "effect": null
+          "effect": "Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Prism Of The Maelstrom",
     "slug": "prism-of-the-maelstrom",
     "description": "Charged by dealing Elemental Damage 0/500. Creates an explosion, dealing 150 Damage and applying random elemental statuses to all enemies around you.",
@@ -344,7 +344,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Rumpolt's Revenge",
     "slug": "rumpolts-revenge",
     "description": "Condensates cheese from your own blood into a solid state in front of you. Slowly turns the target into cheese.",
@@ -371,7 +371,7 @@
           "mana": null,
           "health": null,
           "healthCost": 15,
-          "effect": null
+          "effect": "Condensates cheese from your own blood into a solid state in front of you."
         },
         "heavyCast": {
           "damage": null,
@@ -379,13 +379,13 @@
           "mana": 8,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Slowly turns the target into cheese."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Sea Bite",
     "slug": "sea-bite",
     "description": "Orders your summoned tadpoles to attack a specific target. Summons a tadpole to fight by your side.",
@@ -412,7 +412,7 @@
           "mana": null,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Orders your summoned tadpoles to attack a specific target."
         },
         "heavyCast": {
           "damage": null,
@@ -420,13 +420,13 @@
           "mana": 80,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Summons a tadpole to fight by your side."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Stone Skin",
     "slug": "stone-skin",
     "description": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds.",
@@ -453,14 +453,14 @@
           "mana": 60,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds."
         },
         "heavyCast": null
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Summon Grindylow",
     "slug": "summon-grindylow",
     "description": "Orders your summons to attack a specific target. Summons a grindylow to fight by your side.",
@@ -487,7 +487,7 @@
           "mana": null,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Orders your summons to attack a specific target."
         },
         "heavyCast": {
           "damage": null,
@@ -495,13 +495,13 @@
           "mana": 20,
           "health": null,
           "healthCost": null,
-          "effect": null
+          "effect": "Summons a grindylow to fight by your side."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "The Hollow Reprieve",
     "slug": "the-hollow-reprieve",
     "description": "Charged by dealing Critical Hits 0/30. Reduces Incoming Damage by half of your Critical Chance for 30s.",
@@ -528,7 +528,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "The Wailing Gale",
     "slug": "the-wailing-gale",
     "description": "Charged by killing 0/10. Summon a Tornado, which sucks up everyone within a 5m radius.",
@@ -555,7 +555,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Toxic Dart",
     "slug": "toxic-dart",
     "description": "Shoots a medium Poison projectile. Shoots a great Poison glob, dealing Damage in a small area.",
@@ -585,7 +585,7 @@
           "mana": 14,
           "health": null,
           "healthCost": null,
-          "effect": "Poison"
+          "effect": "Shoots a medium Poison projectile."
         },
         "heavyCast": {
           "damage": [
@@ -596,13 +596,13 @@
           "mana": 21,
           "health": null,
           "healthCost": null,
-          "effect": "Poison"
+          "effect": "Shoots a great Poison glob, dealing Damage in a small area."
         }
       }
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Winter's Crone's Wrath",
     "slug": "winters-crones-wrath",
     "description": "Shoots a spread of 5 Chilling projectiles. Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged.",
@@ -632,7 +632,7 @@
           "mana": 12,
           "health": null,
           "healthCost": null,
-          "effect": "Chilled"
+          "effect": "Shoots a spread of 5 Chilling projectiles."
         },
         "heavyCast": {
           "damage": [
@@ -643,7 +643,7 @@
           "mana": 18,
           "health": null,
           "healthCost": null,
-          "effect": "Frozen"
+          "effect": "Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged."
         }
       }
     }

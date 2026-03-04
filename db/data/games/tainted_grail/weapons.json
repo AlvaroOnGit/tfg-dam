@@ -1,582 +1,269 @@
 [
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Harrowbend",
-    "slug": "harrowbend",
-    "description": "Using this bow does not cost any Stamina. Failing to hit a target results in maximum Overexertion.",
-    "shortDescription": "Heavy bow with very high damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/harrowbend-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Amberstride",
+    "slug": "amberstride",
+    "description": "Increases Max Stamina by 5%.",
+    "shortDescription": "Amberstride armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/amberstride-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "bow",
-    "data": {
-      "gold": 3000,
-      "weight": 5.3,
-      "damage": [
-        112,
-        115
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": 10,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 10,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Powerbow",
-    "slug": "powerbow",
-    "description": "A strong bow that can pierce through opponents.",
-    "shortDescription": "Heavy bow with high piercing damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/powerbow-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "bow",
-    "data": {
-      "gold": 900,
-      "weight": 5.3,
-      "damage": [
-        49,
-        52
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": 6,
-        "dexterity": 6,
-        "spirituality": null,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Tidebreaker",
-    "slug": "tidebreaker",
-    "description": "Attacks have a 20% chance to Break the Armor for 10s.",
-    "shortDescription": "Light bow with armor-break chance.",
-    "iconUrl": "/media/games/tainted-grail/assets/tidebreaker-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "bow",
-    "data": {
-      "gold": 950,
-      "weight": 2.8,
-      "damage": [
-        81,
-        90
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": null,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 5,
-        "practicality": 5
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Deadeye Bow",
-    "slug": "deadeye-bow",
-    "description": "Increases Weakspot Damage by 100%. Deals Damage only on Critical Hits and Weakspot Hits.",
-    "shortDescription": "Light bow that excels at critical and weakspot hits.",
-    "iconUrl": "/media/games/tainted-grail/assets/deadeye-bow-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "bow",
-    "data": {
-      "gold": 2000,
-      "weight": 4.5,
-      "damage": [
-        117,
-        135
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": null,
-        "dexterity": 10,
-        "spirituality": null,
-        "perception": 10,
-        "endurance": null,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Bloodseeker Blade",
-    "slug": "bloodseeker-blade",
-    "description": "Inflicts up to 100% more Damage based on enemy's missing health.",
-    "shortDescription": "One handed blade that scales with enemy missing health.",
-    "iconUrl": "/media/games/tainted-grail/assets/bloodseeker-blade-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "one-handed",
-    "data": {
-      "gold": 1500,
-      "weight": 1.2,
-      "damage": [
-        31,
-        35
-      ],
-      "stamina": 16,
-      "block": null,
-      "requirements": {
-        "strength": 11,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 5,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Nightshade Bow",
-    "slug": "nightshade-bow",
-    "description": "Multiplies Sneak Damage by x2.",
-    "shortDescription": "Medium bow that boosts sneak damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/nightshade-bow-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "bow",
-    "data": {
-      "gold": 820,
-      "weight": 3.6,
-      "damage": [
-        17,
-        20
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": null,
-        "dexterity": 3,
-        "spirituality": null,
-        "perception": 5,
-        "endurance": null,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Firm Bow",
-    "slug": "firm-bow",
-    "description": "A reliable medium bow with balanced damage output.",
-    "shortDescription": "Medium bow with balanced damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/firm-bow-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "bow",
+    "type": "relic",
+    "category": "armor",
     "data": {
       "gold": 100,
-      "weight": 3.0,
-      "damage": [
-        18,
-        21
-      ],
-      "stamina": null,
-      "block": null,
-      "requirements": {
-        "strength": null,
-        "dexterity": 7,
-        "spirituality": null,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Hammer",
-    "slug": "hammer",
-    "description": "A sturdy one-handed hammer.",
-    "shortDescription": "One handed hammer.",
-    "iconUrl": "/media/games/tainted-grail/assets/hammer-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Amberstride +3",
+    "slug": "amberstride-3",
+    "description": "Increases Max Stamina by 7%.",
+    "shortDescription": "Amberstride +3 armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/amberstride-3-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "one-handed",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 12,
-      "weight": 1.7,
-      "damage": [
-        6,
-        8
-      ],
-      "stamina": 11,
-      "block": null,
-      "requirements": {
-        "strength": null,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
+      "gold": 106,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Howling Crest",
-    "slug": "howling-crest",
-    "description": "Pushing costs 30 Mana and creates a strong gust of wind, dealing Damage to enemies in front. Successful Blocks right before a Push increase the Damage dealt.",
-    "shortDescription": "Shield with damage on push and strong block.",
-    "iconUrl": "/media/games/tainted-grail/assets/howling-crest-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Fetching Yet Practical Adornment",
+    "slug": "fetching-yet-practical-adornment",
+    "description": "Increases Mana Regeneration by 0.5. Increases Max Stamina by 3.",
+    "shortDescription": "Fetching Yet Practical Adornment armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/fetching-yet-practical-adornment-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "shield",
-    "data": {
-      "gold": 400,
-      "weight": 3.3,
-      "damage": [
-        9,
-        14
-      ],
-      "stamina": 9,
-      "block": 80,
-      "requirements": {
-        "strength": 5,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 7,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Waveguard",
-    "slug": "waveguard",
-    "description": "Successful Parries make targets Wet.",
-    "shortDescription": "Shield that applies Wet on parry.",
-    "iconUrl": "/media/games/tainted-grail/assets/waveguard-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "shield",
-    "data": {
-      "gold": 1500,
-      "weight": 3.5,
-      "damage": [
-        12,
-        18
-      ],
-      "stamina": 11,
-      "block": 80,
-      "requirements": {
-        "strength": 4,
-        "dexterity": 4,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 9,
-        "practicality": null
-      }
-    }
-  },
-  {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "The Everfrost",
-    "slug": "the-everfrost",
-    "description": "Successful Parries create a small ice explosion, chilling nearby enemies.",
-    "shortDescription": "Shield that creates chill explosions on parry.",
-    "iconUrl": "/media/games/tainted-grail/assets/the-everfrost-weapon-tainted-grail.webp",
-    "isActive": true,
-    "type": "weapon",
-    "category": "shield",
+    "type": "relic",
+    "category": "armor",
     "data": {
       "gold": 250,
-      "weight": 3.0,
-      "damage": [
-        7,
-        11
-      ],
-      "stamina": 7,
-      "block": 75,
-      "requirements": {
-        "strength": 3,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 5,
-        "practicality": null
-      }
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Mirror Aegis",
-    "slug": "mirror-aegis",
-    "description": "Parrying Deflects magical projectiles back to their source.",
-    "shortDescription": "Shield that deflects magic projectiles on parry.",
-    "iconUrl": "/media/games/tainted-grail/assets/mirror-aegis-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Gem Of Carrying +2",
+    "slug": "gem-of-carrying-2",
+    "description": "Increases Encumbrance Limit by 6.",
+    "shortDescription": "Gem Of Carrying +2 armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/gem-of-carrying-2-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "shield",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 3000,
-      "weight": 3.0,
-      "damage": [
-        16,
-        24
-      ],
-      "stamina": 13,
-      "block": 85,
-      "requirements": {
-        "strength": null,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
+      "gold": 102,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Bramble Shield",
-    "slug": "bramble-shield",
-    "description": "Deals 25% of your Armor as Damage to attacking enemies on block, 100% on a successful Parry.",
-    "shortDescription": "Shield that deals armor-based damage on block/parry.",
-    "iconUrl": "/media/games/tainted-grail/assets/bramble-shield-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Gem Of Stamina +1",
+    "slug": "gem-of-stamina-1",
+    "description": "Multiplies Stamina Regeneration by x1.21.",
+    "shortDescription": "Gem Of Stamina +1 armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/gem-of-stamina-1-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "shield",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 1000,
-      "weight": 3.5,
-      "damage": [
-        18,
-        22
-      ],
-      "stamina": 14,
-      "block": 90,
-      "requirements": {
-        "strength": 9,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 7,
-        "practicality": null
-      }
+      "gold": 101,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Crucible Wand",
-    "slug": "crucible-wand",
-    "description": "Multiplies Spell Power by x0.5. Spells deal 10% of their Mana Cost as Damage to the user. Transforms after killing 0/40 enemies with spells.",
-    "shortDescription": "Wand that alters spell power and deals self-damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/crucible-wand-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Iron Bite",
+    "slug": "iron-bite",
+    "description": "Increases Melee Damage by 3%.",
+    "shortDescription": "Iron Bite armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/iron-bite-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "wand",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 700,
-      "weight": 2.9,
-      "damage": [
-        45,
-        50
-      ],
-      "stamina": 24,
-      "block": 50,
-      "requirements": {
-        "strength": null,
-        "dexterity": null,
-        "spirituality": 10,
-        "perception": null,
-        "endurance": 5,
-        "practicality": null
-      }
+      "gold": 400,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Unstable Conduit",
-    "slug": "unstable-conduit",
-    "description": "Increases Casting Speed by 74%. All damage received while charging spells is doubled.",
-    "shortDescription": "Wand that greatly increases casting speed at risk.",
-    "iconUrl": "/media/games/tainted-grail/assets/unstable-conduit-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Long-Haul Pearl",
+    "slug": "long-haul-pearl",
+    "description": "Increases Ranged Damage by 3%.",
+    "shortDescription": "Long-Haul Pearl armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/long-haul-pearl-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "wand",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 500,
-      "weight": 2.9,
-      "damage": [
-        34,
-        35
-      ],
-      "stamina": 18,
-      "block": 50,
-      "requirements": {
-        "strength": null,
-        "dexterity": null,
-        "spirituality": 5,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
+      "gold": 400,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Remor Shaman's Staff",
-    "slug": "remor-shamans-staff",
-    "description": "A powerful staff wielded by the shamans of the Remor tribe.",
-    "shortDescription": "Wand with high damage and block.",
-    "iconUrl": "/media/games/tainted-grail/assets/remor-shamans-staff-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Unyielding Sentinel +2",
+    "slug": "unyielding-sentinel-2",
+    "description": "Reduces Stamina Cost by 11%.",
+    "shortDescription": "Unyielding Sentinel +2 armor relic",
+    "iconUrl": "/media/games/tainted-grail/assets/unyielding-sentinel-2-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "wand",
+    "type": "relic",
+    "category": "armor",
     "data": {
-      "gold": 60,
-      "weight": 1.1,
-      "damage": [
-        44,
-        50
-      ],
-      "stamina": 24,
-      "block": 50,
-      "requirements": {
-        "strength": null,
-        "dexterity": 6,
-        "spirituality": 12,
-        "perception": null,
-        "endurance": null,
-        "practicality": 3
-      }
+      "gold": 504,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Iron Tooth",
-    "slug": "iron-tooth",
-    "description": "Hitting a target has a 4% chance to Stun it.",
-    "shortDescription": "One handed weapon with stun chance.",
-    "iconUrl": "/media/games/tainted-grail/assets/iron-tooth-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Ancestral Sphere",
+    "slug": "ancestral-sphere",
+    "description": "On Critical Hit applies Haste.",
+    "shortDescription": "Ancestral Sphere weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/ancestral-sphere-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "one-handed",
+    "type": "relic",
+    "category": "weapon",
     "data": {
       "gold": 100,
-      "weight": 1.4,
-      "damage": [
-        15,
-        17
-      ],
-      "stamina": 14,
-      "block": null,
-      "requirements": {
-        "strength": 2,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 2,
-        "practicality": null
-      }
+      "weight": 0.2,
+      "effect": [
+        "Haste"
+      ]
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Trial Of Death",
-    "slug": "trial-of-death",
-    "description": "Killing enemies provides a stackable 20% damage increase for 10s.",
-    "shortDescription": "Two handed weapon that grants stacking damage on kills.",
-    "iconUrl": "/media/games/tainted-grail/assets/trial-of-death-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Bors' Mightstone",
+    "slug": "bors-mightstone",
+    "description": "Unknown.",
+    "shortDescription": "Bors' Mightstone weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/bors-mightstone-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "two-handed",
+    "type": "relic",
+    "category": "weapon",
     "data": {
-      "gold": 640,
-      "weight": 1.8,
-      "damage": [
-        26,
-        30
-      ],
-      "stamina": 26,
-      "block": null,
-      "requirements": {
-        "strength": 5,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 3,
-        "practicality": null
-      }
+      "gold": 100,
+      "weight": 0.2,
+      "effect": []
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Bone Club",
-    "slug": "bone-club",
-    "description": "After killing an enemy, attacks cost 50% less stamina for 8 seconds.",
-    "shortDescription": "Two handed club that reduces stamina cost after kills.",
-    "iconUrl": "/media/games/tainted-grail/assets/bone-club-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Crimson Shard",
+    "slug": "crimson-shard",
+    "description": "Inflicts Bleed.",
+    "shortDescription": "Crimson Shard weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/crimson-shard-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "two-handed",
+    "type": "relic",
+    "category": "weapon",
     "data": {
-      "gold": 605,
-      "weight": 5.3,
-      "damage": [
-        30,
-        33
-      ],
-      "stamina": 28,
-      "block": null,
-      "requirements": {
-        "strength": 7,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": null,
-        "practicality": null
-      }
+      "gold": 125,
+      "weight": 0.2,
+      "effect": [
+        "Bleed"
+      ]
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
-    "name": "Highland Axe",
-    "slug": "highland-axe",
-    "description": "A heavy two-handed axe forged in the highlands.",
-    "shortDescription": "Two handed axe with high damage.",
-    "iconUrl": "/media/games/tainted-grail/assets/highland-axe-weapon-tainted-grail.webp",
+    "gameSlug": "tainted-grail",
+    "name": "Incandescent Pearl",
+    "slug": "incandescent-pearl",
+    "description": "Inflicts Burn.",
+    "shortDescription": "Incandescent Pearl weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/incandescent-pearl-relic-tainted-grail.webp",
     "isActive": true,
-    "type": "weapon",
-    "category": "two-handed",
+    "type": "relic",
+    "category": "weapon",
     "data": {
-      "gold": 210,
-      "weight": 5.3,
-      "damage": [
-        46,
-        50
-      ],
-      "stamina": 25,
-      "block": null,
-      "requirements": {
-        "strength": 10,
-        "dexterity": null,
-        "spirituality": null,
-        "perception": null,
-        "endurance": 3,
-        "practicality": null
-      }
+      "gold": 100,
+      "weight": 0.2,
+      "effect": [
+        "Burn"
+      ]
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Knowing Worm",
+    "slug": "knowing-worm",
+    "description": "Increases Experience by 10%.",
+    "shortDescription": "Knowing Worm weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/knowing-worm-relic-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2,
+      "effect": []
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Nightshade Charcoal",
+    "slug": "nightshade-charcoal",
+    "description": "Increases Sneak Damage by 20%.",
+    "shortDescription": "Nightshade Charcoal weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/nightshade-charcoal-relic-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 200,
+      "weight": 0.2,
+      "effect": [
+        "Sneak Damage"
+      ]
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Smouldering Wrath",
+    "slug": "smouldering-wrath",
+    "description": "Critical Hits light your weapon on fire for 5s, increasing Damage dealt by 15% and Burning enemies.",
+    "shortDescription": "Smouldering Wrath weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/smouldering-wrath-relic-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 800,
+      "weight": 0.2,
+      "effect": [
+        "Critical Hit",
+        "Burn"
+      ]
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Starborn Egg +1",
+    "slug": "starborn-egg-1",
+    "description": "Weapon deals additional 15% Damage.",
+    "shortDescription": "Starborn Egg +1 weapon relic",
+    "iconUrl": "/media/games/tainted-grail/assets/starborn-egg-1-relic-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 302,
+      "weight": 0.2,
+      "effect": []
     }
   }
 ]

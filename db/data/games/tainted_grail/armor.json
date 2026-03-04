@@ -1,6 +1,6 @@
 [
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Knight's Boots (Stamina)",
     "slug": "knights-boots-stamina",
     "description": "Increases Max Stamina by 5.",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Blackwater Cloak",
     "slug": "blackwater-cloak",
     "description": "Decreases Damage Received from Melee Attacks by 5. Decreased Damage Received from Ranged Attacks by 5.",
@@ -36,7 +36,7 @@
     "data": {
       "gold": 200,
       "weight": 1.0,
-      "armor": null,
+      "armor": 0.0,
       "requirements": {
         "strength": null,
         "dexterity": null,
@@ -48,7 +48,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Camouflage Net",
     "slug": "camouflage-net",
     "description": "Increases Ranged Critical Chance by 10%.",
@@ -60,7 +60,7 @@
     "data": {
       "gold": 18,
       "weight": 1.0,
-      "armor": null,
+      "armor": 0.0,
       "requirements": {
         "strength": null,
         "dexterity": 3,
@@ -72,7 +72,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Archdruid's Vestments",
     "slug": "archdruids-vestments",
     "description": "Increases Max Mana by 100. Decreases Mana Regeneration by 5. Increases Spell Power by 75% when your Mana is below 10%.",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Mourning Veil",
     "slug": "mourning-veil",
     "description": "Decreases Melee and Ranged Damage Received by 7 points.",
@@ -108,7 +108,7 @@
     "data": {
       "gold": 200,
       "weight": 1.0,
-      "armor": null,
+      "armor": 0.0,
       "requirements": {
         "strength": null,
         "dexterity": 7,
@@ -120,7 +120,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Blacksmith's Boots",
     "slug": "blacksmiths-boots",
     "description": "Simple boots providing minimal protection.",
@@ -144,7 +144,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Bloodsoaked Vest",
     "slug": "bloodsoaked-vest",
     "description": "Increases Sneak Damage by 20%.",
@@ -168,7 +168,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Sturdy Leather Boots",
     "slug": "sturdy-leather-boots",
     "description": "Durable leather boots.",
@@ -192,7 +192,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Red Priest's Robe",
     "slug": "red-priests-robe",
     "description": null,
@@ -216,7 +216,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Medic's Boots",
     "slug": "medics-boots",
     "description": null,
@@ -240,7 +240,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Keeper's Gloves",
     "slug": "keepers-gloves",
     "description": "Increases Attack Speed by 10%.",
@@ -264,7 +264,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Peasant's Shirt",
     "slug": "peasants-shirt",
     "description": null,
@@ -288,7 +288,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Worn Druidic Gloves",
     "slug": "worn-druidic-gloves",
     "description": "Increases Mana Regeneration by 0.3.",
@@ -312,7 +312,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Blacksmith's Gloves",
     "slug": "blacksmiths-gloves",
     "description": null,
@@ -336,7 +336,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Lionheart Breeches",
     "slug": "lionheart-breeches",
     "description": "Increases Physical Damage by 25% when below 33% Max Stamina. Increases Max Stamina by 25.",
@@ -360,7 +360,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "The Penitent Guard Helm",
     "slug": "the-penitent-guard-helm",
     "description": "Reduces Max Health by 10.",
@@ -384,7 +384,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Champion Of Tuathan Legguards",
     "slug": "champion-of-tuathan-legguards",
     "description": "Each enemy within a radius of 6m increases your Armor by 3%.",
@@ -408,7 +408,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Sir Lancelot's Greaves",
     "slug": "sir-lancelots-greaves",
     "description": "Increases Max Stamina by 125% when your Health is below 20%. Increases Physical Damage by 20%.",
@@ -432,7 +432,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Corpse Eater's Cap",
     "slug": "corpse-eaters-cap",
     "description": "Increases Attack Speed by 5%.",
@@ -456,7 +456,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Iron Helmet",
     "slug": "iron-helmet",
     "description": null,

@@ -10,11 +10,6 @@ const gameSchemas = {
     "tainted-grail": TaintedGrailSchema
 }
 
-const gameIdToSlug = {
-    "550e8400-e29b-41d4-a716-446655440001": "tainted-grail",
-    // añade aquí el de Elden Ring cuando lo tengas
-}
-
 export async function validateAsset(data) {
     const { gameSlug, gameId } = data
 

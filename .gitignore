@@ -13,3 +13,4 @@ db/localdb/
 
 # Testing files
 test/
+/validators/test.validator.js

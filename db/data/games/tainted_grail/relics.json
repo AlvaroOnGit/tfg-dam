@@ -1,6 +1,6 @@
 [
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Amberstride",
     "slug": "amberstride",
     "description": "Increases Max Stamina by 5%.",
@@ -16,7 +16,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Amberstride +3",
     "slug": "amberstride-3",
     "description": "Increases Max Stamina by 7%.",
@@ -32,7 +32,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Fetching Yet Practical Adornment",
     "slug": "fetching-yet-practical-adornment",
     "description": "Increases Mana Regeneration by 0.5. Increases Max Stamina by 3.",
@@ -48,7 +48,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Gem Of Carrying +2",
     "slug": "gem-of-carrying-2",
     "description": "Increases Encumbrance Limit by 6.",
@@ -64,7 +64,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Gem Of Stamina +1",
     "slug": "gem-of-stamina-1",
     "description": "Multiplies Stamina Regeneration by x1.21.",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Iron Bite",
     "slug": "iron-bite",
     "description": "Increases Melee Damage by 3%.",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Long-Haul Pearl",
     "slug": "long-haul-pearl",
     "description": "Increases Ranged Damage by 3%.",
@@ -112,7 +112,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Unyielding Sentinel +2",
     "slug": "unyielding-sentinel-2",
     "description": "Reduces Stamina Cost by 11%.",
@@ -128,7 +128,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Ancestral Sphere",
     "slug": "ancestral-sphere",
     "description": "On Critical Hit applies Haste.",
@@ -146,7 +146,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Bors' Mightstone",
     "slug": "bors-mightstone",
     "description": "Unknown.",
@@ -162,7 +162,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Crimson Shard",
     "slug": "crimson-shard",
     "description": "Inflicts Bleed.",
@@ -180,7 +180,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Incandescent Pearl",
     "slug": "incandescent-pearl",
     "description": "Inflicts Burn.",
@@ -198,7 +198,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Knowing Worm",
     "slug": "knowing-worm",
     "description": "Increases Experience by 10%.",
@@ -214,7 +214,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Nightshade Charcoal",
     "slug": "nightshade-charcoal",
     "description": "Increases Sneak Damage by 20%.",
@@ -232,7 +232,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Smouldering Wrath",
     "slug": "smouldering-wrath",
     "description": "Critical Hits light your weapon on fire for 5s, increasing Damage dealt by 15% and Burning enemies.",
@@ -251,7 +251,7 @@
     }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Starborn Egg +1",
     "slug": "starborn-egg-1",
     "description": "Weapon deals additional 15% Damage.",

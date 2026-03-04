@@ -1,6 +1,6 @@
 [
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Ancient Oak's Root +2",
     "slug": "ancient-oaks-root-2",
     "description": "Increases Health Regeneration by 0.6.",
@@ -9,13 +9,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 750,
-      "weight": 0.1
-    }
+    "data": { "gold": 750, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Breakwater",
     "slug": "breakwater",
     "description": "Creatures of Sarras deal 5% less Damage to you.",
@@ -24,13 +21,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 500,
-      "weight": 0.1
-    }
+    "data": { "gold": 500, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Confessor's Ring",
     "slug": "confessors-ring",
     "description": "Increases Spirituality by 2.",
@@ -39,13 +33,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 777,
-      "weight": 0.1
-    }
+    "data": { "gold": 777, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Deer Ring",
     "slug": "deer-ring",
     "description": "Increases Max Stamina by 5.",
@@ -54,13 +45,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 200,
-      "weight": 0.1
-    }
+    "data": { "gold": 200, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Geographer's Ring",
     "slug": "geographers-ring",
     "description": "Increases Movement Speed Multiplier by 5% when not in combat.",
@@ -69,13 +57,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 200,
-      "weight": 0.2
-    }
+    "data": { "gold": 200, "weight": 0.2 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Kamelot's Ring",
     "slug": "kamelots-ring",
     "description": "Increases Max Health by 10. Increases Max Stamina by 5.",
@@ -84,13 +69,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 500,
-      "weight": 0.1
-    }
+    "data": { "gold": 500, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Langford Ring",
     "slug": "langford-ring",
     "description": "Reduces Stamina Cost by 20%.",
@@ -99,13 +81,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 500,
-      "weight": 0.1
-    }
+    "data": { "gold": 500, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Tempest Alliance",
     "slug": "tempest-alliance",
     "description": "Increase Mana Shield by 0.25%.",
@@ -114,13 +93,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "rings",
-    "data": {
-      "gold": 440,
-      "weight": 0.1
-    }
+    "data": { "gold": 440, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Ambergris Fragment",
     "slug": "ambergris-fragment",
     "description": "Increases Max Health by 10.",
@@ -129,13 +105,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 200,
-      "weight": 0.1
-    }
+    "data": { "gold": 200, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Amulet Of A Novice Ogre Hunter",
     "slug": "amulet-of-a-novice-ogre-hunter",
     "description": "Decreases Incoming Damage by 20% when your Health is below 10%. When you have full Health, deal 33% more Damage.",
@@ -144,13 +117,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 500,
-      "weight": 0.5
-    }
+    "data": { "gold": 500, "weight": 0.5 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Berserker's Call",
     "slug": "berserkers-call",
     "description": "If you wear no armor, increase Physical Damage by 30%.",
@@ -159,13 +129,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 200,
-      "weight": 0.5
-    }
+    "data": { "gold": 200, "weight": 0.5 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Charm Of The Faithful Fae",
     "slug": "charm-of-the-faithful-fae",
     "description": "Increases Encumbrance Limit by 100.",
@@ -174,13 +141,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 50,
-      "weight": 0.1
-    }
+    "data": { "gold": 50, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Gift For The Beloved",
     "slug": "gift-for-the-beloved",
     "description": "Increases Health Regeneration by 1 while you are in combat.",
@@ -189,13 +153,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 2000,
-      "weight": 0.5
-    }
+    "data": { "gold": 2000, "weight": 0.5 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Great Beast's Bone",
     "slug": "great-beasts-bone",
     "description": "Increases Max Health by 5%.",
@@ -204,13 +165,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 200,
-      "weight": 0.5
-    }
+    "data": { "gold": 200, "weight": 0.5 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Hunter's Amulet",
     "slug": "hunters-amulet",
     "description": "Increases Weak Spot Damage by 20%.",
@@ -219,13 +177,10 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 200,
-      "weight": 0.1
-    }
+    "data": { "gold": 200, "weight": 0.1 }
   },
   {
-    "gameId": "550e8400-e29b-41d4-a716-446655440001",
+    "gameSlug": "tainted-grail",
     "name": "Ironlung Stone",
     "slug": "ironlung-stone",
     "description": "Increases Stamina Regeneration by 10.",
@@ -234,9 +189,6 @@
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",
-    "data": {
-      "gold": 200,
-      "weight": 0.1
-    }
+    "data": { "gold": 200, "weight": 0.1 }
   }
 ]
