@@ -77,7 +77,7 @@ const weightSchema = z
 
 // ───────── Weapon Schemas ─────────────────────────────────────────────────────
 
-const attackTypes = ["physical","magical","fire","lightning","holy","critical","incantation","sorcery"];
+const attackTypes = ["physical","magical","fire","lightning","holy","critical","incantation","sorcery","range"];
 const guardTypes = ["physical","magical","fire","lightning","holy","boost"];
 const attributeTypes = ["strength","dexterity","intelligence","faith","arcane"];
 
@@ -101,6 +101,7 @@ const weaponGuardSchema = z.object(
             .int(`${type} guard must be an integer`)
             .nonnegative(`${type} guard cannot be negative`)
             .max(100, "guard value cannot exceed 100")
+            .nullable()
         ])
     )
 );
@@ -384,13 +385,16 @@ const spiritAshDataSchema = z.object({
  *
  * - If `category` is "seals", `incantation` cannot be 0.
  * - If `category` is "staves", `sorcery` cannot be 0.
+ * - If `category` is any ranged weapon `range` cannot be 0.
  * - If `category` is neither "staves" or "seals" `incantation` and `sorcery` must be 0.
  *
  * Adds a Zod issue if any of the previous conditions are met.
  */
 const validateWeaponAttack = (obj, ctx) => {
 
-    const { incantation, sorcery } = obj.data.attack;
+    const { incantation, sorcery, range } = obj.data.attack;
+
+    const rangedWeapons = ["light-bows","bows","greatbows","crossbows","ballistas"];
 
     if (obj.category === "seals"){
         if (incantation <= 0){
@@ -407,6 +411,15 @@ const validateWeaponAttack = (obj, ctx) => {
                 code: "invalid_value",
                 message: `sorcery attack cannot be 0 if weapon category is: ${obj.category}`,
                 path: ["data", "attack", "sorcery"]
+            });
+        }
+    }
+    if (rangedWeapons.includes(obj.category)){
+        if (range <= 0){
+            ctx.addIssue({
+                code: "invalid_value",
+                message: `range attack cannot be 0 if weapon category is: ${obj.category}`,
+                path: ["data", "attack", "range"]
             });
         }
     }
@@ -431,7 +444,7 @@ const validateWeaponAttack = (obj, ctx) => {
  */
 const validateSpellTypes = (obj, ctx) => {
     if (obj.category === "incantations") {
-        if (!spellIncantationTypes.includes(obj.spellType)) {
+        if (!spellIncantationTypes.includes(obj.data.spellType)) {
             ctx.addIssue({
                 code: "invalid_type",
                 message: `Invalid type for incantation, expected one of: ${spellIncantationTypes.join(", ")}`,
@@ -441,7 +454,7 @@ const validateSpellTypes = (obj, ctx) => {
     }
 
     if (obj.category === "sorceries") {
-        if (!spellSorceryTypes.includes(obj.spellType)) {
+        if (!spellSorceryTypes.includes(obj.data.spellType)) {
             ctx.addIssue({
                 code: "invalid_type",
                 message: `Invalid type for sorcery, expected one of: ${spellSorceryTypes.join(", ")}`,
