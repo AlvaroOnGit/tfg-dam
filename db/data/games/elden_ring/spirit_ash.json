@@ -1,151 +1,153 @@
 {
- "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
+  "gameSlug": "elden-ring",
   "name": "Curseblade Meera",
   "slug": "curseblade-meera",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
+  "type": "spirit-ash",
+  "category": null,
   "description": "Curseblade Meera is a Spirit and Summon in Elden Ring. Curseblade Meera summons an agile and powerful Curseblade",
-  "short_description": "Curseblade Meera summons an agile and powerful Curseblade.",
-  "icon_url": "https://example.com/images/curseblade-meera.png",
+  "shortDescription": "Curseblade Meera summons an agile and powerful Curseblade.",
+  "iconUrl": "/media/games/elden-ring/assets/curseblade-meera-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 60,
-    "HP_cost": null
+    "cost": {
+      "fp": 91,
+      "hp": null
+    }
   },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
+  "gameSlug": "elden-ring",
   "name": "Archer Ashes",
-  "slug": "archer_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirits of archers who belonged to the Fallen Hawks, a band of soldiers that once explored the Eternal City.",
-  "short_description": "Ashen remains in which spirits yet dwell. Use to summon three archer spirits.",
-  "icon_url": "https://example.com/images/archer-ashes.png",
+  "slug": "archer-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Archer Ashes is a Spirit and Summon in Elden Ring. Archer Ashes summons three archer spirits.",
+  "shortDescription": "Summons three archer spirits.",
+  "iconUrl": "/media/games/elden-ring/assets/archer-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 57,
-    "HP_cost": null
+    "cost": {
+      "fp": 57,
+      "hp": null
+    }
   },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
+  "gameSlug": "elden-ring",
   "name": "Nomad Ashes",
-  "slug": "nomad_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "A member of a tribe that was entombed in the earth so as to bury the maddening disease that followed them.",
-  "short_description": "Ashen remains in which spirits yet dwell.",
-  "icon_url": "https://example.com/images/Nomad-Ashes.png",
+  "slug": "nomad-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Nomad Ashes is a Spirit and Summon in Elden Ring. Nomad Ashes summons a nomad spirit.",
+  "shortDescription": "Summons nomad spirit.",
+  "iconUrl": "/media/games/elden-ring/assets/nomad-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 61,
-    "HP_cost": null
+    "cost": {
+      "fp": 61,
+      "hp": null
+    }
   },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
-  "name": "Warhawk Ashes",
-  "slug": "warhawk_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirit of a Stormveil warhawk, the talons of which have been sliced off so that razor-fine swords could be grafted in their place.",
-  "short_description": "Use to summon the spirit of a warhawk.",
-  "icon_url": "https://example.com/images/Warhawk-Ashes.png",
-  "data": {
-    "FP_cost": 52,
-    "HP_cost": null
-  },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
-  "name": "Albinauric Ashes",
-  "slug": "albinauric_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "A strapping duo of cartwheeling spirits who wield ripple swords and spew freezing breath.",
-  "short_description": "Use to summon the spirits of two Albinaurics.",
-  "icon_url": "https://example.com/images/Albimauric-Ashes.png",
-  "data": {
-    "FP_cost": 53,
-    "HP_cost": null
-  },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
-  "name": "Man-Serpent Ashes",
-  "slug": "man_serpent_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Ashen remains in which spirits yet dwell. Use to summon the spirit of a man-serpent.",
-  "short_description": "Spirit of a deformed man-serpent that wields a whip of magma.",
-  "icon_url": "https://example.com/images/Man-Serpent-Ashes.png",
-  "data": {
-    "FP_cost": 62,
-    "HP_cost": null
-  },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
-  "name": "Crystalian Ashes",
-  "slug": "crystalian_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirit that wields round crystalline blades, both big and small.",
-  "short_description": "Use to summon the spirit of a Crystalian.",
-  "icon_url": "https://example.com/images/Crystalian-Ashes.png",
-  "data": {
-    "FP_cost": 101,
-    "HP_cost": null
-  },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
+  "gameSlug": "elden-ring",
   "name": "Lone Wolf Ashes",
-  "slug": "lone_wolf_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirits of wolves chased from their pack. They later encountered a nameless Tarnished, who welcomed them as hunting companions.",
-  "short_description": "Use to summon the spirits of three lone wolves.",
-  "icon_url": "https://example.com/images/Lone-Wolf-Ashes.png",
+  "slug": "lone-wolf-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Lone Wolf Ashes is a Spirit and Summon in Elden Ring. Lone Wolf Ashes summons three lone wolf spirits.",
+  "shortDescription": "Summons three lone wolf spirits.",
+  "iconUrl": "/media/games/elden-ring/assets/lone-wolf-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 55,
-    "HP_cost": null
+    "cost": {
+      "fp": 55,
+      "hp": null
+    }
   },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
-  "name": "Page Ashes",
-  "slug": "page_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirit of a page who traveled at the side of the noble he served.",
-  "short_description": "Use to summon the spirit of a page.",
-  "icon_url": "https://example.com/images/Page-Ashes.png",
+  "gameSlug": "elden-ring",
+  "name": "Albinauric Ashes",
+  "slug": "albinauric-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Albinauric Ashes is a Spirit and Summon in Elden Ring. Albinauric Ashes summons two Albinauric spirits.",
+  "shortDescription": "Summons two Albinauric spirits.",
+  "iconUrl": "/media/games/elden-ring/assets/albinauric-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 81,
-    "HP_cost": null
+    "cost": {
+      "fp": 53,
+      "hp": null
+    }
   },
-  "tags": [],
-
-  "id": "123e456-e89b-12d3-a456-426614174000",
-  "gameid": "Elden Ring",
+  "gameSlug": "elden-ring",
+  "name": "Man-Serpent Ashes",
+  "slug": "man-serpent-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Man-Serpent Ashes is a Spirit and Summon in Elden Ring. Man-Serpent Ashes summons a man-serpent spirit.",
+  "shortDescription": "Summons man-serpent spirit.",
+  "iconUrl": "/media/games/elden-ring/assets/man-serpent-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "cost": {
+      "fp": 62,
+      "hp": null
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Crystalian Ashes",
+  "slug": "crystalian-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Crystalian Ashes is a Spirit and Summon in Elden Ring. Crystalian Ashes summons a Crystalian spirit.",
+  "shortDescription": "Summons Crystalian spirit.",
+  "iconUrl": "/media/games/elden-ring/assets/crystalian-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "cost": {
+      "fp": 101,
+      "hp": null
+    }
+  },
+  "gameSlug": "elden-ring",
   "name": "Mausoleum Soldier Ashes",
-  "slug": "mausoleum_soldier_ashes",
-  "type": "spirit_ash",
-  "category": "spirit_ashes",
-  "description": "Spirits of five headless soldiers who confound foes by disappearing and reappearing at will.",
-  "short_description": "Use to summon the spirits of five mausoleum soldiers.",
-  "icon_url": "https://example.com/images/Mausoleum-Soldier-Ashes.png",
+  "slug": "mausoleum-soldier-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Mausoleum Soldier Ashes is a Spirit and Summon in Elden Ring. Mausoleum Soldier Ashes summons five mausoleum soldier spirits.",
+  "shortDescription": "Summons five mausoleum soldier spirits.",
+  "iconUrl": "/media/games/elden-ring/assets/mausoleum-soldier-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
   "data": {
-    "FP_cost": 75,
-    "HP_cost": null
+    "cost": {
+      "fp": 75,
+      "hp": null
+    }
   },
-  "tags": []
+  "gameSlug": "elden-ring",
+  "name": "Page Ashes",
+  "slug": "page-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Page Ashes is a Spirit and Summon in Elden Ring. Page Ashes summons a page spirit.",
+  "shortDescription": "Summons page spirit.",
+  "iconUrl": "/media/games/elden-ring/assets/page-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "cost": {
+      "fp": 81,
+      "hp": null
+    }
+  },
+
+  "gameSlug": "elden-ring",
+  "name": "Wandering Noble Ashes",
+  "slug": "wandering-noble-ashes",
+  "type": "spirit-ash",
+  "category": null,
+  "description": "Wandering Noble Ashes is a Spirit and Summon in Elden Ring. Wandering Noble Ashes summons five wandering noble spirits.",
+  "shortDescription": "Summons five wandering noble spirits.",
+  "iconUrl": "/media/games/elden-ring/assets/wandering-noble-ashes-spirit-ash-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "cost": {
+      "fp": 28,
+      "hp": null
+    }
+  }
 }
