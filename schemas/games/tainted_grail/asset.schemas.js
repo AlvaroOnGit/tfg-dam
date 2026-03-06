@@ -89,7 +89,8 @@ const weightSchema = z
     .number("weight must be a number")
     .nonnegative("weight cannot be negative")
     .multipleOf(0.1, "weight cannot have more than 1 decimal")
-    .max(100, "weight cannot exceed 100");
+    .max(100, "weight cannot exceed 100")
+    .nullable();
 
 // ────────── Weapon Schemas ──────────────────────────────────────────────────────
 
