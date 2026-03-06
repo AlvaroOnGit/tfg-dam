@@ -11,17 +11,25 @@ const gameSchemas = {
 }
 
 export async function validateAsset(data) {
+    const { gameSlug, gameId } = data
 
-    const { gameSlug } = data
+    const slug = gameSlug ?? gameIdToSlug[gameId];
 
-    const gameSchema = gameSchemas[gameSlug];
+    if (!slug) {
+        return {
+            success: false,
+            error: `Unsupported game: ${gameId ?? gameSlug}`
+        };
+    }
+
+    const gameSchema = gameSchemas[slug];
 
     if (!gameSchema) {
         return {
             success: false,
-            error: `Unsupported game: ${gameSlug}`
+            error: `Unsupported game: ${slug}`
         };
     }
 
-    return await gameSchema.safeParse(data);
+    return await gameSchema.safeParse({ ...data, gameSlug: slug });
 }

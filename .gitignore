@@ -8,7 +8,7 @@ node_modules/
 db/localdb/
 
 # Enviroment files
-.env.development
+.env.development*
 .env
 
 # Testing files
