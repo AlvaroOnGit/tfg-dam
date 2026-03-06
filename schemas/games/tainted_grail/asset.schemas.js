@@ -18,11 +18,11 @@ const weaponCategories = z.enum([
 ]);
 
 const armorCategories = z.enum([
-    "cuirasses",
+    "cuirass",
     "greaves",
-    "boots",
-    "gauntlets",
-    "helmets",
+    "boot",
+    "gauntlet",
+    "helmet",
     "back"
 ]);
 
