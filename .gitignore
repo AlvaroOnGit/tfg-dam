@@ -12,5 +12,5 @@ db/localdb/
 .env
 
 # Testing files
-test/
-/validators/test.validator.js
+/test
+api.http
