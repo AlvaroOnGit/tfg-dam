@@ -12,4 +12,5 @@ db/localdb/
 .env
 
 # Testing files
-test/
+/test
+api.http

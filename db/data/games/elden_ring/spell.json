@@ -1,0 +1,289 @@
+{
+  "gameSlug": "elden-ring",
+  "name": "Star Shower",
+  "slug": "star-shower",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "One of the glintstone sorceries of the Academy of Raya Lucaria. Fires six magic shooting stars that pursue the target.",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/star-shower-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "glintstone",
+    "cost": 23,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 24,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Frozen Armament",
+  "slug": "frozen-armament",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Enchants right-hand armament with frost",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/frozen-armament-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "cold",
+    "cost": 20,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 15,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Night Shard",
+  "slug": "night-shard",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Swiftly fires a semi-invisible magic projectile",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/night-shard-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "night",
+    "cost": 7,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 18,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Roiling Magma",
+  "slug": "roiling-magma",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Fires lump of magma that explodes after delay",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/roiling-magma-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "magma",
+    "cost": 28,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 21,
+      "faith": 12,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Comet",
+  "slug": "comet",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Fires a great magic comet",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/comet-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "glintstone",
+    "cost": 24,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 52,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Starlight",
+  "slug": "starlight",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Creates star light to illuminate surroundings",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/starlight-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "glintstone",
+    "cost": 9,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 15,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Lucidity",
+  "slug": "lucidity",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Alleviates buildup of sleep and madness",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/lucidity-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "carian",
+    "cost": 10,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 17,
+      "faith": 0,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Rykard's Rancor",
+  "slug": "rykards-rancor",
+  "type": "spell",
+  "category": "sorceries",
+  "description": "Releases searing spirits that repeatedly explode after delay",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/rykards-rancor-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "magma",
+    "cost": 23,
+    "slots": 2,
+    "requirement": {
+      "intelligence": 40,
+      "faith": 18,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Darkness",
+  "slug": "darkness",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Creates area of darkness that conceals caster",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/darkness-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "two-fingers",
+    "cost": 24,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 18,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Bestial Sling",
+  "slug": "bestial-sling",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Swiftly flings numerous sharp rock shards",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/bestial-sling-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "bestial",
+    "cost": 7,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 10,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Noble Presence",
+  "slug": "noble-presence",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Thrust out belly with gusto to unleash repelling shockwave",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/noble-presence-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "black-flame",
+    "cost": 20,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 26,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Poison Armament",
+  "slug": "poison-armament",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Enchants armament held in the right hand with poison",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/poison-armament-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "servants-of-rot",
+    "cost": 15,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 10,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Bloodboon",
+  "slug": "bloodboon",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Scatters bloodflame before caster to set area aflame",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/bloodboon-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "blood-oath",
+    "cost": 13,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 14,
+      "arcane": 17
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Heal",
+  "slug": "heal",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Heals HP for you and nearby allies",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/heal-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "two-fingers",
+    "cost": 32,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 12,
+      "arcane": 0
+    }
+  },
+  "gameSlug": "elden-ring",
+  "name": "Frozen Lightning Spear",
+  "slug": "frozen-lightning-spear",
+  "type": "spell",
+  "category": "incantations",
+  "description": "Stabs with ice lightning spear from above",
+  "shortDescription": null,
+  "iconUrl": "/media/games/elden-ring/assets/frozen-lightning-spear-spell-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "spellType": "dragon-cult",
+    "cost": 29,
+    "slots": 1,
+    "requirement": {
+      "intelligence": 0,
+      "faith": 34,
+      "arcane": 0
+    }
+  }
+}
+
+

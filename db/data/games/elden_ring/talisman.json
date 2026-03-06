@@ -1,0 +1,258 @@
+
+[
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Crimson Amber Medallion",
+  "slug": "crimson_amber_medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with crimson amber inlaid. Raises maximum HP.",
+  "short_description": "A medallion that raises maximum HP.",
+  "icon_url": "media/games/elden-ring/assets/crimson-amber-medallion-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Increases maximum HP by 6%.",
+    "weight": 0.3
+  }
+ 
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Crimson seed talisman",
+  "slug": "crimson-seed-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A crimson-colored talisman patterned after an Erdtree seed. Boosts HP restoration from the Flask of Crimson Tears.",
+  "short_description": "A talisman that boosts HP restoration from the Flask of Crimson Tears.",
+  "icon_url": "media/games/elden-ring/assets/crimson-seed-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Boosts HP restoration from the Flask of Crimson Tears by 20%",
+    "weight": 0.8
+  }
+
+},
+
+{
+  "gameSlug": "elden-ring",
+  "name": "Blessed Dew Talisman",
+  "slug": "blessed-dew-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting a drop of the Erdtree's sap, a blessed boon. Gradually restores HP.",
+  "short_description": "A talisman that gradually restores HP.",
+  "icon_url": "media/games/elden-ring/assets/blessed-dew-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Restores 2 HP/sec",
+    "weight": 0.6
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Cerulean Amber Medallion",
+  "slug": "cerulean-amber-medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with cerulean amber inlaid. Raises maximum FP.",
+  "short_description": "A medallion that raises maximum FP.",
+  "icon_url": "media/games/elden-ring/assets/cerulean-amber-medallion-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises maximum FP by 7%.",
+    "weight": 0.3
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Cerulean seed Talisman",
+  "slug": "cerulean-seed-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A cerulean-colored talisman patterned after an Erdtree seed. Boosts FP restoration from the Flask of Cerulean Tears.",
+  "short_description": "A talisman that boosts FP restoration from the Flask of Cerulean Tears.",
+  "icon_url": "media/games/elden-ring/assets/cerulean-seed-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Boosts FP restoration from the Flask of Cerulean Tears by 20%",
+    "weight": 0.8
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Blessed blue dew Talisman",
+  "slug": "blessed-blue-dew-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree. Gradually restores FP.",
+  "short_description": "A talisman that gradually restores FP.",
+  "icon_url": "media/games/elden-ring/assets/blessed-blue-dew-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Slowly restores FP",
+    "weight": 1.2
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Talisman of Lords' Bestowal",
+  "slug": "talisman-of-lords-bestowal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap. Increases poise after using a flask of tears.",
+  "short_description": "A talisman that increases poise after using a flask of tears.",
+  "icon_url": "media/games/elden-ring/assets/talisman-of-lords-bestowal-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Increases poise after using a flask of tears",
+    "weight": 3.0
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Viridian Amber Medallion",
+  "slug": "viridian-amber-medallion",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A medallion with viridian amber inlaid. Raises maximum stamina.",
+  "short_description": "A medallion that raises maximum stamina.",
+  "icon_url": "media/games/elden-ring/assets/viridian-amber-medallion-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises maximum stamina by 11%",
+    "weight": 0.3
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Green turtle Talisman",
+  "slug": "green-turtle-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a green turtle. Raises stamina recovery speed.",
+  "short_description": "A talisman that raises stamina recovery speed.",
+  "icon_url": "media/games/elden-ring/assets/green-turtle-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises stamina recovery speed by 17.7%",
+    "weight": 0.7
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Great-Jar's Arsenal",
+  "slug": "great-jar-arsenal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A charm that resembles a great jar overflowing with weaponry.Vastly boosts maximum equipment load.",
+  "short_description": "A talisman that vastly boosts maximum equipment load.",
+  "icon_url": "media/games/elden-ring/assets/great-jar-arsenal-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Vastly boosts maximum equipment load by 19%",
+    "weight": 1.5
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Two-headed turtle Talisman",
+  "slug": "two-headed-turtle-talisman",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman in the shape of a two-headed green turtle. Greatly raises stamina recovery speed.",
+  "short_description": "A talisman that greatly raises stamina recovery speed.",
+  "icon_url": "media/games/elden-ring/assets/two-headed-turtle-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Greatly raises stamina recovery speed by 22.5%",
+    "weight": 1.0
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Arsenal charm",
+  "slug": "arsenal-charm",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An iron charm that resembles a mass of weaponry.Boosts maximum equipment load.",
+  "short_description": "A talisman that boosts maximum equipment load.",
+  "icon_url": "media/games/elden-ring/assets/arsenal-charm-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises maximum Equip Load by 15/17%",
+    "weight": 1.5
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Erdtree's Favor",
+  "slug": "erdtree-favor",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "A talisman depicting a special blessing of the Erdtree. Slightly raises maximum HP, stamina, and equip load.",
+  "short_description": "A talisman that slightly raises maximum HP, stamina, and equip load.",
+  "icon_url": "media/games/elden-ring/assets/erdtrees-favor-talisman-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises maximum HP (3%), Stamina (7%), and Equip Load (5%)",
+    "weight": 1.5
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Radagon's Scarseal",
+  "slug": "radagons-scarseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "An eye engraved with an Elden Rune. Said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "media/games/elden-ring/assets/radagons-scarseal-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises Vigor, Endurance, Strength, and Dexterity by 3, but increases damage taken by 10%",
+    "weight": 0.8
+  }
+
+},
+
+{ 
+  "gameSlug": "elden-ring",
+  "name": "Radagon's Soreseal",
+  "slug": "radagons-soreseal",
+  "type": "talisman",
+  "category": "talismans",
+  "description": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
+  "short_description": "A talisman said to be the seal of King Consort Radagon.",
+  "icon_url": "media/games/elden-ring/assets/radagons-soreseal-elden-ring.webp",
+  "isActive": true,
+  "data": {
+    "effect": "Raises  Vigor,  Endurance,  Strength, and  Dexterity by 5 each, but increases damage taken by 15%",
+    "weight": 0.8
+  }
+
+}
+
+]
