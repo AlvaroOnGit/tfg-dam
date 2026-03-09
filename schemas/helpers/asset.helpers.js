@@ -5,7 +5,7 @@
  * Helper to validate that an asset's iconUrl matches a predefined file path.
  *
  * The expected path format is:
- *   /media/games/{gameSlug}/assets/{slug}-{type}-{gameSlug}.webp
+ *   /media/games/{gameSlug}/assets/{type}-{slug}-{gameSlug}.webp
  *
  * Requirements:
  * - The object must have `slug`, `type`, `gameSlug` and `iconUrl` fields.
@@ -17,7 +17,7 @@
 
 export const validateIconUrl = (obj, ctx) => {
     const { slug, type, gameSlug, iconUrl } = obj;
-    const expectedPath = `/media/games/${gameSlug}/assets/${slug}-${type}-${gameSlug}.webp`;
+    const expectedPath = `/media/games/${gameSlug}/assets/${type}-${slug}-${gameSlug}.webp`;
     if (iconUrl !== expectedPath) {
         ctx.addIssue({
             code: "custom",
