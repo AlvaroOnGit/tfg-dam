@@ -300,13 +300,10 @@ const talismanDataSchema = z.object({
         .min(1, "effect cannot be empty")
         .max(200, "effect cannot exceed 200 characters")
         .regex(
-            /^[A-Za-z0-9\s+%()\-→↑]+$/,
-            "effect can only contain letters, numbers, spaces, %, +, parentheses, arrows, and hyphens"
+            /^[A-Za-z0-9\s+%()\-→↑/.,]+$/,
+            "effect can only contain letters, numbers, spaces, %, +, /, commas, points, parentheses, arrows, and hyphens"
         )
-        .refine(
-            val => !val.match(/\d+%.*%/),
-            "effect cannot contain more than one % per number"
-        ),
+        .refine(val => !val.match(/\d+%%/), "effect cannot have double percent signs"),
     weight: weightSchema
 });
 

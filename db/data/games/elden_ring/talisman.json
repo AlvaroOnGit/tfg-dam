@@ -6,11 +6,11 @@
     "type": "talisman",
     "category": null,
     "description": "A medallion with crimson amber inlaid.\nRaises maximum HP.\n\nThe Erdtree's old sap becomes amber,\ntreasured as the most precious of jewels in the age of Godfrey, the first Elden Lord.\n\nA primordial life energy resides inside. ",
-    "short_description": "A medallion with crimson amber inlaid.",
-    "icon_url": "media/games/elden-ring/assets/talisman-crimson-amber-medallion-elden-ring.webp",
+    "shortDescription": "A medallion with crimson amber inlaid.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-crimson-amber-medallion-elden-ring.webp",
     "isActive": true,
     "data": {
-      "effect": "Increases maximum HP by 6%.",
+      "effect": "Increases maximum HP by 6%",
       "weight": 0.3
     }
   },
@@ -21,8 +21,8 @@
     "type": "talisman",
     "category": null,
     "description": "A crimson-colored talisman patterned after an Erdtree seed.\nBoosts HP restoration from the Flask of Crimson Tears.\n\nThe Erdtree was once perfect and eternal, and thus was it believed that Erdtree seeds could not exist.",
-    "short_description": "A crimson-colored talisman patterned after an Erdtree seed.",
-    "icon_url": "media/games/elden-ring/assets/talisman-crimson-seed-talisman-elden-ring.webp",
+    "shortDescription": "A crimson-colored talisman patterned after an Erdtree seed.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-crimson-seed-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Boosts HP restoration from the Flask of Crimson Tears by 20%",
@@ -36,8 +36,8 @@
     "type": "talisman",
     "category": null,
     "description": "Talisman depicting a drop of the Erdtree's sap, a blessed boon.\n\nGradually restores HP.\n\nIt was once thought that the blessed sap of the Erdtree would drip from its boughs forever--\nbut that age of plenty swiftly came to a close, and with time, the Erdtree became more an object of faith.",
-    "short_description": "Talisman depicting a drop of the Erdtree's sap, a blessed boon.",
-    "icon_url": "media/games/elden-ring/assets/talisman-blessed-dew-talisman-elden-ring.webp",
+    "shortDescription": "Talisman depicting a drop of the Erdtree's sap, a blessed boon.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-blessed-dew-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Restores 2 HP/sec",
@@ -51,11 +51,11 @@
     "type": "talisman",
     "category": null,
     "description": "A medallion with cerulean amber inlaid.\nRaises maximum FP.\n\nThe Erdtree's old sap becomes amber, treasured as the most precious of jewels in the age of Godfrey, the first Elden Lord.\n\nA primordial life energy resides inside.",
-    "short_description": "A medallion with cerulean amber inlaid.",
-    "icon_url": "media/games/elden-ring/assets/talisman-cerulean-amber-medallion-elden-ring.webp",
+    "shortDescription": "A medallion with cerulean amber inlaid.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-cerulean-amber-medallion-elden-ring.webp",
     "isActive": true,
     "data": {
-      "effect": "Raises maximum FP by 7%.",
+      "effect": "Raises maximum FP by 7%",
       "weight": 0.3
     }
   },
@@ -66,8 +66,8 @@
     "type": "talisman",
     "category": null,
     "description": "A cerulean-colored talisman patterned after an Erdtree seed.\nBoosts FP restoration from the Flask of Cerulean Tears.\n\nThe Erdtree was once perfect and eternal, and thus was it believed that Erdtree seeds could not exist.",
-    "short_description": "A cerulean-colored talisman patterned after an Erdtree seed.",
-    "icon_url": "media/games/elden-ring/assets/talisman-cerulean-seed-talisman-elden-ring.webp",
+    "shortDescription": "A cerulean-colored talisman patterned after an Erdtree seed.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-cerulean-seed-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Boosts FP restoration from the Flask of Cerulean Tears by 20%",
@@ -81,8 +81,8 @@
     "type": "talisman",
     "category": null,
     "description": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree.\n\nGradually restores FP.\n\nIt was once thought that the blessed sap of the Erdtree would drip from its boughs forever—\nbut that age of plenty swiftly came to a close, and with time, the Erdtree became more an object of faith.",
-    "short_description": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree.",
-    "icon_url": "media/games/elden-ring/assets/talisman-blessed-blue-dew-talisman-elden-ring.webp",
+    "shortDescription": "Talisman depicting the blessed boon that is a droplet of the blue, luminescent sap of the Erdtree.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-blessed-blue-dew-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Slowly restores FP",
@@ -96,8 +96,8 @@
     "type": "talisman",
     "category": null,
     "description": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap. Increases poise after using a flask of tears.\n\nThe Lord accepted the sap stoically, without any sign of wavering. No wonder Lord of the Erdtree casts a long shadow over the lands.",
-    "short_description": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap.",
-    "icon_url": "media/games/elden-ring/assets/talisman-talisman-of-lords-bestowal-elden-ring.webp",
+    "shortDescription": "A talisman depicting Godfrey, first Elden lord, receiving the precious sap.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-talisman-of-lords-bestowal-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Increases poise after using a flask of tears",
@@ -111,8 +111,8 @@
     "type": "talisman",
     "category": null,
     "description": "A medallion with viridian amber inlaid.\nRaises maximum stamina.\n\nThe Erdtree's old sap becomes amber, treasured as the most precious of jewels in the age of Godfrey, the first Elden Lord.\n\nA primordial life energy resides inside. ",
-    "short_description": "A medallion with viridian amber inlaid.",
-    "icon_url": "media/games/elden-ring/assets/talisman-viridian-amber-medallion-elden-ring.webp",
+    "shortDescription": "A medallion with viridian amber inlaid.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-viridian-amber-medallion-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises maximum stamina by 11%",
@@ -126,8 +126,8 @@
     "type": "talisman",
     "category": null,
     "description": "A talisman in the shape of a green turtle.\nRaises stamina recovery speed.\n\nTurtles are known as a nutritious ingredient, symbolic of inexhaustible power.\n\nHowever, those who hold turtles to be wise creatures consider the practice of eating their meat to be barbarous.",
-    "short_description": "A talisman in the shape of a green turtle.",
-    "icon_url": "media/games/elden-ring/assets/talisman-green-turtle-talisman-elden-ring.webp",
+    "shortDescription": "A talisman in the shape of a green turtle.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-green-turtle-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises stamina recovery speed by 17.7%",
@@ -141,8 +141,8 @@
     "type": "talisman",
     "category": null,
     "description": "A charm that resembles a great jar overflowing with weaponry.\nVastly boosts maximum equipment load.\n\nThe great jar grants this talisman to their warriors. Carry as much as you can — grow big and strong.",
-    "short_description": "A charm that resembles a great jar overflowing with weaponry.",
-    "icon_url": "media/games/elden-ring/assets/talisman-great-jar-arsenal-elden-ring.webp",
+    "shortDescription": "A charm that resembles a great jar overflowing with weaponry.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-great-jar-arsenal-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Vastly boosts maximum equipment load by 19%",
@@ -156,8 +156,8 @@
     "type": "talisman",
     "category": null,
     "description": "A talisman in the shape of a two-headed green turtle. Greatly raises stamina recovery speed.\n\nTurtles are known as a nutritious ingredient, symbolic of inexhaustible power.\n\nTwo-headed turtles are a favorite subject in the land of the tower, due to the spiral shape of their intertwined necks.",
-    "short_description": "A talisman in the shape of a two-headed green turtle.",
-    "icon_url": "media/games/elden-ring/assets/talisman-two-headed-turtle-talisman-elden-ring.webp",
+    "shortDescription": "A talisman in the shape of a two-headed green turtle.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-two-headed-turtle-talisman-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Greatly raises stamina recovery speed by 22.5%",
@@ -171,8 +171,8 @@
     "type": "talisman",
     "category": null,
     "description": "An iron charm that resembles a mass of weaponry.\nBoosts maximum equipment load.\n\nThis talisman was derived from an unusual greatsword, once wielded by a hero hungry for vengeance.",
-    "short_description": "An iron charm that resembles a mass of weaponry.",
-    "icon_url": "media/games/elden-ring/assets/talisman-arsenal-charm-elden-ring.webp",
+    "shortDescription": "An iron charm that resembles a mass of weaponry.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-arsenal-charm-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises maximum Equip Load by 15%",
@@ -186,8 +186,8 @@
     "type": "talisman",
     "category": null,
     "description": "A talisman depicting a special blessing of the Erdtree.\nSlightly raises maximum HP, stamina, and equip load.\n\nIt is said that when the Age of the Erdtree began, such blessings were personally bestowed upon their recipients by Queen Marika herself.",
-    "short_description": "A talisman depicting a special blessing of the Erdtree.",
-    "icon_url": "media/games/elden-ring/assets/talisman-erdtree-favor-talisman-elden-ring.webp",
+    "shortDescription": "A talisman depicting a special blessing of the Erdtree.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-erdtree-favor-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises maximum HP (3%), Stamina (7%), and Equip Load (5%)",
@@ -201,8 +201,8 @@
     "type": "talisman",
     "category": null,
     "description": "An eye engraved with an Elden Rune.\nSaid to be the seal of King Consort Radagon.\n\nRaises vigor, endurance, strength, and dexterity, but also increases damage taken.\n\nThese seals represent the lifelong duty of those chosen by the gods.",
-    "short_description": "An eye engraved with an Elden Rune.",
-    "icon_url": "media/games/elden-ring/assets/talisman-radagon-scarseal-elden-ring.webp",
+    "shortDescription": "An eye engraved with an Elden Rune.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-radagon-scarseal-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises Vigor, Endurance, Strength, and Dexterity by 3, but increases damage taken by 10%",
@@ -216,8 +216,8 @@
     "type": "talisman",
     "category": null,
     "description": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.\n\nGreatly raises vigor, endurance, strength, dexterity, but also increases damage taken by a similar measure.\n\nSolemn duty weighs upon the one beholden; not unlike a gnawing curse from which there is no deliverance.",
-    "short_description": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
-    "icon_url": "media/games/elden-ring/assets/talisman-radagon-soreseal-elden-ring.webp",
+    "shortDescription": "This legendary talisman is an eye engraved with an Elden Rune, said to be the seal of King Consort Radagon.",
+    "iconUrl": "/media/games/elden-ring/assets/talisman-radagon-soreseal-elden-ring.webp",
     "isActive": true,
     "data": {
       "effect": "Raises  Vigor,  Endurance,  Strength, and  Dexterity by 5 each, but increases damage taken by 15%",

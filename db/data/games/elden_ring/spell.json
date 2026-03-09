@@ -13,7 +13,7 @@
       "spellType": "glintstone",
       "cost": 23,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 24,
         "faith": 0,
         "arcane": 0
@@ -34,7 +34,7 @@
       "spellType": "cold",
       "cost": 20,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 15,
         "faith": 0,
         "arcane": 0
@@ -55,7 +55,7 @@
       "spellType": "night",
       "cost": 7,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 18,
         "faith": 0,
         "arcane": 0
@@ -76,7 +76,7 @@
       "spellType": "magma",
       "cost": 28,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 21,
         "faith": 12,
         "arcane": 0
@@ -97,7 +97,7 @@
       "spellType": "glintstone",
       "cost": 24,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 52,
         "faith": 0,
         "arcane": 0
@@ -118,7 +118,7 @@
       "spellType": "glintstone",
       "cost": 9,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 15,
         "faith": 0,
         "arcane": 0
@@ -139,7 +139,7 @@
       "spellType": "carian",
       "cost": 10,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 17,
         "faith": 0,
         "arcane": 0
@@ -160,7 +160,7 @@
       "spellType": "magma",
       "cost": 23,
       "slots": 2,
-      "requirement": {
+      "requirements": {
         "intelligence": 40,
         "faith": 18,
         "arcane": 0
@@ -181,7 +181,7 @@
       "spellType": "two-fingers",
       "cost": 24,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 18,
         "arcane": 0
@@ -202,7 +202,7 @@
       "spellType": "bestial",
       "cost": 7,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 10,
         "arcane": 0
@@ -223,7 +223,7 @@
       "spellType": "black-flame",
       "cost": 20,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 26,
         "arcane": 0
@@ -244,7 +244,7 @@
       "spellType": "servants-of-rot",
       "cost": 15,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 10,
         "arcane": 0
@@ -265,7 +265,7 @@
       "spellType": "blood-oath",
       "cost": 13,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 14,
         "arcane": 17
@@ -286,7 +286,7 @@
       "spellType": "two-fingers",
       "cost": 32,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 12,
         "arcane": 0
@@ -307,7 +307,7 @@
       "spellType": "dragon-cult",
       "cost": 29,
       "slots": 1,
-      "requirement": {
+      "requirements": {
         "intelligence": 0,
         "faith": 34,
         "arcane": 0
