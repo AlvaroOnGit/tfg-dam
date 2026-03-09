@@ -41,6 +41,7 @@ const createBaseSchema = (gameSlug) =>
     isActive: z
         .boolean("value must be a boolean")
         .default(true)
+        .optional()
 })
 
 export default createBaseSchema;
