@@ -1,289 +1,317 @@
-{
-  "gameSlug": "elden-ring",
-  "name": "Star Shower",
-  "slug": "star-shower",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "One of the glintstone sorceries of the Academy of Raya Lucaria. Fires six magic shooting stars that pursue the target.",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/star-shower-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "glintstone",
-    "cost": 23,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 24,
-      "faith": 0,
-      "arcane": 0
+[
+  {
+    "gameSlug": "elden-ring",
+    "name": "Star Shower",
+    "slug": "star-shower",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the glintstone sorceries of the Academy of Raya Lucaria.\n\nFires six magic shooting stars that pursue the target.\nThis sorcery can be cast while in motion. Charging enhances potency.\n\nThe most difficult to master of the Olivinus Conspectus sorceries.",
+    "shortDescription": "Fires six magic shooting stars that pursue the target.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-star-shower-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "glintstone",
+      "cost": 23,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 24,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Frozen Armament",
-  "slug": "frozen-armament",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Enchants right-hand armament with frost",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/frozen-armament-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "cold",
-    "cost": 20,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 15,
-      "faith": 0,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Frozen Armament",
+    "slug": "frozen-armament",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "Sorcery said to have been used by the old snow witch.\n\nEnchants armament held in the right hand with frost.\nThis sorcery can be cast while in motion.\n\nThe snowy crone taught the young Ranni to fear the dark moon as she imparted her cold sorcery.",
+    "shortDescription": "Enchants armament held in the right hand with frost.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-frozen-armament-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "cold",
+      "cost": 20,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 15,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Night Shard",
-  "slug": "night-shard",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Swiftly fires a semi-invisible magic projectile",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/night-shard-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "night",
-    "cost": 7,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 18,
-      "faith": 0,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Night Shard",
+    "slug": "night-shard",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the night sorceries of Sellia, Town of Sorcery.\n\nSwiftly fires a semi-invisible projectile. This sorcery can be used without delay after performing another action.\n\nThe Sellian sorcerers were assassins, and it is said that they often hunted their fellows.",
+    "shortDescription": "Swiftly fires a semi-invisible projectile.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-night-shard-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "night",
+      "cost": 7,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 18,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Roiling Magma",
-  "slug": "roiling-magma",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Fires lump of magma that explodes after delay",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/roiling-magma-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "magma",
-    "cost": 28,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 21,
-      "faith": 12,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Roiling Magma",
+    "slug": "roiling-magma",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the sorceries developed from the magma of Mt. Gelmir.\n\nFires a lump of condensed magma that explodes a short delay after hitting the target.\nCharging enhances potency and further delays the explosion.\n\nAfter discovering the ancient hexes of Gelmir, Rykard, son of Queen Rennala, brought them back into practical use as new forms of sorcery.",
+    "shortDescription": "Fires a lump of condensed magma that explodes a short delay after hitting the target.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-roiling-magma-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "magma",
+      "cost": 28,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 21,
+        "faith": 12,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Comet",
-  "slug": "comet",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Fires a great magic comet",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/comet-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "glintstone",
-    "cost": 24,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 52,
-      "faith": 0,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Comet",
+    "slug": "comet",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the glintstone sorceries of the Academy of Raya Lucaria.\nFires a great magical comet.\n\nThis sorcery can be cast repeatedly and while in motion. Charging\nenhances potency.\n\nThe greatest of the Karolos Conspectus's sorceries, that only a\nvery few sorcerers have ever mastered.",
+    "shortDescription": "Fires a great magical comet.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-comet-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "glintstone",
+      "cost": 24,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 52,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Starlight",
-  "slug": "starlight",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Creates star light to illuminate surroundings",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/starlight-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "glintstone",
-    "cost": 9,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 15,
-      "faith": 0,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Starlight",
+    "slug": "starlight",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the glintstone sorceries of the Academy of Raya Lucaria.\n\nCreates a small, floating star light that illuminates surroundings.\nThis sorcery can be cast while in motion.\n\nGranted to sorcerers who depart from the academy to embark on journeys. Even during the blackest nights, sojourns underground, or imprisonment in gaol, the stars are never far from a sorcerer's side.",
+    "shortDescription": "Creates a small, floating star light that illuminates surroundings.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-starlight-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "glintstone",
+      "cost": 9,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 15,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Lucidity",
-  "slug": "lucidity",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Alleviates buildup of sleep and madness",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/lucidity-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "carian",
-    "cost": 10,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 17,
-      "faith": 0,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Lucidity",
+    "slug": "lucidity",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "One of the sorceries of the Carian royal family.\nAlleviates buildup of sleep and madness.\n\nThis sorcery can be cast while in motion.\n\nThe Carian knights never waver.",
+    "shortDescription": "Alleviates buildup of sleep and madness.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-lucidity-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "carian",
+      "cost": 10,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 17,
+        "faith": 0,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Rykard's Rancor",
-  "slug": "rykards-rancor",
-  "type": "spell",
-  "category": "sorceries",
-  "description": "Releases searing spirits that repeatedly explode after delay",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/rykards-rancor-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "magma",
-    "cost": 23,
-    "slots": 2,
-    "requirement": {
-      "intelligence": 40,
-      "faith": 18,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Rykard's Rancor",
+    "slug": "rykards-rancor",
+    "type": "spell",
+    "category": "sorceries",
+    "description": "The terrible power of Rykard, Lord of Blasphemy. Summons searing spirits that leave a trail of delayed explosions in their wake.\n\nThese spirits manifest from the rancor of heroes who met a violent end.\n\nThe lord granted them an audience, whereupon they were welcomed by the maw of the great serpent -- and within the serpent's bowels, they became the lord's kin. ",
+    "shortDescription": "Summons searing spirits that leave a trail of delayed explosions in their wake.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-rykards-rancor-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "magma",
+      "cost": 23,
+      "slots": 2,
+      "requirement": {
+        "intelligence": 40,
+        "faith": 18,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Darkness",
-  "slug": "darkness",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Creates area of darkness that conceals caster",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/darkness-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "two-fingers",
-    "cost": 24,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 18,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Darkness",
+    "slug": "darkness",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Incantation of the Two Fingers' servants, who once served as the assassins of the Roundtable Hold.\n\nCreates a veil of darkness that conceals the caster.\nThis incantation can be cast while in motion or crouching.\n\nThe assassins were themselves once Tarnished who had strayed from guidance, and they pursued their duty in the darkness that is without grace.",
+    "shortDescription": "Creates a veil of darkness that conceals the caster.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-darkness-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "two-fingers",
+      "cost": 24,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 18,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Bestial Sling",
-  "slug": "bestial-sling",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Swiftly flings numerous sharp rock shards",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/bestial-sling-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "bestial",
-    "cost": 7,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 10,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Bestial Sling",
+    "slug": "bestial-sling",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Incantation taught by Gurranq, the Beast Clergyman.\n\nSwiftly flings a number of sharp rock shards.\nThis incantation can be cast without delay after performing another action.\n\nIt is said that in the time before the Erdtree, stones were the first weapons of the beasts who had gained intelligence.",
+    "shortDescription": "Swiftly flings a number of sharp rock shards.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-bestial-sling-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "bestial",
+      "cost": 7,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Noble Presence",
-  "slug": "noble-presence",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Thrust out belly with gusto to unleash repelling shockwave",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/noble-presence-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "black-flame",
-    "cost": 20,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 26,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Noble Presence",
+    "slug": "noble-presence",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Ancient power of the Godskin Nobles.\n\nThrust out belly with gusto to produce a shockwave that knocks back nearby foes.\nCharging enhances potency, knocking enemies into the air.\n\nOnce a sign of the gods' wrath, this incantation became a trophy of the Nobles' god hunt.",
+    "shortDescription": "Thrust out belly with gusto to produce a shockwave that knocks back nearby foes.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-noble-presence-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "black-flame",
+      "cost": 20,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 26,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Poison Armament",
-  "slug": "poison-armament",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Enchants armament held in the right hand with poison",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/poison-armament-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "servants-of-rot",
-    "cost": 15,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 10,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Poison Armament",
+    "slug": "poison-armament",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Incantation of the servants of rot.\n\nEnchants armament held in the right hand with poison. This incantation can be cast while in motion.\n\nThose who dwell within poison know rot all too well. The death that begets life, that comes to all equally.\nThat is to say: it is the cycle of rebirth put into practice.",
+    "shortDescription": "Enchants armament held in the right hand with poison.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-poison-armament-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "servants-of-rot",
+      "cost": 15,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Bloodboon",
-  "slug": "bloodboon",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Scatters bloodflame before caster to set area aflame",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/bloodboon-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "blood-oath",
-    "cost": 13,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 14,
-      "arcane": 17
+  {
+    "gameSlug": "elden-ring",
+    "name": "Bloodboon",
+    "slug": "bloodboon",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Sacred incantation of Mohg, Lord of Blood.\n\nThrust arm into the body of the Formless Mother, then scatter the bloodflame to set the area ablaze.\n\nThis incantation can be cast while in motion.\n\nThe mother of truth craves wounds. When Mohg stood before her, deep underground, his accursed blood erupted with fire, and besotted with the defilement that he was born into.",
+    "shortDescription": "Thrust arm into the body of the Formless Mother, then scatter the bloodflame to set the area ablaze.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-bloodboon-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "blood-oath",
+      "cost": 13,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 14,
+        "arcane": 17
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Heal",
-  "slug": "heal",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Heals HP for you and nearby allies",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/heal-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "two-fingers",
-    "cost": 32,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 12,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Heal",
+    "slug": "heal",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Incantation of the Two Fingers' faithful.\n\nHeals HP for the caster and nearby allies.\nHold to continue praying and delay activation.\n\nThe Two Fingers has high hopes for the Tarnished; that even if they should be wounded, even should they fall, they will continue to fight for their duty.",
+    "shortDescription": "Heals HP for the caster and nearby allies.",
+    "iconUrl": "/media/games/elden-ring/assets/spell-heal-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "two-fingers",
+      "cost": 32,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     }
   },
-  "gameSlug": "elden-ring",
-  "name": "Frozen Lightning Spear",
-  "slug": "frozen-lightning-spear",
-  "type": "spell",
-  "category": "incantations",
-  "description": "Stabs with ice lightning spear from above",
-  "shortDescription": null,
-  "iconUrl": "/media/games/elden-ring/assets/frozen-lightning-spear-spell-elden-ring.webp",
-  "isActive": true,
-  "data": {
-    "spellType": "dragon-cult",
-    "cost": 29,
-    "slots": 1,
-    "requirement": {
-      "intelligence": 0,
-      "faith": 34,
-      "arcane": 0
+  {
+    "gameSlug": "elden-ring",
+    "name": "Frozen Lightning Spear",
+    "slug": "frozen-lightning-spear",
+    "type": "spell",
+    "category": "incantations",
+    "description": "Incantation that channels the power of the Dragonkin Soldiers.\n\nCreates a spear of ice lightning and stabs it into the ground from\nabove. On impact, the spear will burst into trails of lightning advancing forwards.\n\nThe Dragonkin were born in the Eternal City, where they knew\nno true sky, nor true lightning. Instead, ice lightning was their\nweapon.",
+    "shortDescription": "Creates a spear of ice lightning and stabs it into the ground from",
+    "iconUrl": "/media/games/elden-ring/assets/spell-frozen-lightning-spear-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "spellType": "dragon-cult",
+      "cost": 29,
+      "slots": 1,
+      "requirement": {
+        "intelligence": 0,
+        "faith": 34,
+        "arcane": 0
+      }
     }
   }
-}
-
-
+]

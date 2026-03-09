@@ -1,0 +1,172 @@
+[
+  {
+    "gameSlug": "elden-ring",
+    "name": "Curseblade Meera",
+    "slug": "curseblade-meera",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirit of Curseblade Meera.\nAttacks immediately after being summoned.\n\nCurseblades appear to dance when they spin their shimmering circular blades. These ascetics, who failed to become tutelary deities, were a scourge for those who attempted to invade the hornsent homeland.\n\nLong ago, before the land was overshadowed by invasion, this scourge was shunned, and the curseblades were imprisoned. It was during this confinement that Meera met Labirith, and upon her death, Labirith was plunged into a devastating darkness.",
+    "shortDescription": "Use to summon the spirit of Curseblade Meera",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-curseblade-meera-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 91,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Archer Ashes",
+    "slug": "archer-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon three archer spirits.\n\nSpirits of archers who belonged to the Fallen Hawks, a band of\nsoldiers that once explored the Eternal City. Their arrows are\nimbued with cold ghostflame.\nThough their methods are somewhat crude, they work well as a\nsquadron, firing a hail of arrows in unison at the sound of a war cry.",
+    "shortDescription": "Use to summon three archer spirits.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-archer-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 57,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Nomad Ashes",
+    "slug": "nomad-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirit of a nomad.\n\nA member of a tribe that was entombed in the earth so as to bury the maddening disease that followed them. Able to emit the\nterrible flame of frenzy from his eyes, but has low HP and is frail, unable to take much in the way of punishment.",
+    "shortDescription": "Use to summon the spirit of a nomad.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-nomad-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 61,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Lone Wolf Ashes",
+    "slug": "lone-wolf-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirits of three lone wolves.\n\nSpirits of wolves chased from their pack. They later encountered a nameless Tarnished, who welcomed them as hunting companions.\nThe wolf spirits overwhelm enemies with their agility, aiding the summoner in combat.",
+    "shortDescription": "Use to summon the spirits of three lone wolves.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-lone-wolf-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 55,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Albinauric Ashes",
+    "slug": "albinauric-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirits of two Albinaurics.\n\nA strapping duo of cartwheeling spirits who wield ripple swords and spew freezing breath.\nBoth are second-generation Albinaurics, with dumpy heads that resemble those of frogs.",
+    "shortDescription": "Use to summon the spirits of two Albinaurics.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-albinauric-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 53,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Man-Serpent Ashes",
+    "slug": "man-serpent-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirit of a man-serpent.\n\nSpirit of a deformed man-serpent that wields a whip of magma.\nIt is said that long ago, the elder serpent that dwelled on Mt. Gelmir devoured a demigod, and the birth of the man-serpents followed.",
+    "shortDescription": "Use to summon the spirit of a man-serpent.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-man-serpent-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 62,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Crystalian Ashes",
+    "slug": "crystalian-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirit of a Crystalian.\n\nSpirit that wields round crystalline blades, both big and small. Its sturdy body, itself hewn from crystal long ago, is hard enough to blunt its opponent's blades, but blows from bludgeoning weapons can shatter it easily.",
+    "shortDescription": "Use to summon the spirit of a Crystalian.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-crystalian-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 101,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Mausoleum Soldier Ashes",
+    "slug": "mausoleum-soldier-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirits of five mausoleum soldiers.\n\nSpirits of five headless soldiers who confound foes by disappearing and reappearing at will.\n\nThe mausoleum is where the bodies of soulless demigods are lain to rest, and these soldiers followed their masters into Death by severing their own heads from their bodies.",
+    "shortDescription": "Use to summon the spirits of five mausoleum soldiers.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-mausoleum-soldier-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 75,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Page Ashes",
+    "slug": "page-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirit of a page.\n\nSpirit of a page who traveled at the side of the noble he served.\nUses a piercing sword and crossbow to defend his master.\nOne becomes a page merely by accident of being born into obscurity; nothing is asked of ability, talent, or volition.",
+    "shortDescription": "Use to summon the spirit of a page.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-page-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 81,
+        "hp": null
+      }
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Wandering Noble Ashes",
+    "slug": "wandering-noble-ashes",
+    "type": "spirit-ash",
+    "category": null,
+    "description": "Ashen remains in which spirits yet dwell.\nUse to summon the spirits of five wandering nobles.\n\nThe spirits of nobles who, after death, now wander the Lands Between. Surely they were in search of something once - but whatever it was has long been forgotten.",
+    "shortDescription": "Use to summon the spirits of five wandering nobles.",
+    "iconUrl": "/media/games/elden-ring/assets/spirit-ash-wandering-noble-ashes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "cost": {
+        "fp": 28,
+        "hp": null
+      }
+    }
+  }
+]

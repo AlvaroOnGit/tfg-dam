@@ -1,0 +1,218 @@
+[
+  {
+    "gameSlug": "elden-ring",
+    "name": "Dryleaf Whirlwind",
+    "slug": "dryleaf-whirlwind",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants no affinity to an armament, but imparts the following skill:\n\n\"Dryleaf Whirlwind: This skill represents the pinnacle of Dane's footwork-based martial artistry. Rise into the air with a series of spinning kicks before crashing down with one final strike. Imbues kicking attacks with energy, increasing their range.\"\n\nUsable on hand-to-hand weapons.",
+    "short_description": "This skill represents the pinnacle of Dane's footwork-based martial artistry. Rise into the air with a series of spinning kicks before crashing down with one final strike. Imbues kicking attacks with energy, increasing their range.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-dryleaf-whirlwind-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "standard",
+      "cost": 9,
+      "allowedWeapons": ["hand-to-hand-arts"]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Aspects of the Crucible: Wings",
+    "slug": "aspects-of-the-crucible-wings",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Sacred affinity and the following skill:\n\n\"Aspects of the Crucible (Wings): This skill originates from the lifeforms of the Crucible. Grow a golden pair of wings and take to the air before diving down at the foe, weapon first. A spinning attack is performed when wielding a twinblade.\"\n\nUsable on swords as well as polearms capable of thrusting (colossal weapons excepted).",
+    "short_description": "This skill originates from the lifeforms of the Crucible. Grow a golden pair of wings and take to the air before diving down at the foe, weapon first.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-aspects-of-the-crucible-wings-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "Sacred",
+      "cost": 22,
+      "allowedWeapons": [
+        "daggers",
+        "throwing-blades",
+        "straight-swords",
+        "greatswords",
+        "light-greatswords",
+        "colossal-swords",
+        "curved-swords",
+        "curved-greatswords",
+        "katanas",
+        "great-katanas",
+        "twinblades",
+        "thrusting-swords",
+        "heavy-thrusting-swords",
+        "spears",
+        "great-spears",
+        "halberds"
+      ]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Spinning Gravity Thrust",
+    "slug": "spinning-gravity-thrust",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Heavy affinity and the following skill:\n\n\"Spinning Gravity Thrust: A gravity skill honed by the disciples of an Alabaster Lord. Uses gravitational power to hang in the air before rotating the body and charging forward. An additional input allows for a follow-up attack.\"\n\nUsable on large and colossal swords.",
+    "short_description": "A gravity skill honed by the disciples of an Alabaster Lord. Uses gravitational power to hang in the air before rotating the body and charging forward.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-spinning-gravity-thrust-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "heavy",
+      "cost": 26,
+      "allowedWeapons": [
+        "greatswords",
+        "colossal-swords",
+        "curved-greatswords",
+        "great-katanas",
+        "heavy-thrusting-swords"
+      ]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Palm Blast",
+    "slug": "palm-blast",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants no affinity to an armament, but imparts the following skill: Palm Blast.",
+    "short_description": "This Ash of War grants the skill: Palm Blast.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-palm-blast-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "standard",
+      "cost": 14,
+      "allowedWeapons": ["hand-to-hand-arts"]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Piercing Throw",
+    "slug": "piercing-throw",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Keen affinity and the following skill:\n\n\"Piercing Throw: Throw armament with a powerful spin, causing it to bore through foes. When using this skill, the armament can be thrown further than normal and also pierce through enemies.\"\n\nUsable on throwing blades.",
+    "short_description": "Throw armament with a powerful spin, causing it to bore through foes. When using this skill, the armament can be thrown further than normal and also pierce through enemies.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-piercing-throw-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "keen",
+      "cost": 6,
+      "allowedWeapons": ["throwing_blades"]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Scattershot Throw",
+    "slug": "scattershot-throw",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Keen affinity and the following skill:\n\n\"Scattershot Throw: Employ smithing arts to conjure multiple copies of the armament in both hands and throw them all at once. Follow up with an additional input to throw again.\"\n\nUsable on throwing blades.",
+    "short_description": "Employ smithing arts to conjure multiple copies of the armament in both hands and throw them all at once.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-scattershot-throw-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "keen",
+      "cost": 11,
+      "allowedWeapons": ["throwing_blades"]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Lion's Claw",
+    "slug": "lion-claw",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Heavy affinity and the following skill:\n\n\"Lion's Claw: Skill of the Redmanes, who fought alongside General Radahn. Somersault forwards, striking foes with armament.\"\n\nUsable on swords, axes, and hammers (small armaments and thrusting swords not included). ",
+    "short_description": "Skill of the Redmanes, who fought alongside General Radahn. Somersault forwards, striking foes with armament.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-lion-claw-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "heavy",
+      "cost": 20,
+      "allowedWeapons": [
+        "straight-swords",
+        "greatswords",
+        "light-greatswords",
+        "colossal-swords",
+        "curved-swords",
+        "curved-greatswords",
+        "katanas",
+        "great-katanas",
+        "twinblades",
+        "hammers",
+        "great-hammers",
+        "axes",
+        "greataxes",
+        "flails",
+        "colossal-weapons"
+      ]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Spinning Strikes",
+    "slug": "spinning-strikes",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Quality affinity and the following skill:\n\n\"Spinning Strikes: Polearm skill that performs continuous spinning attacks. Hold to continue the attack. Can be followed up with a normal or strong attack. Nullifies projectiles such as arrows while spinning.\"\n\nUsable on polearms (great spears excepted).",
+    "short_description": "Polearm skill that performs continuous spinning attacks. Hold to continue the attack. Can be followed up with a normal or strong attack. Nullifies projectiles such as arrows while spinning.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-spinning-strikes-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "quality",
+      "cost": 6,
+      "allowedWeapons": [
+        "spears",
+        "halberds",
+        "reapers"
+      ]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Carian Grandeur",
+    "slug": "carian-grandeur",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants an armament the Magic affinity and the following skill:\n\n\"Carian Grandeur: Carian royal prestige embodied in a skill. Transform blade into a magical greatsword and swing it down. Can be charged to increase its power by up to two levels.\"\n\nUsable on swords (colossal weapons excepted).",
+    "short_description": "Carian royal prestige embodied in a skill. Transform blade into a magical greatsword and swing it down. Can be charged to increase its power by up to two levels.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-carian-grandeur-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "magic",
+      "cost": 26,
+      "allowedWeapons": [
+        "daggers",
+        "throwing-blades",
+        "straight-swords",
+        "greatswords",
+        "light-greatswords",
+        "curved-swords",
+        "curved-greatswords",
+        "katanas",
+        "great-katanas",
+        "twinblades",
+        "thrusting-swords",
+        "heavy-thrusting-swords"
+      ]
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Barrage",
+    "slug": "barrage",
+    "type": "ash-of-war",
+    "category": null,
+    "description": "This Ash of War grants no affinity to an armament, but imparts the following skill:\n\n\"Barrage: Archery skill using a bow held horizontally. Ready the bow, then fire off a rapid succession of shots faster than the eye can see.\"\n\nUsable on light bows.",
+    "short_description": "Archery skill using a bow held horizontally. Ready the bow, then fire off a rapid succession of shots faster than the eye can see.",
+    "icon_url": "media/games/elden-ring/assets/ash-of-war-barrage-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "affinity": "standard",
+      "cost": 2,
+      "allowedWeapons": ["light-bows"]
+    }
+  }
+]

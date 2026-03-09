@@ -7,7 +7,7 @@
     "category": "helmet",
     "description": "The black iron helm of Commander Gaius.\nPart of an armor set patterned after fallen seeds.\n\nGaius was the most senior disciple of the same Alabaster Lord\nwho taught Radahn and Gaea gravitational technique.",
     "shortDescription": "The black iron helm of Commander Gaius.",
-    "iconUrl": "/media/games/elden-ring/assets/gaius-helm-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-gaius-helm-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -38,7 +38,7 @@
     "category": "helmet",
     "description": "An Oathseeker Knight helm. Black with gold ornamentation. These knights set off on quests of discovery, hoping to find by themselves an oath of their own choosing to serve in perfect, lifelong devotion.",
     "shortDescription": "An Oathseeker Knight helm. Black with gold ornamentation.",
-    "iconUrl":"/media/games/elden-ring/assets/oathseeker-knight-helm-armor-elden-ring.webp" ,
+    "iconUrl":"/media/games/elden-ring/assets/armor-oathseeker-knight-helm-elden-ring.webp" ,
     "isActive": true,
     "data": {
       "negation": {
@@ -69,7 +69,7 @@
     "category": "helmet",
     "description": "Helm made from an unusual metal known as verdigris. Verdigris is said to be the gift of an outer god.",
     "shortDescription": "Helm made from an unusual metal known as verdigris.",
-    "iconUrl": "/media/games/elden-ring/assets/verdigris-helm-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-verdigris-helm-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -100,7 +100,7 @@
     "category": "helme",
     "description": "The pelt of Ralva the Great Red Bear,\nworn upon the head without modification.\n\nEnhances incantations of what is jokingly called \"Bear Communion.\"\n\nThis untreated hide,\nwon at the end of a bloody bout,\nis just the thing to make a wild bear out of a warrior.",
     "shortDescription": "The pelt of Ralva the Great Red Bear.",
-    "iconUrl": "/media/games/elden-ring/assets/pelt-of-ralva-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-pelt-of-ralva-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -131,7 +131,7 @@
     "category": "helmet",
     "description": "Helm of Red Bear, whose name is lost to madness. The cheek guards are shaped after lion fangs. Perhaps his fascination with the untamed strength of the wild stemmed from his past as a Redmane.",
     "shortDescription": "Helm of Red Bear, whose name is lost to madness.",
-    "iconUrl": "/media/games/elden-ring/assets/fang-helm-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-fang-helm-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -162,7 +162,7 @@
     "category": "chest",
     "description": "The black iron chest armor of Commander Gaius. Part of an armor set patterned after fallen seeds.\n\nGaius was the most senior disciple of the same Alabaster Lord who taught Radahn and Gaea gravitational technique.",
     "shortDescription": "The black iron chest armor of Commander Gaius.",
-    "iconUrl": "/media/games/elden-ring/assets/gaius-armor-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-gaius-armor-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -193,7 +193,7 @@
     "category": "chest",
     "description": "Oathseeker Knight chest armor. Black with gold ornamentation. These knights set off on quests of discovery, hoping to find by themselves an oath of their own choosing to serve in perfect, lifelong devotion.",
     "shortDescription": "Oathseeker Knight chest armor. Black with gold ornamentation.",
-    "iconUrl": "/media/games/elden-ring/assets/oathseeker-knight-armor-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-oathseeker-knight-armor-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -224,7 +224,7 @@
     "category": "chest",
     "description": "Chest armor made from an unusual metal known as verdigris. Verdigris is said to be the gift of an outer god. Possessed of an enormously hefty yet supple strength thanks to its rusted nature.",
     "shortDescription": "Chest armor made from an unusual metal known as verdigris.",
-    "iconUrl": "/media/games/elden-ring/assets/verdigris-armor-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-verdigris-armor-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -255,7 +255,7 @@
     "category": "chest",
     "description": "Chest armor of Red Bear, whose name is lost to madness.\nA vest reinforced with iron rivets.\n\nAfter killing the great red bear in a blood-soaked bout,\nhe became fascinated by the untainted glory of its naked strength.\n\n\"I wish to be a bear, no more, and no less.\"",
     "shortDescription": "Chest armor of Red Bear, whose name is lost to madness.",
-    "iconUrl": "/media/games/elden-ring/assets/iron-rivet-armor-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-iron-rivet-armor-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -286,7 +286,7 @@
     "category": "chest",
     "description": "Robe of Count Ymir, High Priest. The front is open, exposing the squirming fingers beneath. This robe is the image of his fervent desire having broken free, laying bare his greatest wish, and wearing it enhances finger sorceries. \"I will be the true mother. My fingers will grant us redemption!\"",
     "shortDescription": "Robe of Count Ymir, High Priest.",
-    "iconUrl": "/media/games/elden-ring/assets/finger-robe-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-finger-robe-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -317,7 +317,7 @@
     "category": "gauntlets",
     "description": "Gauntlets of Rakshasa, soaked in the spurting blood of her victims. Tatters of ragged cloth jut out haphazardly, as if her lust for carnage threatens to break free.\n\nIncreases damage dealt to foes, but greatly increases damage taken by the wearer.\n\nCut down and devour. Only those who repeat the cycle without rest can truly subvert the self and become Rakshasa.",
     "shortDescription": "Gauntlets of Rakshasa, soaked in the spurting blood of her victims.",
-    "iconUrl": "/media/games/elden-ring/assets/rakshasa-gauntlets-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-rakshasa-gauntlets-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -348,7 +348,7 @@
     "category": "gauntlets",
     "description": "Gloves of Rellana, the Twin Moon Knight, fashioned from quality leather.",
     "shortDescription": "Gloves of Rellana, the Twin Moon Knight.",
-    "iconUrl": "/media/games/elden-ring/assets/rellana-gloves-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-rellana-gloves-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -379,7 +379,7 @@
     "category": "gauntlets",
     "description": "Gloves fashioned from fine, supple cloth.\nWorn by those who look to the cosmos above.\nThey read fate in the stars, and are said to be heirs of the glintstone sorcerers.\nBut alas, the night sky no longer cradles fate.",
     "shortDescription": "Gloves fashioned from fine, supple cloth.",
-    "iconUrl": "/media/games/elden-ring/assets/astrologer-gloves-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-astrologer-gloves-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -410,7 +410,7 @@
     "category": "gauntlets",
     "description": "Gloves of Count Ymir, High Priest. Soft and well-tailored.",
     "shortDescription": "Gloves of Count Ymir, High Priest.",
-    "iconUrl": "/media/games/elden-ring/assets/high-priest-gloves-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-high-priest-gloves-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -441,7 +441,7 @@
     "category": "gauntlets",
     "description": "Gauntlets made from an unusual metal known as verdigris. Verdigris is said to be the gift of an outer god. Possessed of an enormously hefty yet supple strength thanks to its rusted nature.",
     "shortDescription": "Gauntlets made from an unusual metal known as verdigris.",
-    "iconUrl": "/media/games/elden-ring/assets/verdigris-gauntlets-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-verdigris-gauntlets-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -472,7 +472,7 @@
     "category": "legs",
     "description": "This lightly soiled loincloth of ragged cloth does little more than conceal one's nether regions.",
     "shortDescription": "Lightly soiled loincloth of ragged cloth",
-    "iconUrl": "/media/games/elden-ring/assets/soiled-loincloth-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-soiled-loincloth-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -503,7 +503,7 @@
     "category": "legs",
     "description": "Leather boots worn by bandits.\n\nLight for ease of movement, and supple for masking sound. In this trade, they offer little damage negation.",
     "shortDescription": "Leather boots worn by bandits.",
-    "iconUrl": "/media/games/elden-ring/assets/bandit-boots-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-bandit-boots-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -534,7 +534,7 @@
     "category": "legs",
     "description": "Battered iron greaves from a foreign land.\nWorn by Elemer of the Briar. \n\nThe winding, rusted iron briars are a mark of the guilty, and typically indicate a sentence of death. They also cause this armor to deal damage when performing dodge rolls.\n\nElemer murdered numerous instructors and merchants, and was known as the Bell Bearing Hunter. ",
     "shortDescription": "Battered iron greaves from a foreign land. Worn by Elemer of the Briar.",
-    "iconUrl": "/media/games/elden-ring/assets/briar-greaves-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-briar-greaves-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -565,7 +565,7 @@
     "category": "legs",
     "description": "Gaiters formed only with leather straps.\nCommon wear in the badlands.",
     "shortDescription": "Gaiters formed only with leather straps.",
-    "iconUrl": "/media/games/elden-ring/assets/champion-gaiters-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-champion-gaiters-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -596,7 +596,7 @@
     "category": "legs",
     "description": "Trousers worn by pages who serve nobility and are mindful to keep them out of harm's way. \n\nTraveling wear tailored with exquisite precision, to avoid any undue shame for the page's master.",
     "shortDescription": "Trousers worn by pages who serve nobility and are mindful to keep them out of harm's way.",
-    "iconUrl": "/media/games/elden-ring/assets/page-trousers-armor-elden-ring.webp",
+    "iconUrl": "/media/games/elden-ring/assets/armor-page-trousers-elden-ring.webp",
     "isActive": true,
     "data": {
       "negation": {
@@ -620,15 +620,3 @@
     }
   }
 ]
-
-
-
-
-
-
-
-
-
-
-
-

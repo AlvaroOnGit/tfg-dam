@@ -1,0 +1,1002 @@
+[
+  {
+    "gameSlug": "elden-ring",
+    "name": "sword of light",
+    "slug": "sword-of-light",
+    "type": "weapon",
+    "category": "straight-swords",
+    "description": "Sword of light, pulled from its stone scabbard at an altar.\n\nFrom the quick of the root, unswerving rays of light intersect and reflect to give the silver blade form.",
+    "short_description": "Sword of light, pulled from its stone scabbard at an altar.",
+    "icon_url": "/media/games/elden-ring/assets/weapon-sword-of-light-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 93,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 93,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 26,
+        "magical": 15,
+        "fire": 15,
+        "lightning": 15,
+        "holy": 42,
+        "boost": 31
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "E",
+        "faith": "E",
+        "intelligence": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 14,
+        "dexterity": 11,
+        "faith": 24,
+        "intelligence": null,
+        "arcane": null
+      },
+      "damage": ["standard", "pierce"],
+      "aow": {"slug": "light", "compatible": false},
+      "effect": {"effect" : null, "value": null},
+      "weight": 4.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Hand Axe",
+    "slug": "hand-axes",
+    "type": "weapon",
+    "category": "axes",
+    "description": "Commonly known as a hatchet, this smaller variety of axe is an everyday work tool.\n\nDespite its short reach, it is easy to handle, exceling in successive attacks.",
+    "short_description": "Commonly known as a hatchet, this smaller variety of axe is an everyday work tool.",
+    "icon_url": "/media/games/elden-ring/assets/weapon-hand-axe-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 117,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 42,
+        "magical": 28,
+        "fire": 28,
+        "lightning": 28,
+        "holy": 28,
+        "boost": 28
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 9,
+        "dexterity": 8,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["standard"],
+      "aow": {"slug": "quickstep", "compatible": true},
+      "effect": {"effect" : null, "value": null},
+      "weight": 3.5
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Hand Ballista",
+    "slug": "hand-ballista",
+    "type": "weapon",
+    "category": "ballistas",
+    "description": "An unconventional ballistic device modeled on a weapon used to besiege castles. Only capable of firing greatbolts.\n\nPerfect for reckless acts such as storming a castle or facing an entire army alone.",
+    "short_description": "An unconventional ballistic device modeled on a weapon used to besiege castles.",
+    "icon_url": "/media/games/elden-ring/assets/weapon-hand-ballista-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 135,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 50
+        },
+      "guard": {
+        "physical": 0,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "boost": 0
+      },
+      "scaling": {
+        "strength": null,
+        "dexterity": null,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 30,
+        "dexterity": 14,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["pierce"],
+      "aow": {"slug": "kick", "compatible": false},
+      "effect": {"effect" : null, "value": null},
+      "weight": 10.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Backhand Blade",
+    "slug": "backhand-blade",
+    "type": "weapon",
+    "category": "backhand-blades",
+    "description": "Curved blade wielded with a backhand grip.\nA type of weapon wielded by hornsent for generations.\n\nThe style of combat associated with this weapon is marked by spinning slashes and gouging thrust attacks.",
+    "short_description": "Curved blade wielded with a backhand grip.",
+    "icon_url": "/media/games/elden-ring/assets/weapon-backhand-blade-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 105,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 40,
+        "magical": 30,
+        "fire": 30,
+        "lightning": 30,
+        "holy": 30,
+        "boost": 15
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 10,
+        "dexterity": 13,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash", "pierce"],
+      "aow": {"slug": "blind-spot", "compatible": true},
+      "effect": {"effect" : null, "value": null},
+      "weight": 2.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Beast claw",
+    "slug": "beast-claw",
+    "type": "weapon",
+    "category": "beast-claws",
+    "description": "Weapon in the form of a carnivorous beast's vicious claws. Used to perform bestial slashing attacks uncanny to humankind. An imitation of the esoteric technique of the horned warriors. Those who carry this weapon wield it as though they have been possessed by a savage beast.",
+    "short_description": "Weapon in the form of a carnivorous beast's vicious claws.",
+    "icon_url": "media/games/elden-ring/assets/weapon-beast-claw-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 98,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 35,
+        "magical": 20,
+        "fire": 20,
+        "lightning": 20,
+        "holy": 20,
+        "boost": 20
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 13,
+        "dexterity": 11,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash"],
+      "aow": {"slug": "savage-claws", "compatible": true},
+      "effect": {"effect": "hemorrhage", "value": 45},
+      "weight": 3.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Horn Bow",
+    "slug": "horn-bow",
+    "type": "weapon",
+    "category": "bows",
+    "description": "Longbow made from animal horn. Wielded by the master hunters of the ancestral followers. \n\nImbues arrows fired with magic damage.\nReveals its true worth when used with magic-infused arrows. ",
+    "short_description": "Longbow made from animal horn.",
+    "icon_url": "media/games/elden-ring/assets/weapon-horn-bow-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 65,
+        "magical": 30,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 50
+      },
+      "guard": {
+        "physical": null,
+        "magical": null,
+        "fire": null,
+        "lightning": null,
+        "holy": null,
+        "boost": null
+      },
+      "scaling": {
+        "strength": "E",
+        "dexterity": "D",
+        "intelligence": "E",
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 10,
+        "dexterity": 14,
+        "intelligence": 12,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["pierce"],
+      "aow": {"slug": "mighty-shot", "compatible": true},
+      "effect": {"effect": null, "value": null},
+      "weight": 4.5
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Hookclaws",
+    "slug": "hookclaws",
+    "type": "weapon",
+    "category": "claws",
+    "description": "Weapon worn on the fist comprised of sharp parallel blades favored by those who lurk in the dark. Lacerations cause blood loss with great effect. \n\nClaw weapons come in pairs, and two-handing this weapon will equip it to both hands.",
+    "short_description": "Weapon worn on the fist comprised of sharp parallel blades favored by those who lurk in the dark.",
+    "icon_url": "media/games/elden-ring/assets/weapon-hookclaws-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 93,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 110,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 35,
+        "magical": 20,
+        "fire": 20,
+        "lightning": 20,
+        "holy": 20,
+        "boost": 20
+      },
+      "scaling": {
+        "strength": "E",
+        "dexterity": "C",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 8,
+        "dexterity": 14,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash", "pierce"],
+      "aow": {"slug": "quickstep", "compatible": true},
+      "effect": { "effect": "hemorrhage", "value": 60},
+      "weight": 2.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Royal Greatsword",
+    "slug": "royal-greatsword",
+    "type": "weapon",
+    "category": "colossal-swords",
+    "description": "Greatsword decorated in royal Carian Style. Favored weapon of Blaidd the Half-Wolf.\n\nIn defiance of the fate he was born to, Blaidd swore to serve no master but Ranni. As proof the sword was imbued with a cold magic at the moment oath was sworn.",
+    "short_description": "Greatsword decorated in royal Carian Style.",
+    "icon_url": "media/games/elden-ring/assets/weapon-royal-greatsword-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 112,
+        "magical": 134,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 71,
+        "magical": 63,
+        "fire": 44,
+        "lightning": 44,
+        "holy": 44,
+        "boost": 52
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "E",
+        "intelligence": "D",
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 26,
+        "dexterity": 18,
+        "intelligence": 22,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["standard"],
+      "aow": {"slug": "wolf-assault", "compatible": false},
+      "effect": {"effect": null, "value": null},
+      "weight": 20.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Anvil Hammer",
+    "slug": "anvil-hammer",
+    "type": "weapon",
+    "category": "colossal-weapons",
+    "description": "One of the treasures of the ruined forges. A tremendous hammer that incorporates as its head the red-hot anvil of the forge. It is said that the anvil's shape is inspired by that of an altar, and that long ago, it was indeed used as such in rite and ritual.",
+    "short_description": "One of the treasures of the ruined forges.",
+    "icon_url": "media/games/elden-ring/assets/weapon-anvil-hammer-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 131,
+        "magical": 0,
+        "fire": 85,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 80,
+        "magical": 43,
+        "fire": 59,
+        "lightning": 43,
+        "holy": 41,
+        "boost": 53
+      },
+      "scaling": {
+        "strength": "C",
+        "dexterity": "E",
+        "intelligence": "E",
+        "faith": "D",
+        "arcane": null
+      },
+      "requires": {
+         "strength": 39,
+         "dexterity": 10,
+          "intelligence": 11,
+          "faith": 20,
+          "arcane": null
+      },
+      "damage": ["strike"],
+      "aow": {"slug": "smithing-art-spears", "compatible": false},
+      "effect": {"effect": null, "value": null},
+      "weight": 22.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Light Crossbow",
+    "slug": "light-crossbow",
+    "type": "weapon",
+    "category": "crossbows",
+    "description": "Ranged weapon made from a bow fixed to a stock. Deals good damage and is simple to use, but requires reloading after firing.\n\nBolts must be equipped to use a crossbow.",
+    "short_description": "Ranged weapon made from a bow fixed to a stock.",
+    "icon_url": "media/games/elden-ring/assets/weapon-light-crossbow-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 58,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 42
+      },
+      "guard": {
+        "physical": null,
+        "magical": null,
+        "fire": null,
+        "lightning": null,
+        "holy": null,
+        "boost": null
+      },
+      "scaling": {
+        "strength": null,
+        "dexterity": null,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 12,
+        "dexterity": 8,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["pierce"],
+      "aow": {"slug": "kick", "compatible": false},
+      "effect": {"effect": null, "value": null},
+      "weight": 4.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Dismounter",
+    "slug": "dismounter",
+    "type": "weapon",
+    "category": "curved-greatswords",
+    "description": "This curved greatsword wielded by the brawny sellswords of Kaiden combines the blades of a scimitar with the heft of a hatchet. \n\nA difficult to handle weapon that demands much of the wielder's strength and dexterity, but with practice and ability, it can serve as a versatile weapon even on horseback. ",
+    "short_description": "This curved greatsword wielded by the brawny sellswords of Kaiden combines the blades of a scimitar with the heft of a hatchet.",
+    "icon_url": "media/games/elden-ring/assets/weapon-dismounter-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 138,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 65,
+        "magical": 35,
+        "fire": 35,
+        "lightning": 35,
+        "holy":  35,
+        "boost": 42
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 19,
+        "dexterity": 16,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash"],
+      "aow": {"slug": "spinning-slash", "compatible": true},
+      "effect": {"effect": null, "value": null},
+      "weight": 10.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "spirit sword",
+    "slug": "spirit-sword",
+    "type": "weapon",
+    "category": "curved-swords",
+    "description": "Sharp blade sculpted into a twisted shape. A sword that has seen many years of use in the gravesite.\n\nSaid to serve as a medium for communion with spirits.",
+    "short_description": "Sharp blade sculpted into a twisted shape. A sword that has seen many years of use in the gravesite.",
+    "icon_url": "media/games/elden-ring/assets/weapon-spirit-sword-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 92,
+        "magical": 59,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 38,
+        "magical": 38,
+        "fire": 26,
+        "lightning": 26,
+        "holy": 26,
+        "boost": 19
+      },
+      "scaling": {
+        "strength": "E",
+        "dexterity": "D",
+        "intelligence": "D",
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 8,
+        "dexterity": 16,
+        "intelligence": 16,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash"],
+      "aow": {"slug": "rancor-slash", "compatible": false},
+      "effect": {"effect": null, "value": null},
+      "weight": 2.5
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "great knife",
+    "slug": "great-knife",
+    "type": "weapon",
+    "category": "daggers",
+    "description": "Large knife with a broad, curved blade.\n\nThis weapon is designed to slash and rend, inflicting blood loss upon the recipient.",
+    "short_description": "Large knife with a broad, curved blade.",
+    "icon_url": "media/games/elden-ring/assets/weapon-great-knife-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 75,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 110,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 35,
+        "magical": 20,
+        "fire": 20,
+        "lightning": 20,
+        "holy": 20,
+        "boost": 15
+      },
+      "scaling": {
+        "strength": "E",
+        "dexterity": "C",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 6,
+        "dexterity": 12,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash", "pierce"],
+      "aow": {"slug": "quickstep", "compatible": false},
+      "effect" : {"effect": "hemorrhage", "value": 38},
+      "weight": 1.5
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Golem fist",
+    "slug": "golem-fist",
+    "type": "weapon",
+    "category": "fists",
+    "description": "A giant fist of fractured rock. Taken from the body of a golem of the ruined forges.\n\nCarved with a smithscript enabling strong attacks to launch the entire fist straight ahead.",
+    "short_description": "A giant fist of fractured rock.",
+    "icon_url": "media/games/elden-ring/assets/weapon-golem-fist-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 110,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 58,
+        "magical": 24,
+        "fire": 24,
+        "lightning": 24,
+        "holy": 24,
+        "boost": 36
+      },
+      "scaling": {
+        "strength": "C",
+        "dexterity": "E",
+        "intelligence": "E",
+        "faith": "E",
+        "arcane": null
+      },
+      "requires": {
+        "strength": 24,
+        "dexterity": 8,
+        "intelligence": 11,
+        "faith": 11,
+        "arcane": null
+      },
+      "damage": ["strike"],
+      "aow": {"slug": "endure", "compatible": true},
+      "effect": {"effect": null, "value": null},
+      "weight": 5.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Nightrider Flail",
+    "slug": "nightrider-flail",
+    "type": "weapon",
+    "category": "flails",
+    "description": "A flail with two additional bludgeoning heads.  \nWeapon of the Night's Cavalry who ride funeral steeds.\n\nThe large spikes make it highly effective at inducing blood loss, but also demand higher dexterity to wield.",
+    "short_description": "A flail with two additional bludgeoning heads.",
+    "icon_url": "media/games/elden-ring/assets/weapon-nightrider-flail-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 115,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 37,
+        "magical": 25,
+        "fire": 25,
+        "lightning": 25,
+        "holy": 25,
+        "boost": 21
+      },
+      "scaling": {
+        "strength": "E",
+        "dexterity": "C",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 10,
+        "dexterity": 24,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["strike"],
+      "aow": {"slug": "spinning-chain", "compatible": true},
+      "effect": {"effect": "hemorrhage", "value": 50},
+      "weight": 6.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Academy glinstone Staff",
+    "slug": "academy-glinstone-staff",
+    "type": "weapon",
+    "category": "staves",
+    "description": "Staff of the Academy of Raya Lucaria,\nembedded with a turquoise glintstone.\n\nOnly a recognized sorcerer is permitted to wield this staff.",
+    "short_description": "Staff of the Academy of Raya Lucaria, embedded with a turquoise glintstone.",
+    "icon_url": "media/games/elden-ring/assets/weapon-academy-glinstone-staff-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 25,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 130,
+        "incantation": 0,
+        "range": 0
+        },
+      "guard": {
+        "physical": 25,
+        "magical": 15,
+        "fire": 15,
+        "lightning": 15,
+        "holy": 15,
+        "boost": 15
+      },
+      "scaling": {
+        "strength": "E",
+        "intelligence": "B",
+        "dexterity": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 6,
+        "intelligence": 28,
+        "dexterity": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["strike"],
+      "aow": {"slug": "no-skill", "compatible": true},
+      "effect": {"effect": null, "value": "null"},
+      "weight": 3.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Black steel greathammer",
+    "slug": "black-steel-greathammer",
+    "type": "weapon",
+    "category": "great-hammers",
+    "description": "Weapon of the Black Knights, servants of Messmer the Impaler. Greathammer of black steel with decorative embellishments in gold. Blessed with an Erdtree incantation. Further holy imbuement will amplify the effect and greatly increase the armament's power. Guard Counters cause a burst of power.",
+    "short_description": "Weapon of the Black Knights, servants of Messmer the Impaler.",
+    "icon_url": "media/games/elden-ring/assets/weapon-black-steel-greathammer-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 140,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 42,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+      },
+      "guard": {
+        "physical": 72,
+        "magical": 38,
+        "fire": 38,
+        "lightning": 38,
+        "holy": 45,
+        "boost": 47
+      },
+      "scaling": {
+        "strength": "C",
+        "dexterity": "E",
+        "faith": "D",
+        "intelligence": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 25,
+        "dexterity": 11,
+        "faith": 17,
+        "intelligence": null,
+        "arcane": null
+      },
+      "damage": ["strike"],
+      "aow": {"slug": "endure", "compatible": true},
+      "effect" : {"effect": null, "value": null},
+      "weight": 12.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Great katana",
+    "slug": "great-katana",
+    "type": "weapon",
+    "category": "great-katanas",
+    "description": "Large katana with a long, heavy blade.\nA weapon unique to warriors of the Land of Reeds.\n\nDesigned for aggression, this armament requires the wielder to throw their entire body into swinging it. The slashing attacks of its honed edge incite blood loss.",
+    "short_description": "Large katana with a long, heavy blade.",
+    "icon_url": "media/games/elden-ring/assets/weapon-great-katana-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 145,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+      },
+      "guard": {
+        "physical": 60,
+        "magical": 30,
+        "fire": 30,
+        "lightning": 30,
+        "holy": 30,
+        "boost": 35
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 14,
+        "dexterity": 18,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["slash"],
+      "aow": {"slug": "overhead-stance", "compatible": true},
+      "effect" : {"effect": "hemorrhage", "value": 55},
+      "weight": 9.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Lance",
+    "slug": "lance",
+    "type": "weapon",
+    "category": "great-spears",
+    "description": "Considered a type of greatspear, this weapon has no blade, but instead features a long, conical body designed to pierce.\nThough heavy and hard to wield, this weapon displays its worth in horseback combat whether mounted or even on foot.",
+    "short_description": "Considered a type of greatspear, this weapon has no blade, but instead features a long, conical body designed to pierce.",
+    "icon_url": "media/games/elden-ring/assets/weapon-lance-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 123,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+      },
+      "guard": {
+        "physical": 57,
+        "magical": 36,
+        "fire": 36,
+        "lightning": 36,
+        "holy": 36,
+        "boost": 44
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 20,
+        "dexterity": 14,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["pierce"],
+      "aow": {"slug": "charge-forth", "compatible": true},
+      "effect": {"effect": null, "value": null},
+      "weight": 9.0
+    }
+  },
+  {
+    "gameSlug": "elden-ring",
+    "name": "Crescent moon axe",
+    "slug": "crescent-moon-axe",
+    "type": "weapon",
+    "category": "greataxes",
+    "description": "Greataxe with a large, arcing blade and long handle.\n\nThe \"Crescent Moon\" of its name is said to have been spurred by nostalgia.\n\nSpecializes in sweeping through foes by making use of its long handle.",
+    "short_description": "Greataxe with a large, arcing blade and long handle.",
+    "icon_url": "media/games/elden-ring/assets/weapon-crescent-moon-axe-elden-ring.webp",
+    "isActive": true,
+    "data": {
+      "attack":{
+        "physical": 146,
+        "magical": 0,
+        "fire": 0,
+        "lightning": 0,
+        "holy": 0,
+        "critical": 100,
+        "sorcery": 0,
+        "incantation": 0,
+        "range": 0
+      },
+      "guard": {
+        "physical": 68,
+        "magical": 36,
+        "fire": 36,
+        "lightning": 36,
+        "holy": 36,
+        "boost": 44
+      },
+      "scaling": {
+        "strength": "D",
+        "dexterity": "D",
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "requires": {
+        "strength": 25,
+        "dexterity": 15,
+        "intelligence": null,
+        "faith": null,
+        "arcane": null
+      },
+      "damage": ["standard"],
+      "aow": {"slug": "war-cry", "compatible": true},
+      "effect" : {"effect": null, "value": null},
+      "weight": 12.5
+    }
+  }
+]
