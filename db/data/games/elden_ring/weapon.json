@@ -1,7 +1,7 @@
 [
   {
     "gameSlug": "elden-ring",
-    "name": "sword of light",
+    "name": "Sword of light",
     "slug": "sword-of-light",
     "type": "weapon",
     "category": "straight-swords",
@@ -551,7 +551,7 @@
   },
   {
     "gameSlug": "elden-ring",
-    "name": "spirit sword",
+    "name": "Spirit sword",
     "slug": "spirit-sword",
     "type": "weapon",
     "category": "curved-swords",
@@ -601,7 +601,7 @@
   },
   {
     "gameSlug": "elden-ring",
-    "name": "great knife",
+    "name": "Great knife",
     "slug": "great-knife",
     "type": "weapon",
     "category": "daggers",
