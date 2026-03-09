@@ -795,7 +795,7 @@
       },
       "damage": ["strike"],
       "aow": {"slug": "no-skill", "compatible": true},
-      "effect": {"effect": null, "value": "null"},
+      "effect": {"effect": null, "value": null},
       "weight": 3.0
     }
   },
