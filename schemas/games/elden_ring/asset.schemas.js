@@ -81,7 +81,7 @@ const attackTypes = ["physical","magical","fire","lightning","holy","critical","
 const guardTypes = ["physical","magical","fire","lightning","holy","boost"];
 const attributeTypes = ["strength","dexterity","intelligence","faith","arcane"];
 
-const weaponDamage = z.enum(["standard","pierce","slash","blunt"]);
+const weaponDamage = z.enum(["standard","pierce","slash","strike"]);
 
 const weaponAttackSchema = z.object(
     Object.fromEntries(
