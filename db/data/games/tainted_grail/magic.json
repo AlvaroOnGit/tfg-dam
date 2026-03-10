@@ -3,9 +3,9 @@
     "gameSlug": "tainted-grail",
     "name": "Absorption",
     "slug": "absorption",
-    "description": "Grants 25% Mana Shield for 20s. Grants 100% Mana Shield when Channeling.",
-    "shortDescription": "Mana Shield spell",
-    "iconUrl": "/media/games/tainted-grail/assets/absorption-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-absorption-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -23,18 +23,22 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": null,
           "type": "buff",
-          "mana": 30,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 30
+          },
           "effect": "Grants 25% Mana Shield for 20s."
         },
         "heavyCast": {
           "damage": null,
+          "healing": null,
           "type": "channeled",
-          "mana": 5,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 5
+          },
           "effect": "Grants 100% Mana Shield when Channeling."
         }
       }
@@ -44,9 +48,9 @@
     "gameSlug": "tainted-grail",
     "name": "Burning Ember",
     "slug": "burning-ember",
-    "description": "Shoots a small Burning projectile. Shoots a larger Burning ball of fire, dealing Damage in a small area.",
-    "shortDescription": "Burning projectile spell",
-    "iconUrl": "/media/games/tainted-grail/assets/burning-ember-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-burning-ember-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -67,10 +71,12 @@
             5,
             5
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 5,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 5
+          },
           "effect": "Shoots a small Burning projectile."
         },
         "heavyCast": {
@@ -78,10 +84,12 @@
             7,
             7
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 10,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 10
+          },
           "effect": "Shoots a larger Burning ball of fire, dealing Damage in a small area."
         }
       }
@@ -91,9 +99,9 @@
     "gameSlug": "tainted-grail",
     "name": "Caustic Wrath",
     "slug": "caustic-wrath",
-    "description": "Shoots a large Poison projectile. Shoots a massive Poison glob, dealing Damage in a small area.",
-    "shortDescription": "Poison projectile spell",
-    "iconUrl": "/media/games/tainted-grail/assets/caustic-wrath-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-caustic-wrath-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -114,10 +122,12 @@
             19,
             21
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 36,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 36
+          },
           "effect": "Shoots a large Poison projectile."
         },
         "heavyCast": {
@@ -125,10 +135,12 @@
             28,
             31
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 54,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 54
+          },
           "effect": "Shoots a massive Poison glob, dealing Damage in a small area."
         }
       }
@@ -138,9 +150,9 @@
     "gameSlug": "tainted-grail",
     "name": "Fire Rune",
     "slug": "fire-rune",
-    "description": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby. Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s.",
-    "shortDescription": "Burning trap spell",
-    "iconUrl": "/media/games/tainted-grail/assets/fire-rune-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-fire-rune-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -161,10 +173,12 @@
             66,
             72
           ],
+          "healing": null,
           "type": "trap",
-          "mana": 110,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 110
+          },
           "effect": "Create a small Rune, which explodes with a Burning fire after a short delay when there is an enemy nearby."
         },
         "heavyCast": {
@@ -172,10 +186,12 @@
             198,
             216
           ],
+          "healing": null,
           "type": "trap",
-          "mana": 220,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 220
+          },
           "effect": "Create a large Rune, which bursts into a Burning whirlwind after a long delay when there is an enemy nearby, dealing its Damage over 6s."
         }
       }
@@ -185,9 +201,9 @@
     "gameSlug": "tainted-grail",
     "name": "Hailstone",
     "slug": "hailstone",
-    "description": "Shoots a small Chilling projectile. Shoots a larger chunk of Chilling ice.",
-    "shortDescription": "Chilling projectile spell",
-    "iconUrl": "/media/games/tainted-grail/assets/hailstone-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-hailstone-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -208,10 +224,12 @@
             4,
             6
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 5,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 5
+          },
           "effect": "Shoots a small Chilling projectile."
         },
         "heavyCast": {
@@ -219,10 +237,12 @@
             6,
             9
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 10,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 10
+          },
           "effect": "Shoots a larger chunk of Chilling ice."
         }
       }
@@ -231,10 +251,10 @@
   {
     "gameSlug": "tainted-grail",
     "name": "Merlin's Thorn",
-    "slug": "merlins-thorn",
-    "description": "Shoots a single homing projectile. Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release.",
-    "shortDescription": "Homing projectile spell",
-    "iconUrl": "/media/games/tainted-grail/assets/merlins-thorn-magic-tainted-grail.webp",
+    "slug": "merlin-thorn",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-merlin-thorn-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -255,10 +275,12 @@
             20,
             22
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 21,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 21
+          },
           "effect": "Shoots a single homing projectile."
         },
         "heavyCast": {
@@ -266,10 +288,12 @@
             63,
             69
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 42,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 42
+          },
           "effect": "Gradually generates up to 7 weaker projectiles and shoots all of them in quick succession upon release."
         }
       }
@@ -278,10 +302,10 @@
   {
     "gameSlug": "tainted-grail",
     "name": "Nature's Caress",
-    "slug": "natures-caress",
-    "description": "Heals you instantly. Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s.",
-    "shortDescription": "Healing spell",
-    "iconUrl": "/media/games/tainted-grail/assets/natures-caress-magic-tainted-grail.webp",
+    "slug": "nature-caress",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-nature-caress-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -299,18 +323,22 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": 10,
           "type": "buff",
-          "mana": 20,
-          "health": 10,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 20
+          },
           "effect": "Heals you instantly."
         },
         "heavyCast": {
           "damage": null,
+          "healing": 2,
           "type": "channeled",
-          "mana": 5,
-          "health": 2,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 5
+          },
           "effect": "Slowly heals you over time. Prolonged Channeling increases healing by up to 150% over 4s."
         }
       }
@@ -318,38 +346,53 @@
   },
   {
     "gameSlug": "tainted-grail",
-    "name": "Prism Of The Maelstrom",
-    "slug": "prism-of-the-maelstrom",
-    "description": "Charged by dealing Elemental Damage 0/500. Creates an explosion, dealing 150 Damage and applying random elemental statuses to all enemies around you.",
-    "shortDescription": "Elemental explosion cube",
-    "iconUrl": "/media/games/tainted-grail/assets/prism-of-the-maelstrom-magic-tainted-grail.webp",
+    "name": "Ghost of Broc Meala",
+    "slug": "ghost-of-broc-meala",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-ghost-of-broc-meala-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
     "data": {
-      "gold": 10,
-      "weight": 0.5,
+      "gold": 500,
+      "weight": 0,
       "requirements": {
         "strength": null,
         "dexterity": null,
-        "spirituality": 5,
+        "spirituality": 9,
         "perception": null,
         "endurance": null,
         "practicality": null
       },
       "magic": {
-        "lightCast": null,
-        "heavyCast": null
+        "lightCast": {
+          "damage": null,
+          "healing": null,
+          "type": "ray",
+          "cost": null,
+          "effect": "Orders your summoned Ghost to attack a specific target."
+        },
+        "heavyCast": {
+          "damage": null,
+          "healing": null,
+          "type": "summon",
+          "cost": {
+            "costType": "mana",
+            "value": 75
+          },
+          "effect": "Summons the Ghost of Broc Meala to fight by your side."
+        }
       }
     }
   },
   {
     "gameSlug": "tainted-grail",
     "name": "Rumpolt's Revenge",
-    "slug": "rumpolts-revenge",
-    "description": "Condensates cheese from your own blood into a solid state in front of you. Slowly turns the target into cheese.",
-    "shortDescription": "Cheese spell",
-    "iconUrl": "/media/games/tainted-grail/assets/rumpolts-revenge-magic-tainted-grail.webp",
+    "slug": "rumpolt-revenge",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-rumpolt-revenge-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -367,18 +410,22 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": null,
           "type": "summon",
-          "mana": null,
-          "health": null,
-          "healthCost": 15,
+          "cost": {
+            "costType": "health",
+            "value": 15
+          },
           "effect": "Condensates cheese from your own blood into a solid state in front of you."
         },
         "heavyCast": {
           "damage": null,
+          "healing": null,
           "type": "channeled",
-          "mana": 8,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 8
+          },
           "effect": "Slowly turns the target into cheese."
         }
       }
@@ -388,9 +435,9 @@
     "gameSlug": "tainted-grail",
     "name": "Sea Bite",
     "slug": "sea-bite",
-    "description": "Orders your summoned tadpoles to attack a specific target. Summons a tadpole to fight by your side.",
-    "shortDescription": "Tadpole summon spell",
-    "iconUrl": "/media/games/tainted-grail/assets/sea-bite-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-sea-bite-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -408,18 +455,19 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": null,
           "type": "ray",
-          "mana": null,
-          "health": null,
-          "healthCost": null,
+          "cost": null,
           "effect": "Orders your summoned tadpoles to attack a specific target."
         },
         "heavyCast": {
           "damage": null,
+          "healing": null,
           "type": "summon",
-          "mana": 80,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 80
+          },
           "effect": "Summons a tadpole to fight by your side."
         }
       }
@@ -429,9 +477,9 @@
     "gameSlug": "tainted-grail",
     "name": "Stone Skin",
     "slug": "stone-skin",
-    "description": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds.",
-    "shortDescription": "Damage barrier spell",
-    "iconUrl": "/media/games/tainted-grail/assets/stone-skin-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-stone-skin-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -449,10 +497,12 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": null,
           "type": "buff",
-          "mana": 60,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 60
+          },
           "effect": "Creates a barrier, that negates 35% of incoming Damage for 30 seconds."
         },
         "heavyCast": null
@@ -463,9 +513,9 @@
     "gameSlug": "tainted-grail",
     "name": "Summon Grindylow",
     "slug": "summon-grindylow",
-    "description": "Orders your summons to attack a specific target. Summons a grindylow to fight by your side.",
-    "shortDescription": "Grindylow summon spell",
-    "iconUrl": "/media/games/tainted-grail/assets/summon-grindylow-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-summon-grindylow-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -483,18 +533,18 @@
       "magic": {
         "lightCast": {
           "damage": null,
+          "healing": null,
           "type": "ray",
-          "mana": null,
-          "health": null,
-          "healthCost": null,
+          "cost": null,
           "effect": "Orders your summons to attack a specific target."
         },
         "heavyCast": {
           "damage": null,
           "type": "summon",
-          "mana": 20,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 20
+          },
           "effect": "Summons a grindylow to fight by your side."
         }
       }
@@ -502,55 +552,103 @@
   },
   {
     "gameSlug": "tainted-grail",
-    "name": "The Hollow Reprieve",
-    "slug": "the-hollow-reprieve",
-    "description": "Charged by dealing Critical Hits 0/30. Reduces Incoming Damage by half of your Critical Chance for 30s.",
-    "shortDescription": "Critical Hit defense cube",
-    "iconUrl": "/media/games/tainted-grail/assets/the-hollow-reprieve-magic-tainted-grail.webp",
+    "name": "Flickerbolt",
+    "slug": "flickerbolt",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-flickerbolt-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
     "data": {
-      "gold": 10,
-      "weight": 0.5,
+      "gold": 100,
+      "weight": 0,
       "requirements": {
         "strength": null,
         "dexterity": null,
-        "spirituality": 8,
+        "spirituality": 2,
         "perception": null,
         "endurance": null,
         "practicality": null
       },
       "magic": {
-        "lightCast": null,
-        "heavyCast": null
+        "lightCast": {
+          "damage": [
+            5,
+            11
+          ],
+          "healing": null,
+          "type": "ray",
+          "cost": {
+            "costType": "mana",
+            "value": 6
+          },
+          "effect": "Shoots a small lightning shock."
+        },
+        "heavyCast": {
+          "damage": [
+            7,
+            16
+          ],
+          "healing": null,
+          "type": "ray",
+          "cost": {
+            "costType": "mana",
+            "value": 9
+          },
+          "effect": "Shoots a larger lightning shock, jumping between up to 4 enemies."
+        }
       }
     }
   },
   {
     "gameSlug": "tainted-grail",
-    "name": "The Wailing Gale",
-    "slug": "the-wailing-gale",
-    "description": "Charged by killing 0/10. Summon a Tornado, which sucks up everyone within a 5m radius.",
-    "shortDescription": "Tornado summon cube",
-    "iconUrl": "/media/games/tainted-grail/assets/the-wailing-gale-magic-tainted-grail.webp",
+    "name": "Thunder Lash",
+    "slug": "thunder-lash",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-thunder-lash-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
     "data": {
-      "gold": 10,
-      "weight": 0.5,
+      "gold": 500,
+      "weight": 0,
       "requirements": {
         "strength": null,
         "dexterity": null,
-        "spirituality": 5,
+        "spirituality": 7,
         "perception": null,
         "endurance": null,
         "practicality": null
       },
       "magic": {
-        "lightCast": null,
-        "heavyCast": null
+        "lightCast": {
+          "damage": [
+            17,
+            25
+          ],
+          "healing": null,
+          "type": "ray",
+          "cost": {
+            "costType": "mana",
+            "value": 19
+          },
+          "effect": "Shoots a medium lightning shock."
+        },
+        "heavyCast": {
+          "damage": [
+            25,
+            37
+          ],
+          "healing": null,
+          "type": "ray",
+          "cost": {
+            "costType": "mana",
+            "value": 29
+          },
+          "effect": "Shoots a great lightning shock, jumping between up to 5 enemies."
+        }
       }
     }
   },
@@ -558,9 +656,9 @@
     "gameSlug": "tainted-grail",
     "name": "Toxic Dart",
     "slug": "toxic-dart",
-    "description": "Shoots a medium Poison projectile. Shoots a great Poison glob, dealing Damage in a small area.",
-    "shortDescription": "Poison dart spell",
-    "iconUrl": "/media/games/tainted-grail/assets/toxic-dart-magic-tainted-grail.webp",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-toxic-dart-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -581,10 +679,12 @@
             11,
             13
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 14,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 14
+          },
           "effect": "Shoots a medium Poison projectile."
         },
         "heavyCast": {
@@ -592,10 +692,12 @@
             16,
             19
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 21,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 21
+          },
           "effect": "Shoots a great Poison glob, dealing Damage in a small area."
         }
       }
@@ -604,10 +706,10 @@
   {
     "gameSlug": "tainted-grail",
     "name": "Winter's Crone's Wrath",
-    "slug": "winters-crones-wrath",
-    "description": "Shoots a spread of 5 Chilling projectiles. Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged.",
-    "shortDescription": "Chilling spread spell",
-    "iconUrl": "/media/games/tainted-grail/assets/winters-crones-wrath-magic-tainted-grail.webp",
+    "slug": "winter-crone-wrath",
+    "description": null,
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/magic-winter-crone-wrath-tainted-grail.webp",
     "isActive": true,
     "type": "magic",
     "category": null,
@@ -628,10 +730,12 @@
             15,
             20
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 12,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 12
+          },
           "effect": "Shoots a spread of 5 Chilling projectiles."
         },
         "heavyCast": {
@@ -639,10 +743,12 @@
             22,
             30
           ],
+          "healing": null,
           "type": "projectile",
-          "mana": 18,
-          "health": null,
-          "healthCost": null,
+          "cost": {
+            "costType": "mana",
+            "value": 18
+          },
           "effect": "Shoots a spread of 5 Chilling projectiles, increasing accuracy with longer charging time. Deals bonus damage when fully charged."
         }
       }
