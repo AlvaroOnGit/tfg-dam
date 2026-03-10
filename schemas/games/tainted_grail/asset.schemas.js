@@ -166,7 +166,7 @@ const castSchema = z.object({
         "trap",
         "summon"
     ]),
-    cost: castCostSchema,
+    cost: castCostSchema.nullable(),
     effect: z
         .string("effect must be a string")
         .max(500, "effect length cant exceed 500 characters"),
