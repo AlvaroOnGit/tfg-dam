@@ -173,7 +173,7 @@
     "slug": "hunter-amulet",
     "description": "Increases Weak Spot Damage by 20%.",
     "shortDescription": null,
-    "iconUrl": "/media/games/tainted-grail/assets/jewelry-hunters-amulet-tainted-grail.webp",
+    "iconUrl": "/media/games/tainted-grail/assets/jewelry-hunter-amulet-tainted-grail.webp",
     "isActive": true,
     "type": "jewelry",
     "category": "amulets",

@@ -540,6 +540,7 @@
         },
         "heavyCast": {
           "damage": null,
+          "healing": null,
           "type": "summon",
           "cost": {
             "costType": "mana",
