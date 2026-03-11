@@ -8,7 +8,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-knight-boots-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "boots",
+    "category": "boot",
     "data": {
       "gold": 60,
       "weight": 5.0,
@@ -80,7 +80,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-archdruid-vestments-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "cuirasses",
+    "category": "cuirass",
     "data": {
       "gold": 3000,
       "weight": 4.0,
@@ -128,7 +128,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-blacksmith-boots-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "boots",
+    "category": "boot",
     "data": {
       "gold": 10,
       "weight": 2.0,
@@ -152,7 +152,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-bloodsoaked-vest-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "cuirasses",
+    "category": "cuirass",
     "data": {
       "gold": 700,
       "weight": 3.5,
@@ -176,7 +176,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-sturdy-leather-boots-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "boots",
+    "category": "boot",
     "data": {
       "gold": 60,
       "weight": 2.5,
@@ -200,7 +200,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-red-priest-robe-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "cuirasses",
+    "category": "cuirass",
     "data": {
       "gold": 30,
       "weight": 0.2,
@@ -224,7 +224,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-medic-boots-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "boots",
+    "category": "boot",
     "data": {
       "gold": 10,
       "weight": 1.0,
@@ -248,7 +248,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-keeper-gloves-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "gauntlets",
+    "category": "gauntlet",
     "data": {
       "gold": 150,
       "weight": 3.0,
@@ -272,7 +272,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-peasant-shirt-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "cuirasses",
+    "category": "cuirass",
     "data": {
       "gold": 20,
       "weight": 0.6,
@@ -296,7 +296,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-worn-druidic-gloves-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "gauntlets",
+    "category": "gauntlet",
     "data": {
       "gold": 150,
       "weight": 0.5,
@@ -320,7 +320,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-blacksmith-gloves-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "gauntlets",
+    "category": "gauntlet",
     "data": {
       "gold": 10,
       "weight": 0.8,
@@ -368,7 +368,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-the-penitent-guard-helm-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "helmets",
+    "category": "helmet",
     "data": {
       "gold": 300,
       "weight": 4.0,
@@ -440,7 +440,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-corpse-eater-cap-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "helmets",
+    "category": "helmet",
     "data": {
       "gold": 100,
       "weight": 0.5,
@@ -464,7 +464,7 @@
     "iconUrl": "/media/games/tainted-grail/assets/armor-iron-helmet-tainted-grail.webp",
     "isActive": true,
     "type": "armor",
-    "category": "helmets",
+    "category": "helmet",
     "data": {
       "gold": 10,
       "weight": 2.1,
