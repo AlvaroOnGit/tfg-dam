@@ -44,7 +44,8 @@
         "arcane": null
       },
       "damage": ["standard", "pierce"],
-      "aow": {"slug": "light", "compatible": false},
+      "skill": "Light",
+      "compatible": false,
       "effect": {"effect" : null, "value": null},
       "weight": 4.0
     }
@@ -94,7 +95,8 @@
         "arcane": null
       },
       "damage": ["standard"],
-      "aow": {"slug": "quickstep", "compatible": true},
+      "skill": "Quickstep",
+      "compatible": true,
       "effect": {"effect" : null, "value": null},
       "weight": 3.5
     }
@@ -144,7 +146,8 @@
         "arcane": null
       },
       "damage": ["pierce"],
-      "aow": {"slug": "kick", "compatible": false},
+      "skill": "Kick",
+      "compatible": false,
       "effect": {"effect" : null, "value": null},
       "weight": 10.0
     }
@@ -194,7 +197,8 @@
         "arcane": null
       },
       "damage": ["slash", "pierce"],
-      "aow": {"slug": "blind-spot", "compatible": true},
+      "skill": "Blind Spot",
+      "compatible": true,
       "effect": {"effect" : null, "value": null},
       "weight": 2.0
     }
@@ -244,7 +248,8 @@
         "arcane": null
       },
       "damage": ["slash"],
-      "aow": {"slug": "savage-claws", "compatible": true},
+      "skill": "Savage Claws",
+      "compatible": true,
       "effect": {"effect": "hemorrhage", "value": 45},
       "weight": 3.0
     }
@@ -294,7 +299,8 @@
         "arcane": null
       },
       "damage": ["pierce"],
-      "aow": {"slug": "mighty-shot", "compatible": true},
+      "skill": "Mighty Shot",
+      "compatible": true,
       "effect": {"effect": null, "value": null},
       "weight": 4.5
     }
@@ -344,7 +350,8 @@
         "arcane": null
       },
       "damage": ["slash", "pierce"],
-      "aow": {"slug": "quickstep", "compatible": true},
+      "skill": "Quickstep",
+      "compatible": true,
       "effect": { "effect": "hemorrhage", "value": 60},
       "weight": 2.0
     }
@@ -394,7 +401,8 @@
         "arcane": null
       },
       "damage": ["standard"],
-      "aow": {"slug": "wolf-assault", "compatible": false},
+      "skill": "Wolf Assault",
+      "compatible": false,
       "effect": {"effect": null, "value": null},
       "weight": 20.0
     }
@@ -444,7 +452,8 @@
           "arcane": null
       },
       "damage": ["strike"],
-      "aow": {"slug": "smithing-art-spears", "compatible": false},
+      "skill": "Smithing Art Spears",
+      "compatible": false,
       "effect": {"effect": null, "value": null},
       "weight": 22.0
     }
@@ -494,7 +503,8 @@
         "arcane": null
       },
       "damage": ["pierce"],
-      "aow": {"slug": "kick", "compatible": false},
+      "skill": "Kick",
+      "compatible": false,
       "effect": {"effect": null, "value": null},
       "weight": 4.0
     }
@@ -544,7 +554,8 @@
         "arcane": null
       },
       "damage": ["slash"],
-      "aow": {"slug": "spinning-slash", "compatible": true},
+      "skill": "Spinning Slash",
+      "compatible": true,
       "effect": {"effect": null, "value": null},
       "weight": 10.0
     }
@@ -594,7 +605,8 @@
         "arcane": null
       },
       "damage": ["slash"],
-      "aow": {"slug": "rancor-slash", "compatible": false},
+      "skill": "Rancor Slash",
+      "compatible": false,
       "effect": {"effect": null, "value": null},
       "weight": 2.5
     }
@@ -644,7 +656,8 @@
         "arcane": null
       },
       "damage": ["slash", "pierce"],
-      "aow": {"slug": "quickstep", "compatible": false},
+      "skill": "Quickstep",
+      "compatible": true,
       "effect" : {"effect": "hemorrhage", "value": 38},
       "weight": 1.5
     }
@@ -694,7 +707,8 @@
         "arcane": null
       },
       "damage": ["strike"],
-      "aow": {"slug": "endure", "compatible": true},
+      "skill": "Endure",
+      "compatible": true,
       "effect": {"effect": null, "value": null},
       "weight": 5.0
     }
@@ -744,7 +758,8 @@
         "arcane": null
       },
       "damage": ["strike"],
-      "aow": {"slug": "spinning-chain", "compatible": true},
+      "skill": "Spinning Chain",
+      "compatible": true,
       "effect": {"effect": "hemorrhage", "value": 50},
       "weight": 6.0
     }
@@ -794,7 +809,8 @@
         "arcane": null
       },
       "damage": ["strike"],
-      "aow": {"slug": "no-skill", "compatible": true},
+      "skill": "No Skill",
+      "compatible": true,
       "effect": {"effect": null, "value": null},
       "weight": 3.0
     }
@@ -844,7 +860,8 @@
         "arcane": null
       },
       "damage": ["strike"],
-      "aow": {"slug": "endure", "compatible": true},
+      "skill": "Endure",
+      "compatible": true,
       "effect" : {"effect": null, "value": null},
       "weight": 12.0
     }
@@ -894,7 +911,8 @@
         "arcane": null
       },
       "damage": ["slash"],
-      "aow": {"slug": "overhead-stance", "compatible": true},
+      "skill": "Overhead Stance",
+      "compatible": true,
       "effect" : {"effect": "hemorrhage", "value": 55},
       "weight": 9.0
     }
@@ -944,7 +962,8 @@
         "arcane": null
       },
       "damage": ["pierce"],
-      "aow": {"slug": "charge-forth", "compatible": true},
+      "skill": "Charge Forth",
+      "compatible": true,
       "effect": {"effect": null, "value": null},
       "weight": 9.0
     }
@@ -994,7 +1013,8 @@
         "arcane": null
       },
       "damage": ["standard"],
-      "aow": {"slug": "war-cry", "compatible": true},
+      "skill": "War Cry",
+      "compatible": true,
       "effect" : {"effect": null, "value": null},
       "weight": 12.5
     }

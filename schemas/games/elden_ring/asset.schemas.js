@@ -132,15 +132,6 @@ const weaponDamageSchema = z
     .min(1, "a weapon must have at least 1 damage type")
     .max(2, "a weapon can only have 2 damage types");
 
-const weaponAowSchema = z.object({
-    slug: z
-        .string("value must be a string")
-        .trim()
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase letters, numbers and single dashes only")
-        .min(1, "Slug must be at least 1 character long"),
-    compatible: z.boolean().default(true),
-})
-
 const weaponEffectSchema = z.object({
     effect: z
         .enum(["hemorrhage","poison","scarlet-rot","frostbite","sleep","madness","death-blight"])
@@ -181,7 +172,13 @@ const weaponDataSchema = z.object({
     scaling: weaponScalingSchema,
     requires: weaponRequirementsSchema,
     damage: weaponDamageSchema,
-    aow: weaponAowSchema,
+    skill: z
+        .string("value must be a string")
+        .trim()
+        .max(100, "name cannot exceed 100 characters")
+        .min(1, "name must be at least 1 character long")
+        .transform(val => val.charAt(0).toUpperCase() + val.slice(1), "First letter must be uppercase"),
+    compatible: z.boolean().default(true),
     effect: weaponEffectSchema,
     weight: weightSchema
 });
