@@ -1,11 +1,12 @@
 /**
  * Contains a script to insert test assets for Tainted Grail into the database
+ * MUST be executed after the game seed
  */
 
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { validateAsset } from '../../validators/asset.validator.js';
+import { validateAsset } from '../../validators/index.js';
 import pool from '../connection.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
