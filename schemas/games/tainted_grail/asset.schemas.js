@@ -3,7 +3,7 @@
  */
 import { z } from 'zod';
 import createBaseSchema from "../../asset.schemas.js";
-import { validateIconUrl } from '../../helpers/asset.helpers.js';
+import { validateAssetMedia } from '../../helpers/media.helpers.js';
 
 const BaseSchema = createBaseSchema('tainted-grail');
 
@@ -219,37 +219,37 @@ const validateBlock = (obj, ctx) => {
     }
 }
 
-const TaintedGrailSchema = z.discriminatedUnion("type", [
+const TaintedGrailAssetSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
         type: z.literal("weapon"),
         category: weaponCategories,
         data: weaponDataSchema,
-    }).superRefine(validateIconUrl).superRefine(validateBlock),
+    }).superRefine(validateAssetMedia).superRefine(validateBlock),
 
     BaseSchema.extend({
         type: z.literal("armor"),
         category: armorCategories,
         data: armorDataSchema,
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("jewelry"),
         category:  jewelryCategories,
         data: jewelryDataSchema,
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("magic"),
         category: z.null(),
         data: magicDataSchema,
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("relic"),
         category:  relicCategories,
         data: relicDataSchema,
-    }).superRefine(validateIconUrl)
+    }).superRefine(validateAssetMedia)
 ]);
 
-export default TaintedGrailSchema;
+export default TaintedGrailAssetSchema;

@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 import createBaseSchema from '../../asset.schemas.js';
-import { validateIconUrl } from '../../helpers/asset.helpers.js';
+import { validateAssetMedia } from '../../helpers/media.helpers.js';
 
 const BaseSchema = createBaseSchema('elden-ring');
 
@@ -458,43 +458,43 @@ const validateSpellTypes = (obj, ctx) => {
     }
 };
 
-const EldenRingSchema = z.discriminatedUnion("type", [
+const EldenRingAssetSchema = z.discriminatedUnion("type", [
 
     BaseSchema.extend({
         type: z.literal("weapon"),
         category: weaponCategories,
         data: weaponDataSchema
-    }).superRefine(validateWeaponAttack).superRefine(validateIconUrl),
+    }).superRefine(validateWeaponAttack).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("armor"),
         category: armorCategories,
         data: armorDataSchema
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("spell"),
         category: spellCategories,
         data: spellDataSchema
-    }).superRefine(validateSpellTypes).superRefine(validateIconUrl),
+    }).superRefine(validateSpellTypes).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("talisman"),
         category: z.null(),
         data: talismanDataSchema
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("ash-of-war"),
         category: z.null(),
         data: ashOfWarDataSchema
-    }).superRefine(validateIconUrl),
+    }).superRefine(validateAssetMedia),
 
     BaseSchema.extend({
         type: z.literal("spirit-ash"),
         category: z.null(),
         data: spiritAshDataSchema
-    }).superRefine(validateIconUrl)
+    }).superRefine(validateAssetMedia)
 ]);
 
-export default EldenRingSchema;
+export default EldenRingAssetSchema;
