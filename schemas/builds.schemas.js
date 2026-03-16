@@ -1,3 +1,7 @@
+/**
+ * Contains the base schema to validate game builds
+ */
+
 import { z } from 'zod';
 
 const createBaseBuildSchema = (gameSlug) =>
@@ -12,7 +16,10 @@ const createBaseBuildSchema = (gameSlug) =>
         description: z
             .string("description must be a string")
             .trim()
-            .min(1, "description must be at least 1 character long"),
+            .min(1, "description must be at least 1 character long")
+            .optional()
+            .nullable()
+            .default(null),
         isPublic: z
             .boolean("isPublic must be a boolean")
             .default(false),
@@ -23,12 +30,16 @@ const createBaseBuildSchema = (gameSlug) =>
             .string("version must be a string")
             .trim()
             .regex(/^\d+\.\d+(\.\d+)?$/, "version must follow semver format: 1.0 or 1.0.0")
-            .nullable(),
+            .optional()
+            .nullable()
+            .default(null),
         gameVersion: z
             .string("gameVersion must be a string")
             .trim()
             .regex(/^\d+\.\d+(\.\d+)?$/, "gameVersion must follow semver format: 1.0 or 1.0.0")
-            .nullable(),
+            .optional()
+            .nullable()
+            .default(null),
     });
 
 export default createBaseBuildSchema;
