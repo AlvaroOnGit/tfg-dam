@@ -2,38 +2,33 @@
  * Contains logic to validate assets for different games
  */
 
-import EldenRingSchema from '../schemas/games/elden_ring/asset.schemas.js'
-import TaintedGrailSchema from '../schemas/games/tainted_grail/asset.schemas.js';
+import EldenRingAssetSchema from '../schemas/games/elden_ring/asset.schemas.js'
+import TaintedGrailAssetSchema from '../schemas/games/tainted_grail/asset.schemas.js';
 
-const gameSchemas = {
-    "elden-ring": EldenRingSchema,
-    "tainted-grail": TaintedGrailSchema
+const gameAssetSchemas = {
+    "elden-ring": EldenRingAssetSchema,
+    "tainted-grail": TaintedGrailAssetSchema
 }
 
 /**
  * Validates a game asset using the schema associated with the game's slug.
  *
- * @async
  * @function validateAsset
  * @param {Object} data - Game asset data to validate.
- * @returns {Promise<
- *   | { success: false, error: string }
- *   | import("zod").SafeParseReturnType<any, any>
- * >}
- * Returns an error if the game is unsupported, otherwise the result of the schema validation.
+ * @returns {import("zod").SafeParseReturnType<any, any> | { success: false, error: string }}
+ * Returns an error object if the game is unsupported; otherwise, returns the Zod validation result.
  */
-export async function validateAsset(data) {
+export function validateAsset(data) {
+    const { gameSlug } = data;
 
-    const { gameSlug } = data
+    const gameAssetSchema = gameAssetSchemas[gameSlug];
 
-    const gameSchema = gameSchemas[gameSlug];
-
-    if (!gameSchema) {
+    if (!gameAssetSchema) {
         return {
             success: false,
             error: `Unsupported game: ${gameSlug}`
         };
     }
 
-    return await gameSchema.safeParse(data);
+    return gameAssetSchema.safeParse(data);
 }
