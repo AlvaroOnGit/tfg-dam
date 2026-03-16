@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "elden-ring",
+    "name": "Elden Ring",
+    "description": "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+    "genres": ["RPG", "Souls-like","PVP","Online Co-Op", "Fantasy"],
+    "coverUrl": "/media/games/elden-ring/graphics/elden-ring-cover.webp",
+    "iconUrl": "/media/games/elden-ring/graphics/elden-ring-icon.webp",
+    "isActive": true
+  },
+  {
+    "slug": "tainted-grail",
+    "name": "Tainted Grail: The Fall of Avalon",
+    "description": "Step into a dark reimagination of Arthurian legends in this first person, open world RPG. Explore a world stuck in everlasting autumn, witness falling legends and make meaningful choices woven into a complex, branching storyline.",
+    "genres": ["Adventure", "RPG", "Fantasy"],
+    "coverUrl": "/media/games/tainted-grail/graphics/tainted-grail-cover.webp",
+    "iconUrl": "/media/games/tainted-grail/graphics/tainted-grail-icon.webp",
+    "isActive": true
+  }
+]
