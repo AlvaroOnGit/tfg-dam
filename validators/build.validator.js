@@ -2,15 +2,23 @@
  * Contains logic to validate builds for different games
  */
 
-import TaintedGrailBuildSchema from '../schemas/games/tainted_grail/buidls.schemas.js';
-import EldenRingBuildSchema from "../schemas/games/elden_ring/buidls.schemas.js";
+import TaintedGrailBuildSchema from '../schemas/games/tainted_grail/build.schemas.js';
+import EldenRingBuildSchema from "../schemas/games/elden_ring/build.schemas.js";
 
 const gameBuildSchemas = {
     "tainted-grail": TaintedGrailBuildSchema,
     "elden-ring": EldenRingBuildSchema,
 }
 
-export async function validateBuild(data) {
+/**
+ * Validates a game build using the schema associated with the game's slug.
+ *
+ * @function validateBuild
+ * @param {Object} data - Game build data to validate.
+ * @returns {import("zod").SafeParseReturnType<any, any> | { success: false, error: string }}
+ * Returns an error object if the game is unsupported, otherwise the result of the schema validation.
+ */
+export function validateBuild(data) {
 
     const { gameSlug } = data;
 
@@ -23,5 +31,5 @@ export async function validateBuild(data) {
         };
     }
 
-    return await gameSchema.safeParse(data);
+    return gameSchema.safeParse(data);
 }
