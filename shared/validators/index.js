@@ -13,3 +13,4 @@ export { validateAsset } from './asset.validator.js';
 export { validateBuild } from './build.validator.js';
 export { validateGame } from './game.validator.js';
 export { validateUser } from './user.validator.js';
+export { validateLogin, validateRegister } from './auth.validator.js';

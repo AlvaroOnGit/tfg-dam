@@ -2,7 +2,7 @@
  * Handles routing for rendering views
  */
 import { Router } from 'express';
-import { ViewController } from '../../controllers/web/view.controller.js';
+import { ViewController } from './view.controller.js';
 
 export const createViewRouter = () => {
 
