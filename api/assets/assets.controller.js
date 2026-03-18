@@ -1,4 +1,4 @@
-export class AssetsController {
+export class AssetController {
     constructor({ authService } = {}) {
         this.authService = authService;
     }
