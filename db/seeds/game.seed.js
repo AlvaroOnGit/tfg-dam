@@ -5,7 +5,7 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { validateGame } from '../../validators/index.js';
+import { validateGame } from '../../shared/validators/index.js';
 import pool from '../connection.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
