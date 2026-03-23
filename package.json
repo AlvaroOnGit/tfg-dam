@@ -4,11 +4,15 @@
   "main": "server.js",
   "scripts": {
     "dev": "node --watch --env-file .env.development server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seedgames": "node --env-file .env.development ./db/seeds/game.seed.js",
+    "seedeldenassets": "node --env-file .env.development ./db/seeds/elden-ring-assets.seed.js",
+    "seedtaintedassets": "node --env-file .env.development ./db/seeds/tainted-grail-assets.seed.js"
   },
   "type": "module",
   "dependencies": {
     "argon2": "0.44.0",
+    "dotenv": "^17.3.1",
     "ejs": "4.0.1",
     "express": "5.2.1",
     "jsonwebtoken": "9.0.3",
