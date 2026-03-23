@@ -1,8 +1,10 @@
 import path from 'node:path';
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express';
 import { UserModel } from './shared/models/user.model.js';
 import { TokenModel } from './shared/models/token.model.js';
+import { BuildModel } from './shared/models/build.model.js';
 import { createViewRouter } from './views/view.routes.js';
 import { createAuthRouter } from './api/auth/auth.routes.js';
 import { createUserRouter } from './api/users/users.routes.js';
@@ -21,6 +23,7 @@ export const createApp = () => {
     app.set('view engine', 'ejs');
     //Express middleware to parse JSON files
     app.use(express.json());
+    app.use(cookieParser());
     //Express middleware to serve files from a folder
     app.use(express.static(path.join(path.resolve(), 'public')));
 
@@ -46,7 +49,7 @@ export const createApp = () => {
     //Router for games
     app.use('/api/games', createGameRouter({}))
     //Router for builds
-    app.use('/api/builds', createBuildRouter({}))
+    app.use('/api/builds', createBuildRouter({ BuildModel }))
     //Router for assets
     app.use('/api/assets', createAssetRouter({}))
 
