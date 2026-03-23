@@ -9,10 +9,16 @@ export class AuthController {
         try {
             const { email, password, device } = req.body;
             const userAgent = req.headers['user-agent'];
-            const credentials = await this.authService.loginUser(email, password, device, userAgent);
-            res.status(200).json({message: 'Authentication successful'});
+            const { accessToken } = await this.authService.loginUser(email, password, device, userAgent);
+            res
+                .cookie('access_token', accessToken, {
+                    httpOnly: true,
+                    sameSite: 'strict',
+                })
+                .status(200)
+                .json({ message: 'Authentication successful' });
         } catch (e) {
-            next(e)
+            next(e);
         }
     }
     register = async (req, res, next) => {

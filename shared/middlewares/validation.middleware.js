@@ -21,11 +21,17 @@ export const validationHandler = (validator, source = 'body') => {
         const result = validator(req[source]);
 
         if (!result.success) {
-            const errors = result.error.flatten().fieldErrors;
+            const errors = typeof result.error?.flatten === 'function'
+                ? result.error.flatten().fieldErrors
+                : { gameSlug: [result.error] };
             throw new ValidationError('Error validating the request body', errors);
         }
+        if (source === 'query' || source === 'params') {
+            req.validated = { ...req.validated, [source]: result.data };
+        } else {
+            req[source] = result.data;
+        }
 
-        req[source] = result.data;
         next();
     }
 }
