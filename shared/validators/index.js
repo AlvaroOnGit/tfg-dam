@@ -9,7 +9,7 @@
  * // Import individually
  * import { validateAsset, validateBuild, ... } from './validators/index.js';
  */
-export { validateAsset } from './asset.validator.js';
+export { validateAsset, validateAssetQuery, validateAssetId } from './asset.validator.js';
 export { validateBuild } from './build.validator.js';
 export { validateGame } from './game.validator.js';
 export { validateUser } from './user.validator.js';
