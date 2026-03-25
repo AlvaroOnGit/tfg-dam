@@ -18,7 +18,6 @@ export class TokenUtil {
             role: user.role,
             roleLevel: user.roleLevel,
             isVerified: user.isVerified,
-            type: 'access'
         }
 
         return jwt.sign(
@@ -35,7 +34,8 @@ export class TokenUtil {
     static generateRefreshToken(user) {
         const payload = {
             id: user.id,
-            type: 'refresh'
+            device: user.device,
+            agent: user.agent,
         }
         const token = jwt.sign(
             payload,
@@ -43,7 +43,7 @@ export class TokenUtil {
             { expiresIn: process.env.JWT_REFRESH_EXPIRES }
         )
         const expiration = new Date
-        (Date.now() + process.env.JWT_REFRESH_TOKEN_LIFETIME * 24 * 60 * 60 *1000);
+        (Date.now() + Number(process.env.JWT_REFRESH_TOKEN_LIFETIME) * 24 * 60 * 60 *1000);
         return { token, expiration }
     }
     /**
