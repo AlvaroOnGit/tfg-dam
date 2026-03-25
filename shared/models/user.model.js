@@ -23,10 +23,19 @@ export class UserModel {
         return res.rows[0];
     }
 
+    static async findById(id) {
+        const res = await pool.query(`
+            SELECT id, email,username, password, role, role_level AS roleLevel, avatar, state, is_verified AS isVerified
+            FROM users WHERE id = $1`, [id]
+        )
+        return res.rows[0];
+    }
+
     static async createUser(user) {
         const res = await pool.query(`
             INSERT INTO users (email, username, password, role, role_level, avatar, state, is_verified)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, username, email`, [
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, username, email`,
+            [
                 user.email,
                 user.username,
                 user.passwordHash,
@@ -35,7 +44,8 @@ export class UserModel {
                 user.avatar,
                 user.state,
                 user.isVerified
-            ])
+            ]
+        )
         return res.rows[0]
     }
 }
