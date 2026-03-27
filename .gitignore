@@ -14,3 +14,6 @@ db/localdb/
 # Testing files
 /test
 api.http
+
+.vscode/
+TFG DAM.session.sql
