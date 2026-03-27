@@ -12,10 +12,9 @@ function createErrorClass(name, status) {
     };
 }
 
-export const InternalError = createErrorClass('InternalError', 500);
-export const ValidationError = createErrorClass('ValidationError', 400);
+export const InternalError      = createErrorClass('InternalError', 500);
+export const ValidationError    = createErrorClass('ValidationError', 400);
 export const AuthenticationError = createErrorClass('AuthenticationError', 401);
-export const NotFoundError = createErrorClass('NotFoundError', 404);
 export const DuplicateError = createErrorClass('DuplicateError', 409);
 
 /**
