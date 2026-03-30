@@ -49,6 +49,8 @@ export const createApp = () => {
     app.use('/api/users', createUserRouter({ UserModel }))
     //Router for games
     app.use('/api/games', createGameRouter({}))
+    //Router for builds
+    app.use('/api/builds', createBuildRouter({}))
     //Router for assets
     app.use('/api/assets', createAssetRouter({ AssetModel }))
 
