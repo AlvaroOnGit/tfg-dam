@@ -75,7 +75,7 @@ const assetQuerySchema = z.object({
 });
 
 const assetIdSchema = z.object({
-    id: z.string().uuid('id must be a valid UUID'),
+    id: z.uuid('id must be a valid UUID'),
 });
 
 /**

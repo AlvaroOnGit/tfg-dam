@@ -25,7 +25,12 @@ export const validationHandler = (validator, source = 'body') => {
             throw new ValidationError('Error validating the request body', errors);
         }
 
-        req[source] = result.data;
+        // Express 5 defines req.query as a getter-only property; it cannot be reassigned.
+        if (source === 'query') {
+            req.validatedQuery = result.data;
+        } else {
+            req[source] = result.data;
+        }
         next();
     }
 }

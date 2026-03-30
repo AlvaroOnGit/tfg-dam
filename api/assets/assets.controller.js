@@ -5,7 +5,7 @@ export class AssetController {
 
     getAssets = async (req, res, next) => {
         try {
-            const { page, limit, ...filters } = req.query;
+            const { page, limit, ...filters } = req.validatedQuery;
             const { total, assets } = await this.assetService.getAll({ ...filters, page, limit });
             res.status(200).json({ page, total, limit, assets });
         } catch (e) {
