@@ -87,4 +87,15 @@ export class AuthController {
             next(e)
         }
     }
+    forgot = async (req, res, next) => {
+        const { email, device } = req.body;
+        const userAgent = req.headers['user-agent'];
+        try {
+            await this.authService.forgotPassword(email, device, userAgent);
+            res.status(200).json({message: 'If the address exists, an email with instructions has been sent'});
+        }
+        catch (e) {
+            next(e)
+        }
+    }
 }
