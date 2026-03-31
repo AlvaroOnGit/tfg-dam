@@ -21,24 +21,37 @@ const emailSchema = z
     .max(254, 'email cannot exceed 254 characters')
     .toLowerCase()
 
-// ─── Login Schema ──────────────────────────────────────────────────────────────
-
-export const loginSchema = z.object({
-    email: emailSchema,
-    password: passwordSchema,
-    device: z.uuidv4('device must be a valid v4 uuid')
-})
-
-// ─── Register Schema ────────────────────────────────────────────────────────────
-
-export const registerSchema = z.object({
-    username: z
+const usernameSchema = z
         .string('username must be a string')
         .trim()
         .min(3, 'username must be at least 3 characters')
         .max(20, 'username must be at most 20 characters')
         .regex(/^[a-zA-Z0-9_-]+$/, 'Username can only contain letters, numbers, underscores and hyphens')
-        .toLowerCase(),
+        .toLowerCase()
+
+const deviceSchema = z.uuidv4('device must be a valid v4 uuid')
+
+// ─── Login Schema ──────────────────────────────────────────────────────────────
+
+export const loginSchema = z.object({
+    email: emailSchema,
+    password: passwordSchema,
+    device: deviceSchema
+})
+
+// ─── Register Schema ────────────────────────────────────────────────────────────
+
+export const registerSchema = z.object({
+    username: usernameSchema,
     email: emailSchema,
     password: passwordSchema
+})
+
+// ─── Partial Auth Schema ───────────────────────────────────────────────────────
+
+export const partialAuthSchema = z.object({
+    email: emailSchema.optional(),
+    password: passwordSchema.optional(),
+    username: usernameSchema.optional(),
+    device: deviceSchema.optional()
 })
