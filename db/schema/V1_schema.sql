@@ -381,7 +381,7 @@ CREATE TABLE refresh_tokens(
     user_id UUID NOT NULL,
     device_id UUID NOT NULL,
     token TEXT NOT NULL UNIQUE,
-    expires_at TIMESTAMP NOT NULL,
+    expires_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP + INTERVAL '7 days',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     revoked_at TIMESTAMP,
     user_agent TEXT NOT NULL,
@@ -411,7 +411,7 @@ CREATE INDEX refresh_tokens_user_tokens
 CREATE INDEX refresh_tokens_token
     ON refresh_tokens (token);
 
--- Declare comments for the build_editors table
+-- Declare comments for the refresh_tokens table
 COMMENT ON TABLE refresh_tokens IS 'Stores refresh tokens and their expirations';
 COMMENT ON COLUMN refresh_tokens.id IS 'Unique UUID for the token';
 COMMENT ON COLUMN refresh_tokens.user_id IS 'Foreign key to users.id';
