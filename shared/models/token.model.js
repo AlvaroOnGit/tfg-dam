@@ -8,17 +8,20 @@ export class TokenModel {
 
     static saveRefreshToken = async (data) => {
         const res = await pool.query(`
-            INSERT INTO refresh_tokens (user_id, token, device_id, user_agent, expires_at, revoked_at, created_at)
-            VALUES ($1, $2, $3, $4, $5, $6, now())
+            INSERT INTO refresh_tokens (user_id, token, device_id, user_agent)
+            VALUES ($1, $2, $3, $4)
             ON CONFLICT (user_id, device_id)
-            DO UPDATE SET token = $2, expires_at = $5, revoked_at = NULL, created_at = now()`,
+            DO UPDATE SET
+                token = $2,
+                expires_at = CURRENT_TIMESTAMP + ($5 || ' days')::interval,
+                revoked_at = NULL,
+                created_at = CURRENT_TIMESTAMP`,
             [
                 data.user,
                 data.token,
                 data.device,
                 data.agent,
-                data.expiration,
-                data.revoked
+                process.env.JWT_REFRESH_TOKEN_LIFETIME
             ]
         );
         return res.rows[0];
@@ -34,6 +37,26 @@ export class TokenModel {
         const res = await pool.query(`
             SELECT * FROM refresh_tokens WHERE token = $1 AND revoked_at IS NULL AND expires_at > NOW()
         `, [token])
+        return res.rows[0];
+    }
+    static saveResetToken = async (data) => {
+        const res = await pool.query(`
+            INSERT INTO reset_tokens (user_id, token, device_id, user_agent)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (user_id)
+            DO UPDATE SET 
+                token = $2,
+                expires_at = CURRENT_TIMESTAMP + ($5 || ' hour')::interval,
+                revoked_at = NULL,
+                created_at = CURRENT_TIMESTAMP`,
+            [
+                data.user,
+                data.token,
+                data.device,
+                data.agent,
+                process.env.JWT_RESET_TOKEN_LIFETIME
+            ]
+        );
         return res.rows[0];
     }
 }
