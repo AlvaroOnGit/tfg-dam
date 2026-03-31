@@ -8,8 +8,7 @@ import { AuthController } from './auth.controller.js';
 import { AuthService } from './auth.service.js';
 import { validationHandler } from '../../shared/middlewares/validation.middleware.js';
 import { authHandler } from '../../shared/middlewares/auth.middleware.js';
-import { validateLogin, validateRegister } from '../../shared/validators/index.js'
-
+import { validateLogin, validateRegister, validatePartialAuth } from '../../shared/validators/index.js'
 
 export const createAuthRouter = ({ UserModel, TokenModel }) => {
 
@@ -21,6 +20,7 @@ export const createAuthRouter = ({ UserModel, TokenModel }) => {
     authRouter.post('/register', validationHandler(validateRegister), authController.register)
     authRouter.post('/logout', authHandler, authController.logout)
     authRouter.post('/refresh', authController.refresh)
+    authRouter.post('/forgot-password', validationHandler(validatePartialAuth), authController.forgot)
 
     return authRouter;
 }
