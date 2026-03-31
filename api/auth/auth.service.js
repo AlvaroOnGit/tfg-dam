@@ -1,5 +1,6 @@
 import argon2 from 'argon2';
-import { TokenUtil } from '../../shared/utils/token.util.js'
+import { TokenUtil } from '../../shared/utils/token.util.js';
+import { MailerUtil } from "../../shared/utils/mailer.util.js";
 import { validateUser } from '../../shared/validators/index.js';
 import { AuthenticationError, DuplicateError, InternalError } from '../../shared/middlewares/error.middleware.js';
 
@@ -41,11 +42,9 @@ export class AuthService {
         //Construct a data object for the database
         const data = {
             user: userCredentials.id,
-            token: refreshToken.token,
+            token: refreshToken,
             device: device,
             agent: userAgent,
-            expiration: refreshToken.expiration,
-            revoked: null,
         }
 
         //Populate the token data in the database
@@ -54,7 +53,7 @@ export class AuthService {
         } catch (e) {
             throw new InternalError('Failed to save refresh token', e);
         }
-        return { accessToken, refreshToken: refreshToken.token };
+        return { accessToken, refreshToken };
     }
     registerUser = async (username, email, password) => {
 
@@ -142,11 +141,9 @@ export class AuthService {
         //Construct a data object for the database
         const data = {
             user: payload.id,
-            token: refreshToken.token,
+            token: refreshToken,
             device: payload.device,
             agent: payload.agent,
-            expiration: refreshToken.expiration,
-            revoked: null,
         }
         //Populate the token data in the database
         try {
@@ -154,6 +151,38 @@ export class AuthService {
         } catch (e) {
             throw new InternalError('Failed to save refresh token', e);
         }
-        return { accessToken, refreshToken: refreshToken.token };
+        return { accessToken, refreshToken };
+    }
+    forgotPassword = async (email, device, userAgent) => {
+        //Check if the email exists in the db
+        const userCredentials = await this.userModel.findByEmail(email);
+        if (!userCredentials) return;
+
+        //Mutate the userCredentials object with new properties
+        Object.assign(userCredentials, { device: device, agent: userAgent });
+
+        //Generate a token to be sent in the email
+        const token = TokenUtil.generateResetToken(userCredentials);
+
+        //Construct a data object for the database
+        const data = {
+            user: userCredentials.id,
+            token: token,
+            device: device,
+            agent: userAgent,
+        }
+
+        //Populate the token in the database
+        try {
+            await this.tokenModel.saveResetToken(data);
+        } catch (e) {
+            throw new InternalError('Failed to save reset token', e);
+        }
+
+        //Generate a url that targets the password reset endpoint
+        const url = `${process.env.BASE_URL}/api/auth/reset-password/${token}`;
+
+        //Email the provided address
+        await MailerUtil.sendResetMail(email, url, userCredentials.username);
     }
 }
