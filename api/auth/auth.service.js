@@ -185,4 +185,32 @@ export class AuthService {
         //Email the provided address
         await MailerUtil.sendResetMail(email, url, userCredentials.username);
     }
+    resetPassword = async (token, password) => {
+        const payload = TokenUtil.verifyResetToken(token);
+
+        // Query the database to know if the token is valid
+        let validToken;
+        try {
+            validToken = await this.tokenModel.getResetToken(token);
+        } catch (e) {
+            throw new InternalError('Failed to validate reset token', e);
+        }
+        if (!validToken) {
+            throw new AuthenticationError('Reset token revoked or expired');
+        }
+
+        //Revoke the token so it can only be used one time
+        try {
+            await this.tokenModel.revokeResetToken(payload.id, token);
+        } catch (e) {
+            throw new InternalError('Failed to revoke reset token', e);
+        }
+
+        //Encrypt and update the users password on the database
+        try {
+            await this.userModel.updateUserPassword(payload.id, await argon2.hash(password));
+        } catch (e) {
+            throw new InternalError('Failed to update user password', e);
+        }
+    }
 }
