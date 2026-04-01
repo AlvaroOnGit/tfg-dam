@@ -6,14 +6,11 @@ import { Router } from 'express';
 import { UserController } from './users.controller.js';
 import { UserService } from './users.service.js';
 
-export const createUserRouter = ({ UserModel }) => {
+export const createUserRouter = ({}) => {
 
     const userRouter = Router();
-    const userService = new UserService({ UserModel });
+    const userService = new UserService({});
     const userController = new UserController({ userService });
-
-    userRouter.get('/me', userController.getMyProfile);
-    userRouter.get('/:id', userController.getPublicProfile);
 
     return userRouter;
 }
