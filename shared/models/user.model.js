@@ -17,7 +17,7 @@ export class UserModel {
 
     static async findByUsername(username) {
         const res = await pool.query(`
-            SELECT id, email,username, password, role, role_level AS roleLevel, avatar, state, is_verified AS isVerified 
+            SELECT id, email,username, password, role, role_level AS roleLevel, avatar, state, is_verified AS isVerified
             FROM users WHERE LOWER(username) = LOWER($1)`, [username]
         )
         return res.rows[0];
@@ -33,8 +33,8 @@ export class UserModel {
 
     static async createUser(user) {
         const res = await pool.query(`
-            INSERT INTO users (email, username, password, role, role_level, avatar, state, is_verified)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, username, email`,
+                    INSERT INTO users (email, username, password, role, role_level, avatar, state, is_verified)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, username, email`,
             [
                 user.email,
                 user.username,
@@ -47,23 +47,5 @@ export class UserModel {
             ]
         )
         return res.rows[0]
-    }
-
-    static async findPrivateProfileById(id) {
-        const res = await pool.query(`
-            SELECT id, username, email, role, role_level AS "roleLevel", avatar AS "avatarUrl", state
-            FROM users
-            WHERE id = $1
-        `, [id]);
-        return res.rows[0];
-    }
-
-    static async findPublicProfileById(id) {
-        const res = await pool.query(`
-            SELECT id, username, avatar AS "avatarUrl", state
-            FROM users
-            WHERE id = $1
-        `, [id]);
-        return res.rows[0];
     }
 }
