@@ -98,4 +98,14 @@ export class AuthController {
             next(e)
         }
     }
+    reset = async (req, res, next) => {
+        const token = req.params.token;
+        const { password } = req.body;
+        try {
+            await this.authService.resetPassword(token, password);
+            res.status(200).json({ message: 'Password updated successfully' });
+        } catch (e) {
+            next(e);
+        }
+    }
 }
