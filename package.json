@@ -12,7 +12,9 @@
     "cookie-parser": "1.4.7",
     "ejs": "4.0.1",
     "express": "5.2.1",
+    "express-rate-limit": "8.3.2",
     "jsonwebtoken": "9.0.3",
+    "nodemailer": "8.0.4",
     "pg": "8.18.0",
     "swagger-ui-express": "5.0.1",
     "zod": "4.3.6"

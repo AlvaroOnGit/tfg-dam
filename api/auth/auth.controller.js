@@ -87,4 +87,25 @@ export class AuthController {
             next(e)
         }
     }
+    forgot = async (req, res, next) => {
+        const { email, device } = req.body;
+        const userAgent = req.headers['user-agent'];
+        try {
+            await this.authService.forgotPassword(email, device, userAgent);
+            res.status(200).json({message: 'If the address exists, an email with instructions has been sent'});
+        }
+        catch (e) {
+            next(e)
+        }
+    }
+    reset = async (req, res, next) => {
+        const token = req.params.token;
+        const { password } = req.body;
+        try {
+            await this.authService.resetPassword(token, password);
+            res.status(200).json({ message: 'Password updated successfully' });
+        } catch (e) {
+            next(e);
+        }
+    }
 }
