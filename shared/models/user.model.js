@@ -14,7 +14,6 @@ export class UserModel {
         )
         return res.rows[0];
     }
-
     static async findByUsername(username) {
         const res = await pool.query(`
             SELECT id, email,username, password, role, role_level AS roleLevel, avatar, state, is_verified AS isVerified 
@@ -22,7 +21,6 @@ export class UserModel {
         )
         return res.rows[0];
     }
-
     static async findById(id) {
         const res = await pool.query(`
             SELECT id, email,username, password, role, role_level AS roleLevel, avatar, state, is_verified AS isVerified
@@ -30,7 +28,6 @@ export class UserModel {
         )
         return res.rows[0];
     }
-
     static async createUser(user) {
         const res = await pool.query(`
             INSERT INTO users (email, username, password, role, role_level, avatar, state, is_verified)
@@ -47,5 +44,12 @@ export class UserModel {
             ]
         )
         return res.rows[0]
+    }
+    static async updateUserPassword(id, password) {
+        const res = await pool.query(`
+            UPDATE users SET password = $1 WHERE id = $2`,
+            [password, id]
+        );
+        return res.rows[0];
     }
 }
