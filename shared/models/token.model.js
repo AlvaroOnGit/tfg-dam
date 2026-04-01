@@ -59,4 +59,17 @@ export class TokenModel {
         );
         return res.rows[0];
     }
+    static revokeResetToken = async (id, token) => {
+        const res = await pool.query(`
+        UPDATE reset_tokens SET revoked_at = NOW() WHERE token = $1 and user_id = $2
+        `, [token, id]
+        );
+        return res.rows[0];
+    }
+    static getResetToken = async (token) => {
+        const res = await pool.query(`
+            SELECT * FROM reset_tokens WHERE token = $1 AND revoked_at IS NULL AND expires_at > NOW()
+        `, [token])
+        return res.rows[0];
+    }
 }
