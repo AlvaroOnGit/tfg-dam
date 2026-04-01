@@ -8,13 +8,13 @@ export class UserService {
     getMyProfile = async (requestUser) => {
         const userId = requestUser?.id;
         if (!userId) {
-            throw new AuthenticationError('User not authorized');
+            throw new AuthenticationError('User not authenticated');
         }
 
         try {
             const profile = await this.userModel.findPrivateProfileById(userId);
             if (!profile) {
-                throw new AuthenticationError('User not authorized');
+                throw new NotFoundError('User not found');
             }
             return profile;
         } catch (e) {
@@ -40,3 +40,24 @@ export class UserService {
         }
     }
 }
+
+/*export class UserService {
+    constructor({ UserModel } = {}) {
+        this.userModel = UserModel;
+    }
+
+    getMyProfile = async (requestUser) => {
+        const userId = requestUser?.id;
+        if (!userId) throw new AuthenticationError('User not authenticated');
+
+        const profile = await this.userModel.findPrivateProfileById(userId);
+        if (!profile) throw new NotFoundError('User not found');
+        return profile;
+    }
+
+    getPublicProfileById = async (id) => {
+        const profile = await this.userModel.findPublicProfileById(id);
+        if (!profile) throw new NotFoundError('User not found');
+        return profile;
+    }
+}*/

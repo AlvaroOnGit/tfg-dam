@@ -6,6 +6,7 @@ export class UserController {
     getMyProfile = async (req, res, next) => {
         try {
             const requestUser = req.user ?? req.session?.user ?? { id: req.session?.userId };
+            console.log('Request user:', requestUser);
             const profile = await this.userService.getMyProfile(requestUser);
             res.status(200).json(profile);
         } catch (e) {
