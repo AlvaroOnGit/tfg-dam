@@ -1,5 +1,5 @@
 import argon2 from 'argon2';
-import jwt from 'jsonwebtoken';
+import { TokenUtil } from '../../shared/utils/token.util.js'
 import { validateUser } from '../../shared/validators/index.js';
 import { AuthenticationError, DuplicateError, InternalError } from '../../shared/middlewares/error.middleware.js';
 
@@ -7,7 +7,7 @@ export class AuthService {
 
     constructor({ UserModel, TokenModel } = {}) {
         this.userModel = UserModel;
-        this.TokenModel = TokenModel;
+        this.tokenModel = TokenModel;
     }
 
     loginUser = async (email, password, device, userAgent) => {
@@ -29,33 +29,33 @@ export class AuthService {
             throw new AuthenticationError('Invalid credentials');
         }
 
-        console.log(userCredentials)
+        //Mutate the userCredentials object with new properties
+        Object.assign(userCredentials, { device: device, agent: userAgent });
 
-        const accessToken = jwt.sign(
-            {
-                id: userCredentials.id,
-                email: userCredentials.email,
-                username: userCredentials.username,
-                role: userCredentials.role,
-                roleLevel: userCredentials.roleLevel,
-                isVerified: userCredentials.isVerified
-            }
-        )
+        //Create an access token for the user containing relevant credentials
+        const accessToken = TokenUtil.generateAccessToken(userCredentials)
 
+        //Create a refresh token for the user containing its user id
+        const refreshToken = TokenUtil.generateRefreshToken(userCredentials)
 
+        //Construct a data object for the database
         const data = {
             user: userCredentials.id,
-            token: '',
+            token: refreshToken.token,
             device: device,
             agent: userAgent,
-            expiration: '',
+            expiration: refreshToken.expiration,
             revoked: null,
         }
 
-
-        //return userCredentials;
+        //Populate the token data in the database
+        try {
+            await this.tokenModel.saveRefreshToken(data);
+        } catch (e) {
+            throw new InternalError('Failed to save refresh token', e);
+        }
+        return { accessToken, refreshToken: refreshToken.token };
     }
-
     registerUser = async (username, email, password) => {
 
         //Check if the username or email already exists in the db
@@ -97,5 +97,63 @@ export class AuthService {
         } catch (e) {
             throw new InternalError('Failed to create user', e);
         }
+    }
+    logoutUser = async (id, token) => {
+        // Query the database to revoke the refresh token for the user
+        try {
+            return await this.tokenModel.revokeRefreshToken(id, token);
+        } catch (e) {
+            throw new InternalError('Failed to revoke refresh token', e);
+        }
+    }
+    refreshTokens = async (token) => {
+        // Verify the refresh token and get the payload
+        const payload = TokenUtil.verifyRefreshToken(token);
+
+        // Query the database to know if the token is valid
+        let validToken;
+        try {
+            validToken = await this.tokenModel.getRefreshToken(token);
+        } catch (e) {
+            throw new InternalError('Failed to validate refresh token', e);
+        }
+        if (!validToken) {
+            throw new AuthenticationError('Refresh token revoked or expired');
+        }
+
+        //Get the users credentials from database
+        let userCredentials;
+        try {
+            userCredentials = await this.userModel.findById(payload.id);
+        } catch (e) {
+            throw new InternalError('Failed to fetch user', e);
+        }
+        if (!userCredentials) {
+            throw new AuthenticationError('Invalid credentials');
+        }
+
+        //Mutate the userCredentials object with new properties
+        Object.assign(userCredentials, { device: payload.device, agent: payload.agent });
+
+        // Generate new token pair for the user
+        const accessToken = TokenUtil.generateAccessToken(userCredentials);
+        const refreshToken = TokenUtil.generateRefreshToken(userCredentials);
+
+        //Construct a data object for the database
+        const data = {
+            user: payload.id,
+            token: refreshToken.token,
+            device: payload.device,
+            agent: payload.agent,
+            expiration: refreshToken.expiration,
+            revoked: null,
+        }
+        //Populate the token data in the database
+        try {
+            await this.tokenModel.saveRefreshToken(data);
+        } catch (e) {
+            throw new InternalError('Failed to save refresh token', e);
+        }
+        return { accessToken, refreshToken: refreshToken.token };
     }
 }

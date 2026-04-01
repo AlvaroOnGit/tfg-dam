@@ -1,5 +1,6 @@
 import path from 'node:path';
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express';
 import { UserModel } from './shared/models/user.model.js';
 import { TokenModel } from './shared/models/token.model.js';
@@ -23,6 +24,8 @@ export const createApp = () => {
     app.use(express.json());
     //Express middleware to serve files from a folder
     app.use(express.static(path.join(path.resolve(), 'public')));
+    //Use the cookie parser middleware to get the cookies from the header
+    app.use(cookieParser());
 
     //Endpoint to check if the API is currently working
     app.get('/health', (req, res) => {
