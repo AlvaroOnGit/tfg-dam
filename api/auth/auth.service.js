@@ -1,5 +1,5 @@
 import argon2 from 'argon2';
-import { TokenUtil } from '../../shared/utils/token.util.js';
+import jwt from 'jsonwebtoken';
 import { validateUser } from '../../shared/validators/index.js';
 import { AuthenticationError, DuplicateError, InternalError } from '../../shared/middlewares/error.middleware.js';
 
@@ -12,7 +12,7 @@ export class AuthService {
 
     loginUser = async (email, password, device, userAgent) => {
 
-        // Check if the user exists in the database
+        //Check if the user exists in the database
         let userCredentials;
         try {
             userCredentials = await this.userModel.findByEmail(email);
@@ -23,16 +23,37 @@ export class AuthService {
             throw new AuthenticationError('Invalid credentials');
         }
 
-        // Check the provided password against the hashed password in the database
+        //Check the provided password against the hashed password in the database
         const validPassword = await argon2.verify(userCredentials.password, password);
         if (!validPassword) {
             throw new AuthenticationError('Invalid credentials');
         }
 
-        // Generate access token using TokenUtil
-        const accessToken = TokenUtil.generateAccessToken(userCredentials);
+        console.log(userCredentials)
 
-        return { accessToken };
+        const accessToken = jwt.sign(
+            {
+                id: userCredentials.id,
+                email: userCredentials.email,
+                username: userCredentials.username,
+                role: userCredentials.role,
+                roleLevel: userCredentials.roleLevel,
+                isVerified: userCredentials.isVerified
+            }
+        )
+
+
+        const data = {
+            user: userCredentials.id,
+            token: '',
+            device: device,
+            agent: userAgent,
+            expiration: '',
+            revoked: null,
+        }
+
+
+        //return userCredentials;
     }
 
     registerUser = async (username, email, password) => {

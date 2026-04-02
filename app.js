@@ -1,6 +1,5 @@
 import path from 'node:path';
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express';
 import { UserModel } from './shared/models/user.model.js';
 import { TokenModel } from './shared/models/token.model.js';
@@ -23,7 +22,6 @@ export const createApp = () => {
     app.set('view engine', 'ejs');
     //Express middleware to parse JSON files
     app.use(express.json());
-    app.use(cookieParser());
     //Express middleware to serve files from a folder
     app.use(express.static(path.join(path.resolve(), 'public')));
 

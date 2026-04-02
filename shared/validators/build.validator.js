@@ -5,10 +5,17 @@
 import { z } from 'zod';
 import TaintedGrailBuildSchema from '../schemas/games/tainted_grail/build.schemas.js';
 import EldenRingBuildSchema from "../schemas/games/elden_ring/build.schemas.js";
+import {TaintedGrailBuildUpdateSchema} from "../schemas/games/tainted_grail/build.schemas.js";
+import {EldenRingBuildUpdateSchema} from "../schemas/games/elden_ring/build.schemas.js";
 
 const gameBuildSchemas = {
     "tainted-grail": TaintedGrailBuildSchema,
     "elden-ring": EldenRingBuildSchema,
+}
+
+const gameBuildUpdateSchemas = {
+    "tainted-grail": TaintedGrailBuildUpdateSchema,
+    "elden-ring": EldenRingBuildUpdateSchema,
 }
 
 /**
@@ -63,7 +70,22 @@ export function validateBuildQuery(data) {
  */
 export function validateBuildId(data) {
     const schema = z.object({
-        id: z.string().uuid(),
+        id: z.uuid(),
     });
     return schema.safeParse(data);
+}
+
+export function validateBuildUpdate(data) {
+    const { gameSlug } = data;
+
+    const gameSchema = gameBuildUpdateSchemas[gameSlug];
+
+    if (!gameSchema) {
+        return {
+            success: false,
+            error: `Unsupported game: ${gameSlug}`
+        };
+    }
+
+    return gameSchema.safeParse(data);
 }
