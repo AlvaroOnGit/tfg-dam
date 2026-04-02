@@ -61,4 +61,5 @@ const EldenRingBuildSchema =
         }
     );
 
+export const EldenRingBuildUpdateSchema = EldenRingBuildSchema.partial();
 export default EldenRingBuildSchema;

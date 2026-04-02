@@ -7,6 +7,7 @@ import { BuildService } from './builds.service.js';
 import { validationHandler } from '../../shared/middlewares/validation.middleware.js';
 import { authHandler } from '../../shared/middlewares/auth.middleware.js';
 import { validateBuild, validateBuildQuery, validateBuildId } from '../../shared/validators/index.js';
+import {validateBuildUpdate} from "../../shared/validators/build.validator.js";
 
 export const createBuildRouter = ({ BuildModel }) => {
 
@@ -33,7 +34,7 @@ export const createBuildRouter = ({ BuildModel }) => {
     buildRouter.patch('/:id',
         authHandler,
         validationHandler(validateBuildId, 'params'),
-        validationHandler(validateBuild),
+        validationHandler(validateBuildUpdate),
         buildController.update
     );
 
