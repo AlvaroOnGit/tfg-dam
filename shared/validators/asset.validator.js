@@ -4,6 +4,7 @@
 
 import EldenRingAssetSchema from '../schemas/games/elden_ring/asset.schemas.js'
 import TaintedGrailAssetSchema from '../schemas/games/tainted_grail/asset.schemas.js';
+import { assetQuerySchema, assetIdSchema } from '../schemas/asset.schemas.js';
 
 const gameAssetSchemas = {
     "elden-ring": EldenRingAssetSchema,
@@ -31,4 +32,26 @@ export function validateAsset(data) {
     }
 
     return gameAssetSchema.safeParse(data);
+}
+
+/**
+ * Validates query parameters for the GET /assets endpoint.
+ *
+ * @function validateAssetQuery
+ * @param {Object} data - Query parameters to validate.
+ * @returns {import("zod").SafeParseReturnType<any, any>}
+ */
+export function validateAssetQuery(data) {
+    return assetQuerySchema.safeParse(data);
+}
+
+/**
+ * Validates path parameters for the GET /assets/:id endpoint.
+ *
+ * @function validateAssetId
+ * @param {Object} data - Path parameters to validate.
+ * @returns {import("zod").SafeParseReturnType<any, any>}
+ */
+export function validateAssetId(data) {
+    return assetIdSchema.safeParse(data);
 }
