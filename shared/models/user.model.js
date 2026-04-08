@@ -49,7 +49,7 @@ export class UserModel {
         return res.rows[0]
     }
 
-    static async findPrivateProfileById(id) {
+    /*static async findPrivateProfileById(id) {
         const res = await pool.query(`
             SELECT id, username, email, role, role_level AS "roleLevel", avatar AS "avatarUrl", state
             FROM users
@@ -65,5 +65,27 @@ export class UserModel {
             WHERE id = $1
         `, [id]);
         return res.rows[0];
+    }
+    */
+   
+   static async #findProfileById(id, columns) {
+    const res = await pool.query(`
+        SELECT ${columns}
+        FROM users
+        WHERE id = $1
+    `, [id]);
+    return res.rows[0];
+    }
+
+    static async findPrivateProfileById(id) {
+    return UserModel.#findProfileById(id,
+        `id, username, email, role, role_level AS "roleLevel", avatar AS "avatarUrl", state`
+    );
+    }
+
+    static async findPublicProfileById(id) {
+    return UserModel.#findProfileById(id,
+        `id, username, avatar AS "avatarUrl", state`
+    );
     }
 }

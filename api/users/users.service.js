@@ -1,6 +1,6 @@
 import { AuthenticationError, InternalError, NotFoundError } from '../../shared/middlewares/error.middleware.js';
 
-export class UserService {
+/*export class UserService {
     constructor({ UserModel } = {}) {
         this.userModel = UserModel;
     }
@@ -39,9 +39,9 @@ export class UserService {
             throw new InternalError('Failed to fetch user profile', e);
         }
     }
-}
+}*/
 
-/*export class UserService {
+export class UserService {
     constructor({ UserModel } = {}) {
         this.userModel = UserModel;
     }
@@ -60,4 +60,4 @@ export class UserService {
         if (!profile) throw new NotFoundError('User not found');
         return profile;
     }
-}*/
+}

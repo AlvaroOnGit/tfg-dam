@@ -18,7 +18,7 @@ export class AuthController {
                     httpOnly: true,
                     secure: false,
                     sameSite: 'strict',
-                    maxAge: 15 * 60 * 1000
+                    maxAge: Number(process.env.JWT_ACCESS_TOKEN_LIFETIME) * 60 * 1000
                 })
                 .cookie('refresh_token', refreshToken, {
                     httpOnly: true,
