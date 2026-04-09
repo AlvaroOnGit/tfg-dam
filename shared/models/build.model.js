@@ -63,11 +63,24 @@ export class BuildModel {
     }
 
     static async findById(id) {
-        const res = await pool.query(`
+        const buildRes = await pool.query(`
             SELECT ${BUILD_SELECT}
             FROM builds WHERE id = $1
         `, [id]);
-        return res.rows[0];
+
+        const build = buildRes.rows[0];
+        if (!build) return null;
+
+        const assetsRes = await pool.query(`
+        SELECT id, build_id AS "buildId", asset_id AS "assetId",
+               slot_category AS "slotCategory", slot_name AS "slotName"
+        FROM build_assets
+        WHERE build_id = $1
+    `, [id]);
+
+        build.assets = assetsRes.rows;
+
+        return build;
     }
 
     static async create(build) {

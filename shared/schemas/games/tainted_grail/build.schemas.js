@@ -73,4 +73,5 @@ const TaintedGrailBuildSchema =
         }
     );
 
+export const TaintedGrailBuildUpdateSchema = TaintedGrailBuildSchema.partial();
 export default TaintedGrailBuildSchema;

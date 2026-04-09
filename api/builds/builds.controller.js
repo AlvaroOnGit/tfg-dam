@@ -6,8 +6,8 @@ export class BuildController {
     getAll = async (req, res, next) => {
         try {
             const filters = req.validated?.query ?? req.query;
-            await this.buildService.getAll(filters);
-            res.status(200).json({message: 'Builds fetched successfully'});
+            const build = await this.buildService.getAll(filters);
+            res.status(200).json(build);
         } catch (e) {
             next(e);
         }
@@ -46,7 +46,7 @@ export class BuildController {
         try {
             const { id } = req.validated?.params ?? req.params;
             await this.buildService.deleteBuild(id, req.user.id);
-            res.status(200).json({ message: 'Build deleted successfully' });
+            res.status(204).json({ message: 'Build deleted successfully' });
         } catch (e) {
             next(e);
         }
