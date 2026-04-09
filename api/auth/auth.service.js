@@ -12,7 +12,7 @@ export class AuthService {
     }
 
     loginUser = async (email, password, device, userAgent) => {
-        
+
         //Check if the user exists in the database
         let userCredentials;
         try {

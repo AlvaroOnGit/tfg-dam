@@ -2,11 +2,12 @@
  * Contains the base schema to validate game builds
  */
 
-import { z } from 'zod';
+import {z} from 'zod';
 
 const createBaseBuildSchema = (gameSlug) =>
     z.object({
         gameSlug: z.literal(gameSlug),
+        gameId: z.uuid("gameId must be a valid UUID"),
         creatorId: z.uuid("creatorId must be a valid UUID"),
         name: z
             .string("name must be a string")
