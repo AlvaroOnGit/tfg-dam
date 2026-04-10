@@ -12,5 +12,10 @@ export const createGameRouter = ({}) => {
     const gameService = new GameService({});
     const gameController = new GameController({ gameService });
 
+    // List games with optional filters
+    gameRouter.get('/', gameController.list);
+    // Get a single game by slug
+    gameRouter.get('/:slug', gameController.getBySlug);
+
     return gameRouter;
 }
