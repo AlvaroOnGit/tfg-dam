@@ -1,52 +1,97 @@
 export class BuildController {
-    constructor({buildService} = {}) {
+    constructor({ buildService } = {}) {
         this.buildService = buildService;
     }
 
-    getAll = async (req, res, next) => {
+    allowedRoles = ['creator', 'co-owner'];
+
+    getAllBuilds = async (req, res, next) => {
         try {
-            const filters = req.validated?.query ?? req.query;
-            const build = await this.buildService.getAll(filters);
-            res.status(200).json(build);
+            const { page, limit, ...filters} = req.validatedQuery;
+            const { total, builds } = await this.buildService.getAllBuilds({ ...filters, page, limit });
+            res.status(200).json({ page, total, limit, builds });
         } catch (e) {
             next(e);
         }
     }
 
-    getById = async (req, res, next) => {
+    getBuildById = async (req, res, next) => {
         try {
-            const { id } = req.validated?.params ?? req.params;
-            const build = await this.buildService.getById(id);
-            res.status(200).json(build);
+            const { id } = req.params;
+            req.build = await this.buildService.getBuildById(id);
+            next();
         } catch (e) {
             next(e);
         }
     }
 
-    create = async (req, res, next) => {
+    createBuild = async (req, res, next) => {
         try {
-            const build = await this.buildService.createBuild(req.body, req.user.id);
-            res.status(201).json(build);
+            req.build = await this.buildService.createBuild(req.body, req.user.id);
+            next()
         } catch (e) {
             next(e);
         }
     }
 
-    update = async (req, res, next) => {
+    updateBuild = async (req, res, next) => {
         try {
-            const { id } = req.validated?.params ?? req.params;
-            const build = await this.buildService.updateBuild(id, req.body, req.user.id);
-            res.status(200).json(build);
+            const { id } = req.params;
+            req.build = await this.buildService.updateBuild(id, req.body);
+            next();
         } catch (e) {
             next(e);
         }
     }
 
-    remove = async (req, res, next) => {
+    deleteBuild = async (req, res, next) => {
+        const { role } = req.permission;
+        if (!this.allowedRoles.includes(role)) {
+            return res.status(403).json({ message: 'Insufficient permissions' });
+        }
         try {
-            const { id } = req.validated?.params ?? req.params;
-            await this.buildService.deleteBuild(id, req.user.id);
-            res.status(204).json({ message: 'Build deleted successfully' });
+            const { id } = req.params;
+            await this.buildService.deleteBuild(id);
+            res.status(204).send();
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    getEditPermission = async (req, res, next) => {
+        const { id } = req.params;
+        try {
+            const permission = await this.buildService.getEditPermission(id);
+            res.status(200).json(permission)
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    grantEditPermission = async (req, res, next) => {
+        const { role } = req.permission;
+        if (!this.allowedRoles.includes(role)) {
+            return res.status(403).json({ message: 'Insufficient permissions' });
+        }
+        const { userId, userRole } = req.body;
+        const { id } = req.params;
+        try {
+            await this.buildService.grantEditPermission(id, userId, userRole);
+            res.status(201).json({ message: 'Edit permission granted successfully' });
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    revokeEditPermission = async (req, res, next) => {
+        const { role } = req.permission;
+        if (!this.allowedRoles.includes(role)) {
+            return res.status(403).json({ message: 'Insufficient permissions' });
+        }
+        const { id, userId } = req.params;
+        try {
+            await this.buildService.revokeEditPermission(id, userId);
+            res.status(204).send();
         } catch (e) {
             next(e);
         }
