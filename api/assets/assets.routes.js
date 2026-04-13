@@ -15,7 +15,7 @@ export const createAssetRouter = ({ AssetModel }) => {
     const assetService = new AssetService({ AssetModel });
     const assetController = new AssetController({ assetService });
 
-    assetRouter.get('/', validationHandler(validateAssetQuery, 'query'), assetController.getAssets);
+    assetRouter.get('/', validationHandler(validateAssetQuery, 'query'), assetController.getAllAssets);
     assetRouter.get('/:id', validationHandler(validateAssetId, 'params'), assetController.getAssetById);
 
     return assetRouter;
