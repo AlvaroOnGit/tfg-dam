@@ -2,22 +2,20 @@
  * Contains logic to validate builds for different games
  */
 
-import { z } from 'zod';
-import TaintedGrailBuildSchema from '../schemas/games/tainted_grail/build.schemas.js';
-import EldenRingBuildSchema from "../schemas/games/elden_ring/build.schemas.js";
-import {TaintedGrailBuildUpdateSchema} from "../schemas/games/tainted_grail/build.schemas.js";
-import {EldenRingBuildUpdateSchema} from "../schemas/games/elden_ring/build.schemas.js";
+import { ZodError } from 'zod';
+import { TaintedGrailBuildSchema, TaintedGrailBuildPartialSchema } from '../schemas/games/tainted_grail/build.schemas.js';
+import { EldenRingBuildSchema, EldenRingBuildPartialSchema } from '../schemas/games/elden_ring/build.schemas.js';
+import { buildQuerySchema, buildParamsSchema } from '../schemas/builds.schemas.js'
 
 const gameBuildSchemas = {
     "tainted-grail": TaintedGrailBuildSchema,
     "elden-ring": EldenRingBuildSchema,
 }
 
-const gameBuildUpdateSchemas = {
-    "tainted-grail": TaintedGrailBuildUpdateSchema,
-    "elden-ring": EldenRingBuildUpdateSchema,
+const gameBuildPartialSchemas = {
+    "tainted-grail": TaintedGrailBuildPartialSchema,
+    "elden-ring": EldenRingBuildPartialSchema,
 }
-
 /**
  * Validates a game build using the schema associated with the game's slug.
  *
@@ -35,7 +33,43 @@ export function validateBuild(data) {
     if (!gameSchema) {
         return {
             success: false,
-            error: `Unsupported game: ${gameSlug}`
+            error: new ZodError([
+                {
+                    code: "custom",
+                    message: `Unsupported game: ${gameSlug}`,
+                    path: ['gameSlug']
+                }
+            ])
+        };
+    }
+
+    return gameSchema.safeParse(data);
+}
+
+/**
+ * Validates a game build using the schema associated with the game's slug.
+ * All fields are optional, meant to be used in update endpoints for builds.
+ *
+ * @function validateBuild
+ * @param {Object} data - Game build data to validate.
+ * @returns {import("zod").SafeParseReturnType<any, any> | { success: false, error: string }}
+ * Returns an error object if the game is unsupported, otherwise the result of the schema validation.
+ */
+export function validateBuildPartial(data) {
+    const { gameSlug } = data;
+
+    const gameSchema = gameBuildPartialSchemas[gameSlug];
+
+    if (!gameSchema) {
+        return {
+            success: false,
+            error: new ZodError([
+                {
+                    code: "custom",
+                    message: `Unsupported game: ${gameSlug}`,
+                    path: ['gameSlug']
+                }
+            ])
         };
     }
 
@@ -50,42 +84,17 @@ export function validateBuild(data) {
  * @returns {import("zod").SafeParseReturnType<any, any>}
  */
 export function validateBuildQuery(data) {
-    const schema = z.object({
-        gameSlug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'gameSlug must be a valid slug').optional(),
-        name:     z.string().optional(),
-        tags:     z.union([z.string(), z.array(z.string())]).optional(),
-        creator:  z.uuid().optional(),
-        page:     z.coerce.number().int().min(1).optional().default(1),
-        limit:    z.coerce.number().int().min(1).max(100).optional().default(20),
-    });
-    return schema.safeParse(data);
+    return buildQuerySchema.safeParse(data);
 }
 
 /**
- * Validates the :id param for routes with /:id
+ * Validates params for routes with
  * Checks that the id is a valid UUID
+ * Checks that the userId is a valid UUID
  *
  * @param {Object} data - Route params to validate
  * @returns {import("zod").SafeParseReturnType<any, any>}
  */
-export function validateBuildId(data) {
-    const schema = z.object({
-        id: z.uuid(),
-    });
-    return schema.safeParse(data);
-}
-
-export function validateBuildUpdate(data) {
-    const { gameSlug } = data;
-
-    const gameSchema = gameBuildUpdateSchemas[gameSlug];
-
-    if (!gameSchema) {
-        return {
-            success: false,
-            error: `Unsupported game: ${gameSlug}`
-        };
-    }
-
-    return gameSchema.safeParse(data);
+export function validateBuildParams(data) {
+    return buildParamsSchema.partial().safeParse(data);
 }
