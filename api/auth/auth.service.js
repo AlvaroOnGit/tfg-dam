@@ -2,7 +2,7 @@ import argon2 from 'argon2';
 import { TokenUtil } from '../../shared/utils/token.util.js';
 import { MailerUtil } from "../../shared/utils/mailer.util.js";
 import { validateUser } from '../../shared/validators/index.js';
-import { AuthenticationError, DuplicateError, InternalError } from '../../shared/middlewares/error.middleware.js';
+import { AuthenticationError, ConflictError, InternalError } from '../../shared/middlewares/error.middleware.js';
 
 export class AuthService {
 
@@ -12,7 +12,6 @@ export class AuthService {
     }
 
     loginUser = async (email, password, device, userAgent) => {
-
         //Check if the user exists in the database
         let userCredentials;
         try {
@@ -56,7 +55,6 @@ export class AuthService {
         return { accessToken, refreshToken };
     }
     registerUser = async (username, email, password) => {
-
         //Check if the username or email already exists in the db
         let existingMail, existingUser;
         try {
@@ -66,10 +64,10 @@ export class AuthService {
             throw new InternalError('Failed to check existing user', e)
         }
         if (existingMail) {
-            throw new DuplicateError('Duplicate error', { email: 'Email already exists' });
+            throw new ConflictError('Duplicate error', { email: 'Email already exists' });
         }
         if (existingUser) {
-            throw new DuplicateError('Duplicate error', { username: 'Username already exists' });
+            throw new ConflictError('Duplicate error', { username: 'Username already exists' });
         }
 
         //Construct a new user with a hashed password and additional db fields
