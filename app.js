@@ -51,7 +51,7 @@ export const createApp = () => {
     //Router for games
     app.use('/api/games', createGameRouter({}))
     //Router for builds
-    app.use('/api/builds', createBuildRouter({ BuildModel }))
+    app.use('/api/builds', createBuildRouter({ BuildModel, UserModel, AssetModel }))
     //Router for assets
     app.use('/api/assets', createAssetRouter({ AssetModel }))
 
