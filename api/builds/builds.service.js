@@ -20,8 +20,6 @@ export class BuildService {
         }
     }
 
-    //TODO: Parse template_data according to each game?
-    // Do independent api calls to parse the remaining assets on frontend
     getBuildById = async (id) => {
         let build;
         try {
