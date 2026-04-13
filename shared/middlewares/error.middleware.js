@@ -27,12 +27,11 @@ export const ConflictError = createErrorClass('ConflictError', 409);
  * @param {Object} err - The error object
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
- * @param {Function} next - Express next middleware function
  *
  * @example
  * app.use(errorHandler);
  */
-export const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res) => {
 
     const status = err.status || 500;
     const source = extractSource(err.stack);
