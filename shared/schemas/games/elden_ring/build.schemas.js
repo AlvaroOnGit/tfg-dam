@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import createBaseBuildSchema from "../../builds.schemas.js";
+import { validateNoDuplicateSlots, validateSlotName } from '../../helpers/slot.helpers.js'
 
 const BaseSchema = createBaseBuildSchema('elden-ring');
 
@@ -34,32 +35,81 @@ const buildTags = z.enum([
     "budget",
     "no-hit",
 ]);
+const slotCategories = z.enum(["armor", "weapon", "talisman", "spell"]);
+const slotArmorNames = z.enum([
+    "armor-0",
+    "armor-1",
+    "armor-2",
+    "armor-3"
+]);
+const slotWeaponNames = z.enum([
+    "weapon-0",
+    "weapon-1",
+    "weapon-2",
+    "weapon-3",
+    "weapon-4",
+    "weapon-5"
+]);
+const slotTalismanNames = z.enum([
+    "talisman-0",
+    "talisman-1",
+    "talisman-2",
+    "talisman-3"
+]);
+const slotSpellNames = z.enum([
+    "spell-0",
+    "spell-1",
+    "spell-2",
+    "spell-3",
+    "spell-4",
+    "spell-5",
+    "spell-6",
+    "spell-7",
+    "spell-8",
+    "spell-9"
+]);
 
-// ─── Template Data Schema ───────────────────────────────────────────────────────────
+// ─── Template Data Schema ───────────────────────────────────────────────────────
 
 const ashOfWarSlots = ["ashOfWar1", "ashOfWar2", "ashOfWar3"];
 
 const templateDataSchema = z.object(
     Object.fromEntries(
         ashOfWarSlots.map(type => [type, z
-            .string(`${type} must be a slug`)
-            .trim()
-            .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase letters, numbers and single dashes only")
-            .min(1, `${type} must be at least 1 character long`)
-            .max(100, `${type} cannot exceed 100 characters`)
-            .nullable(),
+            .uuidv4(`${type} must be a valid v4 uuid`)
+            .nullable()
         ])
     )
 );
 
+// ─── Build Asset Schema ───────────────────────────────────────────────────────────
+
+const slotNamesByCategory = {
+    armor: slotArmorNames.options,
+    weapon: slotWeaponNames.options,
+    talisman: slotTalismanNames.options,
+    spell: slotSpellNames.options,
+};
+
+const assetSchema = z.object({
+    assetId: z.uuidv4("assetId must be a valid v4 uuid"),
+    slotCategory: slotCategories,
+    slotName: z.string().optional(),
+}).superRefine(validateSlotName(slotNamesByCategory))
+
 // ─── Main Schema ────────────────────────────────────────────────────────────────
 
-const EldenRingBuildSchema =
+export const EldenRingBuildSchema =
     BaseSchema.extend({
             tags: z.array(buildTags),
-            templateData: templateDataSchema
-        }
-    );
+            templateData: templateDataSchema,
+            assets: z.array(assetSchema),
+    }).superRefine(validateNoDuplicateSlots);
 
-export const EldenRingBuildUpdateSchema = EldenRingBuildSchema.partial();
-export default EldenRingBuildSchema;
+export const EldenRingBuildPartialSchema =
+    BaseSchema.partial().extend({
+        tags: z.array(buildTags).optional(),
+        templateData: templateDataSchema.optional(),
+        assets: z.array(assetSchema).optional(),
+    }).superRefine(validateNoDuplicateSlots);
+
