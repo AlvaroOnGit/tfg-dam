@@ -6,6 +6,7 @@ import { UserModel } from './shared/models/user.model.js';
 import { TokenModel } from './shared/models/token.model.js';
 import { AssetModel } from './shared/models/asset.model.js';
 import { BuildModel } from './shared/models/build.model.js';
+import { GameModel } from './shared/models/game.model.js';
 import { createViewRouter } from './views/view.routes.js';
 import { createAuthRouter } from './api/auth/auth.routes.js';
 import { createUserRouter } from './api/users/users.routes.js';
@@ -49,7 +50,7 @@ export const createApp = () => {
     //Router for users
     app.use('/api/users', createUserRouter({}))
     //Router for games
-    app.use('/api/games', createGameRouter({}))
+    app.use('/api/games', createGameRouter({ GameModel }))
     //Router for builds
     app.use('/api/builds', createBuildRouter({ BuildModel, UserModel, AssetModel }))
     //Router for assets

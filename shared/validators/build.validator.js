@@ -77,7 +77,7 @@ export function validateBuildPartial(data) {
 }
 
 /**
- * Validates the query parameters for GET /builds
+ * Validates the query parameters for builds
  * Supports: gameSlug, name, tags, creator, page, limit
  *
  * @param {Object} data - Query parameters to validate
@@ -88,7 +88,7 @@ export function validateBuildQuery(data) {
 }
 
 /**
- * Validates params for routes with
+ * Validates params for build routes
  * Checks that the id is a valid UUID
  * Checks that the userId is a valid UUID
  *
