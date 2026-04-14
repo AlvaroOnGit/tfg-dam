@@ -5,17 +5,21 @@
 import { Router } from "express";
 import { GameController } from './games.controller.js';
 import { GameService } from './games.service.js';
+import { validationHandler } from '../../shared/middlewares/validation.middleware.js';
+import { validateGameQuery, validateGameParams } from '../../shared/validators/index.js';
 
-export const createGameRouter = ({}) => {
+export const createGameRouter = ({ GameModel }) => {
 
     const gameRouter = Router();
-    const gameService = new GameService({});
+    const gameService = new GameService({ GameModel });
     const gameController = new GameController({ gameService });
 
-    // List games with optional filters
-    gameRouter.get('/', gameController.list);
-    // Get a single game by slug
-    gameRouter.get('/:slug', gameController.getBySlug);
+    gameRouter.get('/',
+        validationHandler(validateGameQuery, 'query'),
+        gameController.getAllGames);
+    gameRouter.get('/:slug',
+        validationHandler(validateGameParams, 'params'),
+        gameController.getGameBySlug);
 
     return gameRouter;
 }
