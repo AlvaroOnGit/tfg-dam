@@ -12,5 +12,5 @@
 export { validateAsset, validateAssetQuery, validateAssetId } from './asset.validator.js';
 export { validateBuild, validateBuildPartial, validateBuildQuery, validateBuildParams } from './build.validator.js';
 export { validateGame, validateGameQuery, validateGameParams } from './game.validator.js';
-export { validateUser } from './user.validator.js';
+export { validateUser, validateUserParams, validateUserUpdate } from './user.validator.js';
 export { validateLogin, validateRegister, validatePartialAuth } from './auth.validator.js';
