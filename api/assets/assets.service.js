@@ -5,20 +5,18 @@ export class AssetService {
         this.assetModel = AssetModel;
     }
 
-    getAll = async (query) => {
-        let result;
+    getAllAssets = async (query) => {
         try {
-            result = await this.assetModel.findAll(query);
+            return await this.assetModel.findAllAssets(query);
         } catch (e) {
             throw new InternalError('Failed to fetch assets', e);
         }
-        return result;
     }
 
-    getById = async (id) => {
+    getAssetById = async (id) => {
         let asset;
         try {
-            asset = await this.assetModel.findById(id);
+            asset = await this.assetModel.findAssetById(id);
         } catch (e) {
             throw new InternalError('Failed to fetch asset', e);
         }

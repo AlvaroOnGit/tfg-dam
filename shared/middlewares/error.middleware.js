@@ -15,8 +15,9 @@ function createErrorClass(name, status) {
 export const InternalError = createErrorClass('InternalError', 500);
 export const ValidationError = createErrorClass('ValidationError', 400);
 export const AuthenticationError = createErrorClass('AuthenticationError', 401);
+export const ForbiddenError = createErrorClass('ForbiddenError', 403);
 export const NotFoundError = createErrorClass('NotFoundError', 404);
-export const DuplicateError = createErrorClass('DuplicateError', 409);
+export const ConflictError = createErrorClass('ConflictError', 409);
 
 /**
  * Express error handling middleware
@@ -26,12 +27,11 @@ export const DuplicateError = createErrorClass('DuplicateError', 409);
  * @param {Object} err - The error object
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
- * @param {Function} next - Express next middleware function
  *
  * @example
  * app.use(errorHandler);
  */
-export const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res) => {
 
     const status = err.status || 500;
     const source = extractSource(err.stack);

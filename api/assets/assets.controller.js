@@ -3,10 +3,10 @@ export class AssetController {
         this.assetService = assetService;
     }
 
-    getAssets = async (req, res, next) => {
+    getAllAssets = async (req, res, next) => {
         try {
             const { page, limit, ...filters } = req.validatedQuery;
-            const { total, assets } = await this.assetService.getAll({ ...filters, page, limit });
+            const { total, assets } = await this.assetService.getAllAssets({ ...filters, page, limit });
             res.status(200).json({ page, total, limit, assets });
         } catch (e) {
             next(e);
@@ -16,7 +16,7 @@ export class AssetController {
     getAssetById = async (req, res, next) => {
         try {
             const { id } = req.params;
-            const asset = await this.assetService.getById(id);
+            const asset = await this.assetService.getAssetById(id);
             res.status(200).json(asset);
         } catch (e) {
             next(e);

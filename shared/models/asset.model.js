@@ -7,7 +7,7 @@ import pool from '../../db/connection.js';
 
 export class AssetModel {
 
-    static async findAll({ gameSlug, name, type, category, page = 1, limit = 15 }) {
+    static async findAllAssets({ gameSlug, name, type, category, page, limit }) {
         const values = [gameSlug];
         const conditions = ['g.slug = $1', 'ga.is_active = true'];
         let paramIndex = 2;
@@ -33,17 +33,7 @@ export class AssetModel {
         const whereClause = conditions.join(' AND ');
         const offset = (page - 1) * limit;
 
-        const countRes = await pool.query(
-            `SELECT COUNT(*)
-             FROM game_assets ga
-             JOIN games g ON ga.game_id = g.id
-             WHERE ${whereClause}`,
-            values
-        );
-
-        const total = parseInt(countRes.rows[0].count);
-
-        const dataRes = await pool.query(
+        const res = await pool.query(
             `SELECT ga.id,
                     json_build_object('id', g.id, 'name', g.name, 'slug', g.slug) AS game,
                     ga.name,
@@ -53,19 +43,23 @@ export class AssetModel {
                     ga.description,
                     ga.short_description AS "shortDescription",
                     ga.icon_url AS "iconUrl",
-                    ga.data
+                    ga.data,
+                    COUNT(*) OVER() AS "total"
              FROM game_assets ga
              JOIN games g ON ga.game_id = g.id
              WHERE ${whereClause}
-             ORDER BY ga.name ASC
+             ORDER BY ga.name
              LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`,
             [...values, limit, offset]
         );
 
-        return { total, assets: dataRes.rows };
+        const total = res.rows.length > 0 ? parseInt(res.rows[0].total) : 0;
+        const assets = res.rows.map(({ total, ...asset }) => asset);
+
+        return { total, assets };
     }
 
-    static async findById(id) {
+    static async findAssetById(id) {
         const res = await pool.query(
             `SELECT ga.id,
                     json_build_object('id', g.id, 'name', g.name, 'slug', g.slug) AS game,
@@ -83,5 +77,27 @@ export class AssetModel {
             [id]
         );
         return res.rows[0];
+    }
+
+    static async fetchAssets(ids) {
+        if (!ids.length) return new Map();
+
+        const { rows } = await pool.query(
+            `SELECT
+            id,
+            name,
+            slug,
+            type,
+            category,
+            description,
+            short_description  AS "shortDescription",
+            icon_url           AS "iconUrl",
+            data
+        FROM game_assets
+        WHERE id = ANY($1)`,
+            [ids]
+        );
+
+        return new Map(rows.map(a => [a.id, a]));
     }
 }
