@@ -4,6 +4,8 @@
 import { z } from 'zod';
 import { validateGameMedia } from "./helpers/media.helpers.js";
 
+// ─── Base Game Schema ─────────────────────────────────────────────────────
+
 const gameSchema = z.object({
     slug: z
         .string("slug must be a valid string")
@@ -32,5 +34,23 @@ const gameSchema = z.object({
         .boolean('isActive must be a boolean')
         .default(false),
 }).superRefine(validateGameMedia);
+
+// ─── Query & Param Validation ────────────────────────────────────────────
+
+export const gameQuerySchema = z.object({
+    name:     z.string().optional(),
+    genres:   z.union([z.string(), z.array(z.string())]).optional(),
+    page:     z.coerce.number().int().min(1).optional().default(1),
+    limit:    z.coerce.number().int().min(1).max(100).optional().default(15),
+});
+
+export const gameParamsSchema = z.object({
+    slug: z
+        .string("slug must be a valid string")
+        .trim()
+        .min(1, "slug cannot be blank")
+        .max(100, "slug cannot exceed 100 characters")
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase alphanumeric with hyphens"),
+});
 
 export default gameSchema;
