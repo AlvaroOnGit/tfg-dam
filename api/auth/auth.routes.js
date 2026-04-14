@@ -17,12 +17,27 @@ export const createAuthRouter = ({ UserModel, TokenModel }) => {
     const authService = new AuthService({ UserModel, TokenModel });
     const authController = new AuthController({ authService });
 
-    authRouter.post('/login', limitHandler(10, 15), validationHandler(validateLogin), authController.login)
-    authRouter.post('/register', limitHandler(5, 15), validationHandler(validateRegister), authController.register)
-    authRouter.post('/logout', authHandler, authController.logout)
-    authRouter.post('/refresh', authController.refresh)
-    authRouter.post('/forgot-password', limitHandler(5, 15), validationHandler(validatePartialAuth), authController.forgot)
-    authRouter.post('/reset-password/:token', limitHandler(5, 15), validationHandler(validatePartialAuth), authController.reset)
+    authRouter.post('/login',
+        limitHandler(10, 15),
+        validationHandler(validateLogin),
+        authController.login)
+    authRouter.post('/register',
+        limitHandler(5, 15),
+        validationHandler(validateRegister),
+        authController.register)
+    authRouter.post('/logout',
+        authHandler,
+        authController.logout)
+    authRouter.post('/refresh',
+        authController.refresh)
+    authRouter.post('/forgot-password',
+        limitHandler(5, 15),
+        validationHandler(validatePartialAuth),
+        authController.forgot)
+    authRouter.post('/reset-password/:token',
+        limitHandler(5, 15),
+        validationHandler(validatePartialAuth),
+        authController.reset)
 
     return authRouter;
 }
