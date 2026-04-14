@@ -7,7 +7,8 @@ import { BuildService } from './builds.service.js';
 import { validationHandler } from '../../shared/middlewares/validation.middleware.js';
 import { permissionHandler } from "../../shared/middlewares/permission.middleware.js";
 import { authHandler } from '../../shared/middlewares/auth.middleware.js';
-import { buildParser } from "../../shared/middlewares/parser.middleware.js";
+import { buildParser } from '../../shared/middlewares/parser.middleware.js';
+import { limitHandler } from '../../shared/middlewares/limiter.middleware.js';
 import {
     validateBuildParams,
     validateBuildQuery,
@@ -30,12 +31,14 @@ export const createBuildRouter = ({ BuildModel, UserModel, AssetModel }) => {
         buildParser(AssetModel)
         );
     buildRouter.post('/',
+        limitHandler(10, 15),
         authHandler,
         validationHandler(validateBuild),
         buildController.createBuild,
         buildParser(AssetModel)
     );
     buildRouter.patch('/:id',
+        limitHandler(50, 15),
         authHandler,
         permissionHandler(BuildModel),
         validationHandler(validateBuildParams, 'params'),
@@ -44,6 +47,7 @@ export const createBuildRouter = ({ BuildModel, UserModel, AssetModel }) => {
         buildParser(AssetModel)
         );
     buildRouter.delete('/:id',
+        limitHandler(20, 15),
         authHandler,
         permissionHandler(BuildModel),
         validationHandler(validateBuildParams, 'params'),
@@ -52,11 +56,13 @@ export const createBuildRouter = ({ BuildModel, UserModel, AssetModel }) => {
         validationHandler(validateBuildParams, 'params'),
         buildController.getEditPermission);
     buildRouter.post('/:id/editors',
+        limitHandler(50, 15),
         authHandler,
         permissionHandler(BuildModel),
         validationHandler(validateBuildParams, 'params'),
         buildController.grantEditPermission);
     buildRouter.delete('/:id/editors/:userId',
+        limitHandler(50, 15),
         authHandler,
         permissionHandler(BuildModel),
         validationHandler(validateBuildParams, 'params'),
