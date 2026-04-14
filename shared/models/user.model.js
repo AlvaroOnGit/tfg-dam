@@ -56,48 +56,6 @@ export class UserModel {
         )
         return res.rows[0]
     }
-<<<<<<< 20-crear-endpoints-de-usuario
-
-    /*static async findPrivateProfileById(id) {
-        const res = await pool.query(`
-            SELECT id, username, email, role, role_level AS "roleLevel", avatar AS "avatarUrl", state
-            FROM users
-            WHERE id = $1
-        `, [id]);
-        return res.rows[0];
-    }
-
-    static async findPublicProfileById(id) {
-        const res = await pool.query(`
-            SELECT id, username, avatar AS "avatarUrl", state
-            FROM users
-            WHERE id = $1
-        `, [id]);
-        return res.rows[0];
-    }
-    */
-   
-   static async #findProfileById(id, columns) {
-    const res = await pool.query(`
-        SELECT ${columns}
-        FROM users
-        WHERE id = $1
-    `, [id]);
-    return res.rows[0];
-    }
-
-    static async findPrivateProfileById(id) {
-    return UserModel.#findProfileById(id,
-        `id, username, email, role, role_level AS "roleLevel", avatar AS "avatarUrl", state`
-    );
-    }
-
-    static async findPublicProfileById(id) {
-    return UserModel.#findProfileById(id,
-        `id, username, avatar AS "avatarUrl", state`
-    );
-    }
-=======
     static async updateUserPassword(id, password) {
         const res = await pool.query(`
             UPDATE users SET password = $1 WHERE id = $2`,
@@ -105,5 +63,4 @@ export class UserModel {
         );
         return res.rows[0];
     }
->>>>>>> dev
 }
