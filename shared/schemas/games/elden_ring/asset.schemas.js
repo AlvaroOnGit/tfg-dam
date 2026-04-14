@@ -3,7 +3,7 @@
  */
 
 import { z } from 'zod';
-import createBaseSchema from '../../asset.schemas.js';
+import { createBaseSchema } from '../../asset.schemas.js';
 import { validateAssetMedia } from '../../helpers/media.helpers.js';
 
 const BaseSchema = createBaseSchema('elden-ring');
