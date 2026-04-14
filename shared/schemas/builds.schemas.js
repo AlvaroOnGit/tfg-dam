@@ -4,10 +4,11 @@
 
 import { z } from 'zod';
 
+// ─── Base Build Schema ─────────────────────────────────────────────────────
+
 const createBaseBuildSchema = (gameSlug) =>
     z.object({
         gameSlug: z.literal(gameSlug),
-        creatorId: z.uuid("creatorId must be a valid UUID"),
         name: z
             .string("name must be a string")
             .trim()
@@ -41,5 +42,21 @@ const createBaseBuildSchema = (gameSlug) =>
             .nullable()
             .default(null),
     });
+
+// ─── Query & Param Validation ────────────────────────────────────────────
+
+export const buildQuerySchema = z.object({
+        gameSlug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'gameSlug must be a valid slug').optional(),
+        name:     z.string().optional(),
+        tags:     z.union([z.string(), z.array(z.string())]).optional(),
+        creator:  z.uuid().optional(),
+        page:     z.coerce.number().int().min(1).optional().default(1),
+        limit:    z.coerce.number().int().min(1).max(100).optional().default(15),
+});
+
+export const buildParamsSchema = z.object({
+        id: z.uuidv4(),
+        userId: z.uuidv4()
+});
 
 export default createBaseBuildSchema;

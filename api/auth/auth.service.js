@@ -1,7 +1,8 @@
 import argon2 from 'argon2';
-import { TokenUtil } from '../../shared/utils/token.util.js'
+import { TokenUtil } from '../../shared/utils/token.util.js';
+import { MailerUtil } from "../../shared/utils/mailer.util.js";
 import { validateUser } from '../../shared/validators/index.js';
-import { AuthenticationError, DuplicateError, InternalError } from '../../shared/middlewares/error.middleware.js';
+import { AuthenticationError, ConflictError, InternalError } from '../../shared/middlewares/error.middleware.js';
 
 export class AuthService {
 
@@ -11,7 +12,6 @@ export class AuthService {
     }
 
     loginUser = async (email, password, device, userAgent) => {
-        
         //Check if the user exists in the database
         let userCredentials;
         try {
@@ -41,11 +41,9 @@ export class AuthService {
         //Construct a data object for the database
         const data = {
             user: userCredentials.id,
-            token: refreshToken.token,
+            token: refreshToken,
             device: device,
             agent: userAgent,
-            expiration: refreshToken.expiration,
-            revoked: null,
         }
 
         //Populate the token data in the database
@@ -54,10 +52,9 @@ export class AuthService {
         } catch (e) {
             throw new InternalError('Failed to save refresh token', e);
         }
-        return { accessToken, refreshToken: refreshToken.token };
+        return { accessToken, refreshToken };
     }
     registerUser = async (username, email, password) => {
-
         //Check if the username or email already exists in the db
         let existingMail, existingUser;
         try {
@@ -67,10 +64,10 @@ export class AuthService {
             throw new InternalError('Failed to check existing user', e)
         }
         if (existingMail) {
-            throw new DuplicateError('Duplicate error', { email: 'Email already exists' });
+            throw new ConflictError('Duplicate error', { email: 'Email already exists' });
         }
         if (existingUser) {
-            throw new DuplicateError('Duplicate error', { username: 'Username already exists' });
+            throw new ConflictError('Duplicate error', { username: 'Username already exists' });
         }
 
         //Construct a new user with a hashed password and additional db fields
@@ -142,11 +139,9 @@ export class AuthService {
         //Construct a data object for the database
         const data = {
             user: payload.id,
-            token: refreshToken.token,
+            token: refreshToken,
             device: payload.device,
             agent: payload.agent,
-            expiration: refreshToken.expiration,
-            revoked: null,
         }
         //Populate the token data in the database
         try {
@@ -154,6 +149,66 @@ export class AuthService {
         } catch (e) {
             throw new InternalError('Failed to save refresh token', e);
         }
-        return { accessToken, refreshToken: refreshToken.token };
+        return { accessToken, refreshToken };
+    }
+    forgotPassword = async (email, device, userAgent) => {
+        //Check if the email exists in the db
+        const userCredentials = await this.userModel.findByEmail(email);
+        if (!userCredentials) return;
+
+        //Mutate the userCredentials object with new properties
+        Object.assign(userCredentials, { device: device, agent: userAgent });
+
+        //Generate a token to be sent in the email
+        const token = TokenUtil.generateResetToken(userCredentials);
+
+        //Construct a data object for the database
+        const data = {
+            user: userCredentials.id,
+            token: token,
+            device: device,
+            agent: userAgent,
+        }
+
+        //Populate the token in the database
+        try {
+            await this.tokenModel.saveResetToken(data);
+        } catch (e) {
+            throw new InternalError('Failed to save reset token', e);
+        }
+
+        //Generate a url that targets the password reset endpoint
+        const url = `${process.env.BASE_URL}/api/auth/reset-password/${token}`;
+
+        //Email the provided address
+        await MailerUtil.sendResetMail(email, url, userCredentials.username);
+    }
+    resetPassword = async (token, password) => {
+        const payload = TokenUtil.verifyResetToken(token);
+
+        // Query the database to know if the token is valid
+        let validToken;
+        try {
+            validToken = await this.tokenModel.getResetToken(token);
+        } catch (e) {
+            throw new InternalError('Failed to validate reset token', e);
+        }
+        if (!validToken) {
+            throw new AuthenticationError('Reset token revoked or expired');
+        }
+
+        //Revoke the token so it can only be used one time
+        try {
+            await this.tokenModel.revokeResetToken(payload.id, token);
+        } catch (e) {
+            throw new InternalError('Failed to revoke reset token', e);
+        }
+
+        //Encrypt and update the users password on the database
+        try {
+            await this.userModel.updateUserPassword(payload.id, await argon2.hash(password));
+        } catch (e) {
+            throw new InternalError('Failed to update user password', e);
+        }
     }
 }

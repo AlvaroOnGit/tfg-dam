@@ -363,6 +363,28 @@ CREATE TABLE build_editors (
 CREATE INDEX build_editors_user_id
     ON build_editors(user_id);
 
+-- Validators
+-- Checks that the build creator cannot be assigned an editor role
+CREATE OR REPLACE FUNCTION check_no_creator_as_editor()
+    RETURNS trigger AS $$
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM builds
+        WHERE id = NEW.build_id
+          AND creator_id = NEW.user_id
+    ) THEN
+        RAISE EXCEPTION 'Cannot grant permissions to the build creator';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Declare triggers for build_editors
+CREATE TRIGGER trigger_no_creator_as_editor
+    BEFORE INSERT OR UPDATE ON build_editors
+    FOR EACH ROW
+EXECUTE FUNCTION check_no_creator_as_editor();
+
 -- Declare comments for the build_editors table
 COMMENT ON TABLE build_editors IS 'Stores user permissions to edit builds';
 COMMENT ON COLUMN build_editors.id IS 'Unique UUID for the connection';
@@ -381,7 +403,7 @@ CREATE TABLE refresh_tokens(
     user_id UUID NOT NULL,
     device_id UUID NOT NULL,
     token TEXT NOT NULL UNIQUE,
-    expires_at TIMESTAMP NOT NULL,
+    expires_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP + INTERVAL '7 days',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     revoked_at TIMESTAMP,
     user_agent TEXT NOT NULL,
@@ -411,7 +433,7 @@ CREATE INDEX refresh_tokens_user_tokens
 CREATE INDEX refresh_tokens_token
     ON refresh_tokens (token);
 
--- Declare comments for the build_editors table
+-- Declare comments for the refresh_tokens table
 COMMENT ON TABLE refresh_tokens IS 'Stores refresh tokens and their expirations';
 COMMENT ON COLUMN refresh_tokens.id IS 'Unique UUID for the token';
 COMMENT ON COLUMN refresh_tokens.user_id IS 'Foreign key to users.id';

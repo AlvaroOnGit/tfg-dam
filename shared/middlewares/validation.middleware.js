@@ -25,7 +25,11 @@ export const validationHandler = (validator, source = 'body') => {
             throw new ValidationError('Error validating the request body', errors);
         }
 
-        req[source] = result.data;
+        if (source === 'query') {
+            req.validatedQuery = result.data;
+        } else {
+            req[source] = result.data;
+        }
         next();
     }
 }
