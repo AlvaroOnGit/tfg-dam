@@ -10,10 +10,10 @@ const USER_SELECT = `
     email,username, 
     password, 
     role, 
-    role_level AS roleLevel, 
+    role_level AS "roleLevel", 
     avatar, 
     state, 
-    is_verified AS isVerified
+    is_verified AS "isVerified"
 `
 
 export class UserModel {
@@ -60,6 +60,20 @@ export class UserModel {
         const res = await pool.query(`
             UPDATE users SET password = $1 WHERE id = $2`,
             [password, id]
+        );
+        return res.rows[0];
+    }
+    static async updateUserEmail(id, email) {
+        const res = await pool.query(`
+            UPDATE users SET email = ($1) WHERE id = $2`,
+            [email, id]
+        );
+        return res.rows[0];
+    }
+    static async updateUserName(id, username) {
+        const res = await pool.query(`
+            UPDATE users SET username = ($1) WHERE id = $2`,
+            [username, id]
         );
         return res.rows[0];
     }
