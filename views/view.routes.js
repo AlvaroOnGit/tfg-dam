@@ -3,6 +3,7 @@
  */
 import { Router } from 'express';
 import { ViewController } from './view.controller.js';
+import { authHandler } from '../shared/middlewares/auth.middleware.js';
 
 export const createViewRouter = () => {
 
@@ -10,6 +11,7 @@ export const createViewRouter = () => {
     const viewController = new ViewController();
 
     viewRouter.get('/', viewController.index);
+    viewRouter.get('/auth', authHandler, viewController.auth);
 
     return viewRouter;
 }
