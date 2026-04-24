@@ -1,3 +1,5 @@
+import {AuthenticationError} from "../../shared/middlewares/error.middleware.js";
+
 export class UserController {
 
     constructor({ userService } = {}) {
@@ -13,6 +15,10 @@ export class UserController {
     }
 
     getMyProfile = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         try {
             const user = await this.userService.getMyProfile(req.user);
             res.status(200).json(user);
@@ -32,6 +38,10 @@ export class UserController {
     }
 
     updateEmail = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { email, password } = req.body;
         const { id } = req.user;
         try {
@@ -43,6 +53,10 @@ export class UserController {
     }
 
     updatePassword = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { newPassword, password } = req.body;
         const { id } = req.user;
         try {
@@ -54,6 +68,10 @@ export class UserController {
     }
 
     updateUsername = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { username, password } = req.body;
         const { id } = req.user;
         try {

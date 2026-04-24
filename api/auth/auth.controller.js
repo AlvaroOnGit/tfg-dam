@@ -41,6 +41,10 @@ export class AuthController {
         }
     }
     logout = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { id } = req.user
         const token = req.cookies.refresh_token;
 
