@@ -1,0 +1,23 @@
+:root {
+    --bg: #07090f;
+    --panel: rgba(12, 15, 24, 0.78);
+    --line: rgba(185, 148, 73, 0.32);
+    --gold: #e5bf6a;
+    --gold-soft: #ac8a4a;
+    --text: #f2ead5;
+    --muted: #a8a08e;
+    --danger: #8e433f;
+    --success: #7bcf9e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: Inter, Arial, sans-serif;
+    background: var(--bg);
+}

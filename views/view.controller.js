@@ -8,4 +8,8 @@ export class ViewController {
     index = (req, res) => {
         res.render('index');
     }
+
+    userAccount = (req, res) => {
+        res.render('account-settings');
+    }
 }
