@@ -41,3 +41,21 @@ export async function register(userData){
 
     return data;
 }
+
+export async function refresh(){
+    const res = await fetch(`${API_URL}/auth/refresh`, {
+        method: 'POST',
+        credentials: 'include',
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            message: data.message,
+        }
+    }
+
+    return data;
+}
