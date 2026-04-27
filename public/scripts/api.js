@@ -1,61 +1,47 @@
-const API_URL = 'http://localhost:3000/api';
+const isJsonResponse = (response) => {
+    const contentType = response.headers.get('content-type') || '';
+    return contentType.includes('application/json');
+};
 
-export async function login(userData){
-    const res = await fetch(`${API_URL}/auth/login`, {
-        method: 'POST',
+const parseResponseBody = async (response) => {
+    if (!isJsonResponse(response)) {
+        return null;
+    }
+
+    try {
+        return await response.json();
+    } catch {
+        return null;
+    }
+};
+
+const request = async (url, { method = 'GET', body, headers = {}, credentials = 'include' } = {}) => {
+    const response = await fetch(url, {
+        method,
         headers: {
-            'Content-Type': 'application/json',
+            ...(body ? { 'Content-Type': 'application/json' } : {}),
+            ...headers
         },
-        body: JSON.stringify(userData)
+        credentials,
+        ...(body ? { body: JSON.stringify(body) } : {})
     });
 
-    const data = await res.json();
+    const data = await parseResponseBody(response);
 
-    if (!res.ok) {
-        throw {
-            status: res.status,
-            data
-        };
+    if (!response.ok) {
+        const error = new Error(data?.message || 'Request failed.');
+        error.status = response.status;
+        error.data = data;
+        throw error;
     }
 
     return data;
-}
+};
 
-export async function register(userData){
-    const res = await fetch(`${API_URL}/auth/register`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData)
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-        throw {
-            status: res.status,
-            data
-        };
-    }
-
-    return data;
-}
-
-export async function refresh(){
-    const res = await fetch(`${API_URL}/auth/refresh`, {
-        method: 'POST',
-        credentials: 'include',
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-        throw {
-            status: res.status,
-            message: data.message,
-        }
-    }
-
-    return data;
-}
+window.api = {
+    get: (url, options = {}) => request(url, { ...options, method: 'GET' }),
+    post: (url, body, options = {}) => request(url, { ...options, method: 'POST', body }),
+    patch: (url, body, options = {}) => request(url, { ...options, method: 'PATCH', body }),
+    put: (url, body, options = {}) => request(url, { ...options, method: 'PUT', body }),
+    delete: (url, options = {}) => request(url, { ...options, method: 'DELETE' })
+};
