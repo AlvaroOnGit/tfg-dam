@@ -7,6 +7,7 @@ const newPasswordInput = document.getElementById('newPassword');
 const saveButton = form?.querySelector('.btn-primary');
 const avatarPlaceholder = document.querySelector('.avatar-placeholder');
 const quickChangePasswordButton = document.getElementById('quick-change-password');
+const logoutButton = document.getElementById('logout-button');
 
 const initialState = {
     username: '',
@@ -105,7 +106,7 @@ const handleSubmit = async (event) => {
         if (usernameChanged) {
             await patchEndpoint(
                 '/api/users/me/username',
-                { username, password },
+                { newUsername: username, password },
                 'Could not update username.'
             );
         }
@@ -113,7 +114,7 @@ const handleSubmit = async (event) => {
         if (emailChanged) {
             await patchEndpoint(
                 '/api/users/me/email',
-                { email, password },
+                { newEmail: email, password },
                 'Could not update email.'
             );
         }
@@ -130,8 +131,10 @@ const handleSubmit = async (event) => {
             'Changes saved. Backend closed your session for security, please sign in again.',
             'success'
         );
-        form.reset();
-        await loadProfile();
+        
+        setTimeout(() => {
+            redirectToLogin();
+        }, 2000);
     } catch (error) {
         if (isAuthError({ status: error.status }, error.message)) {
             redirectToLogin();
@@ -154,3 +157,15 @@ if (quickChangePasswordButton && newPasswordInput) {
         newPasswordInput.focus({ preventScroll: true });
     });
 }
+
+logoutButton?.addEventListener('click', async () => {
+    try {
+        // Intentamos llamar al logout del backend por si existe
+        await window.api.post('/api/auth/logout');
+    } catch (error) {
+        console.warn('Logout endpoint not found or failed, clearing cookie manually.');
+    }
+    // Borramos la cookie de acceso y redirigimos
+    document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    redirectToLogin();
+});

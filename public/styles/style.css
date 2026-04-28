@@ -21,3 +21,16 @@ body {
     font-family: Inter, Arial, sans-serif;
     background: var(--bg);
 }
+
+.btn-danger {
+    background-color: var(--danger);
+    color: var(--text);
+    border: 1px solid var(--line);
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-danger:hover {
+    filter: brightness(1.2);
+}
