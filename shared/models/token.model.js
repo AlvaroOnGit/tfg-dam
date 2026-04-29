@@ -8,8 +8,8 @@ export class TokenModel {
 
     static saveRefreshToken = async (data) => {
         const res = await pool.query(`
-            INSERT INTO refresh_tokens (user_id, token, device_id, user_agent)
-            VALUES ($1, $2, $3, $4)
+            INSERT INTO refresh_tokens (user_id, token, device_id, user_agent, expires_at)
+            VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP + ($5 || ' days')::interval)
             ON CONFLICT (user_id, device_id)
             DO UPDATE SET
                 token = $2,

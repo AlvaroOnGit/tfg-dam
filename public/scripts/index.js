@@ -202,7 +202,7 @@ async function loadUser() {
         chip.className = 'user-chip';
 
         const av = document.createElement('a');
-        av.href = '/settings';
+        av.href = '/user/settings';
         av.className = 'user-chip__avatar';
         av.setAttribute('aria-label', 'Account settings');
         const avatarSrc = resolveAvatarSrc(u);
