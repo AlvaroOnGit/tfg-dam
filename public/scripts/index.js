@@ -278,8 +278,7 @@ async function init() {
         if (!btn || !(btn instanceof HTMLButtonElement)) return;
         const slug = btn.dataset.gameSlug;
         if (!slug) return;
-        loadBuilds(slug, gamesById).catch(() => showAlert('Could not load builds for that game.'));
-        document.getElementById('popular-builds')?.scrollIntoView({ behavior: 'smooth' });
+        window.location.href = `/games/${encodeURIComponent(slug)}/builds`;
     });
 
     loadUser();
