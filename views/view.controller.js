@@ -10,6 +10,11 @@ export class ViewController {
     }
 
     userAccount = (req, res) => {
+        if (req.user == null) {
+            return res.redirect('/');
+        }
         res.render('account-settings');
     }
+
 }
+

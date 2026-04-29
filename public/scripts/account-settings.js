@@ -55,10 +55,11 @@ const loadProfile = async () => {
         initialState.email = profile.email || '';
         setAvatarInitial(initialState.username);
     } catch (error) {
-        if (isAuthError({ status: error?.status }, error?.message)) {
-            redirectToLogin();
-            return;
-        }
+        // Temporalmente desactivado para desarrollo
+        // if (isAuthError({ status: error?.status }, error?.message)) {
+        //     redirectToLogin();
+        //     return;
+        // }
         showMessage(error?.message || 'Network error while loading profile.', 'error');
     }
 };
@@ -136,10 +137,11 @@ const handleSubmit = async (event) => {
             redirectToLogin();
         }, 2000);
     } catch (error) {
-        if (isAuthError({ status: error.status }, error.message)) {
-            redirectToLogin();
-            return;
-        }
+        // Temporalmente desactivado para desarrollo
+        // if (isAuthError({ status: error.status }, error.message)) {
+        //     redirectToLogin();
+        //     return;
+        // }
         showMessage(error.message, 'error');
     } finally {
         saveButton.disabled = false;

@@ -3,20 +3,16 @@
  */
 import { Router } from 'express';
 import { ViewController } from './view.controller.js';
+import { authHandler } from '../shared/middlewares/auth.middleware.js';
 
 export const createViewRouter = () => {
 
     const viewRouter = Router();
     const viewController = new ViewController();
-    const requireSessionForView = (req, res, next) => {
-        if (!req.cookies?.access_token) {
-            return res.redirect('/auth');
-        }
-        next();
-    };
+    
 
     viewRouter.get('/', viewController.index);
-    viewRouter.get('/user/settings', requireSessionForView, viewController.userAccount);
+    viewRouter.get('/user/settings', authHandler, viewController.userAccount);
 
     return viewRouter;
 }
