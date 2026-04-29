@@ -14,4 +14,9 @@ export class ViewController {
         }
         res.render('auth');
     }
+    gameBuilds = (req, res) => {
+        const slug = req.params.slug;
+        const user = req.user || null;
+        res.render('games-builds', { gameSlug: slug, user });
+    }
 }

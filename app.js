@@ -42,6 +42,12 @@ export const createApp = () => {
     //Endpoint to access the API documentation
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {swaggerOptions: { url: '/docs/openapi.json' }}))
 
+    // Helper to format game slugs into Title Case display names (e.g. elden-ring -> Elden Ring)
+    app.locals.formatGame = function(slug){
+        if (!slug) return '';
+        return String(slug).split('-').filter(Boolean).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+    }
+
     //Router for web views
     app.use('/' , createViewRouter())
 

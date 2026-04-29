@@ -1,0 +1,20 @@
+[
+  {
+    "id": "er-1",
+    "name": "Moonlight Strength",
+    "creatorId": "42",
+    "creatorName": "ArdentPlayer",
+    "description": "Build de fuerza con armas de luna, ideal para jefes lentos.",
+    "coverUrl": "/media/games/elden-ring/elden1.webp",
+    "createdAt": "2024-10-01T12:00:00Z"
+  },
+  {
+    "id": "er-2",
+    "name": "Arcane Glass",
+    "creatorId": "7",
+    "creatorName": "MageHand",
+    "description": "Build centrada en daño por inteligencia y rotura de guardias.",
+    "coverUrl": "/media/games/elden-ring/elden2.webp",
+    "createdAt": "2025-02-14T09:30:00Z"
+  }
+]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% function formatGame(slug){ return String(slug||'').split('-').filter(Boolean).map(s=>s.charAt(0).toUpperCase()+s.slice(1)).join(' ');} %>
+    <title>Builds - <%= formatGame(gameSlug) %></title>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/builds.css">
+</head>
+<body class="builds-body">
+
+    <header class="site-header" role="banner">
+        <div class="site-header-inner">
+            <a class="logo" href="/">ELDEN SCRIPTORIUM</a>
+
+            <nav class="site-nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="/games/elden-ring/builds">BUILDS</a></li>
+                    <li><a href="/lore">LORE</a></li>
+                    <li><a href="/grimoire">GRIMOIRE</a></li>
+                    <li><a href="/almanac">ALMANAC</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-area">
+                <div class="user-avatar" aria-hidden="false"><%= (user && user.username) ? String(user.username).charAt(0).toUpperCase() : 'U' %></div>
+            </div>
+        </div>
+
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <p class="builds-subtitle">ARCHIVES</p>
+                <h1 class="builds-title"><%= gameSlug %> Builds</h1>
+                <p class="page-lead">Modify your presence within the Scriptorium. Ensure your credentials remain arcane and secure.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="builds-container">
+
+        <section class="builds-topbar">
+            <h2 class="builds-section-title"><%= formatGame(gameSlug) %></h2>
+            <div class="builds-controls">
+                <input id="builds-search" type="search" placeholder="Buscar builds..." aria-label="Buscar builds">
+                <label for="builds-order">Orden</label>
+                <select id="builds-order">
+                    <option value="yours">Tuyas primero</option>
+                    <option value="recent">Recientes</option>
+                    <option value="top">Más votadas</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="builds-list" class="builds-list">
+            <!-- JS inject -->
+        </section>
+    </main>
+
+    <script id="initial-data" type="application/json">
+        <%- JSON.stringify({ gameSlug: gameSlug || '', user: user || null }) %>
+    </script>
+
+    <script type="module" src="/scripts/builds.client.js"></script>
+</body>
+</html>

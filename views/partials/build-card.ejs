@@ -1,0 +1,39 @@
+<article class="build-card" data-id="<%= build.id %>">
+
+    <div class="build-card-media">
+        <% if (build.coverUrl) { %>
+            <img src="<%= build.coverUrl %>" alt="<%= build.name %> cover">
+        <% } else { %>
+            <div class="build-card-placeholder">No Image</div>
+        <% } %>
+    </div>
+
+    <div class="build-card-body">
+
+        <div class="build-card-header">
+            <h3><%= build.name %></h3>
+            <span class="build-card-date">
+                <%= new Date(build.createdAt).toLocaleDateString() %>
+            </span>
+        </div>
+
+        <p class="build-card-author">
+            by <%= build.creatorName || 'Unknown Tarnished' %>
+        </p>
+
+        <% if (build.description) { %>
+            <p class="build-card-desc"><%= build.description %></p>
+        <% } %>
+
+        <div class="build-card-footer">
+            <% if (user && user.id === build.creatorId) { %>
+                <a class="btn btn-ghost" href="/builds/<%= build.id %>/edit">Editar</a>
+            <% } %>
+
+            <a class="btn btn-primary" href="/api/builds/<%= build.id %>">
+                Ver Build
+            </a>
+        </div>
+
+    </div>
+</article>

@@ -20,6 +20,8 @@ export const createViewRouter = () => {
 
     viewRouter.get('/', viewController.index);
     viewRouter.get('/auth', authHandler, viewController.auth);
+    // Página: builds por juego
+    viewRouter.get('/games/:slug/builds', viewController.gameBuilds);
 
     return viewRouter;
 }

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "sg-1",
+    "name": "Shadow Stabber",
+    "creatorId": "9",
+    "creatorName": "ShadowFan",
+    "gameName": "Segundo juego",
+    "description": "Build centrada en backstabs y movilidad.",
+    "coverUrl": "/media/games/second-game/sg1.webp",
+    "tags": ["stealth","bleed"],
+    "createdAt": "2025-01-05T10:00:00Z"
+  },
+  {
+    "id": "sg-2",
+    "name": "Tanky Guard",
+    "creatorId": "12",
+    "creatorName": "Shieldmaiden",
+    "gameName": "Segundo juego",
+    "description": "Build de tanque para resistir oleadas.",
+    "coverUrl": "/media/games/second-game/sg2.webp",
+    "tags": ["tank","support"],
+    "createdAt": "2025-03-21T09:00:00Z"
+  }
+]
