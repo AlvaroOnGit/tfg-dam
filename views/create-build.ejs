@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Build — Spellsword</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/create-build.css" />
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__left">
+        <div class="header__brand">Spellsword</div>
+      </div>
+
+      <nav class="header__nav">
+        <a href="/games">Games</a>
+        <a href="/builds">Builds</a>
+        <a href="/my-builds">My builds</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== TITLE STRIP ===== -->
+  <div class="title-strip">
+    <div class="title-strip__kicker">◈ &nbsp;New Inscription</div>
+    <h1 class="title-strip__heading">Forge your Build</h1>
+    <p class="title-strip__sub">
+      Select equipment, assign your loadout, and commit your character to the ledger.
+      Builds may be kept private or shared with the community.
+    </p>
+  </div>
+
+  <!-- ===== MAIN 3-COL GRID ===== -->
+  <main class="main-grid">
+
+    <!-- ══════ LEFT COLUMN ══════ -->
+    <aside>
+      <!-- Inscription panel -->
+      <div class="panel">
+        <div class="section-title">❦ &nbsp; Inscription</div>
+
+        <div class="form-group">
+          <div class="form-label">Build name</div>
+          <input type="text" class="form-input" id="build-name"
+                 placeholder="e.g. Crimson Vanguard" maxlength="100" />
+        </div>
+
+        <div class="form-group">
+          <div class="form-label">Description</div>
+          <textarea class="form-textarea" id="build-desc"
+                    placeholder="Describe your strategy, preferred playstyle…"
+                    maxlength="500"></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label">Visibility</div>
+          <div class="chip-group">
+            <button class="chip active" data-visibility="public">Public</button>
+            <button class="chip" data-visibility="private">Private</button>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn--primary" id="btn-save">Save Build</button>
+          <button class="btn btn--ghost">Discard</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ══════ CENTER COLUMN ══════ -->
+    <section class="center-stage">
+      <div class="center-stage__grid">
+
+        <!-- Left flanking slots (armor visual) -->
+        <div id="center-armor-labels" style="display:flex; flex-direction:column; gap:14px; justify-content:center;">
+          <!-- JS will render selectable armor slots -->
+        </div>
+
+        <!-- Character frame -->
+        <div>
+          <div class="center-stage__character">
+            <span class="frame-corner frame-corner--tl"></span>
+            <span class="frame-corner frame-corner--tr"></span>
+            <span class="frame-corner frame-corner--bl"></span>
+            <span class="frame-corner frame-corner--br"></span>
+            <div class="center-stage__label">The Fallen Champion</div>
+            <img class="center-stage__img"
+                 src="/images/tainted-grail-character.png"
+                 alt="Tainted Grail Character"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="center-stage__fallback" style="display:none;">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="0.8" opacity="0.25">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <span>Character image</span>
+            </div>
+            <div class="center-stage__glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar">
+        <div class="stats-bar__item">
+          <div class="stats-bar__label">Armor Slots</div>
+          <div class="stats-bar__value" id="stat-armor">0/5</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__label">Weapon Slots</div>
+          <div class="stats-bar__value" id="stat-weapons">0/8</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__label">Total Equipped</div>
+          <div class="stats-bar__value" id="stat-total">0/13</div>
+        </div>
+        <div class="stats-bar__item">
+          <div class="stats-bar__label">Loadouts</div>
+          <div class="stats-bar__value" id="stat-loadouts">0/4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════ RIGHT COLUMN ══════ -->
+    <aside class="summary-sidebar">
+      <!-- Weapon Loadouts panel -->
+      <div class="panel">
+        <div class="section-title">⚔ &nbsp; Weapon Loadouts</div>
+        <div id="weapon-slots">
+          <!-- JS will render: weaponSlot1–8 as 4 loadout pairs -->
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    // ================================================================
+    // BUILD STATE
+    // ================================================================
+    const ARMOR_SLOTS = [
+      { key: 'helmet',   label: 'Helmet' },
+      { key: 'cuirass',  label: 'Cuirass' },
+      { key: 'gauntlet', label: 'Gauntlet' },
+      { key: 'greaves',  label: 'Greaves' },
+      { key: 'boot',     label: 'Boot' },
+    ];
+
+    const WEAPON_SLOTS = Array.from({ length: 8 }, (_, i) => ({
+      key: `weaponSlot${i + 1}`,
+      label: `Weapon ${i + 1}`,
+    }));
+
+    // Build state
+    // Armor slots: [itemId | null, relicId | null]
+    // Weapon slots: [weaponId | null, relic1Id | null, relic2Id | null]
+    const state = {
+      name: '',
+      description: '',
+      isPublic: true,
+      equipment: {},
+    };
+
+    // Initialize armor slots as [null, null]
+    ARMOR_SLOTS.forEach(s => {
+      state.equipment[s.key] = [null, null];
+    });
+    // Initialize weapon slots as [null, null, null]
+    WEAPON_SLOTS.forEach(s => {
+      state.equipment[s.key] = [null, null, null];
+    });
+
+    // Placeholder asset catalog — will be replaced by API fetch
+    const ASSETS = {
+      helmet:  [],
+      cuirass: [],
+      gauntlet:[],
+      greaves: [],
+      boot:    [],
+      weapon:  [],
+      relic:   [],
+    };
+
+    // ================================================================
+    // FETCH ASSETS FROM API
+    // ================================================================
+    async function loadAssets() {
+      try {
+        const res = await fetch('/api/tainted-grail/assets');
+        if (!res.ok) throw new Error('Failed to load assets');
+        const data = await res.json();
+
+        // Map asset types to our slot categories
+        // Adapt this mapping to your actual API response shape
+        if (data.armor)   { ASSETS.helmet = data.armor.filter(a => a.subtype === 'helmet');
+                            ASSETS.cuirass = data.armor.filter(a => a.subtype === 'cuirass');
+                            ASSETS.gauntlet = data.armor.filter(a => a.subtype === 'gauntlet');
+                            ASSETS.greaves = data.armor.filter(a => a.subtype === 'greaves');
+                            ASSETS.boot = data.armor.filter(a => a.subtype === 'boot'); }
+        if (data.weapon)  ASSETS.weapon = data.weapon;
+        if (data.relic)   ASSETS.relic = data.relic;
+
+        renderAll();
+      } catch (err) {
+        console.warn('Could not load assets from API, using empty catalog:', err.message);
+        renderAll();
+      }
+    }
+
+    // ================================================================
+    // RENDER FUNCTIONS
+    // ================================================================
+    function renderAll() {
+      renderWeaponSlots();
+      renderCenterLabels();
+      updateStats();
+    }
+
+    function rarityColor(rarity) {
+      const map = {
+        common: 'var(--color-rarity-common)',
+        uncommon: 'var(--color-rarity-uncommon)',
+        rare: 'var(--color-rarity-rare)',
+        epic: 'var(--color-rarity-epic)',
+        legendary: 'var(--color-rarity-legendary)',
+      };
+      return map[rarity] || 'var(--color-text-dim)';
+    }
+
+    function renderEquipSlot(container, slotDef, items) {
+      const selected = items.find(it => it.id === state.equipment[slotDef.key][0]);
+      const slotId = `slot-${slotDef.key}`;
+
+      const html = `
+        <div class="equip-slot" id="${slotId}">
+          <div class="form-label">${slotDef.label}</div>
+          <button class="equip-slot__trigger" onclick="toggleSlotDropdown('${slotId}')">
+            <div class="equip-slot__icon ${selected ? 'has-item' : ''}">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 3L19 7v7c0 4-4 7-7 8-3-1-7-4-7-8V7z"
+                      fill="none" stroke="${selected ? rarityColor(selected.rarity) : 'var(--color-text-dim)'}" stroke-width="1.2"/>
+                <path d="M12 8v8M9 12h6" stroke="${selected ? rarityColor(selected.rarity) : 'var(--color-text-dim)'}"
+                      stroke-width="1" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="equip-slot__info">
+              <div class="equip-slot__name ${selected ? 'filled' : ''}">
+                ${selected ? selected.name : 'Empty Slot'}
+              </div>
+              <div class="equip-slot__meta">
+                ${selected
+                  ? `<span class="rarity-pip">
+                       <span class="rarity-pip__dot" style="background:${rarityColor(selected.rarity)};box-shadow:0 0 6px ${rarityColor(selected.rarity)}"></span>
+                       ${selected.rarity || ''}
+                     </span>`
+                  : `<span class="equip-slot__hint">— select —</span>`
+                }
+              </div>
+            </div>
+            <svg class="equip-slot__chevron" width="10" height="10" viewBox="0 0 10 10">
+              <path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            </svg>
+          </button>
+          <div class="equip-slot__dropdown" id="${slotId}-dropdown">
+            <div class="equip-slot__dropdown-clear" onclick="selectItem('${slotDef.key}', null, '${slotId}')">
+              ✕ &nbsp; Clear slot
+            </div>
+            ${items.map(it => `
+              <div class="equip-slot__dropdown-item" onclick="selectItem('${slotDef.key}', '${it.id}', '${slotId}')">
+                <div style="flex:1">
+                  <div class="item-name">${it.name}</div>
+                  <span class="rarity-pip" style="color:${rarityColor(it.rarity)}">
+                    <span class="rarity-pip__dot" style="background:${rarityColor(it.rarity)};box-shadow:0 0 6px ${rarityColor(it.rarity)}"></span>
+                    ${it.rarity || ''}
+                  </span>
+                </div>
+              </div>
+            `).join('')}
+            ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>' : ''}
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', html);
+    }
+
+    function renderWeaponSlots() {
+      const container = document.getElementById('weapon-slots');
+      container.innerHTML = '';
+      const weapons = ASSETS.weapon || [];
+      const relics  = ASSETS.relic  || [];
+
+      for (let i = 0; i < 4; i++) {
+        const slot1 = WEAPON_SLOTS[i * 2];
+        const slot2 = WEAPON_SLOTS[i * 2 + 1];
+        const sel1 = weapons.find(it => it.id === state.equipment[slot1.key][0]);
+        const sel2 = weapons.find(it => it.id === state.equipment[slot2.key][0]);
+        const is2H = sel1 && sel1.isTwoHanded;
+
+        // Relic selections
+        const relic1a = relics.find(r => r.id === state.equipment[slot1.key][1]);
+        const relic1b = relics.find(r => r.id === state.equipment[slot1.key][2]);
+        const relic2a = relics.find(r => r.id === state.equipment[slot2.key][1]);
+        const relic2b = relics.find(r => r.id === state.equipment[slot2.key][2]);
+
+        const loadoutNames = ['Primary','Secondary','Tertiary','Quaternary'];
+
+        container.insertAdjacentHTML('beforeend', `
+          <div class="weapon-loadout" id="loadout-${i}">
+            <div class="weapon-loadout__header">
+              <div class="form-label">Loadout ${i + 1}</div>
+              <span class="weapon-loadout__label">
+                ${loadoutNames[i]}
+                ${is2H ? '<span class="weapon-loadout__2h-badge">2H</span>' : ''}
+              </span>
+            </div>
+            <div class="weapon-loadout__slots ${is2H ? 'two-handed' : ''}">
+
+              <!-- Slot 1: Right Hand (or Both Hands if 2H) -->
+              <div>
+                <div class="mini-slot" id="mini-${slot1.key}">
+                  <button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot1.key}')">
+                    <span class="mini-slot__trigger-label">${sel1 ? '' : (is2H ? 'Both Hands' : 'Right Hand')}</span>
+                    ${sel1
+                      ? `<svg viewBox="0 0 24 24" width="20" height="20">
+                           <path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"
+                                 fill="none" stroke="${rarityColor(sel1.rarity)}" stroke-width="1.3"/>
+                         </svg>`
+                      : ''
+                    }
+                  </button>
+                  <div class="mini-slot__name-below ${sel1 ? 'filled' : ''}">
+                    ${sel1 ? sel1.name : (is2H ? 'Both Hands' : 'Right Hand')}
+                  </div>
+                  <div class="mini-slot__dropdown" id="mini-${slot1.key}-dropdown">
+                    <div class="equip-slot__dropdown-clear" onclick="selectWeapon('${slot1.key}', null, ${i})">✕ &nbsp; Clear</div>
+                    ${weapons.map(it => `
+                      <div class="equip-slot__dropdown-item" onclick="selectWeapon('${slot1.key}', '${it.id}', ${i})">
+                        <div style="flex:1">
+                          <div class="item-name">
+                            ${it.name}
+                            ${it.isTwoHanded ? '<span class="weapon-loadout__2h-badge">2H</span>' : ''}
+                          </div>
+                          <span class="rarity-pip" style="color:${rarityColor(it.rarity)}">
+                            <span class="rarity-pip__dot" style="background:${rarityColor(it.rarity)}"></span>
+                            ${it.rarity || ''}
+                          </span>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+                <!-- Relic slots for weapon 1 -->
+                ${sel1 ? `
+                  <div class="relic-row">
+                    ${renderRelicSlot(slot1.key, 1, relic1a, relics)}
+                    ${renderRelicSlot(slot1.key, 2, relic1b, relics)}
+                  </div>
+                ` : ''}
+              </div>
+
+              <!-- Slot 2: Left Hand (locked if 2H) -->
+              ${!is2H ? `
+                <div>
+                  <div class="mini-slot ${is2H ? 'locked' : ''}" id="mini-${slot2.key}">
+                    <button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot2.key}')">
+                      <span class="mini-slot__trigger-label">${sel2 ? '' : 'Left Hand'}</span>
+                      ${sel2
+                        ? `<svg viewBox="0 0 24 24" width="20" height="20">
+                             <path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"
+                                   fill="none" stroke="${rarityColor(sel2.rarity)}" stroke-width="1.3"/>
+                           </svg>`
+                        : ''
+                      }
+                    </button>
+                    <div class="mini-slot__name-below ${sel2 ? 'filled' : ''}">${sel2 ? sel2.name : 'Left Hand'}</div>
+                    <div class="mini-slot__dropdown" id="mini-${slot2.key}-dropdown">
+                      <div class="equip-slot__dropdown-clear" onclick="selectWeapon('${slot2.key}', null, ${i})">✕ &nbsp; Clear</div>
+                      ${weapons.map(it => `
+                        <div class="equip-slot__dropdown-item" onclick="selectWeapon('${slot2.key}', '${it.id}', ${i})">
+                          <div style="flex:1">
+                            <div class="item-name">
+                              ${it.name}
+                              ${it.isTwoHanded ? '<span class="weapon-loadout__2h-badge">2H</span>' : ''}
+                            </div>
+                            <span class="rarity-pip" style="color:${rarityColor(it.rarity)}">
+                              <span class="rarity-pip__dot" style="background:${rarityColor(it.rarity)}"></span>
+                              ${it.rarity || ''}
+                            </span>
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                  <!-- Relic slots for weapon 2 -->
+                  ${sel2 ? `
+                    <div class="relic-row">
+                      ${renderRelicSlot(slot2.key, 1, relic2a, relics)}
+                      ${renderRelicSlot(slot2.key, 2, relic2b, relics)}
+                    </div>
+                  ` : ''}
+                </div>
+              ` : ''}
+
+            </div>
+          </div>
+        `);
+      }
+    }
+
+    function renderRelicSlot(slotKey, relicIndex, selectedRelic, allRelics) {
+      const relicId = `relic-${slotKey}-${relicIndex}`;
+      return `
+        <div class="relic-slot" id="${relicId}">
+          <button class="relic-slot__trigger ${selectedRelic ? 'filled' : ''}"
+                  onclick="toggleRelicDropdown('${relicId}')">
+            <svg class="relic-slot__icon" viewBox="0 0 16 16" width="12" height="12">
+              <path d="M8 1l1.5 4.5H14l-3.5 3 1.5 4.5L8 10l-4 3 1.5-4.5L2 5.5h4.5z"
+                    fill="none" stroke="${selectedRelic ? 'var(--color-rarity-epic)' : 'var(--color-text-dim)'}"
+                    stroke-width="1.2"/>
+            </svg>
+            <span class="relic-slot__text">
+              ${selectedRelic ? selectedRelic.name : 'Relic ' + relicIndex}
+            </span>
+          </button>
+          <div class="relic-slot__dropdown" id="${relicId}-dropdown">
+            <div class="equip-slot__dropdown-clear"
+                 onclick="selectRelic('${slotKey}', ${relicIndex}, null, '${relicId}')">
+              ✕ &nbsp; Clear relic
+            </div>
+            ${allRelics.map(r => `
+              <div class="equip-slot__dropdown-item"
+                   onclick="selectRelic('${slotKey}', ${relicIndex}, '${r.id}', '${relicId}')">
+                <div style="flex:1">
+                  <div class="item-name">${r.name}</div>
+                  <span class="rarity-pip" style="color:${rarityColor(r.rarity)}">
+                    <span class="rarity-pip__dot" style="background:${rarityColor(r.rarity)};box-shadow:0 0 6px ${rarityColor(r.rarity)}"></span>
+                    ${r.rarity || ''}
+                  </span>
+                </div>
+              </div>
+            `).join('')}
+            ${allRelics.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No relics loaded</div>' : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    const SLOT_ICONS = {
+      helmet:   `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 16c0-5 3-11 8-12 5 1 8 7 8 12"/><path d="M4 16h16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z"/><path d="M8 16v-3c0-1.5 1.5-3 4-3s4 1.5 4 3v3"/></svg>`,
+      cuirass:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 4c1.5 1 3 1.5 5 1.5S15.5 5 17 4l1 6c0 3-1 7-3 10H9C7 17 6 13 6 10z"/><path d="M9 10h6"/><path d="M10 14h4"/></svg>`,
+      gauntlet: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 20V10l-2-2V5h12v3l-2 2v10z"/><path d="M8 10h8"/><path d="M8 14h8"/><path d="M10 5V3"/><path d="M14 5V3"/></svg>`,
+      greaves:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 3h8v6c0 3-1 6-2 9l-1 3h-2l-1-3c-1-3-2-6-2-9z"/><path d="M8 7h8"/><path d="M9 12h6"/></svg>`,
+      boot:     `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 3h6v10l3 4v2c0 1-1 2-2 2H6c-1 0-2-1-2-2v-1l5-3z"/><path d="M9 13h6"/></svg>`,
+    };
+
+    function renderCenterLabels() {
+      const armorLabels = document.getElementById('center-armor-labels');
+      armorLabels.innerHTML = ARMOR_SLOTS.map(slot => {
+        const sel = (ASSETS[slot.key] || []).find(it => it.id === state.equipment[slot.key][0]);
+        const slotId = `center-armor-${slot.key}`;
+        const items = ASSETS[slot.key] || [];
+        return `
+          <div class="center-equip center-equip--right" id="${slotId}">
+            <div class="center-equip__label">${slot.label}</div>
+            <button class="center-equip__trigger ${sel ? 'filled' : ''}"
+                    onclick="toggleCenterDropdown('${slotId}')">
+              <span class="slot-icon">${SLOT_ICONS[slot.key] || ''}</span>
+              <span class="slot-text">${sel ? sel.name : 'empty'}</span>
+            </button>
+            <div class="center-equip__dropdown" id="${slotId}-dropdown">
+              <div class="equip-slot__dropdown-clear"
+                   onclick="selectCenterItem('${slot.key}', null, '${slotId}', '${slot.key}')">
+                ✕ &nbsp; Clear slot
+              </div>
+              ${items.map(it => `
+                <div class="equip-slot__dropdown-item"
+                     onclick="selectCenterItem('${slot.key}', '${it.id}', '${slotId}', '${slot.key}')">
+                  <div style="flex:1">
+                    <div class="item-name">${it.name}</div>
+                    <span class="rarity-pip" style="color:${rarityColor(it.rarity)}">
+                      <span class="rarity-pip__dot" style="background:${rarityColor(it.rarity)};box-shadow:0 0 6px ${rarityColor(it.rarity)}"></span>
+                      ${it.rarity || ''}
+                    </span>
+                  </div>
+                </div>
+              `).join('')}
+              ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>' : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateStats() {
+      const armorFilled = ARMOR_SLOTS.filter(s => state.equipment[s.key][0]).length;
+      const weaponFilled = WEAPON_SLOTS.filter(s => state.equipment[s.key][0]).length;
+      const total = armorFilled + weaponFilled;
+      const loadouts = Math.ceil(weaponFilled / 2);
+
+      document.getElementById('stat-armor').textContent = `${armorFilled}/5`;
+      document.getElementById('stat-weapons').textContent = `${weaponFilled}/8`;
+      document.getElementById('stat-total').textContent = `${total}/13`;
+      document.getElementById('stat-loadouts').textContent = `${Math.min(loadouts, 4)}/4`;
+    }
+
+    // ================================================================
+    // INTERACTION HANDLERS
+    // ================================================================
+    function closeAllDropdowns() {
+      document.querySelectorAll(
+        '.equip-slot__dropdown.open, .mini-slot__dropdown.open, .center-equip__dropdown.open, .relic-slot__dropdown.open'
+      ).forEach(d => d.classList.remove('open'));
+      document.querySelectorAll(
+        '.equip-slot__trigger.open, .mini-slot__trigger.open, .center-equip__trigger.open, .relic-slot__trigger.open'
+      ).forEach(t => t.classList.remove('open'));
+    }
+
+    function toggleSlotDropdown(slotId) {
+      const dropdown = document.getElementById(`${slotId}-dropdown`);
+      const trigger = document.querySelector(`#${slotId} .equip-slot__trigger`);
+      const isOpen = dropdown.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
+    }
+
+    function toggleMiniDropdown(miniId) {
+      const dropdown = document.getElementById(`${miniId}-dropdown`);
+      const trigger = document.querySelector(`#${miniId} .mini-slot__trigger`);
+      const isOpen = dropdown.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
+    }
+
+    function toggleCenterDropdown(slotId) {
+      const dropdown = document.getElementById(`${slotId}-dropdown`);
+      const trigger = document.querySelector(`#${slotId} .center-equip__trigger`);
+      const isOpen = dropdown.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
+    }
+
+    function toggleRelicDropdown(relicId) {
+      const dropdown = document.getElementById(`${relicId}-dropdown`);
+      const trigger = document.querySelector(`#${relicId} .relic-slot__trigger`);
+      const isOpen = dropdown.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
+    }
+
+    function selectItem(slotKey, itemId, slotId) {
+      state.equipment[slotKey][0] = itemId;
+      closeAllDropdowns();
+      renderAll();
+    }
+
+    function selectCenterItem(slotKey, itemId, slotId, assetCategory) {
+      state.equipment[slotKey][0] = itemId;
+      closeAllDropdowns();
+      renderAll();
+    }
+
+    // Select a weapon — handles two-handed logic
+    function selectWeapon(slotKey, weaponId, loadoutIndex) {
+      const weapons = ASSETS.weapon || [];
+      const weapon = weapons.find(w => w.id === weaponId);
+      const slot1Key = WEAPON_SLOTS[loadoutIndex * 2].key;
+      const slot2Key = WEAPON_SLOTS[loadoutIndex * 2 + 1].key;
+
+      // Set the weapon
+      state.equipment[slotKey][0] = weaponId;
+
+      // If two-handed weapon selected in slot1, clear slot2 entirely
+      if (weapon && weapon.isTwoHanded && slotKey === slot1Key) {
+        state.equipment[slot2Key] = [null, null, null];
+      }
+
+      // If clearing a weapon, also clear its relics
+      if (!weaponId) {
+        state.equipment[slotKey] = [null, null, null];
+      }
+
+      closeAllDropdowns();
+      renderAll();
+    }
+
+    // Select a relic for a weapon slot
+    function selectRelic(slotKey, relicIndex, relicId, uiId) {
+      // relicIndex is 1 or 2, mapping to array index 1 or 2
+      state.equipment[slotKey][relicIndex] = relicId;
+      closeAllDropdowns();
+      renderAll();
+    }
+
+    // Close dropdowns on outside click
+    document.addEventListener('mousedown', (e) => {
+      if (!e.target.closest('.equip-slot') &&
+          !e.target.closest('.mini-slot') &&
+          !e.target.closest('.center-equip') &&
+          !e.target.closest('.relic-slot')) {
+        closeAllDropdowns();
+      }
+    });
+
+    // Visibility toggle
+    document.querySelectorAll('[data-visibility]').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('[data-visibility]').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        state.isPublic = chip.dataset.visibility === 'public';
+      });
+    });
+
+    // Name & description sync
+    document.getElementById('build-name').addEventListener('input', (e) => {
+      state.name = e.target.value;
+    });
+    document.getElementById('build-desc').addEventListener('input', (e) => {
+      state.description = e.target.value;
+    });
+
+    // Save
+    document.getElementById('btn-save').addEventListener('click', () => {
+      const nameInput = document.getElementById('build-name');
+      if (!state.name.trim()) {
+        nameInput.classList.add('error');
+        nameInput.focus();
+        return;
+      }
+      nameInput.classList.remove('error');
+
+      const payload = {
+        name: state.name,
+        description: state.description,
+        isPublic: state.isPublic,
+        templateData: state.equipment,
+      };
+
+      console.log('Build payload:', payload);
+      // TODO: POST to /api/builds
+    });
+
+    // ================================================================
+    // INIT
+    // ================================================================
+    loadAssets();
+  </script>
+
+</body>
+</html>

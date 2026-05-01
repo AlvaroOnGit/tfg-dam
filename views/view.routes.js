@@ -13,5 +13,8 @@ export const createViewRouter = () => {
     viewRouter.get('/', viewController.index);
     viewRouter.get('/auth', authHandler, viewController.auth);
 
+    // Build views
+    viewRouter.get('/builds/create', authHandler, viewController.createBuild);
+
     return viewRouter;
 }

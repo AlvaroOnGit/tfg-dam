@@ -14,4 +14,7 @@ export class ViewController {
         }
         res.render('auth');
     }
+    createBuild = (req, res) => {
+        res.render('create-build');
+    };
 }
