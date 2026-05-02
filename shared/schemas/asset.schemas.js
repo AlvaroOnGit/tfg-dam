@@ -82,5 +82,5 @@ export const assetQuerySchema = z.object({
 });
 
 export const assetIdSchema = z.object({
-    id: z.uuidv4('device must be a valid v4 uuid'),
+    id: z.uuidv4('id must be a valid v4 uuid'),
 });
