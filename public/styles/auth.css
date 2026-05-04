@@ -34,16 +34,27 @@ body {
     background-color: var(--color-warning);
     color: var(--color-text-tertiary);
     display: flex;
-    padding: 5px 10px;
+    align-items: center;
+    padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    max-width: 400px;
+    min-width: 100%;
+    gap: 5px;
     box-sizing: border-box;
+}
+.alert-message {
+    font-size: small;
+    white-space: pre-line;
 }
 .auth-form {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 1rem;
+}
+.auth-form-title {
+    font-size: 2rem;
+    padding-bottom: 10px;
 }
 .auth-form label {
     font-size: 12px;
