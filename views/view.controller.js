@@ -14,4 +14,13 @@ export class ViewController {
         }
         res.render('auth');
     }
+    reset = (req, res) => {
+        if (req.user){
+            return res.redirect('/');
+        }
+        res.render('reset-password');
+    }
+    notFound = (req, res) => {
+        res.render('not-found');
+    }
 }

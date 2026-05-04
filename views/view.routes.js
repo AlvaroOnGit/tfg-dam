@@ -20,6 +20,8 @@ export const createViewRouter = () => {
 
     viewRouter.get('/', viewController.index);
     viewRouter.get('/auth', authHandler, viewController.auth);
+    viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
+    viewRouter.use(viewController.notFound);
 
     return viewRouter;
 }
