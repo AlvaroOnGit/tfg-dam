@@ -1,5 +1,6 @@
 const API_URL = 'http://localhost:3000/api';
 
+/*------Authentication------*/
 export async function login(userData){
     const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
@@ -29,6 +30,48 @@ export async function register(userData){
         },
         body: JSON.stringify(userData)
     });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
+    }
+
+    return data;
+}
+
+export async function forgot(userData){
+    const res = await fetch(`${API_URL}/auth/forgot-password`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
+    }
+
+    return data;
+}
+
+export async function reset(userData, token){
+    const res = await fetch(`${API_URL}/auth/reset-password/${token}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
 
     const data = await res.json();
 
