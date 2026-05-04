@@ -17,7 +17,7 @@ export class AuthController {
                 .cookie('access_token', accessToken, {
                     httpOnly: true,
                     secure: false,
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     maxAge: 15 * 60 * 1000
                 })
                 .cookie('refresh_token', refreshToken, {
@@ -76,7 +76,7 @@ export class AuthController {
                 .cookie('access_token', accessToken, {
                     httpOnly: true,
                     secure: false,
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     maxAge: 15 * 60 * 1000
                 })
                 .cookie('refresh_token', refreshToken, {
