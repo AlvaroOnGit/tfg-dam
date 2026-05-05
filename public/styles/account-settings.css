@@ -5,10 +5,7 @@ body {
 .page-bg {
     position: fixed;
     inset: 0;
-    background:
-        radial-gradient(circle at 12% 8%, rgba(229, 191, 106, 0.1), transparent 45%),
-        radial-gradient(circle at 82% 26%, rgba(229, 191, 106, 0.08), transparent 35%),
-        linear-gradient(180deg, rgba(8, 11, 18, 0.9), rgba(8, 10, 15, 0.98));
+    background: var(--page-bg-image);
     z-index: 0;
 }
 
@@ -20,13 +17,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 48px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--color-border);
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(2px);
 }
 
 .brand {
-    color: var(--gold);
+    color: var(--color-primary);
     text-decoration: none;
     letter-spacing: 1.6px;
     font-family: Cinzel, serif;
@@ -47,13 +44,13 @@ body {
 }
 
 .top-nav a:hover {
-    color: var(--gold);
+    color: var(--color-primary);
 }
 
 .icon-button {
-    border: 1px solid var(--line);
+    border: 1px solid var(--color-border);
     background: transparent;
-    color: var(--gold);
+    color: var(--color-primary);
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -78,7 +75,7 @@ body {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--gold-soft);
+    color: var(--color-text-secondary);
     font-size: 11px;
 }
 
@@ -94,7 +91,7 @@ h1 {
 .intro {
     margin: 0 0 34px;
     max-width: 680px;
-    color: var(--muted);
+    color: var(--color-text-muted);
     font-size: 14px;
 }
 
@@ -106,8 +103,8 @@ h1 {
 
 .profile-panel,
 .form-panel {
-    background: var(--panel);
-    border: 1px solid rgba(229, 191, 106, 0.17);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     box-shadow: 0 14px 38px rgba(0, 0, 0, 0.3);
 }
 
@@ -119,7 +116,7 @@ h1 {
     width: 160px;
     height: 190px;
     margin-bottom: 20px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--color-border);
     overflow: hidden;
     display: grid;
     place-items: center;
@@ -134,7 +131,7 @@ h1 {
 
 .avatar-placeholder {
     display: none;
-    color: var(--gold);
+    color: var(--color-primary);
     font-family: Cinzel, serif;
     font-size: 52px;
 }
@@ -147,7 +144,7 @@ h1 {
     margin: 0 0 10px;
     border: none;
     background: transparent;
-    color: var(--gold);
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 1.4px;
     font-size: 11px;
@@ -162,7 +159,7 @@ h1 {
 
 .quick-actions {
     margin: 26px 0 12px;
-    color: var(--muted);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: 1.4px;
@@ -172,13 +169,37 @@ h1 {
     padding: 26px 30px 30px;
 }
 
+.panel-nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+}
+
+.nav-btn {
+    padding: 10px 24px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+.nav-btn.active, .nav-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: rgba(233, 193, 118, 0.08);
+}
+
 .settings-form {
     display: grid;
     gap: 14px;
 }
 
 .form-section {
-    border: 1px solid rgba(229, 191, 106, 0.18);
+    border: 1px solid var(--color-border);
     background: rgba(20, 24, 34, 0.5);
     padding: 16px 18px 18px;
 }
@@ -191,7 +212,7 @@ h1 {
     margin: 0 0 14px;
     text-transform: uppercase;
     letter-spacing: 1.8px;
-    color: var(--gold);
+    color: var(--color-primary);
     font-size: 11px;
 }
 
@@ -199,7 +220,7 @@ h1 {
     margin-top: 8px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--gold-soft);
+    color: var(--color-text-secondary);
     font-size: 10px;
 }
 
@@ -208,9 +229,9 @@ h1 {
 .settings-form input[type="password"] {
     width: 100%;
     border: none;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--color-border);
     background: transparent;
-    color: var(--text);
+    color: var(--color-text);
     padding: 7px 0 10px;
     font-size: 16px;
     outline: none;
@@ -221,32 +242,32 @@ h1 {
 }
 
 .settings-form input:focus {
-    border-bottom-color: var(--gold);
+    border-bottom-color: var(--color-primary);
 }
 
 .form-message {
     min-height: 44px;
     margin: 0 0 8px;
     padding: 10px 12px;
-    border: 1px solid rgba(229, 191, 106, 0.2);
+    border: 1px solid var(--color-border);
     background: rgba(40, 34, 22, 0.35);
     font-size: 13px;
-    color: var(--text);
+    color: var(--color-text);
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
 .form-message.success {
-    color: var(--success);
-    border-color: rgba(123, 207, 158, 0.45);
-    background: rgba(23, 58, 41, 0.45);
+    color: var(--color-success);
+    border-color: var(--color-success);
+    background: rgba(98, 186, 68, 0.1);
 }
 
 .form-message.error {
-    color: #f19a8e;
-    border-color: rgba(241, 154, 142, 0.42);
-    background: rgba(76, 28, 25, 0.42);
+    color: var(--color-error);
+    border-color: var(--color-error);
+    background: rgba(184, 23, 35, 0.1);
 }
 
 .form-message a {
@@ -257,7 +278,7 @@ h1 {
 
 .field-note {
     margin: 8px 0 0;
-    color: var(--muted);
+    color: var(--color-text-muted);
     font-size: 11px;
 }
 
@@ -268,7 +289,7 @@ h1 {
 }
 
 .btn-primary {
-    border: 1px solid var(--line);
+    border: 1px solid var(--color-border);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 10px;
@@ -322,14 +343,14 @@ h1 {
 }
 
 .btn-danger {
-    border: 1px solid var(--line);
+    border: 1px solid var(--color-border);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 10px;
     padding: 13px 22px;
     cursor: pointer;
-    background: var(--danger);
-    color: var(--text);
+    background: var(--color-error);
+    color: var(--color-text);
     transition: filter 0.2s;
 }
 

@@ -13,8 +13,21 @@ export class ViewController {
         if (req.user == null) {
             return res.redirect('/');
         }
-        res.render('account-settings');
+        res.render('account-settings', { user: req.user });
+    }
+
+    userProfile = (req, res) => {
+        if (req.user == null) {
+            return res.redirect('/');
+        }
+        res.render('user-profile', { user: req.user });
+    }
+
+    auth = (req, res) => {
+        if (req.user){
+            return res.redirect('/');
+        }
+        res.render('auth');
     }
 
 }
-

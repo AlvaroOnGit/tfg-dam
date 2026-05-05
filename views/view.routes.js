@@ -10,9 +10,19 @@ export const createViewRouter = () => {
     const viewRouter = Router();
     const viewController = new ViewController();
     
+    viewRouter.use((req, res, next) => {
+        res.locals.alert = {
+            type: 'warning',
+            message: 'This is an alert...'
+        };
+        next();
+    });
 
     viewRouter.get('/', viewController.index);
     viewRouter.get('/user/settings', authHandler, viewController.userAccount);
+    viewRouter.get('/user/me', authHandler, viewController.userProfile);
 
+
+    viewRouter.get('/auth', authHandler, viewController.auth);
     return viewRouter;
 }

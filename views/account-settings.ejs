@@ -15,7 +15,9 @@
     <div class="page-bg"></div>
 
     <header class="topbar">
-        <a class="brand" href="/">ELDEN SCRIPTORIUM</a>
+        <a class="brand" href="/" aria-label="Elden Scriptorium">
+            <img src="/media/logo-spellsword.webp" alt="Elden Scriptorium" class="logo-spellsword">
+        </a>
         <nav class="top-nav">
             <a href="#">Builds</a>
             <a href="#">Lore</a>
@@ -38,7 +40,7 @@
             <aside class="profile-panel">
                 <div class="avatar-wrap">
                     <img src="/media/default-avatar.png" alt="User avatar" onerror="this.style.display='none'; this.parentElement.classList.add('avatar-fallback');">
-                    <span class="avatar-placeholder">A</span>
+                    <span class="avatar-placeholder"><%= user.username.charAt(0).toUpperCase() %></span>
                 </div>
 
                 <p class="quick-actions">Quick Actions</p>
@@ -46,20 +48,25 @@
             </aside>
 
             <section class="form-panel">
+                <div class="panel-nav">
+                    <a href="/user/settings" class="nav-btn active">Settings</a>
+                    <a href="/user/me" class="nav-btn">Profile</a>
+                </div>
+
                 <form class="settings-form" id="user-settings-form">
                     <p id="settings-message" class="form-message" aria-live="polite"></p>
 
                     <section class="form-section">
                         <p class="section-title">Public Information</p>
                         <label for="username">Username</label>
-                        <input id="username" name="username" type="text" value="TAR_MAGE_99" autocomplete="username">
+                        <input id="username" name="username" type="text" value="<%= user.username %>" autocomplete="username">
                         <p class="field-note">Changing this field requires current password.</p>
                     </section>
 
                     <section class="form-section">
                         <p class="section-title">Personal Information</p>
                         <label for="email">Email Address</label>
-                        <input id="email" name="email" type="email" value="morgot.fell@leyndell.com" autocomplete="email">
+                        <input id="email" name="email" type="email" value="<%= user.email %>" autocomplete="email">
                         <p class="field-note">Changing this field requires current password.</p>
                     </section>
 
@@ -80,7 +87,7 @@
             </section>
         </section>
     </main>
-    <script src="/scripts/api.js"></script>
-    <script src="/scripts/account-settings.js"></script>
+    <script type="module" src="/scripts/api.js"></script>
+    <script type="module" src="/scripts/account-settings.js"></script>
 </body>
 </html>

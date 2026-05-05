@@ -38,10 +38,24 @@ const request = async (url, { method = 'GET', body, headers = {}, credentials = 
     return data;
 };
 
+const API_URL = '/api';
+
 window.api = {
-    get: (url, options = {}) => request(url, { ...options, method: 'GET' }),
-    post: (url, body, options = {}) => request(url, { ...options, method: 'POST', body }),
-    patch: (url, body, options = {}) => request(url, { ...options, method: 'PATCH', body }),
-    put: (url, body, options = {}) => request(url, { ...options, method: 'PUT', body }),
-    delete: (url, options = {}) => request(url, { ...options, method: 'DELETE' })
+    get: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'GET' }),
+    post: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'POST', body }),
+    patch: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PATCH', body }),
+    put: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PUT', body }),
+    delete: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'DELETE' })
 };
+
+export async function login(userData){
+    return await window.api.post('/auth/login', userData);
+}
+
+export async function register(userData){
+    return await window.api.post('/auth/register', userData);
+}
+
+export async function logout(){
+    return await window.api.post('/auth/logout');
+}

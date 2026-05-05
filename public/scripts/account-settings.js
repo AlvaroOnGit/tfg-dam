@@ -9,9 +9,11 @@ const avatarPlaceholder = document.querySelector('.avatar-placeholder');
 const quickChangePasswordButton = document.getElementById('quick-change-password');
 const logoutButton = document.getElementById('logout-button');
 
+// Must match what's already in the inputs (SSR/EJS); otherwise every submit looks like
+// username+email edits until GET /users/me finishes, blocking password-only saves.
 const initialState = {
-    username: '',
-    email: ''
+    username: (usernameInput?.value ?? '').trim(),
+    email: (emailInput?.value ?? '').trim()
 };
 const LOGIN_ROUTE = '/auth';
 
@@ -48,7 +50,10 @@ const isAuthError = (response, errorText = '') => {
 
 const loadProfile = async () => {
     try {
-        const profile = await window.api.get('/api/users/me');
+        // Si el objeto api no está disponible, salimos en silencio para evitar el error en el UI
+        if (!window.api) return;
+
+        const profile = await window.api.get('/users/me');
         usernameInput.value = profile.username || '';
         emailInput.value = profile.email || '';
         initialState.username = profile.username || '';
@@ -100,29 +105,34 @@ const handleSubmit = async (event) => {
         return;
     }
 
+    const changeKinds = [usernameChanged, emailChanged, wantsPasswordChange].filter(Boolean).length;
+    if (changeKinds > 1) {
+        showMessage(
+            'After each saved change the server closes your session. Please update only your username, or only your email, or only your password — one save at a time.',
+            'error'
+        );
+        return;
+    }
+
     saveButton.disabled = true;
     showMessage('Saving changes...');
 
     try {
         if (usernameChanged) {
             await patchEndpoint(
-                '/api/users/me/username',
-                { newUsername: username, password },
+                '/users/me/username',
+                { username, password },
                 'Could not update username.'
             );
-        }
-
-        if (emailChanged) {
+        } else if (emailChanged) {
             await patchEndpoint(
-                '/api/users/me/email',
-                { newEmail: email, password },
+                '/users/me/email',
+                { email, password },
                 'Could not update email.'
             );
-        }
-
-        if (wantsPasswordChange) {
+        } else if (wantsPasswordChange) {
             await patchEndpoint(
-                '/api/users/me/password',
+                '/users/me/password',
                 { password, newPassword },
                 'Could not update password.'
             );
@@ -161,13 +171,15 @@ if (quickChangePasswordButton && newPasswordInput) {
 }
 
 logoutButton?.addEventListener('click', async () => {
+    logoutButton.disabled = true;
     try {
-        // Intentamos llamar al logout del backend por si existe
-        await window.api.post('/api/auth/logout');
+        // Session cookies are httpOnly; server clears access_token + refresh_token on POST /api/auth/logout.
+        if (window.api?.post) {
+            await window.api.post('/auth/logout', {});
+        }
     } catch (error) {
-        console.warn('Logout endpoint not found or failed, clearing cookie manually.');
+        console.warn('Logout request failed:', error.message);
+    } finally {
+        redirectToLogin();
     }
-    // Borramos la cookie de acceso y redirigimos
-    document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    redirectToLogin();
 });
