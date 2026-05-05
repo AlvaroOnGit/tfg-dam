@@ -7,6 +7,7 @@ const buildGrid = document.getElementById('build-grid');
 const pageAlert = document.getElementById('page-alert');
 const userSlot = document.getElementById('user-slot');
 const buildsFilterLabel = document.getElementById('builds-filter-label');
+const myBuildsLink = document.getElementById('my-builds-link');
 
 /** @param {string} name */
 function initialsFromName(name) {
@@ -25,9 +26,6 @@ function resolveAvatarSrc(u) {
     if (t.startsWith('https://') || t.startsWith('http://') || t.startsWith('/')) return t;
     return null;
 }
-
-/** Silueta dorada centrada en el círculo (gradiente + hombros simétricos). */
-const HEADER_AVATAR_SVG = `<svg class="header-avatar__svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="avatarSilGrad" x1="16" y1="3" x2="16" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#f4e4b0"/><stop offset="42%" stop-color="#d8b968"/><stop offset="100%" stop-color="#8c6220"/></linearGradient></defs><g transform="translate(0 -2.65)"><circle cx="16" cy="10.75" r="5.05" fill="url(#avatarSilGrad)"/><path fill="url(#avatarSilGrad)" d="M8 30.35h16v-.28C24 24.9 20.55 20.75 16 20.75S8 24.9 8 30.07v.28z"/></g></svg>`;
 
 function showAlert(message) {
     pageAlert.hidden = false;
@@ -85,7 +83,13 @@ function renderGames(games) {
         btn.className = 'btn btn--primary';
         btn.textContent = 'View builds';
         btn.dataset.gameSlug = g.slug;
-        actions.appendChild(btn);
+
+        const createLink = document.createElement('a');
+        createLink.className = 'btn btn--create-build';
+        createLink.href = '/builds/create';
+        createLink.textContent = 'Create builds';
+
+        actions.append(btn, createLink);
 
         body.append(title, actions);
         card.append(media, body);
@@ -186,17 +190,18 @@ async function loadBuilds(gameSlug, gamesById) {
 
 async function loadUser() {
     userSlot.innerHTML = '';
+    if (myBuildsLink) myBuildsLink.href = '#popular-builds';
     try {
         const res = await fetch('/api/users/me', { credentials: 'same-origin' });
         if (!res.ok) {
             const a = document.createElement('a');
             a.href = '/auth';
-            a.className = 'header-avatar header-avatar--guest';
-            a.setAttribute('aria-label', 'Account and sign-in');
-            a.innerHTML = HEADER_AVATAR_SVG;
+            a.className = 'site-nav__link';
+            a.textContent = 'Sign In';
             userSlot.appendChild(a);
             return;
         }
+        if (myBuildsLink) myBuildsLink.href = '/user/settings?tab=builds';
         const u = await res.json();
         const chip = document.createElement('div');
         chip.className = 'user-chip';
