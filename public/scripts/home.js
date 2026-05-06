@@ -1,32 +1,81 @@
-/**
- * Home page: loads games and builds from the API (same-origin).
- */
+import { getGames } from './api.js';
 
-const gameGrid = document.getElementById('game-grid');
+const gameWrapper = document.querySelector('.game-wrapper');
 const buildGrid = document.getElementById('build-grid');
 const pageAlert = document.getElementById('page-alert');
 const userSlot = document.getElementById('user-slot');
 const buildsFilterLabel = document.getElementById('builds-filter-label');
 const myBuildsLink = document.getElementById('my-builds-link');
 
-/** @param {string} name */
+class GameHandler {
+    static gameWrapper = document.querySelector('.game-wrapper');
+
+    static renderGames(games) {
+        this.gameWrapper.innerHTML = '';
+        this.gameWrapper.removeAttribute('aria-busy');
+
+        if (!games.length) {
+            this.gameWrapper.innerHTML = '<p style="color:var(--color-text-muted)">No games found.</p>';
+            return;
+        }
+
+        for (const g of games) {
+            const card = document.createElement('a');
+            card.className = 'game-card';
+            card.href = `/games/${encodeURIComponent(g.slug)}`;
+
+            const media = document.createElement('div');
+            media.className = 'game-card-media';
+            if (g.coverUrl) {
+                const img = document.createElement('img');
+                img.className = 'game-card-cover';
+                img.src = g.coverUrl;
+                img.alt = `${g.name} Cover Art`;
+                img.loading = 'lazy';
+                media.appendChild(img);
+            } else {
+                const ph = document.createElement('span');
+                ph.className = 'game-card-media-placeholder';
+                ph.textContent = '—';
+                media.appendChild(ph);
+            }
+
+            const body = document.createElement('div');
+            body.className = 'game-card-body';
+
+            const title = document.createElement('h3');
+            title.className = 'game-card-title';
+            title.textContent = g.name;
+
+            const genres = document.createElement('p');
+            genres.className = 'game-card-genres';
+            genres.textContent = g.genres.join(', ');
+
+
+            const actions = document.createElement('div');
+            actions.className = 'game-card-actions';
+
+            const createLink = document.createElement('a');
+            createLink.className = 'button primary';
+            createLink.href = `/games/${encodeURIComponent(g.slug)}/builder`;
+            createLink.textContent = 'Create build';
+
+            actions.append(createLink);
+
+            body.append(title, genres, actions);
+            card.append(media, body);
+            this.gameWrapper.appendChild(card);
+        }
+    }
+}
+
+
 function initialsFromName(name) {
     const parts = String(name).trim().split(/\s+/).filter(Boolean);
     if (parts.length === 0) return '?';
     if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
     return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
-
-/** @param {Record<string, unknown>} u */
-function resolveAvatarSrc(u) {
-    const raw = u.avatar ?? u.avatarUrl;
-    if (raw == null || typeof raw !== 'string') return null;
-    const t = raw.trim();
-    if (!t) return null;
-    if (t.startsWith('https://') || t.startsWith('http://') || t.startsWith('/')) return t;
-    return null;
-}
-
 function showAlert(message) {
     pageAlert.hidden = false;
     pageAlert.textContent = message;
@@ -37,70 +86,6 @@ function clearAlert() {
     pageAlert.textContent = '';
 }
 
-/**
- * @param {Array<{ id: string, slug: string, name: string, coverUrl?: string }>} games
- */
-function renderGames(games) {
-    gameGrid.innerHTML = '';
-    gameGrid.removeAttribute('aria-busy');
-
-    if (!games.length) {
-        gameGrid.innerHTML = '<p class="muted">No games found.</p>';
-        return;
-    }
-
-    for (const g of games) {
-        const card = document.createElement('article');
-        card.className = 'game-card';
-
-        const media = document.createElement('div');
-        media.className = 'game-card__media';
-        if (g.coverUrl) {
-            const img = document.createElement('img');
-            img.className = 'game-card__cover';
-            img.src = g.coverUrl;
-            img.alt = '';
-            img.loading = 'lazy';
-            media.appendChild(img);
-        } else {
-            const ph = document.createElement('span');
-            ph.className = 'game-card__media-placeholder';
-            ph.textContent = '—';
-            media.appendChild(ph);
-        }
-
-        const body = document.createElement('div');
-        body.className = 'game-card__body';
-
-        const title = document.createElement('h3');
-        title.className = 'game-card__title';
-        title.textContent = g.name;
-
-        const actions = document.createElement('div');
-        actions.className = 'game-card__actions';
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn btn--primary';
-        btn.textContent = 'View builds';
-        btn.dataset.gameSlug = g.slug;
-
-        const createLink = document.createElement('a');
-        createLink.className = 'btn btn--create-build';
-        createLink.href = '/builds/create';
-        createLink.textContent = 'Create builds';
-
-        actions.append(btn, createLink);
-
-        body.append(title, actions);
-        card.append(media, body);
-        gameGrid.appendChild(card);
-    }
-}
-
-/**
- * @param {Array<Record<string, unknown>>} builds
- * @param {Map<string, { name: string, slug: string }>} gamesById
- */
 function renderBuilds(builds, gamesById) {
     buildGrid.innerHTML = '';
     buildGrid.removeAttribute('aria-busy');
@@ -157,7 +142,7 @@ function renderBuilds(builds, gamesById) {
     }
 }
 
-/** @param {string|null} gameSlug */
+
 async function loadBuilds(gameSlug, gamesById) {
     buildGrid.setAttribute('aria-busy', 'true');
     buildGrid.innerHTML = '<p class="muted">Loading builds…</p>';
@@ -188,49 +173,6 @@ async function loadBuilds(gameSlug, gamesById) {
     renderBuilds(filtered.length ? filtered : raw, gamesById);
 }
 
-async function loadUser() {
-    userSlot.innerHTML = '';
-    if (myBuildsLink) myBuildsLink.href = '#popular-builds';
-    try {
-        const res = await fetch('/api/users/me', { credentials: 'same-origin' });
-        if (!res.ok) {
-            const a = document.createElement('a');
-            a.href = '/auth';
-            a.className = 'site-nav__link';
-            a.textContent = 'Sign In';
-            userSlot.appendChild(a);
-            return;
-        }
-        if (myBuildsLink) myBuildsLink.href = '/user/settings?tab=builds';
-        const u = await res.json();
-        const chip = document.createElement('div');
-        chip.className = 'user-chip';
-
-        const av = document.createElement('a');
-        av.href = '/user/settings';
-        av.className = 'user-chip__avatar';
-        av.setAttribute('aria-label', 'Account settings');
-        const avatarSrc = resolveAvatarSrc(u);
-        if (avatarSrc) {
-            const img = document.createElement('img');
-            img.src = avatarSrc;
-            img.alt = '';
-            av.appendChild(img);
-        } else {
-            av.textContent = initialsFromName(u.username || '?');
-        }
-
-        const name = document.createElement('span');
-        name.className = 'user-chip__name';
-        name.textContent = u.username || 'User';
-
-        chip.append(av, name);
-        userSlot.appendChild(chip);
-    } catch {
-        userSlot.innerHTML = '<span class="muted">Offline</span>';
-    }
-}
-
 async function init() {
     clearAlert();
 
@@ -241,16 +183,14 @@ async function init() {
     const gamesById = new Map();
 
     try {
-        const gamesRes = await fetch('/api/games?limit=20&page=1', { credentials: 'same-origin' });
-        if (!gamesRes.ok) throw new Error('games');
-        const gamesData = await gamesRes.json();
+        const gamesData = await getGames({ page: 1 });
         games = Array.isArray(gamesData.games) ? gamesData.games : [];
         for (const g of games) gamesById.set(g.id, { name: g.name, slug: g.slug });
-        renderGames(games);
+        GameHandler.renderGames(games);
     } catch {
         showAlert('Could not load games. Check that the API is running.');
-        gameGrid.removeAttribute('aria-busy');
-        gameGrid.innerHTML = '<p class="muted">Games unavailable.</p>';
+        gameWrapper.removeAttribute('aria-busy');
+        gameWrapper.innerHTML = '<p class="muted">Games unavailable.</p>';
     }
 
     try {
@@ -277,7 +217,7 @@ async function init() {
         buildGrid.innerHTML = '<p class="muted">Builds unavailable.</p>';
     }
 
-    gameGrid.addEventListener('click', (e) => {
+    gameWrapper.addEventListener('click', (e) => {
         const t = /** @type {HTMLElement} */ (e.target);
         const btn = t.closest('button[data-game-slug]');
         if (!btn || !(btn instanceof HTMLButtonElement)) return;
@@ -285,8 +225,6 @@ async function init() {
         if (!slug) return;
         window.location.href = `/games/${encodeURIComponent(slug)}/builds`;
     });
-
-    loadUser();
 }
 
 init();

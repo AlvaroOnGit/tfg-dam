@@ -11,16 +11,14 @@ export const createViewRouter = () => {
     const viewController = new ViewController();
 
     viewRouter.use((req, res, next) => {
-        res.locals.alert = {
-            type: 'warning',
-            message: 'This is an alert...'
-        };
+        res.locals.alert = null;
         next();
     });
 
-    viewRouter.get('/', viewController.index);
+    viewRouter.get('/', authHandler, viewController.home);
     viewRouter.get('/auth', authHandler, viewController.auth);
     viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
+
     viewRouter.use(viewController.notFound);
 
     return viewRouter;
