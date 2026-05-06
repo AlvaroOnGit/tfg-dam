@@ -102,3 +102,23 @@ export async function refresh(){
 
     return data;
 }
+
+/*------Home------*/
+export async function getGames({ page = 1, name = '', genre = '' } = {}) {
+    const params = new URLSearchParams({ limit: 15, page });
+
+    if (name) params.append('name', name);
+    if (genre) params.append('genre', genre);
+
+    const res = await fetch(`${API_URL}/games?${params}`, {
+        credentials: 'same-origin'
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw { status: res.status, data };
+    }
+
+    return data;
+}
