@@ -21,7 +21,7 @@ export const createViewRouter = () => {
     viewRouter.get('/', viewController.index);
     viewRouter.get('/user/settings', authHandler, viewController.userAccount);
     viewRouter.get('/user/me', authHandler, viewController.userProfile);
-
+    viewRouter.get('/users/:id', authHandler, viewController.otherProfile);
 
     viewRouter.get('/auth', authHandler, viewController.auth);
     return viewRouter;

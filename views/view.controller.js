@@ -23,6 +23,17 @@ export class ViewController {
         res.render('user-profile', { user: req.user });
     }
 
+    otherProfile = (req, res) => {
+        const targetId = req.params.id;
+
+        // Si el ID es el del propio usuario logueado, redirigir a su perfil privado
+        if (req.user && req.user.id === targetId) {
+            return res.redirect('/user/me');
+        }
+
+        res.render('other-profile', { user: req.user, targetId });
+    }
+
     auth = (req, res) => {
         if (req.user){
             return res.redirect('/');
