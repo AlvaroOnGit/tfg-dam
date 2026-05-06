@@ -2,12 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Spellsword</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TFG DAM — Character builds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/homePage.css">
 </head>
 <body>
-<h1>Main Page</h1>
-<%- include('partials/alert') %>
-<script src="/scripts/index.js"></script>
+<div class="page">
+    <header class="site-header">
+        <a class="logo logo--spellsword" href="/" title="Go to Mainpage">
+            <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo">
+        </a>
+        <nav class="site-nav" aria-label="Main">
+            <a class="site-nav__link is-active" href="/">Games</a>
+            <a class="site-nav__link" href="#popular-builds">Popular Builds</a>
+            <a id="my-builds-link" class="site-nav__link" href="#popular-builds">My builds</a>
+        </nav>
+        <div class="site-header__actions">
+            <div id="user-slot" class="user-slot" aria-live="polite"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__inner">
+                <h1 id="hero-title" class="hero__title">Forge your legacy. Master your builds.</h1>
+            </div>
+        </section>
+
+        <div id="page-alert" class="page-alert" role="status" hidden></div>
+
+        <section id="games" class="section section--games" aria-labelledby="games-heading">
+            <div class="section__head">
+                <h2 id="games-heading" class="section__title">Games</h2>
+            </div>
+            <div id="game-grid" class="game-grid" aria-busy="true">
+                <p class="muted">Loading games…</p>
+            </div>
+        </section>
+
+        <section id="popular-builds" class="section section--builds" aria-labelledby="builds-heading">
+            <div class="section__head">
+                <h2 id="builds-heading" class="section__title">Popular builds</h2>
+                <p id="builds-filter-label" class="section__subtitle muted" hidden></p>
+            </div>
+            <div id="build-grid" class="build-grid" aria-busy="true">
+                <p class="muted">Loading builds…</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__links">
+            <a href="/api-docs">About</a>
+            <a href="/api-docs">Contact</a>
+            <a href="/api-docs">Privacy</a>
+        </div>
+    </footer>
+</div>
+<script src="/scripts/index.js" type="module"></script>
 </body>
 </html>
