@@ -42,9 +42,6 @@ export const createApp = () => {
     //Endpoint to access the API documentation
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {swaggerOptions: { url: '/docs/openapi.json' }}))
 
-    //Router for web views
-    app.use('/' , createViewRouter())
-
     //Router for authentication
     app.use('/api/auth', createAuthRouter({ UserModel, TokenModel }))
     //Router for users
@@ -55,6 +52,9 @@ export const createApp = () => {
     app.use('/api/builds', createBuildRouter({ BuildModel, UserModel, AssetModel }))
     //Router for assets
     app.use('/api/assets', createAssetRouter({ AssetModel }))
+
+    //Router for web views
+    app.use('/' , createViewRouter())
 
     app.use(errorHandler);
 
