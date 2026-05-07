@@ -556,8 +556,14 @@
   }
 
   function renderHandDropdown(slotKey, items, loadoutIndex) {
+    const isLastLoadout = loadoutIndex === 3;
+    const isLeftColumn = slotKey.endsWith('1') || slotKey.endsWith('3') || slotKey.endsWith('5') || slotKey.endsWith('7');
+    const sideClass = isLastLoadout
+            ? (isLeftColumn ? 'mini-slot__dropdown--side-left' : 'mini-slot__dropdown--side-right')
+            : '';
+
     return `
-        <div class="mini-slot__dropdown" id="mini-${slotKey}-dropdown">
+        <div class="mini-slot__dropdown ${sideClass}" id="mini-${slotKey}-dropdown">
           <div class="equip-slot__dropdown-clear" onclick="selectWeapon('${slotKey}', null, ${loadoutIndex})">✕ &nbsp; Clear</div>
           ${items.map(it => `
             <div class="equip-slot__dropdown-item" onclick="selectWeapon('${slotKey}', '${it.id}', ${loadoutIndex})">

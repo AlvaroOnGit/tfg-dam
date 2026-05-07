@@ -108,7 +108,7 @@
 /* ===== MAIN GRID ===== */
 .main-grid {
     max-width: 1440px; margin: 0 auto;
-    padding: 8px 32px 80px;
+    padding: 8px 32px 160px;
     display: grid;
     grid-template-columns: 320px 1fr 320px;
     gap: 28px;
@@ -590,7 +590,7 @@
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    z-index: 40;
+    z-index: 220;
     min-width: 220px;
     background: var(--color-ink-panel);
     border: 1px solid var(--color-primary);
@@ -600,6 +600,15 @@
     overflow-y: auto;
 }
 .mini-slot__dropdown.open { display: block; }
+.mini-slot__dropdown--side-right {
+    top: 0;
+    left: calc(100% + 6px);
+}
+.mini-slot__dropdown--side-left {
+    top: 0;
+    left: auto;
+    right: calc(100% + 6px);
+}
 
 /* Locked state (two-handed) */
 .mini-slot.locked .mini-slot__trigger {
@@ -776,7 +785,11 @@
 /* ===== SUMMARY SIDEBAR ===== */
 .summary-sidebar {
     position: relative;
-    z-index: 10;
+    z-index: 25;
+}
+.summary-sidebar .panel,
+#weapon-slots {
+    overflow: visible;
 }
 
 /* ===== TIP BOX ===== */
