@@ -19,35 +19,29 @@ export async function login(userData){
         };
     }
 
-    try {
-        return await response.json();
-    } catch {
-        return null;
-    }
-};
+    return data;
+}
 
-const request = async (url, { method = 'GET', body, headers = {}, credentials = 'include' } = {}) => {
-    const response = await fetch(url, {
-        method,
+export async function register(userData){
+    const res = await fetch(`${API_URL}/auth/register`, {
+        method: 'POST',
         headers: {
-            ...(body ? { 'Content-Type': 'application/json' } : {}),
-            ...headers
+            'Content-Type': 'application/json',
         },
-        credentials,
-        ...(body ? { body: JSON.stringify(body) } : {})
+        body: JSON.stringify(userData)
     });
 
-    const data = await parseResponseBody(response);
+    const data = await res.json();
 
-    if (!response.ok) {
-        const error = new Error(data?.message || 'Request failed.');
-        error.status = response.status;
-        error.data = data;
-        throw error;
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
     }
 
     return data;
-};
+}
 
 export async function forgot(userData){
     const res = await fetch(`${API_URL}/auth/forgot-password`, {
@@ -97,17 +91,14 @@ export async function refresh(){
         credentials: 'include',
     });
 
-window.api = {
-    get: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'GET' }),
-    post: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'POST', body }),
-    patch: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PATCH', body }),
-    put: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PUT', body }),
-    delete: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'DELETE' })
-};
+    const data = await res.json();
 
-export async function login(userData){
-    return await window.api.post('/auth/login', userData);
-}
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            message: data.message,
+        }
+    }
 
     return data;
 }
@@ -134,11 +125,11 @@ export async function getGames({ page = 1, name = '', genre = '' } = {}) {
 
 /*------Builds------*/
 export async function getBuilds({
-    page = 1,
-    gameSlug = '',
-    name = '',
-    creator = '',
-    tags = [] } = {}) {
+                                    page = 1,
+                                    gameSlug = '',
+                                    name = '',
+                                    creator = '',
+                                    tags = [] } = {}) {
 
     const params = new URLSearchParams({ limit: 15, page });
 
