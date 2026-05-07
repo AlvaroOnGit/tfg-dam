@@ -41,8 +41,8 @@ export class TokenModel {
     }
     static saveResetToken = async (data) => {
         const res = await pool.query(`
-            INSERT INTO reset_tokens (user_id, token, device_id, user_agent, expires_at)
-            VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP + ($5 || ' hour')::interval)
+            INSERT INTO reset_tokens (user_id, token, device_id, user_agent)
+            VALUES ($1, $2, $3, $4)
             ON CONFLICT (user_id)
             DO UPDATE SET 
                 token = $2,
