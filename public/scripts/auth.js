@@ -1,4 +1,7 @@
-import { register, login } from './api.js';
+import { register, login, forgot } from './api.js';
+import { deviceHandler } from "./helpers/device.js";
+import { FormAlertHandler } from "./helpers/alert.js";
+
 
 const formWrapper = document.querySelector('.auth-form-wrapper');
 
@@ -16,23 +19,9 @@ const submitButton = formWrapper.querySelector('.auth-submit');
 const forgotButton = formWrapper.querySelector('.auth-forgot');
 const showPasswordButton = passwordWrapper.querySelector('.auth-password-toggle');
 
+const alertHandler = new FormAlertHandler(formWrapper);
+
 let formType = 'login';
-
-class FormAlertHandler {
-
-    static alertWrapper = formWrapper.querySelector('.auth-form-alert')
-    static alertText = this.alertWrapper.querySelector('.alert-message');
-
-    static displayAlert(type, message) {
-        this.alertWrapper.classList.remove('error', 'warning', 'success', 'is-hidden');
-        this.alertWrapper.classList.add(type);
-        this.alertText.textContent = message;
-    }
-
-    static clearAlert() {
-        this.alertWrapper.classList.add('is-hidden');
-    }
-}
 
 toggleButton.addEventListener('click', event => {
     event.preventDefault();
@@ -69,7 +58,7 @@ formWrapper.addEventListener('submit', async (event) => {
     try {
         const res = await submitForm(userData);
 
-        FormAlertHandler.displayAlert('success', res.message);
+        alertHandler.displayAlert('success', res.message);
 
         switch (formType) {
             case 'login': {
@@ -79,29 +68,35 @@ formWrapper.addEventListener('submit', async (event) => {
             case 'register': {
                 formType = 'login';
                 updateForm();
+                break;
+            }
+            case 'forgot': {
+                formType = 'login';
+                updateForm();
             }
         }
 
     } catch (e) {
         switch (e.status) {
             case 400: {
-                FormAlertHandler.displayAlert('warning', 'Invalid email or password');
+                alertHandler.displayAlert('warning', 'Invalid email or password.\n Password must have at least one uppercase letter, number and symbol');
                 break;
             }
             case 409: {
-                FormAlertHandler.displayAlert('warning', e.data.message);
+                alertHandler.displayAlert('warning', e.data.message);
                 break;
             }
             case 429: {
-                FormAlertHandler.displayAlert('warning', 'Too many requests, try again later');
+                alertHandler.displayAlert('warning', 'Too many requests, try again later');
                 break;
             }
-            default: FormAlertHandler.displayAlert('error', 'Server error');
+            default: alertHandler.displayAlert('error', 'Server error');
         }
     } finally {
         submitButton.disabled = false;
     }
 })
+
 showPasswordButton.addEventListener('click', () => {
     const isHidden = passwordInput.type === 'password';
     passwordInput.type = isHidden ? 'text' : 'password';
@@ -176,19 +171,8 @@ async function submitForm(userData) {
             return await register(userData);
         }
         case 'forgot': {
-            const { email } = userData;
-            return await forgot(email);
+            const { username, password, ...data } = userData;
+            return await forgot(data);
         }
     }
-}
-
-function deviceHandler() {
-    let device = localStorage.getItem('device');
-
-    if (!device) {
-        device = crypto.randomUUID();
-        localStorage.setItem('device', device);
-    }
-
-    return device;
 }

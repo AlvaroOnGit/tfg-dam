@@ -19,6 +19,48 @@ export async function register(userData){
     return apiFetch('/auth/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userData) });
 }
 
+export async function forgot(userData){
+    const res = await fetch(`${API_URL}/auth/forgot-password`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
+    }
+
+    return data;
+}
+
+export async function reset(userData, token){
+    const res = await fetch(`${API_URL}/auth/reset-password/${token}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
+    }
+
+    return data;
+}
+
 export async function refresh(){
     return apiFetch('/auth/refresh', { method: 'POST', credentials: 'include' });
 }

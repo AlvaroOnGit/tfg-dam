@@ -15,7 +15,7 @@
 
     /*------TEXTO------*/
 
-    --color-text: #e8e6e3;
+    --color-text: #efe7dc;
     --color-text-secondary: #e9c176;
     --color-text-tertiary: #191919;
     --color-text-muted: #9a9590;
@@ -35,10 +35,10 @@
 
     /*------FONDO DE PAGINA------*/
 
-    --page-bg-image:
-            radial-gradient(ellipse 120% 50% at 50% -10%, rgba(197,160,89,0.12) 0%, transparent 50%),
-            radial-gradient(ellipse 80% 60% at 50% 110%, rgba(160, 80, 30, 0.25) 0%, transparent 55%),
-            linear-gradient(180deg, #0a0a0a 0%, #0d0608 100%);
+        --page-bg-image:
+            radial-gradient(ellipse 120% 50% at 50% -10%, rgba(197,160,89,0.06) 0%, transparent 30%),
+            radial-gradient(ellipse 90% 60% at 50% 110%, rgba(8,6,6,0.6) 0%, transparent 55%),
+            linear-gradient(180deg, #010101 0%, #000000 100%);
 
     /*------RADIOS------*/
 
@@ -66,9 +66,16 @@ html {
 }
 
 body {
-    background: var(--color-neutral);
+    background: #000;
     background-image: var(--page-bg-image);
+    color: var(--color-text);
 }
+
+/* Ensure full-page background remains dark on very large displays */
+html, body { min-height: 100%; background-color: #000; }
+
+/* Make separator more subtle on big screens */
+.header-separator { height: 1px; }
 
 h1,h2,h3 {
     font-family: var(--font-headline), serif;
@@ -86,6 +93,12 @@ a {
 .logo-spellsword {
     height: 50px;
 }
+
+/* Headline styling to emulate classic serif look */
+h1, h2, h3 { letter-spacing: 0.6px; }
+h1 { font-size: 3.2rem; color: var(--color-text); }
+
+.visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
 
 .is-hidden {
     display: none !important;
@@ -106,6 +119,12 @@ a {
 .page-hero-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .page-lead { color: var(--color-text-muted); margin-top: 8px; max-width: 720px; }
 .builds-title { font-family: var(--font-headline); font-size: 3.2rem; font-weight: 400; font-style: italic; margin: 6px 0 8px; color: var(--color-text); }
+
+/* Thin separator below header used on games pages */
+.header-separator {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(197,160,89,0.06), rgba(255,255,255,0.02));
+}
 
 @media (max-width: 900px) {
     .nav-list { gap:12px; font-size:0.85rem; }

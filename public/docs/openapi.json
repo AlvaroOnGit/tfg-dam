@@ -16,6 +16,13 @@
     }
   ],
   "components": {
+    "securitySchemes": {
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "access_token"
+      }
+    },
     "schemas": {
       "MessageResponse": {
         "description": "An object that returns a simple message indicating the result of an operation.",
@@ -25,14 +32,17 @@
             "type": "string"
           }
         },
-        "required": ["message"]
+        "required": ["message"],
+        "example": {
+          "message": "Internal Server Error"
+        }
       },
       "ErrorResponse": {
         "description": "An object representing an API error, including a general message and details for specific fields if applicable.",
         "type": "object",
         "properties": {
           "message": { "type": "string" },
-          "errors" : {
+          "errors": {
             "type": "array",
             "items": {
               "type": "object",
@@ -53,11 +63,11 @@
           "username": { "type": "string" },
           "email": { "type": "string", "format": "email" },
           "role": { "type": "string" },
-          "roleLevel": { "type": "string", "format": "url" },
+          "roleLevel": { "type": "string" },
           "avatarUrl": { "type": "string", "format": "url" },
           "state": { "type": "string" }
         },
-        "required": ["id", "username", "email","role","roleLevel","avatarUrl", "state"],
+        "required": ["id", "username", "email", "role", "roleLevel", "avatarUrl", "state"],
         "example": {
           "id": "c6d7a08c-0d7c-4e05-87e7-8df6a87370d1",
           "username": "user123",
@@ -127,7 +137,7 @@
           "version": { "type": "string" },
           "gameVersion": { "type": "string" },
           "tags": {
-            "type": "array" ,
+            "type": "array",
             "items": { "type": "string" }
           },
           "templateData": {
@@ -136,44 +146,25 @@
             "additionalProperties": true
           }
         },
-        "required": ["game","owners","name","description","isPublic","isPublished","version","gameVersion","tags","templateData"],
+        "required": ["game", "owners", "name", "description", "isPublic", "isPublished", "version", "gameVersion", "tags", "templateData"],
         "example": {
-          "game": {
-            "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-            "slug": "elden-ring",
-            "name": "Elden Ring"
-          },
-          "owners": {
-            "creator": {
-              "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-              "username": "user123"
-            },
-            "editors": [
-              {
-                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-                "username": "user456"
-              },
-              {
-                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-                "username": "user789"
-              }
-            ]
-          },
-          "name": "Build 1 Name",
-          "description": "This is a build description",
+          "gameSlug": "elden-ring",
+          "name": "Test Build Elden Ring 3",
+          "description": "A Test description for the build",
           "isPublic": true,
           "isPublished": true,
           "version": "1.0.0",
-          "gameVersion": "3.2.1",
-          "tags": ["pvp","endgame","mage"],
+          "gameVersion": "1.0.0",
+          "tags": [
+            "pvp",
+            "endgame"
+          ],
           "templateData": {
-            "class": "Samurai",
-            "aow": {
-              "weapon1": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
-              "weapon2":  null,
-              "weapon3": null
-            }
-          }
+            "ashOfWar1": null,
+            "ashOfWar2": null,
+            "ashOfWar3": null
+          },
+          "assets": []
         }
       },
       "PartialBuildSummary": {
@@ -218,40 +209,29 @@
           "version": { "type": "string" },
           "gameVersion": { "type": "string" },
           "tags": {
-            "type": "array" ,
+            "type": "array",
             "items": { "type": "string" }
           }
         },
-        "required": ["id","game","owners","name","isPublic","isPublished","version","gameVersion","tags"],
+        "required": ["id", "game", "owners", "name", "isPublic", "isPublished", "version", "gameVersion", "tags"],
         "example": {
-          "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
-          "game": {
-            "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-            "slug": "elden-ring",
-            "name": "Elden Ring"
-          },
-          "owners": {
-            "creator": {
-              "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-              "username": "user123"
-            },
-            "editors": [
-              {
-                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-                "username": "user456"
-              },
-              {
-                "id": "d4224c79c-3957-4a13-b4c2-ed2f2616dad",
-                "username": "user789"
-              }
-            ]
-          },
-          "name": "Build 1 Name",
+          "gameSlug": "elden-ring",
+          "name": "Test Build Elden Ring 3",
+          "description": "A Test description for the build",
           "isPublic": true,
           "isPublished": true,
           "version": "1.0.0",
-          "gameVersion": "3.2.1",
-          "tags": ["pvp","endgame","mage"]
+          "gameVersion": "1.0.0",
+          "tags": [
+            "pvp",
+            "endgame"
+          ],
+          "templateData": {
+            "ashOfWar1": null,
+            "ashOfWar2": null,
+            "ashOfWar3": null
+          },
+          "assets": []
         }
       },
       "BuildAssetSummary": {
@@ -264,7 +244,7 @@
             "slotCategory": { "type": "string" },
             "slotName": { "type": "string" }
           },
-          "required": ["id","slotCategory","slotName"]
+          "required": ["id", "slotCategory", "slotName"]
         },
         "example": [
           {
@@ -277,6 +257,22 @@
             "slotCategory": "weapon",
             "slotName": "main_hand2"
           }
+        ]
+      },
+      "BuildPermissionSummary": {
+        "description": "A list of editor permissions for a build.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "userId": { "type": "string", "format": "uuid" },
+            "role": { "type": "string", "enum": ["creator", "co-owner", "editor"] }
+          },
+          "required": ["userId", "role"]
+        },
+        "example": [
+          { "userId": "d428c79c-3957-4a13-b4c2-ed2f2616dad9", "role": "creator" },
+          { "userId": "a1b2c3d4-1234-5678-abcd-ef0123456789", "role": "editor" }
         ]
       },
       "GameSummary": {
@@ -335,7 +331,7 @@
             "items": { "type": "string" }
           }
         },
-        "required": ["id", "game", "name", "slug", "type", "category", "iconUrl","data"],
+        "required": ["id", "game", "name", "slug", "type", "category", "iconUrl", "data"],
         "example": {
           "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
           "game": {
@@ -347,81 +343,100 @@
           "slug": "claymore",
           "type": "weapon",
           "category": "greatsword",
-          "description": "A large sword with a long, straight blade. This heavy sword is usually wielded with two hands, but for those with enough strength, one is sufficient.\n\nIn addition to the heavy sweeping attacks, it can also make a heavy piercing thrust making this a versatile weapon.",
+          "description": "A large sword with a long, straight blade.",
           "shortDescription": "A large sword with a long, straight blade.",
           "iconUrl": "https://cdn.example.com/public/assets/elden-ring/claymore.png",
           "data": {
-            "attack": {
-              "physical": 138,
-              "magical": 0,
-              "fire": 0,
-              "lightning": 0,
-              "holy": 0,
-              "critical": 100
-            },
-            "guard": {
-              "physical": 52,
-              "magical": 36,
-              "fire": 36,
-              "lightning": 36,
-              "holy": 36,
-              "boost": 36
-            },
-            "scaling": {
-              "strength": "D",
-              "dexterity": "D",
-              "intelligence": null,
-              "faith": null,
-              "arcane": null
-            },
-            "requirements": {
-              "strength": 16,
-              "dexterity": 13,
-              "intelligence": null,
-              "faith": null,
-              "arcane": null
-            },
-            "aow": {
-              "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9",
-              "replaceable": true
-            },
+            "attack": { "physical": 138, "magical": 0, "fire": 0, "lightning": 0, "holy": 0, "critical": 100 },
+            "guard": { "physical": 52, "magical": 36, "fire": 36, "lightning": 36, "holy": 36, "boost": 36 },
+            "scaling": { "strength": "D", "dexterity": "D", "intelligence": null, "faith": null, "arcane": null },
+            "requirements": { "strength": 16, "dexterity": 13, "intelligence": null, "faith": null, "arcane": null },
+            "aow": { "id": "d428c79c-3957-4a13-b4c2-ed2f2616dad9", "replaceable": true },
             "weight": 9.0
           },
-          "tags": ["melee", "piercing","strength","dexterity"]
+          "tags": ["melee", "piercing", "strength", "dexterity"]
+        }
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Unauthorized — access token missing or invalid",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "User not authorized" }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Forbidden — insufficient permissions",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "Insufficient permissions" }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "Resource not found" }
+          }
+        }
+      },
+      "ValidationError": {
+        "description": "Validation error",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "Error validating the request body", "errors": [] }
+          }
+        }
+      },
+      "TooManyRequests": {
+        "description": "Too Many Requests",
+        "headers": {
+          "X-RateLimit-Limit": {
+            "description": "Maximum number of requests allowed in the window",
+            "schema": { "type": "integer" }
+          },
+          "Retry-After": {
+            "description": "Seconds to wait before retrying",
+            "schema": { "type": "integer" }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "Too many attempts, please try again later" }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/MessageResponse" },
+            "example": { "message": "Internal Server Error" }
+          }
         }
       }
     }
   },
   "tags": [
-    {
-      "name": "Auth",
-      "description": "Authentication endpoints"
-    },
-    {
-      "name": "Users",
-      "description": "User profile endpoints"
-    },
-    {
-      "name": "Account",
-      "description": "Account endpoints"
-    },
-    {
-      "name": "Games",
-      "description": "Game endpoints"
-    },
-    {
-      "name": "Assets",
-      "description": "Asset endpoints"
-    },
-    {
-      "name": "Builds",
-      "description": "Build endpoints"
-    }
+    { "name": "Auth",   "description": "Authentication endpoints" },
+    { "name": "Users",  "description": "User profile and account management endpoints" },
+    { "name": "Games",  "description": "Game endpoints" },
+    { "name": "Assets", "description": "Asset endpoints" },
+    { "name": "Builds", "description": "Build endpoints" }
   ],
   "paths": {
-    "/auth/register": {
+    "/api/auth/register": {
       "post": {
         "tags": ["Auth"],
+        "summary": "Register a new user",
         "description": "Creates a new user account. Fails if username or email already exists.",
         "operationId": "auth_register",
         "requestBody": {
@@ -432,7 +447,7 @@
                 "type": "object",
                 "properties": {
                   "username": { "type": "string", "minLength": 5 },
-                  "email": { "type": "string", "format": "email" },
+                  "email":    { "type": "string", "format": "email" },
                   "password": { "type": "string", "minLength": 8 }
                 },
                 "required": ["username", "email", "password"],
@@ -447,55 +462,34 @@
         },
         "responses": {
           "201": {
-            "description": "The user created an account successfully",
+            "description": "Account created successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User registered successfully."
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "User registered successfully" }
               }
             }
           },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "409": {
-            "description": "Credentials already exist on the database",
+            "description": "Conflict — username or email already exists",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "message": "Username or email already in use.",
-                  "errors": [
-                    { "field":  "email", "error":  "Email already in use."},
-                    { "field":  "username", "error":  "Username already in use."}
-                  ]
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Email already exists" }
               }
             }
           },
-          "400": {
-            "description": "Credential validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided credentials"
-                }
-              }
-            }
-          }
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/auth/login": {
+    "/api/auth/login": {
       "post": {
         "tags": ["Auth"],
-        "description": "Logs a user. Fails if credentials are invalid.",
+        "summary": "Log in",
+        "description": "Authenticates a user with email and password. On success, sets HttpOnly cookies for the access and refresh tokens.",
         "operationId": "auth_login",
         "requestBody": {
           "required": true,
@@ -504,7 +498,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": { "type": "string", "format": "email" },
+                  "email":    { "type": "string", "format": "email" },
                   "password": { "type": "string", "minLength": 8 }
                 },
                 "required": ["email", "password"],
@@ -518,152 +512,114 @@
         },
         "responses": {
           "200": {
-            "description": "User logged in successfully; tokens set in HttpOnly cookies",
+            "description": "User logged in successfully. Tokens set in HttpOnly cookies.",
             "headers": {
               "Set-Cookie": {
-                "description": "Contains access_token, refresh_token and user info as HttpOnly cookies",
+                "description": "Sets access_token (15 min, SameSite=Lax) and refresh_token (configurable days, SameSite=Strict) as HttpOnly cookies.",
                 "schema": {
                   "type": "string",
-                  "example": "access_token=ff0718d6-7f31-4638-9f59-503ef4f0f405; HttpOnly; maxAge; sameSite; Secure, refresh_token=xyz456; HttpOnly; maxAge; sameSite; Secure"
+                  "example": "access_token=<jwt>; HttpOnly; SameSite=Lax; Secure, refresh_token=<jwt>; HttpOnly; SameSite=Strict; Secure"
                 }
               }
             },
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Login successful."
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Authentication successful" }
               }
             }
           },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "401": {
             "description": "Invalid credentials",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Invalid email or password."
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Invalid credentials" }
               }
             }
           },
-          "400": {
-            "description": "Credential validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided credentials",
-                  "errors": [
-                    { "field": "email", "error": "Email format invalid" },
-                    { "field": "password", "error": "Password format is invalid" }
-                  ]
-                }
-              }
-            }
-          }
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/auth/logout": {
+    "/api/auth/logout": {
       "post": {
         "tags": ["Auth"],
-        "description": "Logs out the user by clearing the access_token and refresh_token cookies.",
+        "summary": "Log out",
+        "description": "Revokes the current refresh token and clears both auth cookies. Requires a valid access token cookie.",
         "operationId": "auth_logout",
+        "security": [{ "cookieAuth": [] }],
         "responses": {
           "200": {
-            "description": "User logged out successfully; cookies cleared",
+            "description": "User logged out. Auth cookies cleared.",
             "headers": {
               "Set-Cookie": {
-                "description": "Clears the access_token and refresh_token cookies",
-                "schema": {
-                  "type": "string",
-                  "example": "access_token=ff0718d6-7f31-4638-9f59-503ef4f0f405; HttpOnly; maxAge=0; sameSite; Secure, refresh_token=xyz456; HttpOnly; maxAge=0; sameSite; Secure"
-                }
+                "description": "Clears the access_token and refresh_token cookies (maxAge=0).",
+                "schema": { "type": "string" }
               }
             },
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Logout successful"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "User logged out" }
               }
             }
           },
           "401": {
-            "description": "Unauthorized or invalid session",
+            "description": "Access or refresh token not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User is not authorized"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Access token not found" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/auth/refresh": {
+    "/api/auth/refresh": {
       "post": {
         "tags": ["Auth"],
-        "description": "Refreshes the access_token using the refresh_token stored in HttpOnly cookie.",
+        "summary": "Refresh tokens",
+        "description": "Issues a new access token and refresh token using the refresh_token cookie. The old refresh token is invalidated.",
         "operationId": "auth_refresh",
         "responses": {
           "200": {
-            "description": "Access token refreshed successfully",
+            "description": "Tokens refreshed successfully. New cookies set.",
             "headers": {
               "Set-Cookie": {
-                "description": "Sets a new access_token cookie",
-                "schema": {
-                  "type": "string",
-                  "example": "access_token=ff0718d6-7f31-4638-9f59-503ef4f0f405; HttpOnly; maxAge=0; sameSite; Secure"
-                }
+                "description": "Sets new access_token and refresh_token HttpOnly cookies.",
+                "schema": { "type": "string" }
               }
             },
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Access token refreshed successfully"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Tokens refreshed successfully" }
               }
             }
           },
           "401": {
-            "description": "Refresh token missing, invalid or expired",
+            "description": "Refresh token missing, invalid or revoked",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Refresh token invalid or expired"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Refresh token invalid or expired" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/auth/forgot-password": {
+    "/api/auth/forgot-password": {
       "post": {
         "tags": ["Auth"],
-        "description": "Initiates password reset process. Sends an email with a reset link if the user exists.",
+        "summary": "Request password reset",
+        "description": "Initiates the password reset flow. If the email exists, a reset link is sent. Always returns 200 to avoid email enumeration.",
         "operationId": "auth_forgot_password",
         "requestBody": {
           "required": true,
@@ -672,49 +628,45 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": { "type": "string", "format": "email"}
+                  "email": { "type": "string", "format": "email" }
                 },
                 "required": ["email"],
-                "example": { "email": "user@example.com"}
+                "example": { "email": "user@example.com" }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Password reset email sent (or request accepted)",
+            "description": "Request processed. An email is sent if the address exists.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "If an account with that email exists, a password reset link has been sent."
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "If the address exists, an email with instructions has been sent" }
               }
             }
           },
-          "400": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided email"
-                }
-              }
-            }
-          }
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/auth/reset-password": {
+    "/api/auth/reset-password/{token}": {
       "post": {
         "tags": ["Auth"],
-        "description": "Resets the user password using a token received by email.",
+        "summary": "Reset password",
+        "description": "Resets the user password using a single-use token received by email. The token is passed as a path parameter.",
         "operationId": "auth_reset_password",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Single-use reset token received via email.",
+            "schema": { "type": "string" }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -722,14 +674,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "token": { "type": "string", "description": "Token received via email"},
                   "password": { "type": "string", "minLength": 8, "description": "New password" }
                 },
-                "required": ["token", "password"],
-                "example": {
-                  "token": "f9a3b2d1-xxxx-xxxx-xxxx-abcdef123456",
-                  "password": "Newpassword123!"
-                }
+                "required": ["password"],
+                "example": { "password": "Newpassword123!" }
               }
             }
           }
@@ -739,421 +687,344 @@
             "description": "Password reset successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Password reset successfully"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Password updated successfully" }
               }
             }
           },
-          "400": {
-            "description": "Validation error or invalid token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided details",
-                  "errors": [
-                    { "field": "token", "error": "Token expired or invalid" },
-                    { "field": "password", "error": "Password is invalid" }
-                  ]
-                }
-              }
-            }
-          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "401": {
-            "description": "Unauthorized or token already used",
+            "description": "Token invalid, expired or already used",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Token invalid or already used"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Reset token revoked or expired" }
               }
             }
-          }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/users/me": {
+    "/api/users/me": {
       "get": {
         "tags": ["Users"],
-        "description": "Get current logged-in user's profile.",
-        "operationId": "users_get_profile",
+        "summary": "Get own profile",
+        "description": "Returns the full private profile of the currently authenticated user.",
+        "operationId": "users_get_my_profile",
+        "security": [{ "cookieAuth": [] }],
         "responses": {
           "200": {
-            "description": "User profile retrieved successfully",
+            "description": "Profile retrieved successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PrivateProfileSummary"
-                }
+                "schema": { "$ref": "#/components/schemas/PrivateProfileSummary" }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      }
+    },
+    "/api/users/me/email": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Update email",
+        "description": "Updates the authenticated user's email address. Requires current password confirmation. On success, auth cookies are cleared and the user must log in again.",
+        "operationId": "users_update_email",
+        "security": [{ "cookieAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email":    { "type": "string", "format": "email", "description": "New email address" },
+                  "password": { "type": "string", "minLength": 8, "description": "Current password for confirmation" }
                 },
+                "required": ["email", "password"],
                 "example": {
-                  "message": "User not authorized"
+                  "email": "new@example.com",
+                  "password": "Currentpassword123!"
                 }
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "Email updated. Auth cookies cleared.",
+            "headers": {
+              "Set-Cookie": {
+                "description": "Clears the access_token and refresh_token cookies.",
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Email updated successfully." }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": {
+            "description": "Email already in use or same as current",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Email already in use" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/users/{id}": {
+    "/api/users/me/password": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Update password",
+        "description": "Updates the authenticated user's password. Requires current password confirmation. On success, auth cookies are cleared and the user must log in again.",
+        "operationId": "users_update_password",
+        "security": [{ "cookieAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password":    { "type": "string", "minLength": 8, "description": "Current password" },
+                  "newPassword": { "type": "string", "minLength": 8, "description": "New password" }
+                },
+                "required": ["password", "newPassword"],
+                "example": {
+                  "password": "Currentpassword123!",
+                  "newPassword": "Newpassword123!"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password updated. Auth cookies cleared.",
+            "headers": {
+              "Set-Cookie": {
+                "description": "Clears the access_token and refresh_token cookies.",
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Password updated successfully." }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": {
+            "description": "New password is the same as the current password",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Cannot use the same password" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      }
+    },
+    "/api/users/me/username": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Update username",
+        "description": "Updates the authenticated user's username. Requires current password confirmation. On success, auth cookies are cleared and the user must log in again.",
+        "operationId": "users_update_username",
+        "security": [{ "cookieAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string", "minLength": 5, "description": "New username" },
+                  "password": { "type": "string", "minLength": 8, "description": "Current password for confirmation" }
+                },
+                "required": ["username", "password"],
+                "example": {
+                  "username": "newUsername",
+                  "password": "Currentpassword123!"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Username updated. Auth cookies cleared.",
+            "headers": {
+              "Set-Cookie": {
+                "description": "Clears the access_token and refresh_token cookies.",
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Username updated successfully." }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": {
+            "description": "Username already in use or same as current",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Username already in use" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      }
+    },
+    "/api/users/{id}": {
       "get": {
         "tags": ["Users"],
-        "description": "Get a user's profile by ID. Some fields (like private builds) may be hidden depending on permissions.",
+        "summary": "Get public profile by ID",
+        "description": "Returns the public profile of a user. Sensitive fields (email, role, roleLevel, isVerified) are omitted.",
         "operationId": "users_get_by_id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "ID of the user to retrieve",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
+            "description": "UUID of the user to retrieve.",
+            "schema": { "type": "string", "format": "uuid" }
           }
         ],
         "responses": {
           "200": {
-            "description": "User profile retrieved successfully",
+            "description": "Public profile retrieved successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicProfileSummary"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/PublicProfileSummary" }
               }
-            },
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "404": {
             "description": "User not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User not found"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "User not found" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/account/settings": {
-      "get": {
-        "tags": ["Account"],
-        "description": "Retrieve current user's account settings",
-        "operationId": "account_get_settings",
-        "responses": {
-          "200": {
-            "description": "Account settings retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PrivateProfileSummary"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User not authorized"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["Account"],
-        "description": "Update current user's account settings",
-        "operationId": "account_update_settings",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": { "type": "string" },
-                  "email": { "type": "string", "format": "email"},
-                  "currentPassword": { "type": "string", "minLength": 8, "description": "Current Password"},
-                  "newPassword": { "type": "string", "minLength": 8, "description": "New Password"},
-                  "avatarUrl": { "type": "string", "format": "url" }
-                },
-                "example": {
-                  "username": "newUsername",
-                  "email": "new@example.com",
-                  "currentPassword": "Currentpassword123!",
-                  "newPassword": "Newpassword123!",
-                  "avatarUrl": "https://cdn.example.com/new_avatar.png"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Account updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Account updated successfully"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided data",
-                  "errors": [
-                    { "field": "email", "error": "Could not validate email" },
-                    { "field": "username", "error": "Could not validate username" },
-                    { "field": "password", "error": "Could not validate password" },
-                    { "field": "avatar", "error": "Could not validate avatar" }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User not authorized"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Account"],
-        "description": "Delete current user's account",
-        "operationId": "account_delete",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "password": { "type": "string", "minLength": 8, "description": "Password"}
-                },
-                "required": ["password"],
-                "example": {
-                  "password": "Userpassword123!"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Account deleted successfully",
-            "headers": {
-              "Set-Cookie": {
-                "description": "Clears the access_token and refresh_token cookies",
-                "schema": {
-                  "type": "string",
-                  "example": "access_token=ff0718d6-7f31-4638-9f59-503ef4f0f405; HttpOnly; maxAge=0; sameSite; Secure, refresh_token=xyz456; HttpOnly; maxAge=0; sameSite; Secure"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Account deleted successfully"
-                  }
-                }
-              }
-            },
-          "400": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                },
-                "example": {
-                  "message": "Could not validate provided data",
-                  "errors": [
-                    { "field": "password", "error": "Could not validate password" }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User not authorized"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/games": {
+    "/api/games": {
       "get": {
         "tags": ["Games"],
-        "description": " Retrieves a paginated list of games. Supports optional filters by name and genre.",
+        "summary": "List games",
+        "description": "Returns a paginated list of games. Supports optional filtering by name and genre.",
         "operationId": "games_list",
         "parameters": [
           {
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number for pagination. Default is 1.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "default": 1
-            }
+            "description": "Page number (default: 1).",
+            "schema": { "type": "integer", "minimum": 1, "default": 1 }
           },
           {
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Number of games per page. Default is 15, maximum is 50.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 50,
-              "default":  15
-            }
+            "description": "Number of results per page (default: 15, max: 50).",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 15 }
           },
           {
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter games by name (partial match).",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by game name (partial match).",
+            "schema": { "type": "string" }
           },
           {
             "name": "genre",
             "in": "query",
             "required": false,
-            "description": "Filter games by one or multiple genres.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
+            "description": "Filter by one or multiple genres.",
+            "schema": { "type": "array", "items": { "type": "string" } },
             "style": "form",
             "explode": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Game details retrieved successfully",
+            "description": "Games retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "page": { "type": "integer" , "example": 1 },
-                    "total": { "type": "integer" , "example": 20 },
-                    "limit": { "type": "integer" , "example": 15 },
+                    "page":  { "type": "integer", "example": 1 },
+                    "total": { "type": "integer", "example": 20 },
+                    "limit": { "type": "integer", "example": 15 },
                     "games": {
                       "type": "array",
                       "items": { "$ref": "#/components/schemas/GameSummary" }
                     }
                   },
-                  "required": ["currentPage", "totalPages","totalGames","games"]
+                  "required": ["page", "total", "limit", "games"]
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid query parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Invalid parameters"
-                }
-              }
-            }
-          }
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/games/{slug}": {
+    "/api/games/{slug}": {
       "get": {
         "tags": ["Games"],
-        "description": " Retrieves information for a specific game using its slug",
+        "summary": "Get game by slug",
+        "description": "Returns detailed information for a specific game identified by its slug.",
         "operationId": "games_get_by_slug",
         "parameters": [
           {
             "name": "slug",
             "in": "path",
             "required": true,
-            "description": "The unique slug of the game",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Unique slug of the game.",
+            "schema": { "type": "string", "example": "elden-ring" }
           }
         ],
         "responses": {
           "200": {
-            "description": "Game details retrieved successfully",
+            "description": "Game retrieved successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GameSummary"
-                }
+                "schema": { "$ref": "#/components/schemas/GameSummary" }
               }
             }
           },
@@ -1161,70 +1032,56 @@
             "description": "Game not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Game not found"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Game not found" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/assets": {
+    "/api/assets": {
       "get": {
         "tags": ["Assets"],
-        "description": "Retrieve paginated assets belonging to a specific game. The gameSlug parameter is required to ensure context isolation between games.",
-        "operationId": "get_assets",
+        "summary": "List assets",
+        "description": "Returns paginated assets for a specific game. The `gameSlug` parameter is required to ensure context isolation between games.",
+        "operationId": "assets_list",
         "parameters": [
           {
             "name": "gameSlug",
             "in": "query",
             "required": true,
             "description": "Slug of the game. Required to prevent cross-game results.",
-            "schema": {
-              "type": "string",
-              "example": "elden-ring"
-            }
+            "schema": { "type": "string", "example": "elden-ring" }
           },
           {
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter by asset name (partial match)",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by asset name (partial match).",
+            "schema": { "type": "string" }
           },
           {
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Filter by macro type (weapon, armor, spell, etc.)",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by macro type (weapon, armor, spell, etc.).",
+            "schema": { "type": "string" }
           },
           {
             "name": "category",
             "in": "query",
             "required": false,
-            "description": "Filter by specific category (greatsword, heavy-armor, sorcery, etc.)",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by specific category (greatsword, heavy-armor, sorcery, etc.).",
+            "schema": { "type": "string" }
           },
           {
             "name": "tags",
             "in": "query",
             "required": false,
             "description": "Filter by tags.",
-            "schema": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
+            "schema": { "type": "array", "items": { "type": "string" } },
             "style": "form",
             "explode": true
           },
@@ -1232,24 +1089,15 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number for pagination. Default is 1.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "default": 1
-            }
+            "description": "Page number (default: 1).",
+            "schema": { "type": "integer", "minimum": 1, "default": 1 }
           },
           {
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Number of assets per page. Default is 15, maximum is 50.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 50,
-              "default":  15
-            }
+            "description": "Number of results per page (default: 15, max: 50).",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 15 }
           }
         ],
         "responses": {
@@ -1260,14 +1108,12 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "page": { "type": "integer" , "example": 1 },
-                    "total": { "type": "integer" , "example": 10 },
-                    "limit": { "type": "integer" , "example": 15 },
+                    "page":   { "type": "integer", "example": 1 },
+                    "total":  { "type": "integer", "example": 10 },
+                    "limit":  { "type": "integer", "example": 15 },
                     "assets": {
                       "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/AssetSummary"
-                      }
+                      "items": { "$ref": "#/components/schemas/AssetSummary" }
                     }
                   },
                   "required": ["page", "total", "limit", "assets"]
@@ -1275,109 +1121,83 @@
               }
             }
           },
-          "400": {
-            "description": "Invalid query parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Invalid query parameters"
-                }
-              }
-            }
-          }
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/assets/{id}": {
+    "/api/assets/{id}": {
       "get": {
         "tags": ["Assets"],
-        "description": " Retrieves information for a specific asset using its id",
-        "operationId": "assets_by_id",
+        "summary": "Get asset by ID",
+        "description": "Returns detailed information for a specific asset identified by its UUID.",
+        "operationId": "assets_get_by_id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The unique id of the asset",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
+            "description": "UUID of the asset.",
+            "schema": { "type": "string", "format": "uuid" }
           }
         ],
         "responses": {
           "200": {
-            "description": "Asset details retrieved successfully",
+            "description": "Asset retrieved successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AssetSummary"
-                }
+                "schema": { "$ref": "#/components/schemas/AssetSummary" }
               }
             }
           },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "404": {
             "description": "Asset not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Asset not found"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Asset not found" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/builds": {
+    "/api/builds": {
       "get": {
         "tags": ["Builds"],
-        "description": "Retrieve paginated builds. Supports filters by game, name, tags, and creator.",
-        "operationId": "get_build",
+        "summary": "List builds",
+        "description": "Returns a paginated list of public builds. Supports optional filtering by game, name, tags, and creator.",
+        "operationId": "builds_list",
         "parameters": [
           {
             "name": "gameSlug",
             "in": "query",
             "required": false,
-            "description": "Slug of the game.",
-            "schema": {
-              "type": "string",
-              "example": "elden-ring"
-            }
+            "description": "Filter by game slug.",
+            "schema": { "type": "string", "example": "elden-ring" }
           },
           {
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter by build name (partial match)",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by build name (partial match).",
+            "schema": { "type": "string" }
           },
           {
             "name": "creator",
             "in": "query",
             "required": false,
-            "description": "Filter by build creator (partial match)",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Filter by creator username (partial match).",
+            "schema": { "type": "string" }
           },
           {
             "name": "tags",
             "in": "query",
             "required": false,
             "description": "Filter by tags.",
-            "schema": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
+            "schema": { "type": "array", "items": { "type": "string" } },
             "style": "form",
             "explode": true
           },
@@ -1385,24 +1205,15 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number for pagination. Default is 1.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "default": 1
-            }
+            "description": "Page number (default: 1).",
+            "schema": { "type": "integer", "minimum": 1, "default": 1 }
           },
           {
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Number of builds per page. Default is 15, maximum is 50.",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 50,
-              "default":  15
-            }
+            "description": "Number of results per page (default: 15, max: 50).",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 15 }
           }
         ],
         "responses": {
@@ -1413,14 +1224,12 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "page": { "type": "integer" , "example": 1 },
-                    "total": { "type": "integer" , "example": 10 },
-                    "limit": { "type": "integer" , "example": 15 },
+                    "page":   { "type": "integer", "example": 1 },
+                    "total":  { "type": "integer", "example": 10 },
+                    "limit":  { "type": "integer", "example": 15 },
                     "builds": {
                       "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/PartialBuildSummary"
-                      }
+                      "items": { "$ref": "#/components/schemas/PartialBuildSummary" }
                     }
                   },
                   "required": ["page", "total", "limit", "builds"]
@@ -1428,25 +1237,16 @@
               }
             }
           },
-          "400": {
-            "description": "Invalid query parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Invalid query parameters"
-                }
-              }
-            }
-          }
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       },
       "post": {
         "tags": ["Builds"],
-        "description": "Create a new build. User must be authenticated.",
-        "operationId": "post_build",
+        "summary": "Create build",
+        "description": "Creates a new build. The authenticated user becomes the creator. Rate limited to 10 requests per 15 minutes.",
+        "operationId": "builds_create",
+        "security": [{ "cookieAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
@@ -1454,7 +1254,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "build": { "$ref": "#/components/schemas/BuildSummary" },
+                  "build":       { "$ref": "#/components/schemas/BuildSummary" },
                   "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
                 },
                 "required": ["build", "buildAssets"]
@@ -1467,102 +1267,74 @@
             "description": "Build created successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Build created successfully"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build created successfully" }
               }
             }
           },
-          "400": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Validation error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Unauthorized"
-                }
-              }
-            }
-          }
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     },
-    "/builds/{id}": {
+    "/api/builds/{id}": {
       "get": {
         "tags": ["Builds"],
-        "description": " Retrieves information for a specific build using its id",
-        "operationId": "builds_by_id",
+        "summary": "Get build by ID",
+        "description": "Returns full build details including game-specific template data and resolved asset list.",
+        "operationId": "builds_get_by_id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The unique id of the build",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
+            "description": "UUID of the build.",
+            "schema": { "type": "string", "format": "uuid" }
           }
         ],
         "responses": {
           "200": {
-            "description": "Build details retrieved successfully",
+            "description": "Build retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "build": { "$ref": "#/components/schemas/BuildSummary" },
+                    "build":       { "$ref": "#/components/schemas/BuildSummary" },
                     "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
                   },
-                  "required": ["build"]
+                  "required": ["build", "buildAssets"]
                 }
               }
             }
           },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "404": {
             "description": "Build not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Build not found"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build not found" }
               }
             }
-          }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       },
       "patch": {
         "tags": ["Builds"],
-        "description": "Update an existing build. Supports partial updates. User must be authenticated and have permission.",
-        "operationId": "patch_build",
+        "summary": "Update build",
+        "description": "Partially updates an existing build. The user must be authenticated and have editor or creator permissions on the build. Rate limited to 50 requests per 15 minutes.",
+        "operationId": "builds_update",
+        "security": [{ "cookieAuth": [] }],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The ID of the build to update",
+            "description": "UUID of the build to update.",
             "schema": { "type": "string", "format": "uuid" }
           }
         ],
@@ -1573,7 +1345,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "build": { "$ref": "#/components/schemas/BuildSummary" },
+                  "build":       { "$ref": "#/components/schemas/BuildSummary" },
                   "buildAssets": { "$ref": "#/components/schemas/BuildAssetSummary" }
                 },
                 "required": ["build", "buildAssets"]
@@ -1586,135 +1358,209 @@
             "description": "Build updated successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Build updated successfully"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build updated successfully" }
               }
             }
           },
-          "400": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Validation error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Unauthorized"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User does not have permission to update this build"
-                }
-              }
-            }
-          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
           "404": {
             "description": "Build not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Build not found"
-                }
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build not found" }
               }
             }
-          }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       },
       "delete": {
         "tags": ["Builds"],
-        "description": "Deletes an existing build. User must be authenticated and have permission.",
-        "operationId": "delete_build",
+        "summary": "Delete build",
+        "description": "Permanently deletes a build. Only the creator or a co-owner can delete. Rate limited to 20 requests per 15 minutes.",
+        "operationId": "builds_delete",
+        "security": [{ "cookieAuth": [] }],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The ID of the build to update",
+            "description": "UUID of the build to delete.",
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Build deleted successfully. No content returned."
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
+          "404": {
+            "description": "Build not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build not found" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      }
+    },
+    "/api/builds/{id}/editors": {
+      "get": {
+        "tags": ["Builds"],
+        "summary": "Get build editors",
+        "description": "Returns the list of users with permissions on the build, including their roles.",
+        "operationId": "builds_get_editors",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the build.",
             "schema": { "type": "string", "format": "uuid" }
           }
         ],
         "responses": {
           "200": {
-            "description": "Build deleted successfully",
+            "description": "Permissions retrieved successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Build deleted successfully"
-                }
+                "schema": { "$ref": "#/components/schemas/BuildPermissionSummary" }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "Unauthorized"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                },
-                "example": {
-                  "message": "User does not have permission to delete this build"
-                }
-              }
-            }
-          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
           "404": {
             "description": "Build not found",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Build not found" }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      },
+      "post": {
+        "tags": ["Builds"],
+        "summary": "Grant editor permission",
+        "description": "Grants a user a role on the build. The requester must be the creator or a co-owner. Rate limited to 50 requests per 15 minutes.",
+        "operationId": "builds_grant_editor",
+        "security": [{ "cookieAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the build.",
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId":   { "type": "string", "format": "uuid", "description": "UUID of the user to grant permissions to." },
+                  "userRole": { "type": "string", "enum": ["co-owner", "editor"], "description": "Role to assign." }
                 },
+                "required": ["userId", "userRole"],
                 "example": {
-                  "message": "Build not found"
+                  "userId": "a1b2c3d4-1234-5678-abcd-ef0123456789",
+                  "userRole": "editor"
                 }
               }
             }
           }
+        },
+        "responses": {
+          "201": {
+            "description": "Permission granted successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Edit permission granted successfully" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
+          "404": {
+            "description": "Build or user not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "User not found" }
+              }
+            }
+          },
+          "409": {
+            "description": "User already has permissions on this build",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "User already has permissions for this build" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
+        }
+      }
+    },
+    "/api/builds/{id}/editors/{userId}": {
+      "delete": {
+        "tags": ["Builds"],
+        "summary": "Revoke editor permission",
+        "description": "Removes a user's permission from a build. The requester must be the creator or a co-owner. Rate limited to 50 requests per 15 minutes.",
+        "operationId": "builds_revoke_editor",
+        "security": [{ "cookieAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the build.",
+            "schema": { "type": "string", "format": "uuid" }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the user whose permission will be revoked.",
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Permission revoked successfully. No content returned."
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/Forbidden" },
+          "404": {
+            "description": "Build or editor not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MessageResponse" },
+                "example": { "message": "Editor not found" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/TooManyRequests" },
+          "500": { "$ref": "#/components/responses/InternalServerError" }
         }
       }
     }

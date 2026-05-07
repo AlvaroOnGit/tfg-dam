@@ -27,7 +27,9 @@
 .builds-title {
     font-size: 2.4rem;
     font-weight: 500;
-    margin-bottom: 24px;
+    margin: 8px auto 24px;
+    text-align: center;
+    width: 100%;
 }
 
 /* ===== CONTROLS ===== */
@@ -51,25 +53,156 @@
     border-radius: 8px;
 }
 
+.builds-controls input {
+    width: 220px;
+    max-width: 40vw;
+}
+
+.search-input {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+/* Make bottom area (container) match top dark aesthetic */
+.builds-container {
+    background: linear-gradient(180deg, rgba(8,8,10,0.0), rgba(4,4,6,0.0));
+}
+
+.create-build-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 380px;
+    padding: 7px 72px;
+    font-size: 0.95rem;
+    border-radius: 999px;
+}
+
+/* Hero layout: place create button to the left and center title */
+.page-hero-inner { position: relative; }
+.hero-header-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    box-sizing: border-box;
+    padding-left: 0;
+}
+.hero-left { flex: 0 0 260px; }
+.hero-controls {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.hero-controls .search-input,
+.hero-controls #builds-order {
+    width: 240px;
+    max-width: 100%;
+    background: rgba(10, 10, 12, 0.9);
+    color: var(--color-text);
+    border: 1px solid rgba(233, 193, 118, 0.45);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(233, 193, 118, 0.1);
+}
+
+.hero-controls .search-input {
+    padding: 9px 12px;
+}
+
+.hero-controls #builds-order {
+    padding: 8px 10px;
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--color-primary) 50%),
+        linear-gradient(135deg, var(--color-primary) 50%, transparent 50%);
+    background-position:
+        calc(100% - 14px) calc(50% - 2px),
+        calc(100% - 9px) calc(50% - 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 28px;
+}
+
+.hero-controls .search-input::placeholder {
+    color: rgba(239, 231, 220, 0.7);
+}
+
+.hero-controls .search-input:focus,
+.hero-controls #builds-order:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(233, 193, 118, 0.2);
+}
+/* Make the create button take prominent space under the title on wide screens */
+.create-build-row {
+    margin: 18px auto 0;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+}
+.create-build-row .create-build-btn { position: static; margin: 0 auto; max-width: 100%; }
+.builds-title { margin: 0; text-align: center; color: var(--color-primary); font-style: italic; font-size:3.6rem; text-shadow: 0 6px 18px rgba(0,0,0,0.6); flex: 0 1 40%; }
+
+@media(min-width:1600px){
+    /* ensure hero area fills large monitors to avoid showing underlying blue */
+    .builds-container { min-height: calc(100vh - 180px); }
+}
+
+@media(max-width:900px){
+    .hero-header-row { flex-direction: column; gap:12px; padding-left: 0; }
+    .hero-controls { align-items: center; width: 100%; }
+    .hero-controls .search-input,
+    .hero-controls #builds-order { width: min(340px, 100%); }
+    .create-build-row .create-build-btn { width: 100%; min-width: 0; padding: 8px 20px; font-size:0.95rem; }
+    .builds-title { font-size:2rem; }
+}
+
+/* Hide any title text that might appear inside the media area (avoid duplicates) */
+.build-card-media h3 { display: none !important; }
+/* Remove any small emoji-like icon/text above the media if present */
+.build-card-media .media-emoji, .build-card-media .media-title { display:none !important; }
+
 /* ===== MAIN ===== */
 
 .builds-container {
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 18px auto 0;
     padding: 32px 24px;
 }
 
 .builds-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 32px;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(10,10,14,0.82), rgba(6,6,9,0.88));
+    border: 1px solid rgba(233,193,118,0.18);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
 }
 
 /* grid used inside grouped sheets */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 28px;
+    align-items: flex-start;
+}
+
+.cards-grid .build-card {
+    flex: 0 0 355px;
 }
 
 .cards-sheet { padding: 18px 0; }
@@ -78,17 +211,30 @@
 
 .build-card {
     position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border: 1px solid var(--color-border);
+    background: linear-gradient(180deg, rgba(8,8,10,0.6), rgba(4,4,6,0.8));
+    border: 1px solid rgba(233,193,118,0.06);
     border-radius: 14px;
     overflow: hidden;
     transition: all 0.25s ease;
 }
 
+/* Make whole card clickable via an absolute link overlay */
+.build-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 12;
+    text-indent: -9999px;
+    background: transparent;
+}
+
+.build-card .card-overlay:focus {
+    outline: 2px solid rgba(233,193,118,0.18);
+}
+
 .build-card:hover {
     transform: translateY(-4px);
-    border-color: var(--color-primary);
-    box-shadow: 0 0 20px rgba(233,193,118,0.15);
+    border-color: rgba(233,193,118,0.18);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 4px 12px rgba(233,193,118,0.06);
 }
 
 /* ===== MEDIA ===== */
@@ -113,10 +259,10 @@
 /* ===== BODY ===== */
 
 .build-card-body {
-    padding: 16px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 /* HEADER CARD */
@@ -128,8 +274,9 @@
 }
 
 .build-card-header h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-primary);
+    font-family: var(--font-headline);
 }
 
 .build-card-date {
@@ -148,8 +295,37 @@
 
 .build-card-desc {
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.5;
 }
+
+.cards-sheet { background: transparent; padding: 0; }
+
+.builds-topbar { margin-bottom: 28px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.builds-section-title { font-size:1.6rem; color:var(--color-text-secondary); }
+.games-chooser select { background: rgba(255,255,255,0.02); border:1px solid rgba(197,160,89,0.06); color:var(--color-text); padding:8px 10px; border-radius:8px; }
+
+/* Featured small cards row */
+.featured-row {
+    margin-top: 36px;
+    margin-bottom: 8px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(10,10,14,0.82), rgba(6,6,9,0.88));
+    border: 1px solid rgba(233,193,118,0.16);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+.featured-inner { display:flex; gap:14px; overflow-x:auto; padding:6px 2px; }
+.small-build-card { min-width: 220px; max-width: 220px; background: linear-gradient(180deg, rgba(10,10,12,0.6), rgba(6,6,8,0.8)); border:1px solid rgba(255,255,255,0.03); border-radius:10px; overflow:hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+.small-build-card .small-media { height: 92px; background: rgba(255,255,255,0.02); display:flex; align-items:center; justify-content:center; }
+.small-build-card .small-media img { width:100%; height:100%; object-fit:cover; display:block; }
+.small-build-card .small-body { padding:10px 12px; }
+.small-title { font-size:0.98rem; margin:4px 0 2px; color: var(--color-text); font-family: var(--font-headline); }
+.small-meta { font-size:0.78rem; color:var(--color-text-muted); }
+.tag-chip.small { background: rgba(233,193,118,0.95); color:#000; padding:2px 6px; border-radius:6px; font-size:0.68rem; margin-right:6px; }
+.featured-inner::-webkit-scrollbar { height:8px; }
+.featured-inner::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.04); border-radius:8px; }
+
+.featured-empty { color: var(--color-text-muted); padding:8px 0; }
 
 /* FOOTER */
 

@@ -21,7 +21,13 @@ export const createViewRouter = () => {
     viewRouter.get('/', viewController.index);
     viewRouter.get('/auth', authHandler, viewController.auth);
     // Página: builds por juego
+    // Ruta legacy (mantener por compatibilidad)
     viewRouter.get('/games/:slug/builds', viewController.gameBuilds);
+    // Nuevas rutas por juego (slug simple en URL): /games/eldenring, /games/taintedgrail
+    viewRouter.get('/games/:slug', viewController.gameBuilds);
+    // Nota: la ruta de creación de builds la gestiona otro desarrollador; no exponerla aquí.
+    viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
+    viewRouter.use(viewController.notFound);
 
     return viewRouter;
 }
