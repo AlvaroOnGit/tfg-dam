@@ -94,88 +94,10 @@
 
       <div class="form-actions">
         <button class="btn btn--primary" id="btn-save">Save Build</button>
-        <button class="btn btn--ghost" onclick="window.location.href='/'">Discard</button>
+        <button class="btn btn--ghost" id="btn-discard" type="button">Discard</button>
       </div>
     </div>
 
-    <!-- Stats panel -->
-    <div class="panel">
-      <div class="section-title">📊 &nbsp; Build Stats</div>
-      <div class="stats-panel" id="stats-panel">
-        <div class="stats-panel__row">
-          <div class="stats-panel__icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M12 3L19 7v7c0 4-4 7-7 8-3-1-7-4-7-8V7z"/>
-            </svg>
-          </div>
-          <div class="stats-panel__info">
-            <span class="stats-panel__label">Armor</span>
-            <span class="stats-panel__value" id="stat-total-armor">0</span>
-          </div>
-          <div class="stats-panel__bar">
-            <div class="stats-panel__bar-fill stats-panel__bar-fill--armor" id="bar-armor" style="width:0%"></div>
-          </div>
-        </div>
-
-        <div class="stats-panel__row">
-          <div class="stats-panel__icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/>
-            </svg>
-          </div>
-          <div class="stats-panel__info">
-            <span class="stats-panel__label">Damage</span>
-            <span class="stats-panel__value" id="stat-total-damage">0</span>
-          </div>
-          <div class="stats-panel__bar">
-            <div class="stats-panel__bar-fill stats-panel__bar-fill--damage" id="bar-damage" style="width:0%"></div>
-          </div>
-        </div>
-
-        <div class="stats-panel__row">
-          <div class="stats-panel__icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M12 3C7 3 3 7.5 3 12h18c0-4.5-4-9-9-9z"/>
-              <path d="M12 12v8"/>
-            </svg>
-          </div>
-          <div class="stats-panel__info">
-            <span class="stats-panel__label">Block</span>
-            <span class="stats-panel__value" id="stat-total-block">0</span>
-          </div>
-          <div class="stats-panel__bar">
-            <div class="stats-panel__bar-fill stats-panel__bar-fill--block" id="bar-block" style="width:0%"></div>
-          </div>
-        </div>
-
-        <div class="stats-panel__divider"></div>
-
-        <div class="stats-panel__row stats-panel__row--secondary">
-          <div class="stats-panel__icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3">
-              <path d="M12 2v6l3 3M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/>
-            </svg>
-          </div>
-          <div class="stats-panel__info">
-            <span class="stats-panel__label">Weight</span>
-            <span class="stats-panel__value" id="stat-total-weight">0 kg</span>
-          </div>
-        </div>
-
-        <div class="stats-panel__row stats-panel__row--secondary">
-          <div class="stats-panel__icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3">
-              <circle cx="12" cy="12" r="8"/>
-              <path d="M12 8v4M10 16h4"/>
-            </svg>
-          </div>
-          <div class="stats-panel__info">
-            <span class="stats-panel__label">Gold Cost</span>
-            <span class="stats-panel__value" id="stat-total-gold">0</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </aside>
 
   <!-- ══════ CENTER COLUMN ══════ -->
@@ -271,7 +193,7 @@
   ];
 
   // Build state
-  // Armor slots: [itemId | null, relicId | null]
+  // Armor slots: [itemId | null, relic1Id | null, relic2Id | null]
   // Weapon slots: [weaponId | null, relic1Id | null, relic2Id | null]
   // Jewelry slots: [itemId | null]
   const state = {
@@ -282,9 +204,9 @@
     equipment: {},
   };
 
-  // Initialize armor slots as [null, null]
+  // Initialize armor slots as [null, null, null]
   ARMOR_SLOTS.forEach(s => {
-    state.equipment[s.key] = [null, null];
+    state.equipment[s.key] = [null, null, null];
   });
   // Initialize weapon slots as [null, null, null]
   WEAPON_SLOTS.forEach(s => {
@@ -708,7 +630,8 @@
     const relics = ASSETS.relic || [];
     armorLabels.innerHTML = ARMOR_SLOTS.map(slot => {
       const sel = (ASSETS[slot.key] || []).find(it => it.id === state.equipment[slot.key][0]);
-      const selectedRelic = relics.find(r => r.id === state.equipment[slot.key][1]);
+      const selectedRelic1 = relics.find(r => r.id === state.equipment[slot.key][1]);
+      const selectedRelic2 = relics.find(r => r.id === state.equipment[slot.key][2]);
       const slotId = `center-armor-${slot.key}`;
       const items = ASSETS[slot.key] || [];
       return `
@@ -738,8 +661,9 @@
               ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>' : ''}
             </div>
             ${sel ? `
-              <div class="relic-row" style="justify-content:flex-end;margin-top:4px;">
-                ${renderRelicSlot(slot.key, 1, selectedRelic, relics, 'armor')}
+              <div class="relic-row relic-row--stacked" style="justify-content:flex-end;margin-top:4px;">
+                ${renderRelicSlot(slot.key, 1, selectedRelic1, relics, 'armor')}
+                ${renderRelicSlot(slot.key, 2, selectedRelic2, relics, 'armor')}
               </div>
             ` : ''}
           </div>
@@ -816,6 +740,8 @@
   }
 
   function updateBuildStats() {
+    if (!document.getElementById('stat-total-armor')) return;
+
     let totalArmor = 0;
     let totalDamageMin = 0;
     let totalDamageMax = 0;
@@ -889,6 +815,8 @@
     document.querySelectorAll(
             '.equip-slot__trigger.open, .mini-slot__trigger.open, .center-equip__trigger.open, .relic-slot__trigger.open'
     ).forEach(t => t.classList.remove('open'));
+    document.querySelectorAll('.center-equip.dropdown-open')
+            .forEach(slot => slot.classList.remove('dropdown-open'));
   }
 
   function toggleSlotDropdown(slotId) {
@@ -910,9 +838,14 @@
   function toggleCenterDropdown(slotId) {
     const dropdown = document.getElementById(`${slotId}-dropdown`);
     const trigger = document.querySelector(`#${slotId} .center-equip__trigger`);
+    const slot = document.getElementById(slotId);
     const isOpen = dropdown.classList.contains('open');
     closeAllDropdowns();
-    if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
+    if (!isOpen) {
+      dropdown.classList.add('open');
+      trigger.classList.add('open');
+      slot?.classList.add('dropdown-open');
+    }
   }
 
   function toggleRelicDropdown(relicId) {
@@ -933,7 +866,7 @@
     state.equipment[slotKey][0] = itemId;
     // Clear relic if armor piece is removed
     if (!itemId) {
-      state.equipment[slotKey] = [null, null];
+      state.equipment[slotKey] = [null, null, null];
     }
     closeAllDropdowns();
     renderAll();
@@ -1079,6 +1012,36 @@
     state.description = e.target.value;
   });
 
+  function resetBuildForm() {
+    state.name = '';
+    state.description = '';
+    state.isPublic = true;
+    state.tags = [];
+
+    ARMOR_SLOTS.forEach(s => {
+      state.equipment[s.key] = [null, null, null];
+    });
+    WEAPON_SLOTS.forEach(s => {
+      state.equipment[s.key] = [null, null, null];
+    });
+    JEWELRY_SLOTS.forEach(s => {
+      state.equipment[s.key] = [null];
+    });
+
+    document.getElementById('build-name').value = '';
+    document.getElementById('build-desc').value = '';
+    document.querySelectorAll('[data-visibility]').forEach(c => c.classList.remove('active'));
+    document.querySelector('[data-visibility="public"]')?.classList.add('active');
+
+    closeAllDropdowns();
+    renderTagSelector();
+    renderAll();
+  }
+
+  document.getElementById('btn-discard').addEventListener('click', () => {
+    resetBuildForm();
+  });
+
   // Save
   document.getElementById('btn-save').addEventListener('click', async () => {
     const nameInput = document.getElementById('build-name');
@@ -1110,10 +1073,11 @@
     // ── Build templateData (relic assignments) ──
     const templateData = {};
 
-    // Armor: state = [itemId, relicId] → templateData = [relicId, null] | null
+    // Armor: state = [itemId, relic1, relic2] → templateData = [relic1, relic2] | null
     ARMOR_SLOTS.forEach(slot => {
-      const relicId = state.equipment[slot.key][1] || null;
-      templateData[slot.key] = relicId ? [relicId, null] : null;
+      const relic1 = state.equipment[slot.key][1] || null;
+      const relic2 = state.equipment[slot.key][2] || null;
+      templateData[slot.key] = (relic1 || relic2) ? [relic1, relic2] : null;
     });
 
     // Weapons: state = [weaponId, relic1, relic2] → templateData = [relic1, relic2] | null
