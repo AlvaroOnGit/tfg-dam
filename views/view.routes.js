@@ -11,10 +11,7 @@ export const createViewRouter = () => {
     const viewController = new ViewController();
     
     viewRouter.use((req, res, next) => {
-        res.locals.alert = {
-            type: 'warning',
-            message: 'This is an alert...'
-        };
+        res.locals.alert = null;
         next();
     });
 

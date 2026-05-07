@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spellsword</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <header class="header-wrapper">
+        <a href="/">
+            <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo" title="Go to Mainpage">
+        </a>
+        <nav class="nav-wrapper">
+            <a class="nav-item" href="#builds">Popular Builds</a>
+            <a class="nav-item"
+               href="<% if (user) { %>/user/settings?tab=builds<% } else { %>#builds<% } %>">
+                My builds
+            </a>
+        </nav>
+        <% if (user) { %>
+            <div class="user-wrapper">
+                <a href="/user/settings" class="user-avatar" aria-label="Account settings" title="Go to profile">
+                    <% if (user.avatar) { %>
+                        <img src="<%= user.avatar %>" alt="">
+                    <% } else { %>
+                        <%= user.username.slice(0, 2).toUpperCase() %>
+                    <% } %>
+                </a>
+                <span class="user-avatar-name"><%= user.username || 'User' %></span>
+            </div>
+        <% } else { %>
+            <a href="/auth" class="nav-item">Sign in</a>
+        <% } %>
+    </header>
+
+    <%- include('partials/alert') %>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-wrapper">
+                <h1 id="hero-title" class="hero-title">Forge your legacy. Master your builds.</h1>
+            </div>
+        </section>
+
+        <div id="page-alert" class="page-alert" role="status"></div>
+
+        <section id="games" class="section section-games" aria-labelledby="games-heading">
+            <div class="section-header">
+                <h2 id="games-heading" class="section-title">Games</h2>
+                <div class="games-filter">
+                    <div class="searchbar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input placeholder="Search for games..." type="text">
+                        <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                    </div>
+                </div>
+            </div>
+            <div class="separator-horizontal"></div>
+            <div class="game-wrapper" aria-busy="true">
+                <p style="color:var(--color-text-muted)">Loading games…</p>
+            </div>
+        </section>
+
+        <section id="builds" class="section section-builds" aria-labelledby="builds-heading">
+            <div class="section-header">
+                <h2 id="builds-heading" class="section-title">Popular builds</h2>
+                <div class="builds-filter">
+                    <div class="searchbar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input placeholder="Search for builds..." type="text">
+                        <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                    </div>
+                </div>
+            </div>
+            <div class="separator-horizontal"></div>
+            <div class="build-wrapper" aria-busy="true">
+                <p style="color:var(--color-text-muted)">Loading builds…</p>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+<script src="/scripts/home.js" type="module"></script>
+</body>
+</html>

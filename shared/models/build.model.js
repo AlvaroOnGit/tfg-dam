@@ -46,8 +46,10 @@ export class BuildModel {
         const res = await pool.query(
             `SELECT
                  b.id, 
-                 b.game_id AS "gameId", 
-                 b.creator_id AS "creatorId", 
+                 g.name AS "game",
+                 g.slug AS "gameSlug",
+                 u.id AS "creatorId",
+                 u.username AS "creator",
                  b.name, 
                  b.description,
                  b.is_public AS "isPublic", 
@@ -60,7 +62,8 @@ export class BuildModel {
                  b.updated_at AS "updatedAt",
                  COUNT(*) OVER() AS "total"
             FROM builds b 
-            LEFT JOIN games g ON g.id = b.game_id 
+            LEFT JOIN games g ON g.id = b.game_id
+            LEFT JOIN users u ON u.id = b.creator_id
             ${where}
             ORDER BY b.created_at DESC
             LIMIT $${i} OFFSET $${i + 1}`,

@@ -178,7 +178,7 @@ export class AuthService {
         }
 
         //Generate a url that targets the password reset endpoint
-        const url = `${process.env.BASE_URL}/api/auth/reset-password/${token}`;
+        const url = `${process.env.BASE_URL}/auth/reset-password/${token}`;
 
         //Email the provided address
         await MailerUtil.sendResetMail(email, url, userCredentials.username);
