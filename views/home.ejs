@@ -16,9 +16,9 @@
             <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo" title="Go to Mainpage">
         </a>
         <nav class="nav-wrapper">
-            <a class="nav-item" href="#popular-builds">Popular Builds</a>
+            <a class="nav-item" href="#builds">Popular Builds</a>
             <a class="nav-item"
-               href="<% if (user) { %>/user/settings?tab=builds<% } else { %>#popular-builds<% } %>">
+               href="<% if (user) { %>/user/settings?tab=builds<% } else { %>#builds<% } %>">
                 My builds
             </a>
         </nav>
@@ -49,7 +49,7 @@
 
         <div id="page-alert" class="page-alert" role="status"></div>
 
-        <section id="games" class="section section--games" aria-labelledby="games-heading">
+        <section id="games" class="section section-games" aria-labelledby="games-heading">
             <div class="section-header">
                 <h2 id="games-heading" class="section-title">Games</h2>
                 <div class="games-filter">
@@ -60,29 +60,30 @@
                     </div>
                 </div>
             </div>
+            <div class="separator-horizontal"></div>
             <div class="game-wrapper" aria-busy="true">
                 <p style="color:var(--color-text-muted)">Loading games…</p>
             </div>
         </section>
 
-        <section id="popular-builds" class="section section--builds" aria-labelledby="builds-heading">
-            <div class="section__head">
+        <section id="builds" class="section section-builds" aria-labelledby="builds-heading">
+            <div class="section-header">
                 <h2 id="builds-heading" class="section-title">Popular builds</h2>
-                <p id="builds-filter-label" class="section__subtitle muted" hidden></p>
+                <div class="builds-filter">
+                    <div class="searchbar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input placeholder="Search for builds..." type="text">
+                        <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                    </div>
+                </div>
             </div>
-            <div id="build-grid" class="build-grid" aria-busy="true">
-                <p class="muted">Loading builds…</p>
+            <div class="separator-horizontal"></div>
+            <div class="build-wrapper" aria-busy="true">
+                <p style="color:var(--color-text-muted)">Loading builds…</p>
             </div>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <div class="site-footer__links">
-            <a href="/api-docs">About</a>
-            <a href="/api-docs">Contact</a>
-            <a href="/api-docs">Privacy</a>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 <script src="/scripts/home.js" type="module"></script>
 </body>
 </html>
