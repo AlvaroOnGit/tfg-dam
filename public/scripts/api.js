@@ -103,7 +103,7 @@ export async function refresh(){
     return data;
 }
 
-/*------Home------*/
+/*------Games------*/
 export async function getGames({ page = 1, name = '', genre = '' } = {}) {
     const params = new URLSearchParams({ limit: 15, page });
 
@@ -121,4 +121,33 @@ export async function getGames({ page = 1, name = '', genre = '' } = {}) {
     }
 
     return data;
+}
+
+/*------Builds------*/
+export async function getBuilds({
+    page = 1,
+    gameSlug = '',
+    name = '',
+    creator = '',
+    tags = [] } = {}) {
+
+    const params = new URLSearchParams({ limit: 15, page });
+
+    if (gameSlug) params.append('gameSlug', gameSlug);
+    if (name) params.append('name', name);
+    if (creator) params.append('creator', creator);
+    if (tags.length) tags.forEach(tag => params.append('tags?', tag));
+
+    const res = await fetch(`${API_URL}/builds?${params}`, {
+        credentials: 'same-origin'
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw { status: res.status, data };
+    }
+
+    return data;
+
 }
