@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Elden Scriptorium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/account-settings.css">
+    <link rel="stylesheet" href="/styles/user-profile.css">
+    <link rel="stylesheet" href="/styles/other-profile.css">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Elden Scriptorium">
+            <img src="/media/logo-spellsword.webp" alt="Elden Scriptorium" class="logo-spellsword">
+        </a>
+        <nav class="top-nav">
+            <a href="#">Builds</a>
+            <a href="#">Lore</a>
+            <a href="#">Grimoire</a>
+            <a href="#">Almanac</a>
+        </nav>
+        <button class="icon-button" aria-label="Open user menu">
+            <span class="material-symbols-outlined">account_circle</span>
+        </button>
+    </header>
+
+    <main class="settings-shell" id="other-profile-container" data-target-id="<%= targetId %>">
+        <p class="kicker">SANCTUM VISITATION</p>
+        <h1>Public Profile</h1>
+        <p class="intro">
+            Observing the recorded legacy of a fellow chronicler within the Scriptorium.
+        </p>
+
+        <div class="settings-grid">
+            <aside class="profile-panel">
+                <div class="avatar-wrap avatar-fallback">
+                    <span class="avatar-placeholder"></span>
+                </div>
+                <h2 id="profile-username" class="username-display">Loading...</h2>
+                <p class="kicker">Public Profile</p>
+            </aside>
+
+            <section class="form-panel">
+                <div class="my-builds-section">
+                    <h3 class="my-builds-title">Public Builds</h3>
+                    <div id="public-builds-list" class="my-builds-list">
+                        <p class="placeholder-text">Loading builds...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/scripts/api.js" type="module"></script>
+    <script src="/scripts/other-profile.js" type="module"></script>
+</body>
+</html>

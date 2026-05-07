@@ -9,7 +9,7 @@ export const createViewRouter = () => {
 
     const viewRouter = Router();
     const viewController = new ViewController();
-
+    
     viewRouter.use((req, res, next) => {
         res.locals.alert = null;
         next();
@@ -18,6 +18,9 @@ export const createViewRouter = () => {
     viewRouter.get('/', authHandler, viewController.home);
     viewRouter.get('/auth', authHandler, viewController.auth);
     viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
+    viewRouter.get('/user/settings', authHandler, viewController.userAccount);
+    viewRouter.get('/user/me', authHandler, viewController.userProfile);
+    viewRouter.get('/users/:id', authHandler, viewController.otherProfile);
 
     viewRouter.use(viewController.notFound);
 

@@ -19,29 +19,35 @@ export async function login(userData){
         };
     }
 
-    return data;
-}
+    try {
+        return await response.json();
+    } catch {
+        return null;
+    }
+};
 
-export async function register(userData){
-    const res = await fetch(`${API_URL}/auth/register`, {
-        method: 'POST',
+const request = async (url, { method = 'GET', body, headers = {}, credentials = 'include' } = {}) => {
+    const response = await fetch(url, {
+        method,
         headers: {
-            'Content-Type': 'application/json',
+            ...(body ? { 'Content-Type': 'application/json' } : {}),
+            ...headers
         },
-        body: JSON.stringify(userData)
+        credentials,
+        ...(body ? { body: JSON.stringify(body) } : {})
     });
 
-    const data = await res.json();
+    const data = await parseResponseBody(response);
 
-    if (!res.ok) {
-        throw {
-            status: res.status,
-            data
-        };
+    if (!response.ok) {
+        const error = new Error(data?.message || 'Request failed.');
+        error.status = response.status;
+        error.data = data;
+        throw error;
     }
 
     return data;
-}
+};
 
 export async function forgot(userData){
     const res = await fetch(`${API_URL}/auth/forgot-password`, {
@@ -91,14 +97,17 @@ export async function refresh(){
         credentials: 'include',
     });
 
-    const data = await res.json();
+window.api = {
+    get: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'GET' }),
+    post: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'POST', body }),
+    patch: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PATCH', body }),
+    put: (url, body, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'PUT', body }),
+    delete: (url, options = {}) => request(url.startsWith('http') ? url : `${API_URL}${url}`, { ...options, method: 'DELETE' })
+};
 
-    if (!res.ok) {
-        throw {
-            status: res.status,
-            message: data.message,
-        }
-    }
+export async function login(userData){
+    return await window.api.post('/auth/login', userData);
+}
 
     return data;
 }
