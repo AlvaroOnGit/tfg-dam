@@ -24,5 +24,8 @@ export const createViewRouter = () => {
 
     viewRouter.use(viewController.notFound);
 
+    // Build views
+    viewRouter.get('/builds/create', authHandler, viewController.createBuild);
+
     return viewRouter;
 }
