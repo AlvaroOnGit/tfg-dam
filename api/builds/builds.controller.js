@@ -1,3 +1,5 @@
+import { AuthenticationError } from '../../shared/middlewares/error.middleware.js';
+
 export class BuildController {
     constructor({ buildService } = {}) {
         this.buildService = buildService;
@@ -26,6 +28,10 @@ export class BuildController {
     }
 
     createBuild = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         try {
             req.build = await this.buildService.createBuild(req.body, req.user.id);
             next()
@@ -35,6 +41,10 @@ export class BuildController {
     }
 
     updateBuild = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         try {
             const { id } = req.params;
             req.build = await this.buildService.updateBuild(id, req.body);
@@ -45,6 +55,10 @@ export class BuildController {
     }
 
     deleteBuild = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { role } = req.permission;
         if (!this.allowedRoles.includes(role)) {
             return res.status(403).json({ message: 'Insufficient permissions' });
@@ -69,6 +83,10 @@ export class BuildController {
     }
 
     grantEditPermission = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { role } = req.permission;
         if (!this.allowedRoles.includes(role)) {
             return res.status(403).json({ message: 'Insufficient permissions' });
@@ -84,6 +102,10 @@ export class BuildController {
     }
 
     revokeEditPermission = async (req, res, next) => {
+        if (!req.user) {
+            return next(new AuthenticationError('Access token not found'));
+        }
+
         const { role } = req.permission;
         if (!this.allowedRoles.includes(role)) {
             return res.status(403).json({ message: 'Insufficient permissions' });

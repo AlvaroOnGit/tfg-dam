@@ -1,0 +1,6 @@
+<% if (typeof alert !== 'undefined' && alert) { %>
+    <div class="alert-wrapper <%= alert.type %>">
+        <span class="material-symbols-outlined">release_alert</span>
+        <p><%= alert.message %></p>
+    </div>
+<% } %>

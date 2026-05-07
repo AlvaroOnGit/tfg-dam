@@ -18,11 +18,11 @@ export const createAuthRouter = ({ UserModel, TokenModel }) => {
     const authController = new AuthController({ authService });
 
     authRouter.post('/login',
-        limitHandler(10, 15),
+        limitHandler(25, 15),
         validationHandler(validateLogin),
         authController.login)
     authRouter.post('/register',
-        limitHandler(5, 15),
+        limitHandler(15, 15),
         validationHandler(validateRegister),
         authController.register)
     authRouter.post('/logout',

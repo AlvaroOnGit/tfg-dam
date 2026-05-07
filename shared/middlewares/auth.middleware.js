@@ -6,7 +6,6 @@ import { TokenUtil } from "../utils/token.util.js";
  *
  * Attaches the decoded user payload to `req.user`.
  *
- * If the token is missing or invalid, it forwards an AuthenticationError.
  *
  * @async
  * @function authHandler
@@ -22,12 +21,12 @@ export const authHandler = async (req, res, next) => {
     // noinspection JSUnresolvedReference
     const token = req.cookies.access_token;
     if (!token) {
-        const e = new AuthenticationError('Access token not found');
-        return next(e);
+        req.user = null;
+        return next();
     }
     try {
         req.user = TokenUtil.verifyAccessToken(token);
-        next();
+        return next();
     } catch (e) {
         next(e);
     }

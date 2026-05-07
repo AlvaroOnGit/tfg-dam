@@ -3,13 +3,23 @@
  */
 import { Router } from 'express';
 import { ViewController } from './view.controller.js';
+import { authHandler } from '../shared/middlewares/auth.middleware.js';
 
 export const createViewRouter = () => {
 
     const viewRouter = Router();
     const viewController = new ViewController();
 
-    viewRouter.get('/', viewController.index);
+    viewRouter.use((req, res, next) => {
+        res.locals.alert = null;
+        next();
+    });
+
+    viewRouter.get('/', authHandler, viewController.home);
+    viewRouter.get('/auth', authHandler, viewController.auth);
+    viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
+
+    viewRouter.use(viewController.notFound);
 
     return viewRouter;
 }
