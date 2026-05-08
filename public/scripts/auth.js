@@ -1,7 +1,6 @@
 import { register, login, forgot } from './api.js';
 import { deviceHandler } from "./helpers/device.js";
-import { FormAlertHandler } from "./helpers/alert.js";
-
+import { NotificationHandler } from './helpers/notification.js';
 
 const formWrapper = document.querySelector('.auth-form-wrapper');
 
@@ -19,7 +18,8 @@ const submitButton = formWrapper.querySelector('.auth-submit');
 const forgotButton = formWrapper.querySelector('.auth-forgot');
 const showPasswordButton = passwordWrapper.querySelector('.auth-password-toggle');
 
-const alertHandler = new FormAlertHandler(formWrapper);
+const notification = document.querySelector('.notification');
+const notificationHandler = new NotificationHandler(notification);
 
 let formType = 'login';
 
@@ -58,7 +58,7 @@ formWrapper.addEventListener('submit', async (event) => {
     try {
         const res = await submitForm(userData);
 
-        alertHandler.displayAlert('success', res.message);
+        notificationHandler.displayNotification('success', res.message);
 
         switch (formType) {
             case 'login': {
@@ -79,18 +79,22 @@ formWrapper.addEventListener('submit', async (event) => {
     } catch (e) {
         switch (e.status) {
             case 400: {
-                alertHandler.displayAlert('warning', 'Invalid email or password.\n Password must have at least one uppercase letter, number and symbol');
+                notificationHandler.displayNotification('warning', 'Invalid email or password.\n Password must have at least one uppercase letter, number and symbol');
+                break;
+            }
+            case 401: {
+                notificationHandler.displayNotification('warning', 'Wrong email or password');
                 break;
             }
             case 409: {
-                alertHandler.displayAlert('warning', e.data.message);
+                notificationHandler.displayNotification('warning', e.data.message);
                 break;
             }
             case 429: {
-                alertHandler.displayAlert('warning', 'Too many requests, try again later');
+                notificationHandler.displayNotification('warning', 'Too many requests, try again later');
                 break;
             }
-            default: alertHandler.displayAlert('error', 'Server error');
+            default: notificationHandler.displayNotification('error', 'Server error');
         }
     } finally {
         submitButton.disabled = false;
