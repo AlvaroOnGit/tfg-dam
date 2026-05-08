@@ -8,21 +8,6 @@ body {
     min-height: 780px;
 }
 
-/* ===== HEADER ===== */
-.header-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 10px;
-    background-color: var(--color-neutral);
-    border-bottom: 0.5px solid var(--color-border);
-}
-
 /* ===== AUTHENTICATION FORM ===== */
 .auth-form-wrapper {
     background-color: var(--color-secondary);
@@ -127,13 +112,6 @@ body {
     padding: 5px;
 }
 
-/* ===== AUTHENTICATION FORM ALERT ===== */
-.auth-form-alert.error {
-    background-color: var(--color-error);
-}
-.auth-form-alert.warning {
-    background-color: var(--color-warning);
-}
-.auth-form-alert.success {
-    background-color: var(--color-success);
+.notification {
+    top: 8rem;
 }
