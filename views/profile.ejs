@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spellsword - <%= user.username %></title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+<%- include('partials/notification') %>
+<div class="edit-overlay">
+    <div class="edit-form" role="dialog" aria-modal="true" aria-labelledby="form-title">
+        <div class="form-header">
+            <h3 class="form-title">Editar</h3>
+            <button class="button icon form-close" aria-label="Close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="form-body"></div>
+        <p class="form-hint">
+            <span class="material-symbols-outlined">shield_lock</span>
+            Your current password is required to confirm.
+        </p>
+        <div class="form-actions">
+            <button class="button primary form-save">Submit</button>
+        </div>
+    </div>
+</div>
+<body>
+
+    <header class="header-wrapper">
+        <a href="/">
+            <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo" title="Go to Mainpage">
+        </a>
+    </header>
+
+    <main>
+        <section class="profile-data">
+            <div class="profile-avatar">
+                <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="User Avatar">
+                <% } else { %>
+                    <img src="/media/avatar-default.webp" alt="User Avatar">
+                <% } %>
+            </div>
+            <div class="profile-background"></div>
+            <% if (isOwner) { %>
+                <button id="button-edit" class="button icon" title="Edit Profile">
+                    <span class="material-symbols-outlined">edit</span>
+                </button>
+            <% } else { %>
+                <div style="height: 60px"></div>
+            <% } %>
+            <div class="profile-details">
+                <div class="username-wrapper">
+                    <span style="color: var(--color-text-muted)" class="is-hidden">Username</span>
+                    <div class="profile-item">
+                        <h3 class="profile-username"><%= user.username %></h3>
+                        <% if (isOwner) { %>
+                        <button id="edit-username" class="button icon is-hidden" title="Edit Profile">
+                            <span class="material-symbols-outlined">edit</span>
+                        </button>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="email-wrapper">
+                    <span style="color: var(--color-text-muted)" class="is-hidden">Email</span>
+                    <div class="profile-item">
+                        <span class="profile-email"><%= user.email %></span>
+                        <% if (isOwner) { %>
+                        <button id="edit-email" class="button icon is-hidden" title="Edit Email">
+                            <span class="material-symbols-outlined">edit</span>
+                        </button>
+                        <% } %>
+                    </div>
+                </div>
+                <% if (isOwner) { %>
+                    <div class="password-wrapper is-hidden">
+                        <span style="color: var(--color-text-muted)">Password</span>
+                        <div class="profile-item">
+                            <span class="profile-password">*******</span>
+                            <button id="edit-password" class="button icon" title="Edit Password">
+                                <span class="material-symbols-outlined">edit</span>
+                            </button>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <% if (isOwner) { %>
+                <button id="button-logout" class="button icon" style="background: var(--color-error)" title="Log out">
+                    <span class="material-symbols-outlined">logout</span>
+                </button>
+            <% } %>
+        </section>
+        <section id="builds" class="section section-builds" aria-labelledby="builds-heading" data-user-id="<%= user.id %>">
+            <div class="section-header">
+                <h2 id="builds-heading" class="section-title">Builds</h2>
+                <div class="builds-filter">
+                    <div class="searchbar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input placeholder="Search for builds..." type="text">
+                        <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                    </div>
+                </div>
+            </div>
+            <div class="separator-horizontal"></div>
+            <div class="build-wrapper" aria-busy="true">
+                <p style="color:var(--color-text-muted)">Loading builds…</p>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+    <script type="module" src="/scripts/profile.js"></script>
+</body>
+</html>
