@@ -50,4 +50,23 @@ export class ViewController {
         res.render('other-profile', { user: req.user, targetId });
     }
 
+    createBuildTaintedGrail = (req, res) => {
+        if (!req.user) return res.redirect('/auth');
+        res.render('create-build', { user: req.user });
+    };
+
+    createBuildEldenRing = (req, res) => {
+        if (!req.user) return res.redirect('/auth');
+        res.render('create-build-elden-ring', { user: req.user });
+    };
+
+    editBuildTaintedGrail = (req, res) => {
+        res.render('create-build', { user: req.user, buildId: req.params.id });
+    };
+
+    editBuildEldenRing = (req, res) => {
+        res.render('create-build-elden-ring', { user: req.user, buildId: req.params.id });
+    };
+
+
 }

@@ -71,7 +71,7 @@ const slotSpellNames = z.enum([
 
 // ─── Template Data Schema ───────────────────────────────────────────────────────
 
-const ashOfWarSlots = ["ashOfWar1", "ashOfWar2", "ashOfWar3"];
+const ashOfWarSlots = ["ashOfWar1", "ashOfWar2", "ashOfWar3", "ashOfWar4", "ashOfWar5", "ashOfWar6"];
 
 const templateDataSchema = z.object(
     Object.fromEntries(

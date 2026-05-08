@@ -1,1177 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Build — Spellsword</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="/styles/create-build.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Build — Spellsword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/create-build.css" />
 </head>
-
 <body>
-
-<!-- ===== HEADER ===== -->
-<header class="header">
-  <div class="header__inner">
-    <div class="header__left">
-      <a href="/" class="header__brand">Spellsword</a>
-    </div>
-
-    <nav class="header__nav">
-      <a href="/">Home</a>
-      <a href="/builds">Builds</a>
-      <a href="/builds/create">Create</a>
+<header class="header-wrapper">
+    <a href="/">
+        <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo" title="Go to Mainpage">
+    </a>
+    <nav class="nav-wrapper">
+        <a class="nav-item" href="#builds">Popular Builds</a>
+        <a class="nav-item"
+           href="<% if (user) { %>/user/settings?tab=builds<% } else { %>#builds<% } %>">
+            My builds
+        </a>
     </nav>
-
-    <div class="header__actions">
-      <a href="/auth" class="header__avatar">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-      </a>
-    </div>
-  </div>
+    <% if (user) { %>
+        <div class="user-wrapper">
+            <a href="/user/settings" class="user-avatar" aria-label="Account settings" title="Go to profile">
+                <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="">
+                <% } else { %>
+                    <%= user.username.slice(0, 2).toUpperCase() %>
+                <% } %>
+            </a>
+            <span class="user-avatar-name"><%= user.username || 'User' %></span>
+        </div>
+    <% } else { %>
+        <a href="/auth" class="nav-item">Sign in</a>
+    <% } %>
 </header>
-
-<!-- ===== TITLE STRIP ===== -->
 <div class="title-strip">
-  <h1 class="title-strip__heading">Forge your Build</h1>
-  <p class="title-strip__sub">
-    Select equipment, assign your loadout, and commit your character to the ledger.
-    Builds may be kept private or shared with the community.
-  </p>
+    <h1 class="title-strip__heading">Forge your Build</h1>
+    <p class="title-strip__sub">Select equipment, assign your loadout, and commit your character to the ledger. Builds may be kept private or shared with the community.</p>
 </div>
-
-<!-- ===== MAIN 3-COL GRID ===== -->
 <main class="main-grid">
-
-  <!-- ══════ LEFT COLUMN ══════ -->
-  <aside>
-    <!-- Inscription panel -->
-    <div class="panel">
-      <div class="section-title">❦ &nbsp; Inscription</div>
-
-      <div class="form-group">
-        <div class="form-label">Build name</div>
-        <input type="text" class="form-input" id="build-name"
-               placeholder="e.g. Crimson Vanguard" maxlength="100" />
-      </div>
-
-      <div class="form-group">
-        <div class="form-label">Description</div>
-        <textarea class="form-textarea" id="build-desc"
-                  placeholder="Describe your strategy, preferred playstyle…"
-                  maxlength="500"></textarea>
-      </div>
-
-      <div class="form-group">
-        <div class="form-label">Visibility</div>
-        <div class="chip-group">
-          <button class="chip active" data-visibility="public">Public</button>
-          <button class="chip" data-visibility="private">Private</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-label">Tags <span class="tag-counter" id="tag-counter">(0/3)</span></div>
-        <div class="tag-select" id="tag-select">
-          <div class="tag-select__selected" id="tag-selected">
-            <span class="tag-select__placeholder" id="tag-placeholder">Select up to 3 tags…</span>
-          </div>
-          <button class="tag-select__trigger" id="tag-trigger" onclick="toggleTagDropdown()">
-            <svg width="10" height="10" viewBox="0 0 10 10">
-              <path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/>
-            </svg>
-          </button>
-          <div class="tag-select__dropdown" id="tag-dropdown"></div>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button class="btn btn--primary" id="btn-save">Save Build</button>
-        <button class="btn btn--ghost" id="btn-discard" type="button">Discard</button>
-      </div>
-    </div>
-
-  </aside>
-
-  <!-- ══════ CENTER COLUMN ══════ -->
-  <section class="center-stage">
-    <div class="center-stage__grid">
-
-      <!-- Left flanking slots (armor visual) -->
-      <div id="center-armor-labels" style="display:flex; flex-direction:column; gap:14px; justify-content:center;">
-        <!-- JS will render selectable armor slots -->
-      </div>
-
-      <!-- Character frame -->
-      <div>
-        <div class="center-stage__character">
-          <span class="frame-corner frame-corner--tl"></span>
-          <span class="frame-corner frame-corner--tr"></span>
-          <span class="frame-corner frame-corner--bl"></span>
-          <span class="frame-corner frame-corner--br"></span>
-          <div class="center-stage__label">The Fallen Champion</div>
-          <img class="center-stage__img"
-               src="/media/games/tainted-grail/graphics/doll-tainted-grail.webp"
-               alt="Tainted Grail Character"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="center-stage__fallback" style="display:none;">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="0.8" opacity="0.25">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>Character image</span>
-          </div>
-          <div class="center-stage__glow"></div>
-        </div>
-      </div>
-
-      <!-- Right flanking slots (jewelry) -->
-      <div id="center-jewelry-labels" style="display:flex; flex-direction:column; gap:14px; justify-content:center;">
-        <!-- JS will render: amulet, ring1, ring2 -->
-      </div>
-    </div>
-
-    <!-- Stats bar -->
-    <div class="stats-bar">
-      <div class="stats-bar__item">
-        <div class="stats-bar__label">Armor Slots</div>
-        <div class="stats-bar__value" id="stat-armor">0/5</div>
-      </div>
-      <div class="stats-bar__item">
-        <div class="stats-bar__label">Weapon Slots</div>
-        <div class="stats-bar__value" id="stat-weapons">0/8</div>
-      </div>
-      <div class="stats-bar__item">
-        <div class="stats-bar__label">Total Equipped</div>
-        <div class="stats-bar__value" id="stat-total">0/13</div>
-      </div>
-      <div class="stats-bar__item">
-        <div class="stats-bar__label">Loadouts</div>
-        <div class="stats-bar__value" id="stat-loadouts">0/4</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════ RIGHT COLUMN ══════ -->
-  <aside class="summary-sidebar">
-    <!-- Weapon Loadouts panel -->
-    <div class="panel">
-      <div class="section-title">⚔ &nbsp; Weapon Loadouts</div>
-      <div id="weapon-slots"></div>
-    </div>
-  </aside>
-
-</main>
-
-<script>
-  // ================================================================
-  // BUILD STATE
-  // ================================================================
-  const ARMOR_SLOTS = [
-    { key: 'helmet',   label: 'Helmet' },
-    { key: 'cuirass',  label: 'Cuirass' },
-    { key: 'gauntlet', label: 'Gauntlet' },
-    { key: 'greaves',  label: 'Greaves' },
-    { key: 'boot',     label: 'Boot' },
-  ];
-
-  const WEAPON_SLOTS = Array.from({ length: 8 }, (_, i) => ({
-    key: `weaponSlot${i + 1}`,
-    label: `Weapon ${i + 1}`,
-  }));
-
-  const JEWELRY_SLOTS = [
-    { key: 'amulet',  label: 'Amulet' },
-    { key: 'ring1',   label: 'Ring 1' },
-    { key: 'ring2',   label: 'Ring 2' },
-  ];
-
-  // Build state
-  // Armor slots: [itemId | null, relic1Id | null, relic2Id | null]
-  // Weapon slots: [weaponId | null, relic1Id | null, relic2Id | null]
-  // Jewelry slots: [itemId | null]
-  const state = {
-    name: '',
-    description: '',
-    isPublic: true,
-    tags: [],
-    equipment: {},
-  };
-
-  // Initialize armor slots as [null, null, null]
-  ARMOR_SLOTS.forEach(s => {
-    state.equipment[s.key] = [null, null, null];
-  });
-  // Initialize weapon slots as [null, null, null]
-  WEAPON_SLOTS.forEach(s => {
-    state.equipment[s.key] = [null, null, null];
-  });
-  // Initialize jewelry slots as [null]
-  JEWELRY_SLOTS.forEach(s => {
-    state.equipment[s.key] = [null];
-  });
-
-  // Placeholder asset catalog — will be replaced by API fetch
-  const ASSETS = {
-    helmet:  [],
-    cuirass: [],
-    gauntlet:[],
-    greaves: [],
-    boot:    [],
-    weapon:  [],
-    magic:   [],
-    relic:   [],
-    jewelry: [],
-  };
-
-  // ================================================================
-  // FETCH ASSETS FROM API
-  // ================================================================
-  const API_BASE = '/api/assets?gameSlug=tainted-grail';
-
-  async function fetchAssetsByType(type) {
-    const assets = [];
-    let page = 1;
-    let hasMore = true;
-
-    while (hasMore) {
-      const res = await fetch(`${API_BASE}&type=${type}&limit=50&page=${page}`);
-      if (!res.ok) throw new Error(`Failed to load ${type} assets`);
-      const data = await res.json();
-      assets.push(...data.assets);
-      hasMore = assets.length < data.total;
-      page++;
-    }
-
-    return assets;
-  }
-
-  async function loadAssets() {
-    try {
-      const [armorList, weaponList, magicList, relicList, jewelryList] = await Promise.all([
-        fetchAssetsByType('armor'),
-        fetchAssetsByType('weapon'),
-        fetchAssetsByType('magic'),
-        fetchAssetsByType('relic'),
-        fetchAssetsByType('jewelry'),
-      ]);
-
-      // Split armor by category
-      ASSETS.helmet   = armorList.filter(a => a.category === 'helmet');
-      ASSETS.cuirass  = armorList.filter(a => a.category === 'cuirass');
-      ASSETS.gauntlet = armorList.filter(a => a.category === 'gauntlet');
-      ASSETS.greaves  = armorList.filter(a => a.category === 'greaves');
-      ASSETS.boot     = armorList.filter(a => a.category === 'boot');
-
-      // Map weapons — flag two-handed from category
-      ASSETS.weapon = weaponList.map(w => ({
-        ...w,
-        isTwoHanded: w.category === 'two-handed',
-      }));
-
-      ASSETS.magic = magicList;
-      ASSETS.relic = relicList;
-      ASSETS.jewelry = jewelryList;
-
-      renderAll();
-    } catch (err) {
-      console.warn('Could not load assets from API, using empty catalog:', err.message);
-      renderAll();
-    }
-  }
-
-  // Helper: combined list of items equippable in hand slots (weapons + magic)
-  function getHandItems() {
-    return [...(ASSETS.weapon || []), ...(ASSETS.magic || [])];
-  }
-
-  // Helper: find an item by id across weapons and magic
-  function findHandItem(id) {
-    if (!id) return null;
-    return (ASSETS.weapon || []).find(w => w.id === id)
-            || (ASSETS.magic || []).find(m => m.id === id)
-            || null;
-  }
-
-  // ================================================================
-  // TOOLTIP
-  // ================================================================
-  function renderTooltip(item) {
-    if (!item) return '';
-    const d = item.data || {};
-    let rows = '';
-
-    // Armor stat
-    if (d.armor != null) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Armor</span><span class="tooltip__stat-value">${d.armor}</span></div>`;
-    }
-    // Damage
-    if (Array.isArray(d.damage) && d.damage.length === 2) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${d.damage[0]} – ${d.damage[1]}</span></div>`;
-    }
-    // Block
-    if (d.block != null) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Block</span><span class="tooltip__stat-value">${d.block}</span></div>`;
-    }
-    // Stamina
-    if (d.stamina != null) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Stamina</span><span class="tooltip__stat-value">${d.stamina}</span></div>`;
-    }
-    // Weight
-    if (d.weight != null) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Weight</span><span class="tooltip__stat-value">${d.weight} kg</span></div>`;
-    }
-    // Gold
-    if (d.gold != null) {
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Gold</span><span class="tooltip__stat-value">${d.gold.toLocaleString()}</span></div>`;
-    }
-    // Magic — light cast
-    if (d.magic && d.magic.lightCast) {
-      const lc = d.magic.lightCast;
-      rows += `<div class="tooltip__divider"></div>`;
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Light Cast</span><span class="tooltip__stat-value tooltip__stat-value--magic">${lc.type}</span></div>`;
-      if (lc.cost) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Cost</span><span class="tooltip__stat-value">${lc.cost.value} ${lc.cost.costType}</span></div>`;
-      if (lc.damage) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${lc.damage}</span></div>`;
-      if (lc.healing) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Healing</span><span class="tooltip__stat-value">${lc.healing}</span></div>`;
-      if (lc.effect) rows += `<div class="tooltip__desc">${lc.effect}</div>`;
-    }
-    // Magic — heavy cast
-    if (d.magic && d.magic.heavyCast) {
-      const hc = d.magic.heavyCast;
-      rows += `<div class="tooltip__divider"></div>`;
-      rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Heavy Cast</span><span class="tooltip__stat-value tooltip__stat-value--magic">${hc.type}</span></div>`;
-      if (hc.cost) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Cost</span><span class="tooltip__stat-value">${hc.cost.value} ${hc.cost.costType}</span></div>`;
-      if (hc.damage) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${hc.damage}</span></div>`;
-      if (hc.healing) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Healing</span><span class="tooltip__stat-value">${hc.healing}</span></div>`;
-      if (hc.effect) rows += `<div class="tooltip__desc">${hc.effect}</div>`;
-    }
-    // Description
-    if (item.description) {
-      rows += `<div class="tooltip__divider"></div>`;
-      rows += `<div class="tooltip__desc">${item.description}</div>`;
-    }
-
-    if (!rows) return '';
-
-    const typeLabel = item.type + (item.category ? ' · ' + item.category : '');
-
-    return `
-        <div class="tooltip">
-          <div class="tooltip__header">
-            <div class="tooltip__name">${item.name}</div>
-            <div class="tooltip__type">${typeLabel}</div>
-          </div>
-          <div class="tooltip__body">
-            ${rows}
-          </div>
-        </div>
-      `;
-  }
-
-  // ================================================================
-  // RENDER FUNCTIONS
-  // ================================================================
-  function renderAll() {
-    renderWeaponSlots();
-    renderCenterLabels();
-    renderJewelrySlots();
-    updateStats();
-    updateBuildStats();
-  }
-
-  function rarityColor(rarity) {
-    const map = {
-      common: 'var(--color-rarity-common)',
-      uncommon: 'var(--color-rarity-uncommon)',
-      rare: 'var(--color-rarity-rare)',
-      epic: 'var(--color-rarity-epic)',
-      legendary: 'var(--color-rarity-legendary)',
-    };
-    return map[rarity] || 'var(--color-text-dim)';
-  }
-
-  function renderEquipSlot(container, slotDef, items) {
-    const selected = items.find(it => it.id === state.equipment[slotDef.key][0]);
-    const slotId = `slot-${slotDef.key}`;
-
-    const html = `
-        <div class="equip-slot" id="${slotId}">
-          <div class="form-label">${slotDef.label}</div>
-          <button class="equip-slot__trigger" onclick="toggleSlotDropdown('${slotId}')">
-            <div class="equip-slot__icon ${selected ? 'has-item' : ''}">
-              <svg viewBox="0 0 24 24" width="22" height="22">
-                <path d="M12 3L19 7v7c0 4-4 7-7 8-3-1-7-4-7-8V7z"
-                      fill="none" stroke="${selected ? rarityColor(selected.rarity) : 'var(--color-text-dim)'}" stroke-width="1.2"/>
-                <path d="M12 8v8M9 12h6" stroke="${selected ? rarityColor(selected.rarity) : 'var(--color-text-dim)'}"
-                      stroke-width="1" opacity="0.7"/>
-              </svg>
+    <aside>
+        <div class="panel">
+            <div class="section-title">❦ &nbsp; Inscription</div>
+            <div class="form-group">
+                <div class="form-label">Build name</div>
+                <input type="text" class="form-input" id="build-name" placeholder="e.g. Crimson Vanguard" maxlength="100" />
             </div>
-            <div class="equip-slot__info">
-              <div class="equip-slot__name ${selected ? 'filled' : ''}">
-                ${selected ? selected.name : 'Empty Slot'}
-              </div>
-              <div class="equip-slot__meta">
-                ${selected
-            ? `<span class="rarity-pip">
-                       <span class="rarity-pip__dot" style="background:${rarityColor(selected.rarity)};box-shadow:0 0 6px ${rarityColor(selected.rarity)}"></span>
-                       ${selected.rarity || ''}
-                     </span>`
-            : `<span class="equip-slot__hint">— select —</span>`
-    }
-              </div>
+            <div class="form-group">
+                <div class="form-label">Description</div>
+                <textarea class="form-textarea" id="build-desc" placeholder="Describe your strategy, preferred playstyle…" maxlength="500"></textarea>
             </div>
-            <svg class="equip-slot__chevron" width="10" height="10" viewBox="0 0 10 10">
-              <path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/>
-            </svg>
-          </button>
-          <div class="equip-slot__dropdown" id="${slotId}-dropdown">
-            <div class="equip-slot__dropdown-clear" onclick="selectItem('${slotDef.key}', null, '${slotId}')">
-              ✕ &nbsp; Clear slot
-            </div>
-            ${items.map(it => `
-              <div class="equip-slot__dropdown-item" onclick="selectItem('${slotDef.key}', '${it.id}', '${slotId}')">
-                <div style="flex:1">
-                  <div class="item-name">${it.name}</div>
-                  <span class="rarity-pip" style="color:${rarityColor(it.rarity)}">
-                    <span class="rarity-pip__dot" style="background:${rarityColor(it.rarity)};box-shadow:0 0 6px ${rarityColor(it.rarity)}"></span>
-                    ${it.rarity || ''}
-                  </span>
+            <div class="form-group">
+                <div class="form-label">Visibility</div>
+                <div class="chip-group">
+                    <button class="chip active" data-visibility="public">Public</button>
+                    <button class="chip" data-visibility="private">Private</button>
                 </div>
-              </div>
-            `).join('')}
-            ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>' : ''}
-          </div>
-        </div>
-      `;
-    container.insertAdjacentHTML('beforeend', html);
-  }
-
-  function renderWeaponSlots() {
-    const container = document.getElementById('weapon-slots');
-    container.innerHTML = '';
-    const handItems = getHandItems();
-    const relics = ASSETS.relic || [];
-
-    for (let i = 0; i < 4; i++) {
-      const slot1 = WEAPON_SLOTS[i * 2];
-      const slot2 = WEAPON_SLOTS[i * 2 + 1];
-      const sel1 = findHandItem(state.equipment[slot1.key][0]);
-      const sel2 = findHandItem(state.equipment[slot2.key][0]);
-      const is2H = sel1 && sel1.isTwoHanded;
-
-      // Relic selections
-      const relic1a = relics.find(r => r.id === state.equipment[slot1.key][1]);
-      const relic1b = relics.find(r => r.id === state.equipment[slot1.key][2]);
-      const relic2a = relics.find(r => r.id === state.equipment[slot2.key][1]);
-      const relic2b = relics.find(r => r.id === state.equipment[slot2.key][2]);
-
-      const loadoutNames = ['Primary','Secondary','Tertiary','Quaternary'];
-
-      // Slot 1: all hand items (weapons + magic)
-      const slot1Items = handItems;
-      // Slot 2: exclude two-handed weapons
-      const slot2Items = handItems.filter(it => !it.isTwoHanded);
-
-      container.insertAdjacentHTML('beforeend', `
-          <div class="weapon-loadout" id="loadout-${i}">
-            <div class="weapon-loadout__header">
-              <div class="form-label">Loadout ${i + 1}</div>
-              <span class="weapon-loadout__label">
-                ${loadoutNames[i]}
-                ${is2H ? '<span class="weapon-loadout__2h-badge">2H</span>' : ''}
-              </span>
             </div>
-            <div class="weapon-loadout__slots ${is2H ? 'two-handed' : ''}">
-
-              <!-- Slot 1: Right Hand (or Both Hands if 2H) -->
-              <div>
-                <div class="mini-slot" id="mini-${slot1.key}">
-                  <div class="has-tooltip">
-                    <button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot1.key}')">
-                      <span class="mini-slot__trigger-label">${sel1 ? '' : 'Right Hand'}</span>
-                      ${sel1 ? renderHandItemIcon(sel1) : ''}
+            <div class="form-group">
+                <div class="form-label">Tags <span class="tag-counter" id="tag-counter">(0/3)</span></div>
+                <div class="tag-select" id="tag-select">
+                    <div class="tag-select__selected" id="tag-selected">
+                        <span class="tag-select__placeholder" id="tag-placeholder">Select up to 3 tags…</span>
+                    </div>
+                    <button class="tag-select__trigger" id="tag-trigger" onclick="toggleTagDropdown()">
+                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
                     </button>
-                    ${sel1 ? renderTooltip(sel1) : ''}
-                  </div>
-                  <div class="mini-slot__name-below ${sel1 ? 'filled' : ''}">
-                    ${sel1 ? sel1.name : 'Right Hand'}
-                  </div>
-                  ${renderHandDropdown(slot1.key, slot1Items, i)}
+                    <div class="tag-select__dropdown" id="tag-dropdown"></div>
                 </div>
-                ${sel1 ? `
-                  <div class="relic-row">
-                    ${renderRelicSlot(slot1.key, 1, relic1a, relics, 'weapon')}
-                    ${renderRelicSlot(slot1.key, 2, relic1b, relics, 'weapon')}
-                  </div>
-                ` : ''}
-              </div>
-
-              <!-- Slot 2: Left Hand (hidden if 2H) -->
-              ${!is2H ? `
-                <div>
-                  <div class="mini-slot" id="mini-${slot2.key}">
-                    <div class="has-tooltip">
-                      <button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot2.key}')">
-                        <span class="mini-slot__trigger-label">${sel2 ? '' : 'Left Hand'}</span>
-                        ${sel2 ? renderHandItemIcon(sel2) : ''}
-                      </button>
-                      ${sel2 ? renderTooltip(sel2) : ''}
-                    </div>
-                    <div class="mini-slot__name-below ${sel2 ? 'filled' : ''}">${sel2 ? sel2.name : 'Left Hand'}</div>
-                    ${renderHandDropdown(slot2.key, slot2Items, i)}
-                  </div>
-                  ${sel2 ? `
-                    <div class="relic-row">
-                      ${renderRelicSlot(slot2.key, 1, relic2a, relics, 'weapon')}
-                      ${renderRelicSlot(slot2.key, 2, relic2b, relics, 'weapon')}
-                    </div>
-                  ` : ''}
-                </div>
-              ` : ''}
-
             </div>
-          </div>
-        `);
-    }
-  }
-
-  function renderHandItemIcon(item) {
-    if (item.type === 'magic') {
-      return `<svg viewBox="0 0 24 24" width="20" height="20">
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"
-                fill="none" stroke="var(--color-rarity-epic)" stroke-width="1.3"/>
-          <path d="M12 8v8M8 12h8" stroke="var(--color-rarity-epic)" stroke-width="1.3"/>
-        </svg>`;
-    }
-    return `<svg viewBox="0 0 24 24" width="20" height="20">
-        <path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"
-              fill="none" stroke="var(--color-primary)" stroke-width="1.3"/>
-      </svg>`;
-  }
-
-  function renderHandDropdown(slotKey, items, loadoutIndex) {
-    const isLastLoadout = loadoutIndex === 3;
-    const isLeftColumn = slotKey.endsWith('1') || slotKey.endsWith('3') || slotKey.endsWith('5') || slotKey.endsWith('7');
-    const sideClass = isLastLoadout
-            ? (isLeftColumn ? 'mini-slot__dropdown--side-left' : 'mini-slot__dropdown--side-right')
-            : '';
-
-    return `
-        <div class="mini-slot__dropdown ${sideClass}" id="mini-${slotKey}-dropdown">
-          <div class="equip-slot__dropdown-clear" onclick="selectWeapon('${slotKey}', null, ${loadoutIndex})">✕ &nbsp; Clear</div>
-          ${items.map(it => `
-            <div class="equip-slot__dropdown-item" onclick="selectWeapon('${slotKey}', '${it.id}', ${loadoutIndex})">
-              <div style="flex:1">
-                <div class="item-name">
-                  ${it.name}
-                  ${it.isTwoHanded ? '<span class="weapon-loadout__2h-badge">2H</span>' : ''}
-                  ${it.type === 'magic' ? '<span class="weapon-loadout__magic-badge">Magic</span>' : ''}
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="form-label">Game Version</div>
+                    <input type="text" class="form-input" id="build-game-version" placeholder="e.g. 1.0.2" />
+                    <div class="form-error" id="error-game-version" style="display:none">Format: 1.0 or 1.0.0</div>
                 </div>
-                <span style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-text-dim)">
-                  ${it.type}${it.category ? ' · ' + it.category : ''}
-                </span>
-              </div>
+                <div class="form-group">
+                    <div class="form-label">Build Version</div>
+                    <input type="text" class="form-input" id="build-version" placeholder="e.g. 1.0" />
+                    <div class="form-error" id="error-build-version" style="display:none">Format: 1.0 or 1.0.0</div>
+                </div>
             </div>
-          `).join('')}
+            <div class="form-actions">
+                <div class="form-actions__row">
+                    <a class="button primary" id="btn-save">Save Build</a>
+                    <a class="button secondary" id="btn-discard">Discard</a>
+                </div>
+                <a class="button danger" id="btn-delete">Delete Build</a>
+            </div>
         </div>
-      `;
-  }
+    </aside>
+    <section class="center-stage">
+        <div class="center-stage__grid">
+            <div id="center-armor-labels" style="display:flex; flex-direction:column; gap:14px; justify-content:center;"></div>
+            <div>
+                <div class="center-stage__character">
+                    <span class="frame-corner frame-corner--tl"></span>
+                    <span class="frame-corner frame-corner--tr"></span>
+                    <span class="frame-corner frame-corner--bl"></span>
+                    <span class="frame-corner frame-corner--br"></span>
+                    <div class="center-stage__label">The Fallen Champion</div>
+                    <img class="center-stage__img" src="/media/games/tainted-grail/graphics/doll-tainted-grail.webp" alt="Tainted Grail Character" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="center-stage__fallback" style="display:none;">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="0.8" opacity="0.25"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                        <span>Character image</span>
+                    </div>
+                    <div class="center-stage__glow"></div>
+                </div>
+            </div>
+            <div id="center-jewelry-labels" style="display:flex; flex-direction:column; gap:14px; justify-content:center;"></div>
+        </div>
+        <div class="stats-bar">
+            <div class="stats-bar__item"><div class="stats-bar__label">Armor</div><div class="stats-bar__value" id="stat-armor">0/5</div></div>
+            <div class="stats-bar__item"><div class="stats-bar__label">Weapons</div><div class="stats-bar__value" id="stat-weapons">0/8</div></div>
+            <div class="stats-bar__item"><div class="stats-bar__label">Jewelry</div><div class="stats-bar__value" id="stat-jewelry">0/3</div></div>
+            <div class="stats-bar__item"><div class="stats-bar__label">Equipped</div><div class="stats-bar__value" id="stat-total">0/16</div></div>
+            <div class="stats-bar__item"><div class="stats-bar__label">Loadouts</div><div class="stats-bar__value" id="stat-loadouts">0/4</div></div>
+        </div>
+    </section>
+    <aside class="summary-sidebar">
+        <div class="panel">
+            <div class="section-title">⚔ &nbsp; Weapon Loadouts</div>
+            <div id="weapon-slots"></div>
+        </div>
+    </aside>
+</main>
+<%- include('partials/footer') %>
 
-  function renderRelicSlot(slotKey, relicIndex, selectedRelic, allRelics, relicCategory) {
-    const filteredRelics = relicCategory
-            ? allRelics.filter(r => r.category === relicCategory)
-            : allRelics;
-    const relicId = `relic-${slotKey}-${relicIndex}`;
-    return `
-        <div class="relic-slot" id="${relicId}">
-          <div class="has-tooltip has-tooltip--relic">
-            <button class="relic-slot__trigger ${selectedRelic ? 'filled' : ''}"
-                    onclick="event.stopPropagation(); toggleRelicDropdown('${relicId}')">
-              <svg class="relic-slot__icon" viewBox="0 0 16 16" width="12" height="12">
-                <path d="M8 1l1.5 4.5H14l-3.5 3 1.5 4.5L8 10l-4 3 1.5-4.5L2 5.5h4.5z"
-                      fill="none" stroke="${selectedRelic ? 'var(--color-rarity-epic)' : 'var(--color-text-dim)'}"
-                      stroke-width="1.2"/>
-              </svg>
-              <span class="relic-slot__text">
-                ${selectedRelic ? selectedRelic.name : 'Relic ' + relicIndex}
-              </span>
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="delete-modal" style="display:none">
+    <div class="modal">
+        <div class="modal__icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-error)" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="16" r="0.5" fill="var(--color-error)"/>
+            </svg>
+        </div>
+        <h3 class="modal__title">Delete Build</h3>
+        <p class="modal__text">Are you sure you want to delete this build? This action cannot be undone.</p>
+        <div class="modal__actions">
+            <a class="button secondary" id="modal-cancel">Cancel</a>
+            <a class="button danger" id="modal-confirm">Delete</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    function showToast(message) {
+        const container = document.getElementById('toast-container');
+        const text = document.getElementById('toast-text');
+
+        if (!container || !text) return; // Seguridad por si no has puesto el HTML aún
+
+        text.innerText = message;
+        container.style.display = 'block';
+        container.style.animation = 'slideIn 0.3s ease-out';
+
+        setTimeout(() => {
+            container.style.animation = 'fadeOut 0.5s forwards';
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 500);
+        }, 3000);
+    }
+
+    const BUILD_ID = '<%= typeof buildId !== "undefined" && buildId ? buildId : "" %>';
+    const IS_EDIT = !!BUILD_ID;
+    const USER_ID = '<%= typeof user !== "undefined" && user ? user.id : "" %>';
+    let IS_OWNER = !IS_EDIT; // if creating, user is always the owner
+
+    const ARMOR_SLOTS = [
+        { key: 'helmet', label: 'Helmet' }, { key: 'cuirass', label: 'Cuirass' },
+        { key: 'gauntlet', label: 'Gauntlet' }, { key: 'greaves', label: 'Greaves' },
+        { key: 'boot', label: 'Boot' },
+    ];
+    const WEAPON_SLOTS = Array.from({ length: 8 }, (_, i) => ({ key: `weaponSlot${i+1}`, label: `Weapon ${i+1}` }));
+    const JEWELRY_SLOTS = [
+        { key: 'amulet', label: 'Amulet' }, { key: 'ring1', label: 'Ring 1' }, { key: 'ring2', label: 'Ring 2' },
+    ];
+
+    const state = {
+        name: '', description: '', isPublic: true, tags: [], version: null, gameVersion: null, equipment: {},
+    };
+    ARMOR_SLOTS.forEach(s => { state.equipment[s.key] = [null, null, null]; });
+    WEAPON_SLOTS.forEach(s => { state.equipment[s.key] = [null, null, null]; });
+    JEWELRY_SLOTS.forEach(s => { state.equipment[s.key] = [null]; });
+
+    const ASSETS = { helmet:[], cuirass:[], gauntlet:[], greaves:[], boot:[], weapon:[], magic:[], relic:[], jewelry:[] };
+
+    const API_BASE = '/api/assets?gameSlug=tainted-grail';
+    async function fetchAssetsByType(type) {
+        const assets = []; let page = 1; let hasMore = true;
+        while (hasMore) {
+            const res = await fetch(`${API_BASE}&type=${type}&limit=50&page=${page}`);
+            if (!res.ok) throw new Error(`Failed to load ${type} assets`);
+            const data = await res.json();
+            assets.push(...data.assets); hasMore = assets.length < data.total; page++;
+        }
+        return assets;
+    }
+    async function loadAssets() {
+        try {
+            const [armorList, weaponList, magicList, relicList, jewelryList] = await Promise.all([
+                fetchAssetsByType('armor'), fetchAssetsByType('weapon'), fetchAssetsByType('magic'),
+                fetchAssetsByType('relic'), fetchAssetsByType('jewelry'),
+            ]);
+            ASSETS.helmet = armorList.filter(a => a.category === 'helmet');
+            ASSETS.cuirass = armorList.filter(a => a.category === 'cuirass');
+            ASSETS.gauntlet = armorList.filter(a => a.category === 'gauntlet');
+            ASSETS.greaves = armorList.filter(a => a.category === 'greaves');
+            ASSETS.boot = armorList.filter(a => a.category === 'boot');
+            ASSETS.weapon = weaponList.map(w => ({ ...w, isTwoHanded: w.category === 'two-handed' }));
+            ASSETS.magic = magicList; ASSETS.relic = relicList; ASSETS.jewelry = jewelryList;
+            renderAll();
+        } catch (err) { console.warn('Could not load assets:', err.message); renderAll(); }
+    }
+    function getHandItems() { return [...(ASSETS.weapon || []), ...(ASSETS.magic || [])]; }
+    function findHandItem(id) {
+        if (!id) return null;
+        return (ASSETS.weapon||[]).find(w=>w.id===id) || (ASSETS.magic||[]).find(m=>m.id===id) || null;
+    }
+
+    function renderTooltip(item) {
+        if (!item) return '';
+        const d = item.data || {}; let rows = '';
+        if (d.armor != null) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Armor</span><span class="tooltip__stat-value">${d.armor}</span></div>`;
+        if (Array.isArray(d.damage) && d.damage.length === 2) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${d.damage[0]} – ${d.damage[1]}</span></div>`;
+        if (d.block != null) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Block</span><span class="tooltip__stat-value">${d.block}</span></div>`;
+        if (d.stamina != null) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Stamina</span><span class="tooltip__stat-value">${d.stamina}</span></div>`;
+        if (d.weight != null) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Weight</span><span class="tooltip__stat-value">${d.weight} kg</span></div>`;
+        if (d.gold != null) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Gold</span><span class="tooltip__stat-value">${d.gold.toLocaleString()}</span></div>`;
+        if (d.magic && d.magic.lightCast) { const lc = d.magic.lightCast; rows += `<div class="tooltip__divider"></div>`; rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Light Cast</span><span class="tooltip__stat-value tooltip__stat-value--magic">${lc.type}</span></div>`; if (lc.cost) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Cost</span><span class="tooltip__stat-value">${lc.cost.value} ${lc.cost.costType}</span></div>`; if (lc.damage) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${lc.damage}</span></div>`; if (lc.healing) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Healing</span><span class="tooltip__stat-value">${lc.healing}</span></div>`; if (lc.effect) rows += `<div class="tooltip__desc">${lc.effect}</div>`; }
+        if (d.magic && d.magic.heavyCast) { const hc = d.magic.heavyCast; rows += `<div class="tooltip__divider"></div>`; rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Heavy Cast</span><span class="tooltip__stat-value tooltip__stat-value--magic">${hc.type}</span></div>`; if (hc.cost) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Cost</span><span class="tooltip__stat-value">${hc.cost.value} ${hc.cost.costType}</span></div>`; if (hc.damage) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Damage</span><span class="tooltip__stat-value">${hc.damage}</span></div>`; if (hc.healing) rows += `<div class="tooltip__row"><span class="tooltip__stat-label">Healing</span><span class="tooltip__stat-value">${hc.healing}</span></div>`; if (hc.effect) rows += `<div class="tooltip__desc">${hc.effect}</div>`; }
+        if (item.description) { rows += `<div class="tooltip__divider"></div>`; rows += `<div class="tooltip__desc">${item.description}</div>`; }
+        if (!rows) return '';
+        const typeLabel = item.type + (item.category ? ' · ' + item.category : '');
+        return `<div class="tooltip"><div class="tooltip__header"><div class="tooltip__name">${item.name}</div><div class="tooltip__type">${typeLabel}</div></div><div class="tooltip__body">${rows}</div></div>`;
+    }
+
+    function renderAll() { renderWeaponSlots(); renderCenterLabels(); renderJewelrySlots(); updateStats(); }
+    function rarityColor(r) { return ({common:'var(--color-rarity-common)',uncommon:'var(--color-rarity-uncommon)',rare:'var(--color-rarity-rare)',epic:'var(--color-rarity-epic)',legendary:'var(--color-rarity-legendary)'})[r]||'var(--color-text-dim)'; }
+
+    function renderWeaponSlots() {
+        const container = document.getElementById('weapon-slots'); container.innerHTML = '';
+        const handItems = getHandItems(); const relics = ASSETS.relic || [];
+        for (let i = 0; i < 4; i++) {
+            const slot1 = WEAPON_SLOTS[i*2], slot2 = WEAPON_SLOTS[i*2+1];
+            const sel1 = findHandItem(state.equipment[slot1.key][0]), sel2 = findHandItem(state.equipment[slot2.key][0]);
+            const is2H = sel1 && sel1.isTwoHanded;
+            const relic1a = relics.find(r=>r.id===state.equipment[slot1.key][1]), relic1b = relics.find(r=>r.id===state.equipment[slot1.key][2]);
+            const relic2a = relics.find(r=>r.id===state.equipment[slot2.key][1]), relic2b = relics.find(r=>r.id===state.equipment[slot2.key][2]);
+            const names = ['Primary','Secondary','Tertiary','Quaternary'];
+            const slot1Items = handItems, slot2Items = handItems.filter(it => !it.isTwoHanded);
+            container.insertAdjacentHTML('beforeend', `
+        <div class="weapon-loadout" id="loadout-${i}">
+          <div class="weapon-loadout__header"><div class="form-label">Loadout ${i+1}</div><span class="weapon-loadout__label">${names[i]}${is2H?'<span class="weapon-loadout__2h-badge">2H</span>':''}</span></div>
+          <div class="weapon-loadout__slots ${is2H?'two-handed':''}">
+            <div>
+              <div class="mini-slot" id="mini-${slot1.key}">
+                <div class="has-tooltip"><button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot1.key}')"><span class="mini-slot__trigger-label">${sel1?'':'Right Hand'}</span>${sel1?renderHandItemIcon(sel1):''}</button>${sel1?renderTooltip(sel1):''}</div>
+                <div class="mini-slot__name-below ${sel1?'filled':''}">${sel1?sel1.name:'Right Hand'}</div>
+                ${renderHandDropdown(slot1.key, slot1Items, i)}
+              </div>
+              ${sel1 && sel1.type !== 'magic' ?`<div class="relic-row">${renderRelicSlot(slot1.key,1,relic1a,relics,'weapon')}${renderRelicSlot(slot1.key,2,relic1b,relics,'weapon')}</div>`:''}
+            </div>
+            ${!is2H?`<div>
+              <div class="mini-slot" id="mini-${slot2.key}">
+                <div class="has-tooltip"><button class="mini-slot__trigger" onclick="toggleMiniDropdown('mini-${slot2.key}')"><span class="mini-slot__trigger-label">${sel2?'':'Left Hand'}</span>${sel2?renderHandItemIcon(sel2):''}</button>${sel2?renderTooltip(sel2):''}</div>
+                <div class="mini-slot__name-below ${sel2?'filled':''}">${sel2?sel2.name:'Left Hand'}</div>
+                ${renderHandDropdown(slot2.key, slot2Items, i)}
+              </div>
+              ${sel2 && sel2.type !== 'magic' ?`<div class="relic-row">${renderRelicSlot(slot2.key,1,relic2a,relics,'weapon')}${renderRelicSlot(slot2.key,2,relic2b,relics,'weapon')}</div>`:''}
+            </div>`:''}
+          </div>
+        </div>`);
+        }
+    }
+    function renderHandItemIcon(item) {
+        if (item.iconUrl) return `<img class="slot-item-img" src="${item.iconUrl}" alt="${item.name}" />`;
+        if (item.type==='magic') return `<svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" fill="none" stroke="var(--color-rarity-epic)" stroke-width="1.3"/><path d="M12 8v8M8 12h8" stroke="var(--color-rarity-epic)" stroke-width="1.3"/></svg>`;
+        return `<svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2z" fill="none" stroke="var(--color-primary)" stroke-width="1.3"/></svg>`;
+    }
+    function renderHandDropdown(slotKey, items, loadoutIndex) {
+        return `<div class="mini-slot__dropdown" id="mini-${slotKey}-dropdown"><div class="equip-slot__dropdown-clear" onclick="selectWeapon('${slotKey}',null,${loadoutIndex})">✕ &nbsp; Clear</div>${items.map(it=>`<div class="equip-slot__dropdown-item" onclick="selectWeapon('${slotKey}','${it.id}',${loadoutIndex})"><div style="flex:1"><div class="item-name">${it.name}${it.isTwoHanded?'<span class="weapon-loadout__2h-badge">2H</span>':''}${it.type==='magic'?'<span class="weapon-loadout__magic-badge">Magic</span>':''}</div><span style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-text-dim)">${it.type}${it.category?' · '+it.category:''}</span></div></div>`).join('')}</div>`;
+    }
+    function renderRelicSlot(slotKey, relicIndex, selectedRelic, allRelics, relicCategory) {
+        const filtered = relicCategory ? allRelics.filter(r=>r.category===relicCategory) : allRelics;
+        const relicId = `relic-${slotKey}-${relicIndex}`;
+        return `<div class="relic-slot" id="${relicId}"><div class="has-tooltip has-tooltip--relic"><button class="relic-slot__trigger ${selectedRelic?'filled':''}" onclick="event.stopPropagation(); toggleRelicDropdown('${relicId}')"><svg class="relic-slot__icon" viewBox="0 0 16 16" width="12" height="12"><path d="M8 1l1.5 4.5H14l-3.5 3 1.5 4.5L8 10l-4 3 1.5-4.5L2 5.5h4.5z" fill="none" stroke="${selectedRelic?'var(--color-rarity-epic)':'var(--color-text-dim)'}" stroke-width="1.2"/></svg><span class="relic-slot__text">${selectedRelic?selectedRelic.name:'Relic '+relicIndex}</span></button>${selectedRelic?renderTooltip(selectedRelic):''}</div><div class="relic-slot__dropdown" id="${relicId}-dropdown"><div class="equip-slot__dropdown-clear" onclick="event.stopPropagation(); selectRelic('${slotKey}',${relicIndex},null,'${relicId}')">✕ &nbsp; Clear relic</div>${filtered.map(r=>`<div class="equip-slot__dropdown-item" onclick="event.stopPropagation(); selectRelic('${slotKey}',${relicIndex},'${r.id}','${relicId}')"><div style="flex:1"><div class="item-name">${r.name}</div></div></div>`).join('')}${filtered.length===0?'<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No relics available</div>':''}</div></div>`;
+    }
+
+    const SLOT_ICONS = {
+        helmet:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 16c0-5 3-11 8-12 5 1 8 7 8 12"/><path d="M4 16h16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z"/><path d="M8 16v-3c0-1.5 1.5-3 4-3s4 1.5 4 3v3"/></svg>`,
+        cuirass:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 4c1.5 1 3 1.5 5 1.5S15.5 5 17 4l1 6c0 3-1 7-3 10H9C7 17 6 13 6 10z"/><path d="M9 10h6"/><path d="M10 14h4"/></svg>`,
+        gauntlet:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 20V10l-2-2V5h12v3l-2 2v10z"/><path d="M8 10h8"/><path d="M8 14h8"/><path d="M10 5V3"/><path d="M14 5V3"/></svg>`,
+        greaves:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 3h8v6c0 3-1 6-2 9l-1 3h-2l-1-3c-1-3-2-6-2-9z"/><path d="M8 7h8"/><path d="M9 12h6"/></svg>`,
+        boot:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 3h6v10l3 4v2c0 1-1 2-2 2H6c-1 0-2-1-2-2v-1l5-3z"/><path d="M9 13h6"/></svg>`,
+    };
+
+    function renderCenterLabels() {
+        const armorLabels = document.getElementById('center-armor-labels'); const relics = ASSETS.relic || [];
+        armorLabels.innerHTML = ARMOR_SLOTS.map(slot => {
+            const sel = (ASSETS[slot.key]||[]).find(it=>it.id===state.equipment[slot.key][0]);
+            const relic1 = relics.find(r=>r.id===state.equipment[slot.key][1]);
+            const relic2 = relics.find(r=>r.id===state.equipment[slot.key][2]);
+            const slotId = `center-armor-${slot.key}`; const items = ASSETS[slot.key]||[];
+            return `<div class="center-equip center-equip--right" id="${slotId}">
+        <div class="center-equip__label">${slot.label}</div>
+        <div class="center-equip__row">
+          ${sel ? `<div class="relic-col">${renderRelicSlot(slot.key,1,relic1,relics,'armor')}${renderRelicSlot(slot.key,2,relic2,relics,'armor')}</div>` : ''}
+          <div class="has-tooltip">
+            <button class="center-equip__trigger ${sel?'filled':''}" onclick="toggleCenterDropdown('${slotId}')">
+              ${sel && sel.iconUrl ? `<img class="slot-item-img" src="${sel.iconUrl}" alt="${sel.name}" />` : `<span class="slot-icon">${SLOT_ICONS[slot.key]||''}</span>`}
+              <span class="slot-text">${sel?sel.name:'empty'}</span>
             </button>
-            ${selectedRelic ? renderTooltip(selectedRelic) : ''}
-          </div>
-          <div class="relic-slot__dropdown" id="${relicId}-dropdown">
-            <div class="equip-slot__dropdown-clear"
-                 onclick="event.stopPropagation(); selectRelic('${slotKey}', ${relicIndex}, null, '${relicId}')">
-              ✕ &nbsp; Clear relic
-            </div>
-            ${filteredRelics.map(r => `
-              <div class="equip-slot__dropdown-item"
-                   onclick="event.stopPropagation(); selectRelic('${slotKey}', ${relicIndex}, '${r.id}', '${relicId}')">
-                <div style="flex:1">
-                  <div class="item-name">${r.name}</div>
-                </div>
-              </div>
-            `).join('')}
-            ${filteredRelics.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No relics available</div>' : ''}
+            ${sel?renderTooltip(sel):''}
           </div>
         </div>
-      `;
-  }
+        <div class="center-equip__dropdown" id="${slotId}-dropdown">
+          <div class="equip-slot__dropdown-clear" onclick="selectCenterItem('${slot.key}',null,'${slotId}','${slot.key}')">✕ &nbsp; Clear slot</div>
+          ${items.map(it=>`<div class="equip-slot__dropdown-item" onclick="selectCenterItem('${slot.key}','${it.id}','${slotId}','${slot.key}')"><div style="flex:1"><div class="item-name">${it.name}</div></div></div>`).join('')}
+          ${items.length===0?'<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>':''}
+        </div>
+      </div>`;
+        }).join('');
+    }
 
-  const SLOT_ICONS = {
-    helmet:   `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 16c0-5 3-11 8-12 5 1 8 7 8 12"/><path d="M4 16h16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z"/><path d="M8 16v-3c0-1.5 1.5-3 4-3s4 1.5 4 3v3"/></svg>`,
-    cuirass:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 4c1.5 1 3 1.5 5 1.5S15.5 5 17 4l1 6c0 3-1 7-3 10H9C7 17 6 13 6 10z"/><path d="M9 10h6"/><path d="M10 14h4"/></svg>`,
-    gauntlet: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 20V10l-2-2V5h12v3l-2 2v10z"/><path d="M8 10h8"/><path d="M8 14h8"/><path d="M10 5V3"/><path d="M14 5V3"/></svg>`,
-    greaves:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 3h8v6c0 3-1 6-2 9l-1 3h-2l-1-3c-1-3-2-6-2-9z"/><path d="M8 7h8"/><path d="M9 12h6"/></svg>`,
-    boot:     `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 3h6v10l3 4v2c0 1-1 2-2 2H6c-1 0-2-1-2-2v-1l5-3z"/><path d="M9 13h6"/></svg>`,
-  };
+    function renderJewelrySlots() {
+        const container = document.getElementById('center-jewelry-labels'); container.innerHTML = '';
+        const jewelry = ASSETS.jewelry||[]; const amulets = jewelry.filter(j=>j.category==='amulets'); const rings = jewelry.filter(j=>j.category==='rings');
+        const JEWELRY_ICONS = {
+            amulet:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/></svg>`,
+            ring1:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="6" r="2.5"/></svg>`,
+            ring2:`<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="6" r="2.5"/></svg>`,
+        };
+        JEWELRY_SLOTS.forEach(slot => {
+            const isRing = slot.key.startsWith('ring'); const items = isRing?rings:amulets;
+            const sel = items.find(j=>j.id===state.equipment[slot.key][0]); const slotId = `center-jewelry-${slot.key}`;
+            container.insertAdjacentHTML('beforeend', `<div class="center-equip center-equip--left" id="${slotId}"><div class="center-equip__label">${slot.label}</div><div class="has-tooltip"><button class="center-equip__trigger ${sel?'filled':''}" onclick="toggleCenterDropdown('${slotId}')">${sel&&sel.iconUrl?`<img class="slot-item-img" src="${sel.iconUrl}" alt="${sel.name}" />`:`<span class="slot-icon">${JEWELRY_ICONS[slot.key]||''}</span>`}<span class="slot-text">${sel?sel.name:'empty'}</span></button>${sel?renderTooltip(sel):''}</div><div class="center-equip__dropdown" id="${slotId}-dropdown"><div class="equip-slot__dropdown-clear" onclick="selectJewelry('${slot.key}',null,'${slotId}')">✕ &nbsp; Clear slot</div>${items.map(it=>`<div class="equip-slot__dropdown-item" onclick="selectJewelry('${slot.key}','${it.id}','${slotId}')"><div style="flex:1"><div class="item-name">${it.name}</div></div></div>`).join('')}${items.length===0?'<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No jewelry loaded</div>':''}</div></div>`);
+        });
+    }
+    function selectJewelry(slotKey, itemId) { state.equipment[slotKey]=[itemId]; closeAllDropdowns(); renderAll(); }
+    function updateStats() {
+        const af = ARMOR_SLOTS.filter(s=>state.equipment[s.key][0]).length;
+        const wf = WEAPON_SLOTS.filter(s=>state.equipment[s.key][0]).length;
+        const jf = JEWELRY_SLOTS.filter(s=>state.equipment[s.key][0]).length;
+        document.getElementById('stat-armor').textContent=`${af}/5`;
+        document.getElementById('stat-weapons').textContent=`${wf}/8`;
+        document.getElementById('stat-jewelry').textContent=`${jf}/3`;
+        document.getElementById('stat-total').textContent=`${af+wf+jf}/16`;
+        document.getElementById('stat-loadouts').textContent=`${Math.min(Math.ceil(wf/2),4)}/4`;
+    }
 
-  function renderCenterLabels() {
-    const armorLabels = document.getElementById('center-armor-labels');
-    const relics = ASSETS.relic || [];
-    armorLabels.innerHTML = ARMOR_SLOTS.map(slot => {
-      const sel = (ASSETS[slot.key] || []).find(it => it.id === state.equipment[slot.key][0]);
-      const selectedRelic1 = relics.find(r => r.id === state.equipment[slot.key][1]);
-      const selectedRelic2 = relics.find(r => r.id === state.equipment[slot.key][2]);
-      const slotId = `center-armor-${slot.key}`;
-      const items = ASSETS[slot.key] || [];
-      return `
-          <div class="center-equip center-equip--right" id="${slotId}">
-            <div class="center-equip__label">${slot.label}</div>
-            <div class="has-tooltip">
-              <button class="center-equip__trigger ${sel ? 'filled' : ''}"
-                      onclick="toggleCenterDropdown('${slotId}')">
-                <span class="slot-icon">${SLOT_ICONS[slot.key] || ''}</span>
-                <span class="slot-text">${sel ? sel.name : 'empty'}</span>
-              </button>
-              ${sel ? renderTooltip(sel) : ''}
-            </div>
-            <div class="center-equip__dropdown" id="${slotId}-dropdown">
-              <div class="equip-slot__dropdown-clear"
-                   onclick="selectCenterItem('${slot.key}', null, '${slotId}', '${slot.key}')">
-                ✕ &nbsp; Clear slot
-              </div>
-              ${items.map(it => `
-                <div class="equip-slot__dropdown-item"
-                     onclick="selectCenterItem('${slot.key}', '${it.id}', '${slotId}', '${slot.key}')">
-                  <div style="flex:1">
-                    <div class="item-name">${it.name}</div>
-                  </div>
-                </div>
-              `).join('')}
-              ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No assets loaded</div>' : ''}
-            </div>
-            ${sel ? `
-              <div class="relic-row relic-row--stacked" style="justify-content:flex-end;margin-top:4px;">
-                ${renderRelicSlot(slot.key, 1, selectedRelic1, relics, 'armor')}
-                ${renderRelicSlot(slot.key, 2, selectedRelic2, relics, 'armor')}
-              </div>
-            ` : ''}
-          </div>
-        `;
-    }).join('');
-  }
+    function closeAllDropdowns() {
+        document.querySelectorAll('.equip-slot__dropdown.open,.mini-slot__dropdown.open,.center-equip__dropdown.open,.relic-slot__dropdown.open').forEach(d=>d.classList.remove('open'));
+        document.querySelectorAll('.equip-slot__trigger.open,.mini-slot__trigger.open,.center-equip__trigger.open,.relic-slot__trigger.open').forEach(t=>t.classList.remove('open'));
+        document.querySelectorAll('.center-equip.dropdown-open').forEach(s=>s.classList.remove('dropdown-open'));
+    }
+    function toggleSlotDropdown(id){const d=document.getElementById(`${id}-dropdown`),t=document.querySelector(`#${id} .equip-slot__trigger`),o=d.classList.contains('open');closeAllDropdowns();if(!o){d.classList.add('open');t.classList.add('open');}}
+    function toggleMiniDropdown(id){const d=document.getElementById(`${id}-dropdown`),t=document.querySelector(`#${id} .mini-slot__trigger`),o=d.classList.contains('open');closeAllDropdowns();if(!o){d.classList.add('open');t.classList.add('open');}}
+    function toggleCenterDropdown(id){const d=document.getElementById(`${id}-dropdown`),t=document.querySelector(`#${id} .center-equip__trigger`),s=document.getElementById(id),o=d.classList.contains('open');closeAllDropdowns();if(!o){d.classList.add('open');t.classList.add('open');s?.classList.add('dropdown-open');}}
+    function toggleRelicDropdown(id){const d=document.getElementById(`${id}-dropdown`),t=document.querySelector(`#${id} .relic-slot__trigger`),o=d.classList.contains('open');closeAllDropdowns();if(!o){d.classList.add('open');t.classList.add('open');}}
+    function selectItem(k,id){state.equipment[k][0]=id;closeAllDropdowns();renderAll();}
+    function selectCenterItem(k,id){state.equipment[k][0]=id;if(!id)state.equipment[k]=[null,null,null];closeAllDropdowns();renderAll();}
+    function selectWeapon(k,id,li){const item=findHandItem(id),s1=WEAPON_SLOTS[li*2].key,s2=WEAPON_SLOTS[li*2+1].key;state.equipment[k][0]=id;if(item&&item.isTwoHanded&&k===s1)state.equipment[s2]=[null,null,null];if(item&&item.type==='magic'){state.equipment[k][1]=null;state.equipment[k][2]=null;}if(!id)state.equipment[k]=[null,null,null];closeAllDropdowns();renderAll();}
+    function selectRelic(k,ri,id){state.equipment[k][ri]=id;closeAllDropdowns();renderAll();}
 
-  function renderJewelrySlots() {
-    const container = document.getElementById('center-jewelry-labels');
-    container.innerHTML = '';
-    const jewelry = ASSETS.jewelry || [];
-    const amulets = jewelry.filter(j => j.category === 'amulets');
-    const rings = jewelry.filter(j => j.category === 'rings');
+    document.addEventListener('mousedown',e=>{if(!e.target.closest('.equip-slot')&&!e.target.closest('.mini-slot')&&!e.target.closest('.center-equip')&&!e.target.closest('.relic-slot'))closeAllDropdowns();});
+    document.querySelectorAll('[data-visibility]').forEach(c=>{c.addEventListener('click',()=>{document.querySelectorAll('[data-visibility]').forEach(x=>x.classList.remove('active'));c.classList.add('active');state.isPublic=c.dataset.visibility==='public';});});
 
-    const JEWELRY_ICONS = {
-      amulet: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/></svg>`,
-      ring1:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="6" r="2.5"/></svg>`,
-      ring2:  `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="6" r="2.5"/></svg>`,
+    const ALL_TAGS=[{value:'beginner-friendly',label:'Beginner Friendly'},{value:'endgame',label:'Endgame'},{value:'solo',label:'Solo'},{value:'co-op',label:'Co-op'},{value:'speedrun',label:'Speedrun'},{value:'tank',label:'Tank'},{value:'glass-cannon',label:'Glass Cannon'},{value:'stealth',label:'Stealth'},{value:'magic-focused',label:'Magic'},{value:'melee-focused',label:'Melee'},{value:'ranged-focused',label:'Ranged'},{value:'hybrid',label:'Hybrid'},{value:'min-maxed',label:'Min-Maxed'},{value:'budget',label:'Budget'}];
+    const MAX_TAGS=3;
+    function toggleTagDropdown(){const d=document.getElementById('tag-dropdown'),o=d.classList.contains('open');closeAllDropdowns();if(!o)d.classList.add('open');}
+    function addTag(v){if(state.tags.length>=MAX_TAGS||state.tags.includes(v))return;state.tags.push(v);renderTagSelector();}
+    function removeTag(v){state.tags=state.tags.filter(t=>t!==v);renderTagSelector();}
+    function renderTagSelector(){
+        const sel=document.getElementById('tag-selected'),ctr=document.getElementById('tag-counter'),dd=document.getElementById('tag-dropdown');
+        ctr.textContent=`(${state.tags.length}/${MAX_TAGS})`;
+        if(state.tags.length===0){sel.innerHTML='<span class="tag-select__placeholder">Select up to 3 tags…</span>';}
+        else{sel.innerHTML=state.tags.map(tag=>{const l=ALL_TAGS.find(t=>t.value===tag)?.label||tag;return`<span class="tag-chip">${l}<button class="tag-chip__remove" onclick="event.stopPropagation();removeTag('${tag}')">×</button></span>`;}).join('');}
+        const avail=ALL_TAGS.filter(t=>!state.tags.includes(t.value));
+        dd.innerHTML=avail.map(t=>`<div class="tag-select__option ${state.tags.length>=MAX_TAGS?'disabled':''}" onclick="${state.tags.length>=MAX_TAGS?'':`addTag('${t.value}')`}">${t.label}</div>`).join('');
+        if(avail.length===0)dd.innerHTML='<div class="tag-select__option disabled">All tags selected</div>';
+    }
+    renderTagSelector();
+    document.addEventListener('mousedown',e=>{if(!e.target.closest('#tag-select'))document.getElementById('tag-dropdown').classList.remove('open');});
+
+    document.getElementById('build-name').addEventListener('input',e=>{state.name=e.target.value;});
+    document.getElementById('build-desc').addEventListener('input',e=>{state.description=e.target.value;});
+    const SEMVER_REGEX = /^\d+\.\d+(\.\d+)?$/;
+    function validateVersionField(inputId, errorId, stateKey) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        const val = input.value.trim();
+        if (val && !SEMVER_REGEX.test(val)) {
+            input.classList.add('error');
+            error.style.display = '';
+            state[stateKey] = null;
+        } else {
+            input.classList.remove('error');
+            error.style.display = 'none';
+            state[stateKey] = val || null;
+        }
+    }
+    document.getElementById('build-game-version').addEventListener('input', () => validateVersionField('build-game-version', 'error-game-version', 'gameVersion'));
+    document.getElementById('build-version').addEventListener('input', () => validateVersionField('build-version', 'error-build-version', 'version'));
+    document.getElementById('btn-discard').addEventListener('click',()=>{
+        state.name='';state.description='';state.isPublic=true;state.tags=[];state.version=null;state.gameVersion=null;
+        ARMOR_SLOTS.forEach(s=>{state.equipment[s.key]=[null,null,null];});
+        WEAPON_SLOTS.forEach(s=>{state.equipment[s.key]=[null,null,null];});
+        JEWELRY_SLOTS.forEach(s=>{state.equipment[s.key]=[null];});
+        document.getElementById('build-name').value='';document.getElementById('build-desc').value='';
+        document.getElementById('build-game-version').value='';document.getElementById('build-version').value='';
+        document.querySelectorAll('[data-visibility]').forEach(c=>c.classList.remove('active'));
+        document.querySelector('[data-visibility="public"]')?.classList.add('active');
+        closeAllDropdowns();renderTagSelector();renderAll();
+    });
+
+    document.getElementById('btn-save').addEventListener('click', async()=>{
+        const ni=document.getElementById('build-name');
+        const gvi=document.getElementById('build-game-version');
+        const bvi=document.getElementById('build-version');
+        let hasError = false;
+
+        [ni, gvi, bvi].forEach(el => el.classList.remove('error'));
+        document.getElementById('error-game-version').style.display='none';
+        document.getElementById('error-build-version').style.display='none';
+
+        if(!state.name.trim()){ni.classList.add('error');hasError=true;}
+        if(!state.gameVersion||!SEMVER_REGEX.test(state.gameVersion)){gvi.classList.add('error');document.getElementById('error-game-version').style.display='';hasError=true;}
+        if(!state.version||!SEMVER_REGEX.test(state.version)){bvi.classList.add('error');document.getElementById('error-build-version').style.display='';hasError=true;}
+
+        if(hasError){
+            const first = document.querySelector('.form-input.error, .form-textarea.error');
+            if(first) first.focus();
+            return;
+        }
+        const armorSlotMap={helmet:'armor-0',cuirass:'armor-1',gauntlet:'armor-2',greaves:'armor-3',boot:'armor-4'};
+        const weaponSlotMap={};for(let i=0;i<8;i++)weaponSlotMap[`weaponSlot${i+1}`]=`weapon-${i}`;
+        const jewelrySlotMap={amulet:'jewelry-0',ring1:'jewelry-1',ring2:'jewelry-2'};
+        const templateData={};
+        function extractId(val) { return val && typeof val === 'object' ? val.id : (val || null); }
+        ARMOR_SLOTS.forEach(s=>{const r1=extractId(state.equipment[s.key][1]),r2=extractId(state.equipment[s.key][2]);templateData[s.key]=(r1||r2)?[r1,r2]:null;});
+        WEAPON_SLOTS.forEach(s=>{const r1=extractId(state.equipment[s.key][1]),r2=extractId(state.equipment[s.key][2]);templateData[s.key]=(r1||r2)?[r1,r2]:null;});
+        const assets=[];
+        ARMOR_SLOTS.forEach(s=>{const id=extractId(state.equipment[s.key][0]);if(id)assets.push({assetId:id,slotCategory:'armor',slotName:armorSlotMap[s.key]});});
+        WEAPON_SLOTS.forEach(s=>{const id=extractId(state.equipment[s.key][0]);if(id)assets.push({assetId:id,slotCategory:'weapon',slotName:weaponSlotMap[s.key]});});
+        JEWELRY_SLOTS.forEach(s=>{const id=extractId(state.equipment[s.key][0]);if(id)assets.push({assetId:id,slotCategory:'jewelry',slotName:jewelrySlotMap[s.key]});});
+        const payload={gameSlug:'tainted-grail',name:state.name,description:state.description||null,isPublic:state.isPublic,version:state.version,gameVersion:state.gameVersion,tags:state.tags,templateData,assets};
+        try{
+            const url = IS_EDIT ? `/api/builds/${BUILD_ID}` : '/api/builds';
+            const method = IS_EDIT ? 'PATCH' : 'POST';
+            const res=await fetch(url,{method,headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+            const data=await res.json();
+            if(!res.ok){console.error('Build save failed:',data); showToast(data.message||'Error saving build');return;}
+            if (IS_EDIT) {
+                showToast("Build updated successfully!");
+            } else {
+                window.location.href = '/user/me';
+            }
+        }catch(err){console.error('Network error:',err);alert('Could not connect to the server');}
+    });
+
+    // ================================================================
+    // LOAD EXISTING BUILD
+    // ================================================================
+    const SLOT_NAME_TO_KEY = {
+        'armor-0':'helmet','armor-1':'cuirass','armor-2':'gauntlet','armor-3':'greaves','armor-4':'boot',
+        'weapon-0':'weaponSlot1','weapon-1':'weaponSlot2','weapon-2':'weaponSlot3','weapon-3':'weaponSlot4',
+        'weapon-4':'weaponSlot5','weapon-5':'weaponSlot6','weapon-6':'weaponSlot7','weapon-7':'weaponSlot8',
+        'jewelry-0':'amulet','jewelry-1':'ring1','jewelry-2':'ring2',
     };
 
-    JEWELRY_SLOTS.forEach(slot => {
-      const isRing = slot.key.startsWith('ring');
-      const items = isRing ? rings : amulets;
-      const sel = items.find(j => j.id === state.equipment[slot.key][0]);
-      const slotId = `center-jewelry-${slot.key}`;
+    async function loadBuild(buildId) {
+        try {
+            const res = await fetch(`/api/builds/${buildId}`);
+            if (!res.ok) throw new Error('Build not found');
+            const build = await res.json();
 
-      container.insertAdjacentHTML('beforeend', `
-          <div class="center-equip center-equip--left" id="${slotId}">
-            <div class="center-equip__label">${slot.label}</div>
-            <div class="has-tooltip">
-              <button class="center-equip__trigger ${sel ? 'filled' : ''}"
-                      onclick="toggleCenterDropdown('${slotId}')">
-                <span class="slot-icon">${JEWELRY_ICONS[slot.key] || ''}</span>
-                <span class="slot-text">${sel ? sel.name : 'empty'}</span>
-              </button>
-              ${sel ? renderTooltip(sel) : ''}
-            </div>
-            <div class="center-equip__dropdown" id="${slotId}-dropdown">
-              <div class="equip-slot__dropdown-clear"
-                   onclick="selectJewelry('${slot.key}', null, '${slotId}')">
-                ✕ &nbsp; Clear slot
-              </div>
-              ${items.map(it => `
-                <div class="equip-slot__dropdown-item"
-                     onclick="selectJewelry('${slot.key}', '${it.id}', '${slotId}')">
-                  <div style="flex:1">
-                    <div class="item-name">${it.name}</div>
-                  </div>
-                </div>
-              `).join('')}
-              ${items.length === 0 ? '<div style="padding:12px;color:var(--color-text-dim);font-size:11px;text-align:center;">No jewelry loaded</div>' : ''}
-            </div>
-          </div>
-        `);
-    });
-  }
+            // Populate state
+            state.name = build.name || '';
+            state.description = build.description || '';
+            state.isPublic = build.isPublic;
+            state.tags = build.tags || [];
+            state.version = build.version || null;
+            state.gameVersion = build.gameVersion || null;
 
-  function selectJewelry(slotKey, itemId, slotId) {
-    state.equipment[slotKey] = [itemId];
-    closeAllDropdowns();
-    renderAll();
-  }
+            // Populate templateData (relics)
+            if (build.templateData) {
+                Object.keys(build.templateData).forEach(key => {
+                    if (state.equipment[key] && build.templateData[key]) {
+                        state.equipment[key][1] = build.templateData[key][0] || null;
+                        state.equipment[key][2] = build.templateData[key][1] || null;
+                    }
+                });
+            }
 
-  function updateStats() {
-    const armorFilled = ARMOR_SLOTS.filter(s => state.equipment[s.key][0]).length;
-    const weaponFilled = WEAPON_SLOTS.filter(s => state.equipment[s.key][0]).length;
-    const total = armorFilled + weaponFilled;
-    const loadouts = Math.ceil(weaponFilled / 2);
+            // Populate assets into slots
+            if (build.assets) {
+                build.assets.forEach(asset => {
+                    const slotKey = SLOT_NAME_TO_KEY[asset.slotName];
+                    if (slotKey && state.equipment[slotKey]) {
+                        state.equipment[slotKey][0] = asset.id;
+                    }
+                });
+            }
 
-    document.getElementById('stat-armor').textContent = `${armorFilled}/5`;
-    document.getElementById('stat-weapons').textContent = `${weaponFilled}/8`;
-    document.getElementById('stat-total').textContent = `${total}/13`;
-    document.getElementById('stat-loadouts').textContent = `${Math.min(loadouts, 4)}/4`;
-  }
+            // Update form fields
+            document.getElementById('build-name').value = state.name;
+            document.getElementById('build-desc').value = state.description;
+            document.getElementById('build-game-version').value = state.gameVersion || '';
+            document.getElementById('build-version').value = state.version || '';
 
-  function updateBuildStats() {
-    if (!document.getElementById('stat-total-armor')) return;
+            // Update visibility chips
+            document.querySelectorAll('[data-visibility]').forEach(c => c.classList.remove('active'));
+            document.querySelector(`[data-visibility="${state.isPublic ? 'public' : 'private'}"]`)?.classList.add('active');
 
-    let totalArmor = 0;
-    let totalDamageMin = 0;
-    let totalDamageMax = 0;
-    let totalBlock = 0;
-    let totalWeight = 0;
-    let totalGold = 0;
+            // Update tags
+            renderTagSelector();
 
-    // Armor pieces
-    ARMOR_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (!itemId) return;
-      const item = (ASSETS[slot.key] || []).find(a => a.id === itemId);
-      if (!item || !item.data) return;
-      totalArmor  += item.data.armor  || 0;
-      totalWeight += item.data.weight || 0;
-      totalGold   += item.data.gold   || 0;
-    });
+            // Update title
+            document.querySelector('.title-strip__heading').textContent = 'Edit Build';
 
-    // Weapons and magic
-    WEAPON_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (!itemId) return;
-      const item = findHandItem(itemId);
-      if (!item || !item.data) return;
-      if (Array.isArray(item.data.damage)) {
-        totalDamageMin += item.data.damage[0] || 0;
-        totalDamageMax += item.data.damage[1] || 0;
-      }
-      totalBlock  += item.data.block  || 0;
-      totalWeight += item.data.weight || 0;
-      totalGold   += item.data.gold   || 0;
-    });
+            // Check ownership
+            IS_OWNER = USER_ID && build.creatorId === USER_ID;
+            if (!IS_OWNER) {
+                document.querySelector('.title-strip__heading').textContent = 'View Build';
+            }
 
-    // Jewelry
-    JEWELRY_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (!itemId) return;
-      const item = (ASSETS.jewelry || []).find(j => j.id === itemId);
-      if (!item || !item.data) return;
-      totalWeight += item.data.weight || 0;
-      totalGold   += item.data.gold   || 0;
-    });
+            renderAll();
 
-    // Max reference values for bar widths
-    const maxArmor  = 50;
-    const maxDamage = 300;
-    const maxBlock  = 100;
-
-    // Update DOM
-    document.getElementById('stat-total-armor').textContent = totalArmor.toFixed(1);
-    document.getElementById('bar-armor').style.width = `${Math.min((totalArmor / maxArmor) * 100, 100)}%`;
-
-    const dmgText = totalDamageMin > 0 ? `${totalDamageMin} – ${totalDamageMax}` : '0';
-    document.getElementById('stat-total-damage').textContent = dmgText;
-    document.getElementById('bar-damage').style.width = `${Math.min((totalDamageMax / maxDamage) * 100, 100)}%`;
-
-    document.getElementById('stat-total-block').textContent = totalBlock > 0 ? totalBlock.toFixed(1) : '0';
-    document.getElementById('bar-block').style.width = `${Math.min((totalBlock / maxBlock) * 100, 100)}%`;
-
-    document.getElementById('stat-total-weight').textContent = `${totalWeight.toFixed(1)} kg`;
-    document.getElementById('stat-total-gold').textContent = totalGold.toLocaleString();
-  }
-
-  // ================================================================
-  // INTERACTION HANDLERS
-  // ================================================================
-  function closeAllDropdowns() {
-    document.querySelectorAll(
-            '.equip-slot__dropdown.open, .mini-slot__dropdown.open, .center-equip__dropdown.open, .relic-slot__dropdown.open'
-    ).forEach(d => d.classList.remove('open'));
-    document.querySelectorAll(
-            '.equip-slot__trigger.open, .mini-slot__trigger.open, .center-equip__trigger.open, .relic-slot__trigger.open'
-    ).forEach(t => t.classList.remove('open'));
-    document.querySelectorAll('.center-equip.dropdown-open')
-            .forEach(slot => slot.classList.remove('dropdown-open'));
-  }
-
-  function toggleSlotDropdown(slotId) {
-    const dropdown = document.getElementById(`${slotId}-dropdown`);
-    const trigger = document.querySelector(`#${slotId} .equip-slot__trigger`);
-    const isOpen = dropdown.classList.contains('open');
-    closeAllDropdowns();
-    if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
-  }
-
-  function toggleMiniDropdown(miniId) {
-    const dropdown = document.getElementById(`${miniId}-dropdown`);
-    const trigger = document.querySelector(`#${miniId} .mini-slot__trigger`);
-    const isOpen = dropdown.classList.contains('open');
-    closeAllDropdowns();
-    if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
-  }
-
-  function toggleCenterDropdown(slotId) {
-    const dropdown = document.getElementById(`${slotId}-dropdown`);
-    const trigger = document.querySelector(`#${slotId} .center-equip__trigger`);
-    const slot = document.getElementById(slotId);
-    const isOpen = dropdown.classList.contains('open');
-    closeAllDropdowns();
-    if (!isOpen) {
-      dropdown.classList.add('open');
-      trigger.classList.add('open');
-      slot?.classList.add('dropdown-open');
-    }
-  }
-
-  function toggleRelicDropdown(relicId) {
-    const dropdown = document.getElementById(`${relicId}-dropdown`);
-    const trigger = document.querySelector(`#${relicId} .relic-slot__trigger`);
-    const isOpen = dropdown.classList.contains('open');
-    closeAllDropdowns();
-    if (!isOpen) { dropdown.classList.add('open'); trigger.classList.add('open'); }
-  }
-
-  function selectItem(slotKey, itemId, slotId) {
-    state.equipment[slotKey][0] = itemId;
-    closeAllDropdowns();
-    renderAll();
-  }
-
-  function selectCenterItem(slotKey, itemId, slotId, assetCategory) {
-    state.equipment[slotKey][0] = itemId;
-    // Clear relic if armor piece is removed
-    if (!itemId) {
-      state.equipment[slotKey] = [null, null, null];
-    }
-    closeAllDropdowns();
-    renderAll();
-  }
-
-  // Select a weapon/magic — handles two-handed logic
-  function selectWeapon(slotKey, weaponId, loadoutIndex) {
-    const item = findHandItem(weaponId);
-    const slot1Key = WEAPON_SLOTS[loadoutIndex * 2].key;
-    const slot2Key = WEAPON_SLOTS[loadoutIndex * 2 + 1].key;
-
-    // Set the item
-    state.equipment[slotKey][0] = weaponId;
-
-    // If two-handed weapon selected in slot1, clear slot2 entirely
-    if (item && item.isTwoHanded && slotKey === slot1Key) {
-      state.equipment[slot2Key] = [null, null, null];
+            // Lock form after render so new DOM elements are locked too
+            if (!IS_OWNER) lockForm();
+        } catch (err) {
+            console.error('Could not load build:', err.message);
+        }
     }
 
-    // If clearing a weapon, also clear its relics
-    if (!weaponId) {
-      state.equipment[slotKey] = [null, null, null];
+    function lockForm() {
+        // Disable all form inputs
+        document.querySelectorAll('.form-input, .form-textarea').forEach(el => {
+            el.disabled = true;
+            el.style.opacity = '0.6';
+            el.style.cursor = 'default';
+        });
+
+        // Disable chips
+        document.querySelectorAll('.chip').forEach(el => {
+            el.disabled = true;
+            el.style.pointerEvents = 'none';
+            el.style.opacity = '0.6';
+        });
+
+        // Disable tag selector
+        const tagTrigger = document.getElementById('tag-trigger');
+        if (tagTrigger) { tagTrigger.disabled = true; tagTrigger.style.opacity = '0.6'; }
+        document.querySelectorAll('.tag-chip__remove').forEach(el => el.style.display = 'none');
+
+        // Hide action buttons
+        document.querySelector('.form-actions').style.display = 'none';
+
+        // Disable equipment slot clicks
+        document.querySelectorAll('.center-equip__trigger, .mini-slot__trigger').forEach(el => {
+            el.style.pointerEvents = 'none';
+        });
+
+        // Disable relic clicks
+        document.querySelectorAll('.relic-slot__trigger').forEach(el => {
+            el.style.pointerEvents = 'none';
+        });
     }
 
-    closeAllDropdowns();
-    renderAll();
-  }
-
-  // Select a relic for a weapon slot
-  function selectRelic(slotKey, relicIndex, relicId, uiId) {
-    // relicIndex is 1 or 2, mapping to array index 1 or 2
-    state.equipment[slotKey][relicIndex] = relicId;
-    closeAllDropdowns();
-    renderAll();
-  }
-
-  // Close dropdowns on outside click
-  document.addEventListener('mousedown', (e) => {
-    if (!e.target.closest('.equip-slot') &&
-            !e.target.closest('.mini-slot') &&
-            !e.target.closest('.center-equip') &&
-            !e.target.closest('.relic-slot')) {
-      closeAllDropdowns();
-    }
-  });
-
-  // Visibility toggle
-  document.querySelectorAll('[data-visibility]').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('[data-visibility]').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      state.isPublic = chip.dataset.visibility === 'public';
-    });
-  });
-
-  // Tag dropdown
-  const ALL_TAGS = [
-    { value: 'beginner-friendly', label: 'Beginner Friendly' },
-    { value: 'endgame',           label: 'Endgame' },
-    { value: 'solo',              label: 'Solo' },
-    { value: 'co-op',             label: 'Co-op' },
-    { value: 'speedrun',          label: 'Speedrun' },
-    { value: 'tank',              label: 'Tank' },
-    { value: 'glass-cannon',      label: 'Glass Cannon' },
-    { value: 'stealth',           label: 'Stealth' },
-    { value: 'magic-focused',     label: 'Magic' },
-    { value: 'melee-focused',     label: 'Melee' },
-    { value: 'ranged-focused',    label: 'Ranged' },
-    { value: 'hybrid',            label: 'Hybrid' },
-    { value: 'min-maxed',         label: 'Min-Maxed' },
-    { value: 'budget',            label: 'Budget' },
-  ];
-  const MAX_TAGS = 3;
-
-  function toggleTagDropdown() {
-    const dropdown = document.getElementById('tag-dropdown');
-    const isOpen = dropdown.classList.contains('open');
-    closeAllDropdowns();
-    if (!isOpen) { dropdown.classList.add('open'); }
-  }
-
-  function addTag(value) {
-    if (state.tags.length >= MAX_TAGS || state.tags.includes(value)) return;
-    state.tags.push(value);
-    renderTagSelector();
-  }
-
-  function removeTag(value) {
-    state.tags = state.tags.filter(t => t !== value);
-    renderTagSelector();
-  }
-
-  function renderTagSelector() {
-    const selected = document.getElementById('tag-selected');
-    const counter = document.getElementById('tag-counter');
-    const dropdown = document.getElementById('tag-dropdown');
-
-    // Update counter
-    counter.textContent = `(${state.tags.length}/${MAX_TAGS})`;
-
-    // Rebuild selected area
-    if (state.tags.length === 0) {
-      selected.innerHTML = '<span class="tag-select__placeholder">Select up to 3 tags…</span>';
+    // ================================================================
+    // INIT
+    // ================================================================
+    if (!IS_EDIT) {
+        document.getElementById('btn-delete').style.display = 'none';
     } else {
-      selected.innerHTML = state.tags.map(tag => {
-        const label = ALL_TAGS.find(t => t.value === tag)?.label || tag;
-        return `<span class="tag-chip">
-            ${label}
-            <button class="tag-chip__remove" onclick="event.stopPropagation(); removeTag('${tag}')">×</button>
-          </span>`;
-      }).join('');
-    }
-
-    // Render dropdown options
-    const available = ALL_TAGS.filter(t => !state.tags.includes(t.value));
-    dropdown.innerHTML = available.map(t => `
-        <div class="tag-select__option ${state.tags.length >= MAX_TAGS ? 'disabled' : ''}"
-             onclick="${state.tags.length >= MAX_TAGS ? '' : `addTag('${t.value}')`}">
-          ${t.label}
-        </div>
-      `).join('');
-
-    if (available.length === 0) {
-      dropdown.innerHTML = '<div class="tag-select__option disabled">All tags selected</div>';
-    }
-  }
-
-  // Init tag selector
-  renderTagSelector();
-
-  // Close tag dropdown on outside click
-  document.addEventListener('mousedown', (e) => {
-    if (!e.target.closest('#tag-select')) {
-      document.getElementById('tag-dropdown').classList.remove('open');
-    }
-  });
-
-  // Name & description sync
-  document.getElementById('build-name').addEventListener('input', (e) => {
-    state.name = e.target.value;
-  });
-  document.getElementById('build-desc').addEventListener('input', (e) => {
-    state.description = e.target.value;
-  });
-
-  function resetBuildForm() {
-    state.name = '';
-    state.description = '';
-    state.isPublic = true;
-    state.tags = [];
-
-    ARMOR_SLOTS.forEach(s => {
-      state.equipment[s.key] = [null, null, null];
-    });
-    WEAPON_SLOTS.forEach(s => {
-      state.equipment[s.key] = [null, null, null];
-    });
-    JEWELRY_SLOTS.forEach(s => {
-      state.equipment[s.key] = [null];
-    });
-
-    document.getElementById('build-name').value = '';
-    document.getElementById('build-desc').value = '';
-    document.querySelectorAll('[data-visibility]').forEach(c => c.classList.remove('active'));
-    document.querySelector('[data-visibility="public"]')?.classList.add('active');
-
-    closeAllDropdowns();
-    renderTagSelector();
-    renderAll();
-  }
-
-  document.getElementById('btn-discard').addEventListener('click', () => {
-    resetBuildForm();
-  });
-
-  // Save
-  document.getElementById('btn-save').addEventListener('click', async () => {
-    const nameInput = document.getElementById('build-name');
-    if (!state.name.trim()) {
-      nameInput.classList.add('error');
-      nameInput.focus();
-      return;
-    }
-    nameInput.classList.remove('error');
-
-    // ── Map slot keys to slotName values ──
-    const armorSlotMap = {
-      helmet:   'armor-0',
-      cuirass:  'armor-1',
-      gauntlet: 'armor-2',
-      greaves:  'armor-3',
-      boot:     'armor-4',
-    };
-    const weaponSlotMap = {};
-    for (let i = 0; i < 8; i++) {
-      weaponSlotMap[`weaponSlot${i + 1}`] = `weapon-${i}`;
-    }
-    const jewelrySlotMap = {
-      amulet: 'jewelry-0',
-      ring1:  'jewelry-1',
-      ring2:  'jewelry-2',
-    };
-
-    // ── Build templateData (relic assignments) ──
-    const templateData = {};
-
-    // Armor: state = [itemId, relic1, relic2] → templateData = [relic1, relic2] | null
-    ARMOR_SLOTS.forEach(slot => {
-      const relic1 = state.equipment[slot.key][1] || null;
-      const relic2 = state.equipment[slot.key][2] || null;
-      templateData[slot.key] = (relic1 || relic2) ? [relic1, relic2] : null;
-    });
-
-    // Weapons: state = [weaponId, relic1, relic2] → templateData = [relic1, relic2] | null
-    WEAPON_SLOTS.forEach(slot => {
-      const relic1 = state.equipment[slot.key][1] || null;
-      const relic2 = state.equipment[slot.key][2] || null;
-      templateData[slot.key] = (relic1 || relic2) ? [relic1, relic2] : null;
-    });
-
-    // ── Build assets array ──
-    const assets = [];
-
-    // Armor assets
-    ARMOR_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (itemId) {
-        assets.push({
-          assetId: itemId,
-          slotCategory: 'armor',
-          slotName: armorSlotMap[slot.key],
+        document.getElementById('btn-delete').addEventListener('click', () => {
+            document.getElementById('delete-modal').style.display = 'flex';
         });
-      }
-    });
-
-    // Weapon/magic assets
-    WEAPON_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (itemId) {
-        assets.push({
-          assetId: itemId,
-          slotCategory: 'weapon',
-          slotName: weaponSlotMap[slot.key],
+        document.getElementById('modal-cancel').addEventListener('click', () => {
+            document.getElementById('delete-modal').style.display = 'none';
         });
-      }
-    });
-
-    // Jewelry assets
-    JEWELRY_SLOTS.forEach(slot => {
-      const itemId = state.equipment[slot.key][0];
-      if (itemId) {
-        assets.push({
-          assetId: itemId,
-          slotCategory: 'jewelry',
-          slotName: jewelrySlotMap[slot.key],
+        document.getElementById('delete-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) document.getElementById('delete-modal').style.display = 'none';
         });
-      }
-    });
-
-    // ── Payload ──
-    const payload = {
-      gameSlug: 'tainted-grail',
-      name: state.name,
-      description: state.description || null,
-      isPublic: state.isPublic,
-      tags: state.tags,
-      templateData,
-      assets,
-    };
-
-    // ── POST to API ──
-    try {
-      const res = await fetch('/api/builds', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        console.error('Build creation failed:', data);
-        alert(data.message || 'Error creating build');
-        return;
-      }
-
-      // Redirect to the created build
-      window.location.href = `/`;
-    } catch (err) {
-      console.error('Network error:', err);
-      alert('Could not connect to the server');
+        document.getElementById('modal-confirm').addEventListener('click', async () => {
+            try {
+                const res = await fetch(`/api/builds/${BUILD_ID}`, { method: 'DELETE' });
+                if (!res.ok) { const data = await res.json(); alert(data.message || 'Error deleting build'); return; }
+                window.location.href = '/user/me';
+            } catch (err) { console.error('Network error:', err); alert('Could not connect to the server'); }
+        });
     }
-  });
-
-  // ================================================================
-  // INIT
-  // ================================================================
-  loadAssets();
+    loadAssets().then(() => {
+        if (IS_EDIT) loadBuild(BUILD_ID);
+    });
 </script>
 
+<div id="toast-container" class="toast-container">
+    <div class="toast-message success">
+        <span class="toast-icon">✓</span>
+        <span id="toast-text">Build updated successfully!</span>
+    </div>
+</div>
 </body>
 </html>
