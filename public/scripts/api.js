@@ -43,6 +43,24 @@ export async function register(userData){
     return data;
 }
 
+export async function logout(){
+    const res = await fetch(`${API_URL}/auth/logout`, {
+        method: 'POST',
+        credentials: 'include',
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
+    }
+
+    return data;
+}
+
 export async function forgot(userData){
     const res = await fetch(`${API_URL}/auth/forgot-password`, {
         method: 'POST',
@@ -98,6 +116,27 @@ export async function refresh(){
             status: res.status,
             message: data.message,
         }
+    }
+
+    return data;
+}
+/*------Users------*/
+export async function updateUser(userData, field){
+    const res = await fetch(`${API_URL}/users/me/${field}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    })
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            status: res.status,
+            data
+        };
     }
 
     return data;
