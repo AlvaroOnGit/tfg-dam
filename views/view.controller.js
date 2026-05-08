@@ -67,8 +67,6 @@ export class ViewController {
 
             const gameData = await response.json();
 
-            console.log(gameData);
-
             res.render('games', { user: req.user || null, game: gameData });
 
         } catch (e) {
