@@ -44,7 +44,7 @@ export class ViewController {
 
             const userData = await response.json();
 
-            res.render('user-profile', { user: userData, isOwner: false });
+            res.render('profile', { user: userData, isOwner: false });
 
         } catch (e) {
             res.redirect('/');
@@ -55,7 +55,7 @@ export class ViewController {
         if (!req.user) {
             return res.redirect('/');
         }
-        res.render('user-profile', { user: req.user, isOwner: true });
+        res.render('profile', { user: req.user, isOwner: true });
     }
 
     notFound = (req, res) => {
