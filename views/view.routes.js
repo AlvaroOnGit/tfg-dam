@@ -18,9 +18,8 @@ export const createViewRouter = () => {
     viewRouter.get('/', authHandler, viewController.home);
     viewRouter.get('/auth', authHandler, viewController.auth);
     viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
-    viewRouter.get('/user/settings', authHandler, viewController.userAccount);
-    viewRouter.get('/user/me', authHandler, viewController.userProfile);
-    viewRouter.get('/users/:id', authHandler, viewController.otherProfile);
+    viewRouter.get('/users/me', authHandler, viewController.userMe);
+    viewRouter.get('/users/:id', authHandler, viewController.user);
 
     viewRouter.use(viewController.notFound);
 
