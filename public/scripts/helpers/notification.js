@@ -2,6 +2,7 @@ export class NotificationHandler {
     constructor(notification) {
         this.notification = notification;
         this.message = notification.querySelector('.notification-message');
+        this.notification.onclick = () => this.clearNotification();
     }
 
     displayNotification(type, message, duration) {
