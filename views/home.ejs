@@ -19,10 +19,9 @@
         </a>
         <nav class="nav-wrapper">
             <a class="nav-item" href="#builds">Popular Builds</a>
-            <a class="nav-item"
-               href="<% if (user) { %>/users/settings?tab=builds<% } else { %>#builds<% } %>">
-                My builds
-            </a>
+            <% if (user) { %>
+                <a class="nav-item" href="/users/me">My Builds</a>
+            <% } %>
         </nav>
         <% if (user) { %>
             <div class="user-wrapper">
@@ -45,7 +44,7 @@
     <main>
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-wrapper">
-                <h1 id="hero-title" class="hero-title">Forge your legacy. Master your builds.</h1>
+                <h1 id="hero-title" class="hero-title">Forge your legacy Master your builds</h1>
             </div>
         </section>
 
