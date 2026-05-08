@@ -9,6 +9,7 @@ export class BuildHandler {
         this.currentPage = 1;
         this.searchTimeout = null;
         this.userId = options.userId || null;
+        this.gameSlug = options.gameSlug || null;
     }
 
     async init() {
@@ -35,9 +36,11 @@ export class BuildHandler {
         try {
             const params = { page: this.currentPage, name };
             if (this.userId) params.creator = this.userId;
+            if (this.gameSlug) params.gameSlug = this.gameSlug;
 
             const data = await getBuilds(params);
             const builds = Array.isArray(data.builds) ? data.builds : [];
+            console.log(builds);
             this.renderBuilds(builds);
         } catch {
             this.notificationHandler.displayNotification('error', 'Could not load builds. Check that the API is running.');
