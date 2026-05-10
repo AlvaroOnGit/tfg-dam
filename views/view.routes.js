@@ -20,6 +20,7 @@ export const createViewRouter = () => {
     viewRouter.get('/auth/reset-password/:token', authHandler, viewController.reset);
     viewRouter.get('/users/me', authHandler, viewController.userMe);
     viewRouter.get('/users/:id', authHandler, viewController.user);
+    viewRouter.get('/games/:gameSlug', authHandler, viewController.games)
 
     viewRouter.use(viewController.notFound);
 

@@ -1,11 +1,10 @@
 body {
     width: 100%;
-    overflow: hidden;
 }
 .layout {
     display: flex;
     flex-direction: column;
-    min-height: 780px;
+    min-height: 100vh;
 }
 
 /* ===== AUTHENTICATION FORM ===== */

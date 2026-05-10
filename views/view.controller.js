@@ -23,7 +23,6 @@ export class ViewController {
         }
         res.render('reset-password');
     }
-
     user = async (req, res) => {
         const targetId = req.params.id;
 
@@ -50,14 +49,30 @@ export class ViewController {
             res.redirect('/');
         }
     }
-
     userMe = (req, res) => {
         if (!req.user) {
             return res.redirect('/');
         }
         res.render('profile', { user: req.user, isOwner: true });
     }
+    games = async (req, res) => {
+        const targetGame = req.params.gameSlug;
 
+        try {
+            const response = await fetch(`${BASE_URL}/api/games/${targetGame}`);
+
+            if (!response.ok) {
+                return res.redirect('/');
+            }
+
+            const gameData = await response.json();
+
+            res.render('games', { user: req.user || null, game: gameData });
+
+        } catch (e) {
+            res.redirect('/');
+        }
+    }
     notFound = (req, res) => {
         res.render('not-found');
     }
