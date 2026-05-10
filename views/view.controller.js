@@ -67,6 +67,14 @@ export class ViewController {
 
             const gameData = await response.json();
 
+
+            res.render('games', { user: req.user || null, game: gameData });
+
+        } catch (e) {
+            res.redirect('/');
+        }
+    }
+
     createBuildTaintedGrail = (req, res) => {
         if (!req.user) return res.redirect('/auth');
         res.render('create-build', { user: req.user });
@@ -86,12 +94,6 @@ export class ViewController {
     };
 
 
-            res.render('games', { user: req.user || null, game: gameData });
-
-        } catch (e) {
-            res.redirect('/');
-        }
-    }
     notFound = (req, res) => {
         res.render('not-found');
     }
