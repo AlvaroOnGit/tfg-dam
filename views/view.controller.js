@@ -67,6 +67,25 @@ export class ViewController {
 
             const gameData = await response.json();
 
+    createBuildTaintedGrail = (req, res) => {
+        if (!req.user) return res.redirect('/auth');
+        res.render('create-build', { user: req.user });
+    };
+
+    createBuildEldenRing = (req, res) => {
+        if (!req.user) return res.redirect('/auth');
+        res.render('create-build-elden-ring', { user: req.user });
+    };
+
+    editBuildTaintedGrail = (req, res) => {
+        res.render('create-build', { user: req.user, buildId: req.params.id });
+    };
+
+    editBuildEldenRing = (req, res) => {
+        res.render('create-build-elden-ring', { user: req.user, buildId: req.params.id });
+    };
+
+
             res.render('games', { user: req.user || null, game: gameData });
 
         } catch (e) {
