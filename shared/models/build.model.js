@@ -38,6 +38,9 @@ export class BuildModel {
         if (creator) {
             conditions.push(`b.creator_id = $${i++}`);
             values.push(creator);
+        } else {
+            conditions.push(`b.is_public = true`);
+            conditions.push(`b.is_published = true`);
         }
 
         const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';

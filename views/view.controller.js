@@ -3,6 +3,8 @@
  *
  */
 
+const BASE_URL = process.env.BASE_URL;
+
 export class ViewController {
 
     home = (req, res) => {
@@ -21,34 +23,49 @@ export class ViewController {
         }
         res.render('reset-password');
     }
-    notFound = (req, res) => {
-        res.render('not-found');
-    }
-
-    userAccount = (req, res) => {
-        if (req.user == null) {
-            return res.redirect('/');
-        }
-        res.render('account-settings', { user: req.user });
-    }
-
-    userProfile = (req, res) => {
-        if (req.user == null) {
-            return res.redirect('/');
-        }
-        res.render('user-profile', { user: req.user });
-    }
-
-    otherProfile = (req, res) => {
+    user = async (req, res) => {
         const targetId = req.params.id;
 
-        // Si el ID es el del propio usuario logueado, redirigir a su perfil privado
         if (req.user && req.user.id === targetId) {
-            return res.redirect('/user/me');
+            return res.redirect('/users/me');
         }
 
-        res.render('other-profile', { user: req.user, targetId });
+        try {
+            const response = await fetch(`${BASE_URL}/api/users/${targetId}`, {
+                headers: {
+                    'Authorization': req.headers.authorization
+                }
+            });
+
+            if (!response.ok) {
+                return res.redirect('/');
+            }
+
+            const userData = await response.json();
+
+            res.render('profile', { user: userData, isOwner: false });
+
+        } catch (e) {
+            res.redirect('/');
+        }
     }
+    userMe = (req, res) => {
+        if (!req.user) {
+            return res.redirect('/');
+        }
+        res.render('profile', { user: req.user, isOwner: true });
+    }
+    games = async (req, res) => {
+        const targetGame = req.params.gameSlug;
+
+        try {
+            const response = await fetch(`${BASE_URL}/api/games/${targetGame}`);
+
+            if (!response.ok) {
+                return res.redirect('/');
+            }
+
+            const gameData = await response.json();
 
     createBuildTaintedGrail = (req, res) => {
         if (!req.user) return res.redirect('/auth');
@@ -69,4 +86,13 @@ export class ViewController {
     };
 
 
+            res.render('games', { user: req.user || null, game: gameData });
+
+        } catch (e) {
+            res.redirect('/');
+        }
+    }
+    notFound = (req, res) => {
+        res.render('not-found');
+    }
 }
