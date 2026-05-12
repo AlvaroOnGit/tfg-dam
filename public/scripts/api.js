@@ -1,4 +1,4 @@
-const API_URL = 'https://spellsword-tfg.vercel.app/';
+const API_URL = 'https://spellsword.onrender.com/';
 
 /*------Authentication------*/
 export async function login(userData){
