@@ -1,4 +1,4 @@
-const API_URL = 'https://spellsword.onrender.com/';
+const API_URL = 'https://spellsword.onrender.com/api';
 
 /*------Authentication------*/
 export async function login(userData){
