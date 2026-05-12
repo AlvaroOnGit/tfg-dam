@@ -112,7 +112,8 @@ const weaponDataSchema = z.object({
         .nullable(),
     gold: goldSchema,
     weight: weightSchema,
-    requirements: requirementSchema
+    requirements: requirementSchema,
+    compatible: z.boolean().default(true),
 });
 
 // ────────── Armor Schemas ───────────────────────────────────────────────────────
@@ -126,7 +127,8 @@ const armorDataSchema = z.object({
         .nullable(),
     gold: goldSchema,
     weight: weightSchema,
-    requirements: requirementSchema
+    requirements: requirementSchema,
+    compatible: z.boolean().default(true),
 })
 
 // ────────── Jewelry Schemas ─────────────────────────────────────────────────────
