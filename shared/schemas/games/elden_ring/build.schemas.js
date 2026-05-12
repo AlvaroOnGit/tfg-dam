@@ -35,7 +35,7 @@ const buildTags = z.enum([
     "budget",
     "no-hit",
 ]);
-const slotCategories = z.enum(["armor", "weapon", "talisman", "spell"]);
+const slotCategories = z.enum(["armor", "weapon", "talisman", "spell", "ashOfWar"]);
 const slotArmorNames = z.enum([
     "armor-0",
     "armor-1",
@@ -69,18 +69,27 @@ const slotSpellNames = z.enum([
     "spell-9"
 ]);
 
-// ─── Template Data Schema ───────────────────────────────────────────────────────
+const slotAshOfWarNames = z.enum([
+    "ash-of-war-0",
+    "ash-of-war-1",
+    "ash-of-war-2",
+    "ash-of-war-3",
+    "ash-of-war-4",
+    "ash-of-war-5"
+]);
 
-const ashOfWarSlots = ["ashOfWar1", "ashOfWar2", "ashOfWar3", "ashOfWar4", "ashOfWar5", "ashOfWar6"];
-
-const templateDataSchema = z.object(
-    Object.fromEntries(
-        ashOfWarSlots.map(type => [type, z
-            .uuidv4(`${type} must be a valid v4 uuid`)
-            .nullable()
-        ])
-    )
-);
+//// ─── Template Data Schema ───────────────────────────────────────────────────────
+//
+//const ashOfWarSlots = ["ash-of-war-0", "ash-of-war-1", "ash-of-war-2", "ash-of-war-3", "ash-of-war-4", "ash-of-war-5"];
+//
+//const templateDataSchema = z.object(
+//    Object.fromEntries(
+//        ashOfWarSlots.map(type => [type, z
+//            .uuidv4(`${type} must be a valid v4 uuid`)
+//            .nullable()
+//        ])
+//    )
+//);
 
 // ─── Build Asset Schema ───────────────────────────────────────────────────────────
 
@@ -89,6 +98,7 @@ const slotNamesByCategory = {
     weapon: slotWeaponNames.options,
     talisman: slotTalismanNames.options,
     spell: slotSpellNames.options,
+    ashOfWar: slotAshOfWarNames.options
 };
 
 const assetSchema = z.object({
@@ -102,14 +112,14 @@ const assetSchema = z.object({
 export const EldenRingBuildSchema =
     BaseSchema.extend({
             tags: z.array(buildTags),
-            templateData: templateDataSchema,
+            //templateData: templateDataSchema,
             assets: z.array(assetSchema),
     }).superRefine(validateNoDuplicateSlots);
 
 export const EldenRingBuildPartialSchema =
     BaseSchema.partial().extend({
         tags: z.array(buildTags).optional(),
-        templateData: templateDataSchema.optional(),
+        //templateData: templateDataSchema.optional(),
         assets: z.array(assetSchema).optional(),
     }).superRefine(validateNoDuplicateSlots);
 
