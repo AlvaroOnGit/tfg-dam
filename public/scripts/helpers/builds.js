@@ -40,7 +40,6 @@ export class BuildHandler {
 
             const data = await getBuilds(params);
             const builds = Array.isArray(data.builds) ? data.builds : [];
-            console.log(builds);
             this.renderBuilds(builds);
         } catch {
             this.notificationHandler.displayNotification('error', 'Could not load builds. Check that the API is running.');
@@ -68,7 +67,7 @@ export class BuildHandler {
 
             const card = document.createElement('a');
             card.className = 'build-card';
-            card.href = `/${gameSlug}/builds/${encodeURIComponent(id)}`;
+            card.href = `/games/${gameSlug}/builds/${encodeURIComponent(id)}`;
 
             const media = document.createElement('div');
             media.className = 'build-card-media';

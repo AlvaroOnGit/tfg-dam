@@ -38,12 +38,17 @@
             <a href="/auth" class="nav-item">Sign in</a>
         <% } %>
     </header>
-    <hero class="banner-wrapper">
-        <img class="game-banner" src="/media/games/<%= game.slug %>/graphics/<%= game.slug %>-banner.webp" alt="<%= game.name %> Banner">
+    <hero >
+        <div class="banner-wrapper">
+            <img class="game-banner" src="/media/games/<%= game.slug %>/graphics/<%= game.slug %>-banner.webp" alt="Game Banner">
+        </div>
+        <div class="game-title-wrapper">
+            <img src="/media/games/<%= game.slug %>/graphics/<%= game.slug %>-title.webp" alt="Game Title">
+        </div>
     </hero>
     <main>
         <div class="create-build-wrapper">
-            <a href="/<%= game.slug %>/builder">Create Build</a>
+            <a href="/games/<%= game.slug %>/builder">Create Build</a>
         </div>
         <% if (user) { %>
             <section id="my-builds"

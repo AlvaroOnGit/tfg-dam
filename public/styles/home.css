@@ -102,6 +102,7 @@ main {
 }
 
 .game-card-title {
+    font-family: var(--font-headline), serif;
     margin: 0;
     font-size: 1rem;
     font-weight: 700;

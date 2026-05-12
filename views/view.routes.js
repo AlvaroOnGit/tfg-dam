@@ -21,6 +21,8 @@ export const createViewRouter = () => {
     viewRouter.get('/users/me', authHandler, viewController.userMe);
     viewRouter.get('/users/:id', authHandler, viewController.user);
     viewRouter.get('/games/:gameSlug', authHandler, viewController.games)
+    viewRouter.get('/games/:gameSlug/builder', authHandler, viewController.builder);
+    viewRouter.get('/games/:gameSlug/builds/:id', authHandler, viewController.build);
 
     viewRouter.use(viewController.notFound);
 

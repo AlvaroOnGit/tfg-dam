@@ -44,18 +44,34 @@ export async function register(userData){
 }
 
 export async function logout(){
-    const res = await fetch(`${API_URL}/auth/logout`, {
-        method: 'POST',
-        credentials: 'include',
-    });
+
+    async function makeRequest(){
+        return fetch(`${API_URL}/auth/logout`, {
+            method: 'POST',
+            credentials: 'include',
+        });
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
 
     const data = await res.json();
 
     if (!res.ok) {
-        throw {
-            status: res.status,
-            data
-        };
+        throw { status: res.status, data };
     }
 
     return data;
@@ -103,7 +119,7 @@ export async function reset(userData, token){
     return data;
 }
 
-export async function refresh(){
+async function refresh(){
     const res = await fetch(`${API_URL}/auth/refresh`, {
         method: 'POST',
         credentials: 'include',
@@ -122,21 +138,38 @@ export async function refresh(){
 }
 /*------Users------*/
 export async function updateUser(userData, field){
-    const res = await fetch(`${API_URL}/users/me/${field}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData)
-    })
+
+    async function makeRequest(){
+        return fetch(`${API_URL}/users/me/${field}`, {
+            method: 'PATCH',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData)
+        })
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
 
     const data = await res.json();
 
     if (!res.ok) {
-        throw {
-            status: res.status,
-            data
-        };
+        throw { status: res.status, data };
     }
 
     return data;
@@ -149,9 +182,28 @@ export async function getGames({ page = 1, name = '', genre = '' } = {}) {
     if (name) params.append('name', name);
     if (genre) params.append('genre', genre);
 
-    const res = await fetch(`${API_URL}/games?${params}`, {
-        credentials: 'same-origin'
-    });
+    async function makeRequest(){
+        return fetch(`${API_URL}/games?${params}`, {
+            credentials: 'same-origin'
+        });
+
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
 
     const data = await res.json();
 
@@ -177,9 +229,27 @@ export async function getBuilds({
     if (creator) params.append('creator', creator);
     if (tags.length) tags.forEach(tag => params.append('tags?', tag));
 
-    const res = await fetch(`${API_URL}/builds?${params}`, {
-        credentials: 'same-origin'
-    });
+    async function makeRequest() {
+        return fetch(`${API_URL}/builds?${params}`, {
+            credentials: 'same-origin'
+        });
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
 
     const data = await res.json();
 
@@ -189,4 +259,155 @@ export async function getBuilds({
 
     return data;
 
+}
+
+export async function createBuild(buildData){
+
+    async function makeRequest() {
+        return fetch(`${API_URL}/builds`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(buildData)
+        });
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw { status: res.status, data };
+    }
+
+    return data;
+}
+
+export async function updateBuild(buildData, buildId){
+
+    async function makeRequest() {
+        return fetch(`${API_URL}/builds/${buildId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(buildData)
+        })
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw { status: res.status, data };
+    }
+
+    return data;
+}
+
+export async function deleteBuild(buildId) {
+
+    async function makeRequest() {
+        return fetch(`${API_URL}/builds/${buildId}`, {
+            method: 'DELETE',
+            credentials: 'same-origin'
+        });
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
+
+    if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw { status: res.status, data };
+    }
+}
+/*------Assets------*/
+export async function getAssets({
+    page = 1,
+    gameSlug = 'elden-ring',
+    name = '',
+    type = '',
+    category = '' } = {}) {
+
+    const params = new URLSearchParams({ limit: 50, page });
+
+    params.append('gameSlug', gameSlug);
+    if (name) params.append('name', name);
+    if (type) params.append('type', type);
+    if (category) params.append('category', category);
+
+    async function makeRequest() {
+        return fetch(`${API_URL}/assets?${params}`, {
+            credentials: 'same-origin'
+        });
+    }
+
+    let res = await makeRequest();
+
+    if (res.status === 401) {
+        try {
+            await refresh();
+
+            res = await makeRequest();
+
+        } catch (err) {
+            throw {
+                status: 401,
+                message: 'Session expired'
+            };
+        }
+    }
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw { status: res.status, data };
+    }
+
+    return data;
 }

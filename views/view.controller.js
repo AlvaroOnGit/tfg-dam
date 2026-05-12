@@ -67,12 +67,64 @@ export class ViewController {
 
             const gameData = await response.json();
 
+
             res.render('games', { user: req.user || null, game: gameData });
 
         } catch (e) {
             res.redirect('/');
         }
     }
+
+    builder = (req, res) => {
+        if (!req.user) return res.redirect('/auth');
+
+        const gameSlug = req.params.gameSlug;
+
+        res.render('builder', { user: req.user, game: gameSlug, isOwner: true });
+    };
+
+    build = async (req, res) => {
+        const gameSlug = req.params.gameSlug;
+        const buildId = req.params.id;
+
+        try {
+            const buildResponse = await fetch(`${BASE_URL}/api/builds/${buildId}`);
+
+            if (!buildResponse.ok) {
+                return res.redirect('/');
+            }
+
+            const build = await buildResponse.json();
+
+            const isOwner = req.user?.id === build.creatorId;
+
+            if (!isOwner) {
+                const creatorResponse = await fetch(`${BASE_URL}/api/users/${build.creatorId}`);
+
+                const creator = await creatorResponse.json();
+
+                return res.render('builder', {
+                    user: req.user,
+                    game: gameSlug,
+                    build: build,
+                    isOwner: isOwner,
+                    creator: creator,
+                });
+            }
+
+            res.render('builder', {
+                user: req.user,
+                game: gameSlug,
+                build: build,
+                isOwner: isOwner
+            });
+
+        } catch (e) {
+            console.log(e)
+            res.redirect('/');
+        }
+    }
+
     notFound = (req, res) => {
         res.render('not-found');
     }

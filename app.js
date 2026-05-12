@@ -39,6 +39,11 @@ export const createApp = () => {
         });
     });
 
+    //app.use((req, res, next) => {
+    //    const delay = 1000;
+    //    setTimeout(next, delay);
+    //});
+
     //Endpoint to access the API documentation
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {swaggerOptions: { url: '/docs/openapi.json' }}))
 

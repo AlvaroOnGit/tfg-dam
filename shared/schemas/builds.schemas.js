@@ -26,7 +26,7 @@ const createBaseBuildSchema = (gameSlug) =>
             .default(false),
         isPublished: z
             .boolean("isPublished must be a boolean")
-            .default(false),
+            .default(true),
         version: z
             .string("version must be a string")
             .trim()

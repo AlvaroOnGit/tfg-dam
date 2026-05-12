@@ -20,7 +20,8 @@
         "perception": null,
         "endurance": 5,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -44,7 +45,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -68,7 +70,8 @@
         "perception": 3,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -92,7 +95,8 @@
         "perception": null,
         "endurance": 15,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -116,7 +120,8 @@
         "perception": null,
         "endurance": 7,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -140,7 +145,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -164,7 +170,8 @@
         "perception": 12,
         "endurance": 4,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -188,7 +195,8 @@
         "perception": null,
         "endurance": 5,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -212,7 +220,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -236,7 +245,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -260,7 +270,8 @@
         "perception": null,
         "endurance": 4,
         "practicality": 4
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -284,7 +295,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -308,7 +320,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -332,7 +345,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -356,7 +370,8 @@
         "perception": null,
         "endurance": 5,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -380,7 +395,8 @@
         "perception": null,
         "endurance": 15,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -404,7 +420,8 @@
         "perception": null,
         "endurance": 10,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -428,7 +445,8 @@
         "perception": null,
         "endurance": 15,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -452,7 +470,8 @@
         "perception": null,
         "endurance": null,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   },
   {
@@ -476,7 +495,8 @@
         "perception": null,
         "endurance": 2,
         "practicality": null
-      }
+      },
+      "compatible": true
     }
   }
 ]
