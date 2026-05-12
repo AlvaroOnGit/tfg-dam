@@ -428,7 +428,6 @@ class TaintedGrailTooltipRenderer {
         const gold = data.gold || {};
         const { heavyCast, lightCast } = data.magic;
         const { dexterity, endurance, perception, practicality, spirituality, strength } = data.requirements;
-        console.log(data)
         return `
             <div class="tooltip-body">
   <div>
