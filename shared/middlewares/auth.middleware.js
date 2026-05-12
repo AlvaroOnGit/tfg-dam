@@ -57,12 +57,14 @@ export const authHandler = async (req, res, next) => {
 
             res.cookie('access_token', newAccessToken, {
                 httpOnly: true,
+                secure: true,
                 sameSite: 'lax',
                 maxAge: 15 * 60 * 1000
             });
 
             res.cookie('refresh_token', newRefreshToken, {
                 httpOnly: true,
+                secure: true,
                 sameSite: 'strict',
                 maxAge: Number(process.env.JWT_REFRESH_TOKEN_LIFETIME) * 24 * 60 * 60 * 1000
             });

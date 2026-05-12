@@ -16,13 +16,13 @@ export class AuthController {
                 .status(200)
                 .cookie('access_token', accessToken, {
                     httpOnly: true,
-                    secure: false,
+                    secure: true,
                     sameSite: 'lax',
                     maxAge: 15 * 60 * 1000
                 })
                 .cookie('refresh_token', refreshToken, {
                     httpOnly: true,
-                    secure: false,
+                    secure: true,
                     sameSite: 'strict',
                     maxAge: Number(process.env.JWT_REFRESH_TOKEN_LIFETIME) * 24 * 60 * 60 * 1000
                 })
@@ -75,13 +75,13 @@ export class AuthController {
                 .status(200)
                 .cookie('access_token', accessToken, {
                     httpOnly: true,
-                    secure: false,
+                    secure: true,
                     sameSite: 'lax',
                     maxAge: 15 * 60 * 1000
                 })
                 .cookie('refresh_token', refreshToken, {
                     httpOnly: true,
-                    secure: false,
+                    secure: true,
                     sameSite: 'strict',
                     maxAge: Number(process.env.JWT_REFRESH_TOKEN_LIFETIME) * 24 * 60 * 60 * 1000
                 })
