@@ -21,16 +21,10 @@ export const createViewRouter = () => {
     viewRouter.get('/users/me', authHandler, viewController.userMe);
     viewRouter.get('/users/:id', authHandler, viewController.user);
     viewRouter.get('/games/:gameSlug', authHandler, viewController.games)
-
-    // Build views
-    viewRouter.get('/games/tainted-grail/builder', authHandler, viewController.createBuildTaintedGrail);
-    viewRouter.get('/tainted-grail/builds/:id', authHandler, viewController.editBuildTaintedGrail);
-    viewRouter.get('/games/elden-ring/builder', authHandler, viewController.createBuildEldenRing);
-    viewRouter.get('/elden-ring/builds/:id', authHandler, viewController.editBuildEldenRing);
+    viewRouter.get('/games/:gameSlug/builder', authHandler, viewController.builder);
+    viewRouter.get('/games/:gameSlug/builds/:id', authHandler, viewController.build);
 
     viewRouter.use(viewController.notFound);
-
-
 
     return viewRouter;
 }

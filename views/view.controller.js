@@ -1,7 +1,7 @@
 /**
  * Controller responsible for rendering server-side views (EJS templates) in the application.
  *
- */
+ */ import {response} from "express";
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -75,24 +75,55 @@ export class ViewController {
         }
     }
 
-    createBuildTaintedGrail = (req, res) => {
+    builder = (req, res) => {
         if (!req.user) return res.redirect('/auth');
-        res.render('create-build', { user: req.user });
+
+        const gameSlug = req.params.gameSlug;
+
+        res.render('builder', { user: req.user, game: gameSlug, isOwner: true });
     };
 
-    createBuildEldenRing = (req, res) => {
-        if (!req.user) return res.redirect('/auth');
-        res.render('create-build-elden-ring', { user: req.user });
-    };
+    build = async (req, res) => {
+        const gameSlug = req.params.gameSlug;
+        const buildId = req.params.id;
 
-    editBuildTaintedGrail = (req, res) => {
-        res.render('create-build', { user: req.user, buildId: req.params.id });
-    };
+        try {
+            const buildResponse = await fetch(`${BASE_URL}/api/builds/${buildId}`);
 
-    editBuildEldenRing = (req, res) => {
-        res.render('create-build-elden-ring', { user: req.user, buildId: req.params.id });
-    };
+            if (!buildResponse.ok) {
+                return res.redirect('/');
+            }
 
+            const build = await buildResponse.json();
+
+            const isOwner = req.user?.id === build.creatorId;
+
+            if (!isOwner) {
+                const creatorResponse = await fetch(`${BASE_URL}/api/users/${build.creatorId}`);
+
+                const creator = await creatorResponse.json();
+
+                return res.render('builder', {
+                    user: req.user,
+                    game: gameSlug,
+                    build: build,
+                    isOwner: isOwner,
+                    creator: creator,
+                });
+            }
+
+            res.render('builder', {
+                user: req.user,
+                game: gameSlug,
+                build: build,
+                isOwner: isOwner
+            });
+
+        } catch (e) {
+            console.log(e)
+            res.redirect('/');
+        }
+    }
 
     notFound = (req, res) => {
         res.render('not-found');
