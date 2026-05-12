@@ -1,0 +1,227 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body), serif;
+    color: var(--color-text);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-neutral);
+    background-image: var(--page-bg-image);
+}
+
+main {
+    display: flex;
+    max-width: 1500px;
+    min-height: 776px;
+    flex: 1;
+    margin: 0 auto;
+    padding: 0 1.25rem 3rem;
+}
+
+/* ===== PROFILE ===== */
+.profile-data {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: max-content;
+    width: 450px;
+    min-height: 295px;
+    margin: 2.5rem 1rem 1rem 1rem;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+}
+.profile-data .button.icon{
+    margin: 1rem 1rem 1rem auto;
+}
+
+.profile-avatar {
+    position: absolute;
+    margin: 1.5rem 1rem 1rem 1rem;
+    height: 9rem;
+    width: 9rem;
+    font-size: 5rem;
+    color: var(--color-primary);
+    background-color: var(--color-neutral);
+    border-radius: 100%;
+    border: 1px solid var(--color-border);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile-background {
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid var(--color-border);
+}
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem 1rem 1rem;
+}
+.profile-details .button.icon{
+    margin: 0;
+}
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.username-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.profile-username {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* ===== EDIT OVERLAY ===== */
+.edit-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-overlay.active {
+    display: flex;
+}
+
+.edit-form {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    width: 90%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem 0.75rem;
+}
+
+.form-header h3 {
+    font-family: var(--font-headline);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.form-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-field label {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.form-field input {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-family: var(--font-body), serif;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-field input:focus {
+    border-color: var(--color-primary);
+}
+
+.form-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    padding: 0 1.25rem 0.5rem;
+}
+
+.form-hint .material-symbols-outlined {
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    padding: 0.75rem 1.25rem 1.25rem;
+}
+
+.form-actions .button {
+    flex: 1;
+    justify-content: center;
+}
+
+.form-field.password-wrapper {
+    position: relative;
+}
+
+.form-field.password-wrapper input {
+    padding-right: 2.5rem;
+}
+
+.form-field .auth-password-toggle {
+    position: absolute;
+    background-color: transparent;
+    top: 29px;
+    right: 0.5rem;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.6;
+    color: var(--color-text-muted);
+}
+
+.form-field .auth-password-toggle:hover {
+    opacity: 1;
+}

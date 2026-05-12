@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spellsword - <%= game.name %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/games.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<%- include('partials/notification') %>
+
+<body>
+    <header class="header-wrapper">
+        <a href="/">
+            <img class="logo-spellsword" src="/media/logo-spellsword.webp" alt="Spellsword Logo" title="Go to Mainpage">
+        </a>
+        <nav class="nav-wrapper">
+            <% if (user) { %>
+                <a class="nav-item" href="#my-builds">My Builds</a>
+            <% } %>
+            <a class="nav-item" href="#builds">Builds</a>
+        </nav>
+        <% if (user) { %>
+            <div class="user-wrapper">
+                <a href="/users/me" class="user-avatar" aria-label="Account settings" title="Go to profile">
+                    <% if (user.avatar) { %>
+                        <img src="<%= user.avatar %>" alt="User Avatar">
+                    <% } else { %>
+                        <img src="/media/avatar-default.webp" alt="User Avatar">
+                    <% } %>
+                </a>
+                <span class="user-avatar-name"><%= user.username || 'User' %></span>
+            </div>
+        <% } else { %>
+            <a href="/auth" class="nav-item">Sign in</a>
+        <% } %>
+    </header>
+    <hero >
+        <div class="banner-wrapper">
+            <img class="game-banner" src="/media/games/<%= game.slug %>/graphics/<%= game.slug %>-banner.webp" alt="Game Banner">
+        </div>
+        <div class="game-title-wrapper">
+            <img src="/media/games/<%= game.slug %>/graphics/<%= game.slug %>-title.webp" alt="Game Title">
+        </div>
+    </hero>
+    <main>
+        <div class="create-build-wrapper">
+            <a href="/games/<%= game.slug %>/builder">Create Build</a>
+        </div>
+        <% if (user) { %>
+            <section id="my-builds"
+                     class="section section-my-builds"
+                     aria-labelledby="builds-heading"
+                     data-game-slug="<%= game.slug %>"
+                     data-user-id="<%= user.id %>"
+            >
+                <div class="section-header">
+                    <h2 id="builds-heading" class="section-title">My Builds</h2>
+                    <div class="builds-filter">
+                        <div class="searchbar">
+                            <span class="material-symbols-outlined">search</span>
+                            <input placeholder="Search for builds..." type="text">
+                            <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="separator-horizontal"></div>
+                <div class="build-wrapper" aria-busy="true">
+                    <p style="color:var(--color-text-muted)">Loading builds…</p>
+                </div>
+            </section>
+        <% } %>
+        <section id="builds" class="section section-builds" aria-labelledby="all-builds-heading" data-game-slug="<%= game.slug %>">
+            <div class="section-header">
+                <h2 id="all-builds-heading" class="section-title">Builds</h2>
+                <div class="builds-filter">
+                    <div class="searchbar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input placeholder="Search for builds..." type="text">
+                        <span class="material-symbols-outlined searchbar-cancel is-hidden">close</span>
+                    </div>
+                </div>
+            </div>
+            <div class="separator-horizontal"></div>
+            <div class="build-wrapper" aria-busy="true">
+                <p style="color:var(--color-text-muted)">Loading builds…</p>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+    <script src="/scripts/games.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+[
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Amberstride",
+    "slug": "amberstride",
+    "description": "Increases Max Stamina by 5%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-amberstride-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Legacy",
+    "slug": "legacy",
+    "description": "Increases Buff Duration by 25%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-legacy-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 500,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Fetching Yet Practical Adornment",
+    "slug": "fetching-yet-practical-adornment",
+    "description": "Increases Mana Regeneration by 0.5.\nIncreases Max Stamina by 3.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-fetching-yet-practical-adornment-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 250,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Gem of Carrying",
+    "slug": "gem-of-carrying",
+    "description": "Increases Encumbrance Limit by 5.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-gem-of-carrying-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Gem of Stamina",
+    "slug": "gem-of-stamina",
+    "description": "Multiplies Stamina Regeneration by x1.2.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-gem-of-stamina-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Iron Bite",
+    "slug": "iron-bite",
+    "description": "Increases Melee Damage by 3%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-iron-bite-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 400,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Long-Haul Pearl",
+    "slug": "long-haul-pearl",
+    "description": "Increases Ranged Damage by 3%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-long-haul-pearl-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 400,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Unyielding Sentinel",
+    "slug": "unyielding-sentinel",
+    "description": "Reduces Stamina Cost by 4%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-unyielding-sentinel-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "armor",
+    "data": {
+      "gold": 504,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Ancestral Sphere",
+    "slug": "ancestral-sphere",
+    "description": "On Critical Hit applies Haste.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-ancestral-sphere-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Bors' Mightstone",
+    "slug": "bor-mightstone",
+    "description": "Unknown.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-bor-mightstone-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Crimson Shard",
+    "slug": "crimson-shard",
+    "description": "Inflicts Bleed.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-crimson-shard-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 125,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Incandescent Pearl",
+    "slug": "incandescent-pearl",
+    "description": "Inflicts Burn.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-incandescent-pearl-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Knowing Worm",
+    "slug": "knowing-worm",
+    "description": "Increases Experience by 10%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-knowing-worm-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Nightshade Charcoal",
+    "slug": "nightshade-charcoal",
+    "description": "Increases Sneak Damage by 20%.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-nightshade-charcoal-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 200,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Smouldering Wrath",
+    "slug": "smouldering-wrath",
+    "description": "Critical Hits light your weapon on fire for 5s, increasing Damage dealt by 15% and Burning enemies.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-smouldering-wrath-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 800,
+      "weight": 0.2
+    }
+  },
+  {
+    "gameSlug": "tainted-grail",
+    "name": "Starborn Egg",
+    "slug": "starborn-egg",
+    "description": "Weapon deals additional 10% Damage.",
+    "shortDescription": null,
+    "iconUrl": "/media/games/tainted-grail/assets/relic-starborn-egg-tainted-grail.webp",
+    "isActive": true,
+    "type": "relic",
+    "category": "weapon",
+    "data": {
+      "gold": 100,
+      "weight": 0.2
+    }
+  }
+]

@@ -1,21 +1,25 @@
 /**
- * Handles the connection to the database
+ * Handles the PostgresSQL database connection.
+ * Creates a connection pool depending on the environment
+ * (production or local development).
  */
-import { Pool } from 'pg';
 
-const isProduction = false;
+import { Pool } from 'pg';
 
 let pool;
 
-if (isProduction) {
-    //cloud connection
+/**
+ * PostgresSQL connection pool used to run database queries.
+ *
+ * @type {import('pg').Pool}
+ */
+if (process.env.NODE_ENV === 'production') {
     pool = new Pool({
         connectionString: process.env.PG_URL,
         ssl: { rejectUnauthorized: false }
     })
 }
 else {
-    //local connection
     pool = new Pool({
         user: process.env.PG_USER,
         password: process.env.PG_PASSWORD,
@@ -24,10 +28,5 @@ else {
         database: process.env.PG_DB,
     });
 }
-
-//Testing
-//pool.connect()
-//    .then(() => console.log(`Successfully connected to the database`))
-//    .catch(err => console.error('Error connecting to the database', err));
 
 export default pool;
