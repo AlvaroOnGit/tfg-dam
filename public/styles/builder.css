@@ -504,7 +504,7 @@ h3 {
 /* ===== TAG SELECTOR ===== */
 .tag-counter {
     font-size: 9px;
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     letter-spacing: 0.05em;
 }
 .tag-select {
@@ -572,7 +572,7 @@ h3 {
 }
 .tag-select__option:last-child { border-bottom: none; }
 .tag-select__option:hover:not(.disabled) {
-    background: var(--color-stone);
+    background: var(--color-primary-muted);
 }
 .tag-select__option.disabled {
     color: var(--color-text-muted);
