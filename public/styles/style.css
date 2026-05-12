@@ -5,12 +5,13 @@
     /*------COLORES PRINCIPALES------*/
 
     --color-primary: #e9c176;
+    --color-primary-muted: rgba(233, 193, 118, 0.1);
     --color-secondary: #1a1a1a;
     --color-tertiary: #8fa5d6;
     --color-neutral: #0a0a0a;
     --color-surface: #121212;
     --color-warning: #d1872b;
-    --color-error: rgb(184, 23, 35);
+    --color-error: rgb(198, 30, 46);
     --color-success: #62ba44;
 
     /*------TEXTO------*/
@@ -76,6 +77,11 @@ body {
 
 h1,h2,h3 {
     font-family: var(--font-headline), serif;
+    font-weight: normal;
+}
+
+h3 {
+    font-family: var(--font-body), serif;
 }
 
 button {
@@ -89,6 +95,13 @@ button {
 a {
     text-decoration: none;
     color: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-muted);
+}
+::-webkit-scrollbar {
+    width: 6px;
 }
 
 .button.primary {
@@ -183,6 +196,37 @@ a {
 .is-hidden {
     display: none !important;
 }
+
+/* ===== BANNER ===== */
+
+.banner-wrapper {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+
+}
+.banner-wrapper:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgb(11, 9, 10));
+}
+.game-banner {
+    width: 100%;
+    max-height: 500px;
+    opacity: 65%;
+}
+.game-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game-title-wrapper img{
+    background: radial-gradient(ellipse at center, black 0%, transparent 70%)
+}
 /* ===== HEADER ===== */
 .header-wrapper {
     position: sticky;
@@ -266,6 +310,9 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.18em;
 }
 
 .user-avatar:hover,
@@ -432,11 +479,12 @@ footer {
 }
 .build-card-meta {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .build-card-title {
+    font-family: var(--font-headline), serif;
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
@@ -460,6 +508,11 @@ footer {
     border-radius: 999px;
     border-bottom: 1px solid transparent;
     box-shadow: none;
+    max-width: 150px;
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .build-card-creator:hover {
