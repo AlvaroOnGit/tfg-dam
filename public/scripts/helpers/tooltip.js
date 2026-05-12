@@ -425,7 +425,6 @@ class TaintedGrailTooltipRenderer {
     }
     renderMagic(asset)  {
         const data= asset.data || {};
-        const description = asset.description || 'No effect';
         const gold = data.gold || {};
         const { heavyCast, lightCast } = data.magic;
         const { dexterity, endurance, perception, practicality, spirituality, strength } = data.requirements;
